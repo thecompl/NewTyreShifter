@@ -97,7 +97,7 @@ class _Assistance_immediately_CartState
                                 fit: BoxFit.cover), //Text
                           ),
                           SizedBox(
-                            width: 18,
+                            width: 15,
                           ),
                           Expanded(
                             child: Container(

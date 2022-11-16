@@ -35,7 +35,7 @@ class _Get_StartedScreenState extends State<Get_StartedScreen> {
   @override
   void initState() {
     GetStorage().write("lang", "English");
-     GetStorage().write("type", become_shifter);
+    GetStorage().write("type", become_shifter);
     set_typeaccount();
     get_typeaccount();
     super.initState();
@@ -44,11 +44,11 @@ class _Get_StartedScreenState extends State<Get_StartedScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: color.white,
-        // appBar: PreferredSize(
-        //     preferredSize: Platform.isAndroid?  Size.fromHeight(20):Size.fromHeight(30),
-        //   child: Appbartext(title: '',show_arrow_icon: 1,elevation: 0.0,colors: Colors.black,)),
+      // appBar: PreferredSize(
+      //     preferredSize: Platform.isAndroid?  Size.fromHeight(20):Size.fromHeight(30),
+      //   child: Appbartext(title: '',show_arrow_icon: 1,elevation: 0.0,colors: Colors.black,)),
 
       // Appbartext().appbar(
       //       '',
@@ -56,220 +56,186 @@ class _Get_StartedScreenState extends State<Get_StartedScreen> {
       //       context,
       //       1,0,'',0.0,0.0),
 
-        body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          child:
-          SingleChildScrollView(
-            child: Column(
-
-              children: [
-                SizedBox(height: 40),
-                GestureDetector(
-                  onTap: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+      body: Padding(
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        child: Column(
+          children: [
+            SizedBox(height: 60),
+            // GestureDetector(
+            //   onTap: () {},
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.end,
+            //     children: [
+            //       GestureDetector(
+            //         onTap: () {
+            //           GetStorage().write("lang", "English");
+            //         },
+            //         child: Column(
+            //           children: [
+            //             Image.asset(
+            //               english,
+            //               height: 40,
+            //               width: 40,
+            //             ),
+            //             SizedBox(
+            //               width: 10,
+            //             ),
+            //             Textfield().text(
+            //               "English",
+            //               TextStyles.withColor(
+            //                   TextStyles.mn12, color.black, 1.2),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //       SizedBox(
+            //         width: 20,
+            //       ),
+            //       GestureDetector(
+            //         onTap: () {
+            //           GetStorage().write("lang", "Norwegion");
+            //         },
+            //         child: Column(
+            //           mainAxisAlignment: MainAxisAlignment.center,
+            //           children: [
+            //             Image.asset(
+            //               norway,
+            //               height: 40,
+            //               width: 40,
+            //             ),
+            //             SizedBox(
+            //               width: 10,
+            //             ),
+            //             Textfield().text(
+            //               "Norwegian",
+            //               TextStyles.withColor(
+            //                   TextStyles.mn12, color.black, 1.2),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            SizedBox(
+              height: 100,
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                children: [
+                  Container(
+                    // decoration: BoxDecoration(
+                    //     border:
+                    //         Border.all(color: color.Primary_second_Color)),
+                    child: Image.asset(
+                      logo_without_tag,
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    lets_get_started,
+                    textAlign: TextAlign.center,
+                    style: TextStyles.mb26,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: size.width * 0.75,
+                    child: Textfield().text(
+                      get_start_dmsg,
+                      TextStyles.withColor(
+                          TextStyles.mn18, color.textgrey_color, 1.2),
+                      TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 40),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
                         onTap: () {
-                          GetStorage().write("lang", "English");
+                          GetStorage().write("type", become_shifter);
+                          setState(() {
+                            type = become_shifter;
+                            set_typeaccount();
+                          });
                         },
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              english,
-                              height: 40,
-                              width: 40,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Textfield().text(
-                              "English",
-                              TextStyles.withColor(
-                                  TextStyles.mn12, color.black, 1.2),
-                            ),
-                          ],
-                        ),
+                        child: ElevatedButtons(
+                            name: become_shifter,
+                            onTap: () {
+                              setState(() {
+                                type = become_shifter;
+                              });
+                              set_typeaccount();
+                              nextScreen(
+                                  context,
+                                  type == become_shifter
+                                      ? Register_req()
+                                      : Login());
+                            }),
                       ),
                       SizedBox(
-                        width: 20,
+                        height: 20,
                       ),
                       GestureDetector(
                         onTap: () {
-                            GetStorage().write("lang", "Norwegion");
+                          // print("hii");
+                          GetStorage().write("type", get_shifter);
+                          setState(() {
+                            type = get_shifter;
+                            set_typeaccount();
+                          });
                         },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              norway,
-                              height: 40,
-                              width: 40,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Textfield().text(
-                              "Norwegian",
-                              TextStyles.withColor(
-                                  TextStyles.mn12, color.black, 1.2),
-                            ),
-                          ],
-                        ),
+                        child: ElevatedButtons(
+                            name: get_shifter,
+                            onTap: () {
+                              setState(() {
+                                type = get_shifter;
+                              });
+                              set_typeaccount();
+                              nextScreen(
+                                  context,
+                                  type == become_shifter
+                                      ? Register_req()
+                                      : Login());
+                            }),
+                      ),
+                      SizedBox(
+                        height: 80,
                       ),
                     ],
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      // decoration: BoxDecoration(
-                      //     border:
-                      //         Border.all(color: color.Primary_second_Color)),
-                      child: Image.asset(
-                        logo_without_tag,
-                        height: 150,
-                        width: 150,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      lets_get_started,
-                      textAlign: TextAlign.center,
-                      style: TextStyles.mb26,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: size.width * 0.75,
-                      child: Textfield().text(
-                        get_start_dmsg,
-                        TextStyles.withColor(
-                            TextStyles.mn18, color.textgrey_color, 1.2),
-                        TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(height: 40),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        GestureDetector(
-                          onTap: (){
-                            GetStorage().write("type", become_shifter);
-                            setState(() {
-                              type = become_shifter;
-                              set_typeaccount();
-                            });
-
-                          },
-                          child: Container(
-                            width: size.width * 0.7,
-                            // decoration: BoxDecoration(
-                            //     border: Border.all(
-                            //         color: color.Primary_second_Color)),
-                            child: Row(
-                              children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      value: become_shifter,
-                                      groupValue: type,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          type = value.toString();
-                                          print("value" + value.toString());
-                                        });
-                                        set_typeaccount();
-                                      }),
-                                ),
-                                Textfield().text(
-                                  become_shifter,
-                                  TextStyles.withColor(
-                                      TextStyles.mn18, color.textgrey_color, 1.2),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        GestureDetector(
-                          onTap: (){
-                            print("hii");
-                            GetStorage().write("type", get_shifter);
-                            setState(() {
-                              type = get_shifter;
-                              set_typeaccount();
-                            });
-
-                          },
-                          child: Container(
-                            width: size.width * 0.7,
-                            // decoration: BoxDecoration(
-                            //     border: Border.all(
-                            //         color: color.Primary_second_Color)),
-                            child: Row(
-                              children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      value: get_shifter,
-                                      groupValue: type,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          type = value.toString();
-                                          print("fe =>" + value.toString());
-                                        });
-                                        set_typeaccount();
-                                      }),
-                                ),
-                                Textfield().text(
-                                  get_shifter,
-                                  TextStyles.withColor(
-                                      TextStyles.mn18, color.textgrey_color, 1.2),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 80,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-
-                ElevatedButtons(
-                    name: get_started,
-                    onTap: () {
-                      nextScreen(context,
-                          type == become_shifter ? Register_req() : Login());
-                    }),
-                SizedBox(
-                  height: 10,
-                )
-
-                // Elevatedbuttons().elevatedbutton(
-                //   get_started,
-                //   Register_req(),
-                //   context,
-                // )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-        ),
-      );
 
+            // ElevatedButtons(
+            //     name: get_started,
+            //     onTap: () {
+            //       nextScreen(context,
+            //           type == become_shifter ? Register_req() : Login());
+            //     }),
+            // SizedBox(
+            //   height: 10,
+            // )
+
+            // Elevatedbuttons().elevatedbutton(
+            //   get_started,
+            //   Register_req(),
+            //   context,
+            // )
+          ],
+        ),
+      ),
+    );
   }
 
   set_typeaccount() async {

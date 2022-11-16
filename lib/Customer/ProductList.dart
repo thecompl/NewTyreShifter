@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately.dart';
 import 'package:tyreshifter/Customer/Assistance_tyreListDetail.dart';
+import 'package:tyreshifter/Customer/productDetail.dart';
 import 'package:tyreshifter/Widget/Assistance_immediately_Card.dart';
 import 'package:tyreshifter/Widget/ProductListwidget.dart';
 import 'package:tyreshifter/Widget/Texboxwidget.dart';
@@ -93,7 +94,7 @@ class _ProductListState extends State<ProductList> {
                             Ontap: () {
                               nextScreen(
                                   context,
-                                  Assistance_tyreListDetail(
+                                  ProductDetail(
                                       // dropdown: true,
                                       // pagetype: booking_details,
                                       // status: working

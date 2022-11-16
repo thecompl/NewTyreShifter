@@ -194,21 +194,23 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
-                          width: 245.0,
-                          height: 55,
-                          child: TextBoxwidget(
-                            // width: width*0.4,
-                            hinttext: "Apply Promo code here",
-                            hintstyle: TextStyles.withColor(
-                                TextStyles.mn14, color.textgrey_color),
-                            controller: promo,
-                            border_color: color.Primary_second_Color,
-                            style: TextStyles.withColor(
-                                TextStyles.mb14, color.black),
-                            prefixshowicon: false,
-                            readtype: false,
-                            showicon: false,
+                        Expanded(
+                          child: SizedBox(
+                            // width: 242.0,
+                            height: 55,
+                            child: TextBoxwidget(
+                              // width: width*0.4,
+                              hinttext: "Apply Promo code here",
+                              hintstyle: TextStyles.withColor(
+                                  TextStyles.mn14, color.textgrey_color),
+                              controller: promo,
+                              border_color: color.Primary_second_Color,
+                              style: TextStyles.withColor(
+                                  TextStyles.mb14, color.black),
+                              prefixshowicon: false,
+                              readtype: false,
+                              showicon: false,
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -217,7 +219,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: ElevatedButtons(
-                            width: 0.3,
+                            width: 0.26,
                             height: 58,
                             name: apply,
                             onTap: () {
@@ -234,41 +236,44 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: 260.0,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              border: Border.all(
-                                  color: color.Primary_second_Color, width: 1)),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 16),
-                          child: Row(children: [
-                            Icon(
-                              Icons.check_circle_outline,
-                              color: color.green_color,
-                              size: 25,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Textfield().text(
-                                "TYRE50" + " " + applied,
-                                TextStyles.withColor(
-                                    TextStyles.mb14, color.textgrey_color, 1.3),
-                                TextAlign.center),
-                          ]),
+                        Expanded(
+                          child: Container(
+                            // width: 232.0,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                border: Border.all(
+                                    color: color.Primary_second_Color,
+                                    width: 1)),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 16),
+                            child: Row(children: [
+                              Icon(
+                                Icons.check_circle_outline,
+                                color: color.green_color,
+                                size: 25,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Textfield().text(
+                                  "TYRE50" + " " + applied,
+                                  TextStyles.withColor(TextStyles.mb14,
+                                      color.textgrey_color, 1.3),
+                                  TextAlign.center),
+                            ]),
+                          ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: ElevatedButtons(
-                            width: 0.25,
+                            width: 0.26,
                             height: 58,
                             name: remove,
-                            style: TextStyles.mn16,
+                            style: TextStyles.mn14,
                             colorbtn: color.border_grey5_color,
                             onTap: () {
                               setState(() {
