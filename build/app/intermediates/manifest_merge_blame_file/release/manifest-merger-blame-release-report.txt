@@ -1,0 +1,154 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.tyreshifter"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+11-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:3:6-81
+11-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:3:23-79
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:4:5-79
+12-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:4:22-77
+13
+14    <application
+15        android:name="android.app.Application"
+15-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:9:9-42
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.8.0] C:\Users\ABC\.gradle\caches\transforms-3\d363e3b5616f580c766e3e2b3c05f27d\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+17        android:icon="@mipmap/launcher_icon"
+17-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:10:9-45
+18        android:label="tyreshifter" >
+18-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:8:9-36
+19        <activity
+19-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:11:9-31:20
+20            android:name="com.example.tyreshifter.MainActivity"
+20-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:12:13-41
+21            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+21-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:16:13-163
+22            android:exported="true"
+22-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:13:13-36
+23            android:hardwareAccelerated="true"
+23-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:17:13-47
+24            android:launchMode="singleTop"
+24-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:14:13-43
+25            android:theme="@style/LaunchTheme"
+25-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:15:13-47
+26            android:windowSoftInputMode="adjustResize" >
+26-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:18:13-55
+27
+28            <!--
+29                 Specifies an Android theme to apply to this Activity as soon as
+30                 the Android process has started. This theme is visible to the user
+31                 while the Flutter UI initializes. After that, this theme continues
+32                 to determine the Window background behind the Flutter UI.
+33            -->
+34            <meta-data
+34-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:23:13-26:17
+35                android:name="io.flutter.embedding.android.NormalTheme"
+35-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:24:15-70
+36                android:resource="@style/NormalTheme" />
+36-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:25:15-52
+37
+38            <intent-filter>
+38-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:27:13-30:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:28:17-68
+39-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:28:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:29:17-76
+41-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:29:27-74
+42            </intent-filter>
+43        </activity>
+44        <!--
+45             Don't delete the meta-data below.
+46             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+47        -->
+48        <meta-data
+48-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:34:9-36:33
+49            android:name="flutterEmbedding"
+49-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:35:13-44
+50            android:value="2" />
+50-->D:\Flutter-Projects\tyreshifter\android\app\src\main\AndroidManifest.xml:36:13-30
+51
+52        <provider
+52-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-18:20
+53            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+53-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-82
+54            android:authorities="com.example.tyreshifter.flutter.image_provider"
+54-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-74
+55            android:exported="false"
+55-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-37
+56            android:grantUriPermissions="true" >
+56-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-47
+57            <meta-data
+57-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-17:75
+58                android:name="android.support.FILE_PROVIDER_PATHS"
+58-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:16:17-67
+59                android:resource="@xml/flutter_image_picker_file_paths" />
+59-->[:image_picker_android] D:\Flutter-Projects\tyreshifter\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:17:17-72
+60        </provider>
+61
+62        <uses-library
+62-->[androidx.window:window:1.0.0-beta04] C:\Users\ABC\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+63            android:name="androidx.window.extensions"
+63-->[androidx.window:window:1.0.0-beta04] C:\Users\ABC\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+64            android:required="false" />
+64-->[androidx.window:window:1.0.0-beta04] C:\Users\ABC\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+65        <uses-library
+65-->[androidx.window:window:1.0.0-beta04] C:\Users\ABC\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+66            android:name="androidx.window.sidecar"
+66-->[androidx.window:window:1.0.0-beta04] C:\Users\ABC\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+67            android:required="false" />
+67-->[androidx.window:window:1.0.0-beta04] C:\Users\ABC\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+68
+69        <activity
+69-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:23:9-27:75
+70            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+70-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:24:13-93
+71            android:excludeFromRecents="true"
+71-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:25:13-46
+72            android:exported="false"
+72-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:26:13-37
+73            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+73-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:27:13-72
+74        <!--
+75            Service handling Google Sign-In user revocation. For apps that do not integrate with
+76            Google Sign-In, this service will never be started.
+77        -->
+78        <service
+78-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:33:9-37:51
+79            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+79-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:34:13-89
+80            android:exported="true"
+80-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:35:13-36
+81            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+81-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:36:13-107
+82            android:visibleToInstantApps="true" />
+82-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\ABC\.gradle\caches\transforms-3\87b66fbc4102b6b73e9917292c412064\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:37:13-48
+83
+84        <activity
+84-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\ABC\.gradle\caches\transforms-3\3ff720be07735976176520d1c05fb799\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+85            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+85-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\ABC\.gradle\caches\transforms-3\3ff720be07735976176520d1c05fb799\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+86            android:exported="false"
+86-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\ABC\.gradle\caches\transforms-3\3ff720be07735976176520d1c05fb799\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+87            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+87-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\ABC\.gradle\caches\transforms-3\3ff720be07735976176520d1c05fb799\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+88
+89        <meta-data
+89-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\ABC\.gradle\caches\transforms-3\601d4158b382ad9f634d3bbb23a34c83\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+90            android:name="com.google.android.gms.version"
+90-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\ABC\.gradle\caches\transforms-3\601d4158b382ad9f634d3bbb23a34c83\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+91            android:value="@integer/google_play_services_version" />
+91-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\ABC\.gradle\caches\transforms-3\601d4158b382ad9f634d3bbb23a34c83\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+92    </application>
+93
+94</manifest>

@@ -1,0 +1,3 @@
+calender plugin need to be change when convert to ios:
+plugin name:- calender_plugin
+location:-tyreshifter/lib/common/calender_plugin
