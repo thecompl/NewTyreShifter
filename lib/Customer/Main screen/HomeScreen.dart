@@ -147,9 +147,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               )
                             : null,
                         borderRadius: resever_tyre == true
-                            ? BorderRadius.circular(25)
+                            ? BorderRadius.circular(30)
                             : null),
-                    child: Image.asset(revserve_shifter,
+                    child: SvgPicture.string(home_activeservicesvg,
                         width: size.width * 0.42,
                         // height: size.height * 0.3,
                         fit: BoxFit.fill),
@@ -172,9 +172,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               )
                             : null,
                         borderRadius: need_tyre == true
-                            ? BorderRadius.circular(25)
+                            ? BorderRadius.circular(28)
                             : null),
-                    child: Image.asset(tyre_immidate,
+                    child: SvgPicture.string(home_assistancesvg,
                         width: size.width * 0.42,
                         // height: size.height * 0.3,
                         fit: BoxFit.fill),

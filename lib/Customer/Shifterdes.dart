@@ -26,70 +26,91 @@ class _Shifter_DesState extends State<Shifter_Des> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    double height = MediaQuery.of(context).size.height - 50;
     return Scaffold(
       backgroundColor: color.skylight,
       appBar: PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: home),),
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(title: home),
+      ),
       // Appbartext().appbar(
       //     home, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 40,
-              ),
-              Center(
-                  child:
-                      Image.asset(logo_without_tag, height: size.height * 0.2)),
-              SizedBox(
-                height: 40,
-              ),
-              Textfield().text(
-                  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                  TextStyles.withColor(
-                      TextStyles.mn16, color.textgrey_color, 1.3)),
-              SizedBox(
-                height: 10,
-              ),
-              Textfield().text(
-                  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                  TextStyles.withColor(
-                      TextStyles.mn16, color.textgrey_color, 1.3)),
-              SizedBox(
-                height: 10,
-              ),
-              Textfield().text(
-                  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                  TextStyles.withColor(
-                      TextStyles.mn16, color.textgrey_color, 1.3)),
-              SizedBox(
-                height: 20,
-              ),
+          child: Container(
+            height: height,
+            child: Container(
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                      child: Image.asset(logo_without_tag,
+                          height: size.height * 0.2)),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Textfield().text(
+                      reserveline1,
+                      TextStyles.withColor(
+                          TextStyles.mn16, color.textgrey_color, 1.3)),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Textfield().text(
+                      reserveline2,
+                      TextStyles.withColor(
+                          TextStyles.mn16, color.textgrey_color, 1.3)),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Textfield().text(
+                      reserveline3,
+                      TextStyles.withColor(
+                          TextStyles.mn16, color.textgrey_color, 1.3)),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Textfield().text(
+                      reserveline4,
+                      TextStyles.withColor(
+                          TextStyles.mn16, color.textgrey_color, 1.3)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: ElevatedButtons(
+                        name: widget.type == "0" ? reserve : continu,
+                        onTap: () {
+                          // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
+                          nextScreen(
+                              context,
+                              widget.type == "0"
+                                  ? HomeCalendarPage()
+                                  : Assistanceimmediately());
+                          // nextScreen(context, Send_Request(type: widget.type));
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30)
 
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: ElevatedButtons(
-                  name: widget.type == "0" ? reserve : continu,
-                  onTap: () {
-                    // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
-                    nextScreen(context, widget.type == "0"? HomeCalendarPage():Assistanceimmediately  ());
-                    // nextScreen(context, Send_Request(type: widget.type));
-                  },
-                ),
+                  // Elevatedbuttons().elevatedbutton(
+                  // Elevatedbuttons().elevatedbutton(
+                  //     widget.type == "0" ? reserve : continu,
+                  //     Send_Request(type: widget.type),
+                  //     context)
+                ],
               ),
-              SizedBox(
-                height:20
-              )
-
-              // Elevatedbuttons().elevatedbutton(
-              // Elevatedbuttons().elevatedbutton(
-              //     widget.type == "0" ? reserve : continu,
-              //     Send_Request(type: widget.type),
-              //     context)
-            ],
+            ),
           ),
         ),
       ),

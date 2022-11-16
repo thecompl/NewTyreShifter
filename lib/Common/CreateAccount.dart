@@ -4,6 +4,7 @@ import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_picker_dropdown.dart';
 import 'package:country_pickers/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -309,13 +310,17 @@ class _Create_AccountState extends State<Create_Account> {
                           child: TextField(
                             controller: dcx.phone_no,
                             keyboardType: TextInputType.phone,
+                            inputFormatters: [
+                              //only numeric keyboard.
+                              LengthLimitingTextInputFormatter(
+                                  10), //only 6 digit
+                            ],
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Enter Phone Number",
                                 hintStyle: TextStyles.withColor(
                                     TextStyles.mn14, color.textgrey_color)),
                             onChanged: (value) {
-                              // this.phoneNo=value;
                               print(value);
                             },
                           ),
@@ -328,7 +333,7 @@ class _Create_AccountState extends State<Create_Account> {
                 SizedBox(
                   height: 15,
                 ),
-                Textfieldwithicon(dcx.birthday, TextInputType.emailAddress,
+                Textfieldwithicon(dcx.birthday, TextInputType.phone,
                     enter_birthday_txt, birthdayimg, false, 3),
 
                 SizedBox(
