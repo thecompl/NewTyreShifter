@@ -48,7 +48,7 @@ class _Shifter_DesState extends State<Shifter_Des> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Center(
                       child: Image.asset(logo_without_tag,
