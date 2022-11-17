@@ -13,14 +13,14 @@ class Togglebtn extends StatefulWidget {
   final bool active;
   final color;
 
-  final double width;
+  final double ?width;
   Togglebtn(
       {Key? key,
       this.style,
       required this.txt,
       this.color,
       required this.active,
-      required this.width})
+       this.width})
       : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class _TogglebtnState extends State<Togglebtn> {
     return Container(
         alignment: Alignment.center,
         height: 45,
-        width: size.width * widget.width,
+        width: size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: widget.active

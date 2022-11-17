@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:tyreshifter/Customer/Assistance_Cart.dart';
 import 'package:tyreshifter/Customer/Dialogs/Cancel_req_dialog.dart';
 import 'package:tyreshifter/Widget/ConfirmationDialog.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -14,12 +16,17 @@ class Customer_Req_Card extends StatefulWidget {
   final String headtxt;
   final String adddress;
   final bool? msg;
+  final bool? track;
   final bool btntype;
   final bool showbtn;
+
   final Function? Ontap;
+  final Function? ontapbtn;
   final btnname;
 
   final btncolor;
+
+  final color;
 
   Customer_Req_Card({
     Key? key,
@@ -27,11 +34,14 @@ class Customer_Req_Card extends StatefulWidget {
     required this.headtxt,
     required this.adddress,
     this.msg = true,
+    this.track = false,
     this.btntype = false,
     this.Ontap,
     this.btnname,
     this.btncolor,
     this.showbtn = true,
+    this.ontapbtn,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -100,7 +110,6 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                   SizedBox(
                                     height: 5,
                                   ),
-
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -128,7 +137,6 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                       )
                                     ],
                                   ),
-
                                   SizedBox(
                                     height: 5,
                                   ),
@@ -198,26 +206,54 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                     TextStyles.mn16, color.textgrey_color))
                           ],
                         ),
-                        Row(
-                          children: [
-                            Image.asset(kmicon, height: size.height * 0.04),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Textfield().text("5 KM", TextStyles.mb16)
-                          ],
+                        // if (widget.track == true)
+                        GestureDetector(
+                          onTap: () => {
+                            // widget.track == true ?  nextScreen(context,
+                            //        Assistance_Cart()) : ''
+                          },
+                          child: Row(
+                            children: [
+                              widget.track == true
+                                  ? Image.asset(kmicon,
+                                      height: size.height * 0.04)
+                                  : SvgPicture.string(locationsvg),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Textfield().text(
+                                  "5 KM",
+                                  TextStyles.withColor(
+                                      TextStyles.mb16,
+                                      widget.track == true
+                                          ? color.text_grey2_color
+                                          : color.border_grey_color))
+                            ],
+                          ),
                         ),
-                        if (widget.msg == true)
-                          Row(children: [
-                            Image.asset(msg_icon, height: size.height * 0.04),
+                        // if (widget.msg == true)
+                        GestureDetector(
+                          onTap: () => {
+                            // widget.msg == true ?  nextScreen(context,
+                            //        Assistance_Cart()) : ''
+                          },
+                          child: Row(children: [
+                            widget.msg == true
+                                ? Image.asset(msg_icon,
+                                    height: size.height * 0.04)
+                                : SvgPicture.string(messagesvg),
                             SizedBox(
                               width: 10,
                             ),
                             Textfield().text(
                                 msg,
                                 TextStyles.withColor(
-                                    TextStyles.mn16, color.textgrey_color))
-                          ])
+                                    TextStyles.mn16,
+                                    widget.msg == true
+                                        ? color.textgrey_color
+                                        : color.border_grey_color))
+                          ]),
+                        )
                       ])),
               widget.showbtn
                   ? widget.btntype
@@ -226,22 +262,26 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              // ElevatedButtons(
+                              //   name: repeat_order,
+                              //   width: 0.35,
+                              //   height: 40,
+                              //   colorbtn: color.Primary_second_Color,
+                              //   style: TextStyles.mb14,
+                              //   borderRadius: 5,
+                              // ),
                               ElevatedButtons(
-                                name: repeat_order,
-                                width: 0.35,
-                                height: 40,
-                                colorbtn: color.Primary_second_Color,
-                                style: TextStyles.mb14,
-                                borderRadius: 5,
-                              ),
-                              ElevatedButtons(
-                                name: complete,
-                                width: 0.45,
-                                height: 40,
-                                colorbtn: color.btncolor2,
-                                style: TextStyles.mb14,
-                                borderRadius: 5,
-                              ),
+                                  // name: complete,
+                                  name: widget.btnname,
+                                  // width: 0.45,
+                                  width: 0.85,
+                                  height: 40,
+                                  colorbtn: color.btncolor2,
+                                  style: TextStyles.mb14,
+                                  borderRadius: 5,
+                                  onTap: () {
+                                    widget.ontapbtn!();
+                                  }),
                             ],
                           ),
                         )
@@ -250,14 +290,12 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                             name: widget.btnname,
                             width: 0.85,
                             height: 40,
-                            colorbtn: color.disable_color,
+                            colorbtn: widget.color,
                             style: TextStyles.withColor(
                                 TextStyles.mb14, color.white),
                             borderRadius: 5,
                             onTap: () {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) => Cancel_req_dialog());
+                              widget.ontapbtn!();
                             },
                           ),
                         )
@@ -272,10 +310,11 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
               //       TextStyles.mb14,
               //       btn_change == value ? color.btncolor3 : color.btncolor2),
               // ),
-              widget.showbtn?
-              SizedBox(
-                height: 10,
-              ):Container()
+              widget.showbtn
+                  ? SizedBox(
+                      height: 10,
+                    )
+                  : Container()
             ],
           ),
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../Widget/Customer_Req_Card.dart';
 import '../config/string.dart';
+import 'Dialogs/Cancel_req_dialog.dart';
 
 class Completed extends StatefulWidget {
   Completed({Key? key}) : super(key: key);
@@ -25,8 +26,16 @@ class _CompletedState extends State<Completed> {
               headtxt: 'Summer times',
               Img: service_img,
               btntype: true,
-              btnname: cancel_req + " (23:59 hour)",
+              track: true, //it will true before 1 hours
+              btnname: cancel_req + "(23:59 hour)",
               Ontap: () {},
+              ontapbtn: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => Cancel_req_dialog(
+                          msg: cancel_req_des1,
+                        ));
+              },
             );
           }),
     );

@@ -17,8 +17,9 @@ final service = "Service";
 final service_detai = "Service Detail";
 final immediate_req = "Immediate Request";
 final request = "Request";
-final confirm = "Confirmed";
-final canceled = "Canceled";
+final confirm = "Confirm";
+final confirmed = "Confirmed";
+final canceled = "Cancelled";
 final booking = "Bookings";
 final paymen_rec = "Payment Receipt";
 final payment_details = "Payment Detail";
@@ -57,11 +58,12 @@ final location = "Location";
 final Assistance = "Assistance immediately";
 final Card_number = "Card number";
 final Card_holder_name = "Card holder name";
-final reserveline1 = "Refund is just eligible for cancellations done 24hours before the agreed booking.";
-final reserveline2 = "The chat and the name of the supplier will be visible 24 hours before the agreed booking.";
+final reserveline1 =
+    "Refund is just eligible for cancellations done 24hours before the agreed booking.";
+final reserveline2 =
+    "The chat and the name of the supplier will be visible 24 hours before the agreed booking.";
 final reserveline3 = "There is possible to book several services";
 final reserveline4 = "Enjoy!";
-
 
 final expirytxt = "Expiry";
 final cvvtxt = "CVV";
@@ -84,9 +86,9 @@ final get_shifter = "Get a shifter";
 final punctureRepair = "Puncture Repair";
 final suv = "SUV";
 final normal = "Normal";
-final tyreReplacement  = "Tyre Replacement";
-final newtyre  = "I need new tyre";
-final oldtyre  = "I have my own tyres";
+final tyreReplacement = "Tyre Replacement";
+final newtyre = "I need new tyre";
+final oldtyre = "I have my own tyres";
 final get_started = "Get Started";
 final verify = "Verify";
 final verification = "Verification";
@@ -106,10 +108,10 @@ final qty = "Qty";
 final totalcharge = "Total Charge";
 final serviceFee = "Service Fee";
 final calloutfee = "Call out Fee";
-final distancefee = "Distance Fee"; 
-final apply = "Apply"; 
-final applied = "applied"; 
-final remove = "Remove"; 
+final distancefee = "Distance Fee";
+final apply = "Apply";
+final applied = "applied";
+final remove = "Remove";
 final enable_locationtxt = "Enable location";
 final enable = "Enable";
 final setup_price = "Setup Price";
@@ -135,6 +137,8 @@ final verification_msg_txt =
 final req_des =
     "Thanks For the payment your payment is store with tyreshifter when your request will done we will send money to service provider";
 final cancel_req_des = "Are you sure want to cancel request with Summers tyres";
+final cancel_req_des1 =
+    "Are you sure you want to cancel this request with XYZ Tyres? Please note that you are cancelling request in short notice and amount you paid will not be refunded?                                                                                                         ";
 
 //supplier sting
 final Register_reqmsg =
@@ -167,7 +171,7 @@ final complete = "Complete";
 final booking_details = "Booking Details";
 final upload_hms_card = "Upload HMS Card";
 final i_agreetxt = "I agree with ";
-final locationskipmsg= "Want to not Enable Location ";
+final locationskipmsg = "Want to not Enable Location ";
 final terms_condition = " Terms and conditions";
 final company = "Company";
 final individual = "Individual Company (ENK)";
@@ -289,6 +293,26 @@ final home_assistancesvg =
 </clipPath>
 </defs>
 </svg>
+''';
+final locationsvg =
+    '''<svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle opacity="0.35" cx="15.5" cy="15.5" r="15.5" fill="#2851BB"/>
+<path d="M12.3333 13.4068C11.7399 13.4068 11.2599 12.9268 11.2599 12.3335C11.2599 12.0488 11.373 11.7758 11.5743 11.5745C11.7756 11.3732 12.0486 11.2602 12.3333 11.2602C12.9266 11.2602 13.4066 11.7402 13.4066 12.3335C13.4066 12.6182 13.2935 12.8912 13.0922 13.0925C12.8909 13.2937 12.6179 13.4068 12.3333 13.4068ZM12.3333 9.3335C10.6666 9.3335 9.33325 10.6668 9.33325 12.3335C9.33325 14.5802 12.3333 17.9068 12.3333 17.9068C12.3333 17.9068 15.3333 14.5802 15.3333 12.3335C15.3333 10.6668 13.9999 9.3335 12.3333 9.3335ZM19.6666 13.4068C19.3819 13.4068 19.1089 13.2937 18.9076 13.0925C18.7063 12.8912 18.5933 12.6182 18.5933 12.3335C18.5933 12.1925 18.621 12.053 18.675 11.9227C18.7289 11.7925 18.808 11.6742 18.9076 11.5745C19.0073 11.4749 19.1256 11.3958 19.2558 11.3419C19.3861 11.2879 19.5256 11.2602 19.6666 11.2602C19.8075 11.2602 19.9471 11.2879 20.0773 11.3419C20.2076 11.3958 20.3259 11.4749 20.4255 11.5745C20.5252 11.6742 20.6043 11.7925 20.6582 11.9227C20.7122 12.053 20.7399 12.1925 20.7399 12.3335C20.7399 12.6182 20.6268 12.8912 20.4255 13.0925C20.2243 13.2937 19.9513 13.4068 19.6666 13.4068ZM19.6666 9.3335C17.9999 9.3335 16.6666 10.6668 16.6666 12.3335C16.6666 14.5802 19.6666 17.9068 19.6666 17.9068C19.6666 17.9068 22.6666 14.5802 22.6666 12.3335C22.6666 10.6668 21.3333 9.3335 19.6666 9.3335ZM19.6666 18.6668C18.8199 18.6668 18.0666 19.2002 17.7866 20.0002H14.2133C14.0366 19.5012 13.6694 19.0926 13.192 18.8639C12.7147 18.6353 12.1661 18.6051 11.6666 18.7802C11.4183 18.8672 11.1896 19.0022 10.9936 19.1777C10.7975 19.3531 10.638 19.5655 10.5241 19.8026C10.4101 20.0397 10.3441 20.297 10.3296 20.5597C10.3152 20.8224 10.3527 21.0853 10.4399 21.3335C10.619 21.8338 10.9887 22.2428 11.4683 22.4714C11.948 22.7 12.4986 22.7295 12.9999 22.5535C13.5666 22.3535 13.9999 21.9002 14.2133 21.3335H17.7933C18.1599 22.3735 19.3066 22.9202 20.3333 22.5535C20.5823 22.4674 20.8119 22.3329 21.0088 22.1578C21.2057 21.9827 21.366 21.7704 21.4806 21.5332C21.5952 21.2959 21.6618 21.0383 21.6766 20.7752C21.6913 20.5122 21.654 20.2488 21.5666 20.0002C21.2799 19.2002 20.5199 18.6668 19.6666 18.6668ZM19.6666 21.6668C19.4014 21.6668 19.147 21.5615 18.9595 21.3739C18.7719 21.1864 18.6666 20.932 18.6666 20.6668C18.6666 20.4016 18.7719 20.1473 18.9595 19.9597C19.147 19.7722 19.4014 19.6668 19.6666 19.6668C19.9318 19.6668 20.1862 19.7722 20.3737 19.9597C20.5612 20.1473 20.6666 20.4016 20.6666 20.6668C20.6666 20.932 20.5612 21.1864 20.3737 21.3739C20.1862 21.5615 19.9318 21.6668 19.6666 21.6668Z" fill="white"/>
+</svg>
+''';
+final messagesvg =
+    '''<svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle opacity="0.35" cx="15.5" cy="15.5" r="15.5" fill="#2BBBE9"/>
+<g opacity="0.35" clip-path="url(#clip0_0_1)">
+<path d="M19.4772 9.60874C18.7381 8.99371 17.8796 8.53842 16.9559 8.27157C16.0321 8.00472 15.0631 7.93208 14.1099 8.05824C12.3465 8.28733 10.7364 9.17893 9.60654 10.552C8.47664 11.9251 7.91165 13.6767 8.02629 15.4512C8.14093 17.2257 8.9266 18.8901 10.2238 20.1063C11.5209 21.3226 13.2324 21.9996 15.0106 21.9999H19.0834C19.8567 21.999 20.598 21.6914 21.1448 21.1446C21.6916 20.5978 21.9992 19.8565 22.0001 19.0832V14.5968V14.5601C21.9383 13.6066 21.6828 12.6757 21.249 11.8244C20.8152 10.973 20.2123 10.2191 19.4772 9.60874ZM12.6668 12.0832H15.0001C15.1548 12.0832 15.3032 12.1447 15.4126 12.2541C15.522 12.3635 15.5834 12.5119 15.5834 12.6666C15.5834 12.8213 15.522 12.9697 15.4126 13.0791C15.3032 13.1885 15.1548 13.2499 15.0001 13.2499H12.6668C12.512 13.2499 12.3637 13.1885 12.2543 13.0791C12.1449 12.9697 12.0834 12.8213 12.0834 12.6666C12.0834 12.5119 12.1449 12.3635 12.2543 12.2541C12.3637 12.1447 12.512 12.0832 12.6668 12.0832ZM17.3334 17.9166H12.6668C12.512 17.9166 12.3637 17.8551 12.2543 17.7457C12.1449 17.6363 12.0834 17.488 12.0834 17.3332C12.0834 17.1785 12.1449 17.0302 12.2543 16.9208C12.3637 16.8114 12.512 16.7499 12.6668 16.7499H17.3334C17.4881 16.7499 17.6365 16.8114 17.7459 16.9208C17.8553 17.0302 17.9168 17.1785 17.9168 17.3332C17.9168 17.488 17.8553 17.6363 17.7459 17.7457C17.6365 17.8551 17.4881 17.9166 17.3334 17.9166ZM17.3334 15.5832H12.6668C12.512 15.5832 12.3637 15.5218 12.2543 15.4124C12.1449 15.303 12.0834 15.1546 12.0834 14.9999C12.0834 14.8452 12.1449 14.6968 12.2543 14.5874C12.3637 14.478 12.512 14.4166 12.6668 14.4166H17.3334C17.4881 14.4166 17.6365 14.478 17.7459 14.5874C17.8553 14.6968 17.9168 14.8452 17.9168 14.9999C17.9168 15.1546 17.8553 15.303 17.7459 15.4124C17.6365 15.5218 17.4881 15.5832 17.3334 15.5832Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect width="14" height="14" fill="white" transform="translate(8 8)"/>
+</clipPath>
+</defs>
+</svg>
+
 ''';
 
 //Icons--

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tyreshifter/Customer/Service_Detail.dart';
+import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
 import '../Widget/Customer_Req_Card.dart';
 import '../config/string.dart';
+import 'Dialogs/Cancel_req_dialog.dart';
 import 'Immediate_service_detail.dart';
 
 class Inprogress extends StatefulWidget {
@@ -20,6 +22,8 @@ class _InprogressState extends State<Inprogress> {
     return Container(
       height: size.height,
       child: ListView.builder(
+          // shrinkWrap: true,
+          // physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
           itemCount: 5,
           itemBuilder: (BuildContext context, int index) {
@@ -27,10 +31,19 @@ class _InprogressState extends State<Inprogress> {
               adddress: '752 Longbranch St.Calhoun, GA 30701',
               headtxt: 'Summer times',
               Img: service_img,
-              btnname: cancel_req + " (23:59 hour)",
+              track: true,
+              btnname: cancel_req,
               Ontap: () {
                 nextScreen(context, Immediate_service_detail());
               },
+              ontapbtn: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => Cancel_req_dialog(
+                          msg: cancel_req_des,
+                        ));
+              },
+                color:color.txt_dark_color,
             );
           }),
     );

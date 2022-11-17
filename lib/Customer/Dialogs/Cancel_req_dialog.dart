@@ -9,8 +9,10 @@ import '../../Widget/Textfield.dart';
 import '../../config/TextStyles/Textstyles.dart';
 
 class Cancel_req_dialog extends StatefulWidget {
-  Cancel_req_dialog({Key? key}) : super(key: key);
+  final msg;
 
+  Cancel_req_dialog({Key? key, this.showdesc, this.msg}) : super(key: key);
+  final showdesc;
   @override
   State<Cancel_req_dialog> createState() => _Cancel_req_dialogState();
 }
@@ -43,7 +45,8 @@ class _Cancel_req_dialogState extends State<Cancel_req_dialog> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Container(
                   width: size.width * 0.65,
-                  child: Text(cancel_req_des,
+                  child: Text(
+                     widget.msg,
                       textAlign: TextAlign.center,
                       style: TextStyles.withColor(
                           TextStyles.mn16, color.textgrey_color)),
