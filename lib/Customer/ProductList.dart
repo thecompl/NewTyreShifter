@@ -85,7 +85,7 @@ class _ProductListState extends State<ProductList> {
                             Img: tyre_img,
                             btnname: working,
                             btncolor: color.btncolor3,
-                            added: btnchange ? false : true,
+                            added: btnchange,
                             Onbtntap: () {
                               setState(() {
                                 btnchange = !btnchange;
@@ -94,7 +94,7 @@ class _ProductListState extends State<ProductList> {
                             Ontap: () {
                               nextScreen(
                                   context,
-                                  ProductDetail(
+                                  ProductDetail(type: widget.type
                                       // dropdown: true,
                                       // pagetype: booking_details,
                                       // status: working

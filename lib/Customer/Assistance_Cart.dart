@@ -297,7 +297,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                       // decoration: TextDecoration.lineThrough,
                       ),
                   onTap: () {
-                    nextScreen(context, ProductList());
+                    nextScreen(context, Payment());
                   },
                 ),
               ),

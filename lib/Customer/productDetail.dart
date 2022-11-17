@@ -20,8 +20,7 @@ class ProductDetail extends StatefulWidget {
   ProductDetail({Key? key, this.type}) : super(key: key);
 
   @override
-  State<ProductDetail> createState() =>
-      _ProductDetailState();
+  State<ProductDetail> createState() => _ProductDetailState();
 }
 
 class _ProductDetailState extends State<ProductDetail> {
@@ -231,39 +230,46 @@ class _ProductDetailState extends State<ProductDetail> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Textfield().text(
-                      qty,
-                      TextStyles.withColor(
-                          TextStyles.mb14, color.textblackcolor, 1.3)),
-                  SizedBox(
-                    width: 5,
-                  ),  
-                  Container(
-                    width: 80,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        border: Border.all(
-                            color: color.border_grey4_color, width: 1)),
-                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-                    child: Textfield().text(
-                        "1",
-                        TextStyles.withColor(
-                          TextStyles.mb20,
-                          color.textblackcolor,
-                          1.3,
+                  if (widget.type == '1')
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 5,
                         ),
-                        TextAlign.center),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
+                        Textfield().text(
+                            qty,
+                            TextStyles.withColor(
+                                TextStyles.mb14, color.textblackcolor, 1.3)),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Container(
+                          width: 80,
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                  color: color.border_grey4_color, width: 1)),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+                          child: Textfield().text(
+                              "1",
+                              TextStyles.withColor(
+                                TextStyles.mb20,
+                                color.textblackcolor,
+                                1.3,
+                              ),
+                              TextAlign.center),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                      ],
+                    ),
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButtons(
-                      width: 0.6,
+                      width: widget.type == '1' ? 0.6 : 0.9,
                       height: 65,
                       name: addtocart,
                       onTap: () {

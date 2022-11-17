@@ -84,14 +84,21 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                   width: double.infinity,
                 ),
 
-                Container(
-                  alignment: Alignment.center,
-                  height: 60,
-                  child: InkWell(
-                      child: Text(widget.btntxt,
-                          style: TextStyles.withColor(
-                              TextStyles.mb18, color.Primary_second_Color)),
-                      onTap: () => widget.onTap!()),
+                GestureDetector(
+                  onTap: () => widget.onTap!(),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: color.white,
+                    ),
+                    alignment: Alignment.center,
+                    height: 60,
+                    child: InkWell(
+                        child: Text(widget.btntxt,
+                            style: TextStyles.withColor(
+                                TextStyles.mb18, color.Primary_second_Color)),
+                        onTap: () => widget.onTap!()),
+                  ),
                 )
                 // Textfield().text("Your request has \n been sent.",
                 //     TextStyles.withColor(TextStyles.mb24, color.black))

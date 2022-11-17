@@ -54,49 +54,49 @@ class _MyrequestState extends State<Myrequest> {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: Column(
             children: [
-              // Container(
-              //   height: 60,
-              //   child: Card(
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-              //       children: [
-              //         GestureDetector(
-              //           onTap: () {
-              //             setState(() {
-              //               index = 0;
-              //               _pageController!.jumpToPage(0);
-              //             });
-              //           },
-              //           child: Togglebtn(
-              //               txt: completed_req,
-              //               style: TextStyles.withColor(TextStyles.mb16,
-              //                   index == 0 ? color.white : color.black),
-              //               active: index == 0 ? true : false,
-              //               width: 0.4),
-              //         ),
-              //         GestureDetector(
-              //           onTap: () {
-              //             setState(() {
-              //               index = 1;
-              //               _pageController!.jumpToPage(1);
-              //             });
-              //           },
-              //           child: Togglebtn(
-              //             txt: completed,
-              //             style: TextStyles.withColor(TextStyles.mb16,
-              //                 index == 1 ? color.white : color.black),
-              //             active: index == 1 ? true : false,
-              //             width: 0.45,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              //
-              // SizedBox(
-              //   height: 15,
-              // ),
+              Container(
+                // height: 60,
+                child: Card(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            index = 0;
+                            _pageController!.jumpToPage(0);
+                          });
+                        },
+                        child: Togglebtn(
+                            txt: completed_req,
+                            style: TextStyles.withColor(TextStyles.mb16,
+                                index == 0 ? color.white : color.black),
+                            active: index == 0 ? true : false,
+                            width: 0.4),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            index = 1;
+                            _pageController!.jumpToPage(1);
+                          });
+                        },
+                        child: Togglebtn(
+                          txt: completed,
+                          style: TextStyles.withColor(TextStyles.mb16,
+                              index == 1 ? color.white : color.black),
+                          active: index == 1 ? true : false,
+                          width: 0.45,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              
+              SizedBox(
+                height: 15,
+              ),
               Container(
                   height: size.height * 0.9,
                   child: PageView.builder(
@@ -349,4 +349,3 @@ class _MyrequestState extends State<Myrequest> {
       ),
     );
   }
-}

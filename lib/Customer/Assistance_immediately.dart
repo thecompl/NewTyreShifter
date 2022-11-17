@@ -121,10 +121,10 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            GetStorage().write("type", become_shifter);
+                            // GetStorage().write("type", become_shifter);
                             setState(() {
                               type = flatbattery;
-                              set_typeaccount();
+                              // set_typeaccount();
                             });
                           },
                           child: Container(
@@ -144,7 +144,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                           type = value.toString();
                                           print("value" + value.toString());
                                         });
-                                        set_typeaccount();
+                                        // set_typeaccount();
                                       }),
                                 ),
                                 Textfield().text(
@@ -162,10 +162,10 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                         GestureDetector(
                           onTap: () {
                             // print("hii");
-                            GetStorage().write("type", get_shifter);
+                            // GetStorage().write("type", get_shifter);
                             setState(() {
                               type = tyreReplacement;
-                              set_typeaccount();
+                              // set_typeaccount();
                             });
                           },
                           child: Container(
@@ -185,7 +185,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                           type = value.toString();
                                           print("fe =>" + value.toString());
                                         });
-                                        set_typeaccount();
+                                        // set_typeaccount();
                                       }),
                                 ),
                                 Textfield().text(
@@ -206,10 +206,10 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  GetStorage().write("subtype", become_shifter);
+                                  // GetStorage().write("subtype", become_shifter);
                                   setState(() {
                                     subtype = newtyre;
-                                    set_typeaccount();
+                                    // set_typeaccount();
                                   });
                                 },
                                 child: Container(
@@ -230,7 +230,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                                 print(
                                                     "value" + value.toString());
                                               });
-                                              set_typeaccount();
+                                              // set_typeaccount();
                                             }),
                                       ),
                                       Textfield().text(
@@ -248,10 +248,10 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                               GestureDetector(
                                 onTap: () {
                                   // print("hii");
-                                  GetStorage().write("type", get_shifter);
+                                  // GetStorage().write("type", get_shifter);
                                   setState(() {
                                     subtype = oldtyre;
-                                    set_typeaccount();
+                                    // set_typeaccount();
                                   });
                                 },
                                 child: Container(
@@ -272,7 +272,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                                 print(
                                                     "fe =>" + value.toString());
                                               });
-                                              set_typeaccount();
+                                              // set_typeaccount();
                                             }),
                                       ),
                                       Textfield().text(
@@ -298,10 +298,10 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                         GestureDetector(
                           onTap: () {
                             // print("hii");
-                            GetStorage().write("type", get_shifter);
+                            // GetStorage().write("type", get_shifter);
                             setState(() {
                               type = punctureRepair;
-                              set_typeaccount();
+                              // set_typeaccount();
                             });
                           },
                           child: Container(
@@ -321,7 +321,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                           type = value.toString();
                                           // print("fe =>" + value.toString());
                                         });
-                                        set_typeaccount();
+                                        // set_typeaccount();
                                       }),
                                 ),
                                 Textfield().text(

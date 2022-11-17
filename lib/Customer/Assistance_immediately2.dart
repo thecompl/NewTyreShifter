@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately3.dart';
+import 'package:tyreshifter/Customer/ProductList.dart';
 import 'package:tyreshifter/Widget/Texboxwidget.dart';
 
 import 'package:tyreshifter/Widget/Textfield.dart';
@@ -44,6 +45,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
   TextEditingController numbercar = TextEditingController();
   TextEditingController date = TextEditingController();
   TextEditingController address = TextEditingController();
+  TextEditingController tyreneed = TextEditingController();
 
   final Cartypecontroller getxcartypecontroller = Get.put(Cartypecontroller());
 
@@ -52,7 +54,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
   @override
   void initState() {
     getxcartypecontroller.getcartype(context);
-    print("hii" + getxcartypecontroller.carlist.toString());
+    print("hii" + widget.type.toString());
     for (var i = 0; i < getxcartypecontroller.carlist.length; i++) {
       setState(() {
         vehicle_type.add(getxcartypecontroller.carlist[i]['carType']);
@@ -111,11 +113,9 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                   readtype: false,
                   showicon: false,
                 ),
-
                 SizedBox(
                   height: 20,
                 ),
-
                 TextBoxwidget(
                   hinttext: "114, zoo chopati pawder USA",
                   hintstyle: TextStyles.withColor(TextStyles.mb14, color.black),
@@ -132,19 +132,61 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                   iconorimage: true,
                   imagepath: location_vector,
                 ),
-                // SizedBox(
-                //   height: 20,
-                // ),
-
                 SizedBox(
                   height: 25,
                 ),
+                if (widget.type == '0')
+                  Column(
+                    children: [
+                      TextBoxwidget(
+                        height: 55.0,
+                        hinttext: "Date",
+                        hintstyle: TextStyles.withColor(
+                            TextStyles.mn14, color.textgrey_color),
+                        controller: date,
+                        border_color: color.border_grey_color,
+                        style:
+                            TextStyles.withColor(TextStyles.mb14, color.black),
+                        ontap: () {
+                          opendatepiker();
+                          setState(() {
+                            date.text = DateFormat('dd/MM/yyyy')
+                                .format(pickedDate!)
+                                .toString();
+                          });
+                        },
+                        prefixshowicon: false,
+                        readtype: true,
+                        iconorimage: true,
+                        imagepath: calender,
+                      ),
+                      // SizedBox(
+                      //   height: 20,
+                      // ),
+                      Dropdown(
+                        dropdowncolor: Colors.transparent,
+                        borderradius: 15,
+                        width: size.width,
+                        hinttxt: "",
+                        style:
+                            TextStyles.withColor(TextStyles.mb14, color.black),
+                        list: time,
+                        current_value: _chosenValue_time,
+                        Textalignment: AlignmentDirectional.centerStart,
+                        border_color: color.border_grey4_color,
+                        height: 52,
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                    ],
+                  ),
                 TextBoxwidget(
                   keyboradtype: TextInputType.number,
                   hinttext: "How many tyres need repair?",
                   hintstyle: TextStyles.withColor(
                       TextStyles.mn14, color.textgrey_color),
-                  controller: numbercar,
+                  controller: tyreneed,
                   border_color: color.border_grey_color,
                   style: TextStyles.withColor(TextStyles.mb14, color.black),
                   ontap: () {
@@ -161,14 +203,13 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                   showicon: false,
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 20,
                 ),
                 Text(
                   cartype,
                   style: TextStyles.withColor(
                       TextStyles.mn16, color.textgrey_color),
                 ).paddingSymmetric(horizontal: 5),
-
                 SizedBox(
                   height: 10,
                 ),
@@ -262,15 +303,17 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                     ],
                   ),
                 ),
-
                 SizedBox(
                   height: 25,
                 ),
-
                 ElevatedButtons(
                   name: next,
                   onTap: () {
-                    nextScreen(context, Assistance_immediately3());
+                    nextScreen(
+                        context,
+                        widget.type == '0'
+                            ? ProductList(type: widget.type)
+                            : Assistance_immediately3());
                   },
                 )
               ],
@@ -279,4 +322,15 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
         ));
   }
 
+  opendatepiker() async {
+    DateTime? tmpdate = await showDatePicker(
+        context: context, //context of current state
+        initialDate: DateTime.now(),
+        firstDate: DateTime(
+            2000), //DateTime.now() - not to allow to choose before today.
+        lastDate: DateTime(2101));
+    setState(() {
+      pickedDate = tmpdate;
+    });
   }
+}

@@ -132,9 +132,9 @@ class _Payment_cardState extends State<Payment_card> {
                             destxt: req_des,
                             destextwidth: 0.8,
                             head: true,
-                            btntxt: done,
+                            btntxt: view_req,
                             onTap: () {
-                              nextScreen(context, MainHomeScreen_Customer());
+                              nextScreen(context, Myrequest());
                             },
                           ));
                 },
