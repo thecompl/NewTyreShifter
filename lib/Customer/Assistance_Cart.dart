@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately.dart';
 import 'package:tyreshifter/Customer/Assistance_tyreListDetail.dart';
+import 'package:tyreshifter/Customer/Dialogs/Cancel_req_dialog.dart';
+import 'package:tyreshifter/Customer/Dialogs/delete_dialog.dart';
 import 'package:tyreshifter/Customer/ProductList.dart';
 import 'package:tyreshifter/Widget/Assistance_immediately_Card.dart';
 import 'package:tyreshifter/Widget/Assistance_immediately_Cart.dart';
@@ -101,7 +103,24 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                           //         // status: working
                           //         ));
                         },
-                        Ontapdelete: () {},
+                        Ontapdelete: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => Delete_dialog(
+                                    iconsvg: trash_iconsvg,
+                                    iconheight: 50.0,
+                                    title: deletefromcart,
+                                    msg: deletemsg,
+                                    cancellabel: no,
+                                    confirmlabel: yes,
+                                    Oncanceltap: () {
+                                      backScreen(context);
+                                    },
+                                    Onconfirmtap: () {
+                                      backScreen(context);
+                                    },
+                                  ));
+                        },
                       );
                     }),
               ),
