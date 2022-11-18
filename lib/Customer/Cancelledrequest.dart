@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tyreshifter/config/Color.dart';
+import 'package:tyreshifter/config/Navagate_Next.dart';
 
 import '../Widget/Customer_Req_Card.dart';
 import '../config/string.dart';
+import 'Immediate_service_detail.dart';
 
 class Cancelledrequest extends StatefulWidget {
   Cancelledrequest({Key? key}) : super(key: key);
@@ -27,7 +29,11 @@ class _CancelledrequestState extends State<Cancelledrequest> {
               Img: service_img,
               // btntype: true,
               btnname: canceled,
-              Ontap: () {},
+              Ontap: () {
+                nextScreen(context, Immediate_service_detail(
+                  orderstatus: canceled,
+                 ));
+              },
               color:color.disable_color,
             );
           }),
