@@ -94,6 +94,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                         btnname: working,
                         btncolor: color.btncolor3,
                         quantity: '1',
+                        showqtyrow: true,
                         Ontap: () {
                           // nextScreen(
                           //     context,

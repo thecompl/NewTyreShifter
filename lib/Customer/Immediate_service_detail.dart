@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tyreshifter/config/Color.dart';
 
 import '../Widget/Appbartext.dart';
+import '../Widget/Assistance_immediately_Cart.dart';
 import '../Widget/Button.dart';
 import '../Widget/ConfirmationDialog.dart';
 import '../Widget/Textfield.dart';
@@ -28,8 +29,11 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
     return Scaffold(
       backgroundColor: color.white,
       appBar: PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: detail),),
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(title: detail),
+      ),
       // Appbartext().appbar(
       //     detail, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: SingleChildScrollView(
@@ -42,14 +46,12 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
               SizedBox(
                 height: 10,
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         height: 30,
@@ -67,8 +69,7 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                         child: Textfield().text(
                             "345, abc socity pandesara surat",
                             TextStyles.withColor(
-                                TextStyles.mn16,
-                                color.textgrey_color),
+                                TextStyles.mn16, color.textgrey_color),
                             TextAlign.left,
                             TextOverflow.ellipsis),
                       )
@@ -77,23 +78,17 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                   Container(
                     child: Row(
                       children: [
-                        Container(
-
-                            width: 30,
-                            child:
-                            Image.asset(tryeicon_img)),
+                        Container(width: 30, child: Image.asset(tryeicon_img)),
                         Textfield().text(
                           "kr840",
                           TextStyles.withColor(
-                              TextStyles.mb14,
-                              color.Primary_second_Color),
+                              TextStyles.mb14, color.Primary_second_Color),
                         )
                       ],
                     ),
                   ),
                 ],
               ),
-
               SizedBox(
                 height: 10,
               ),
@@ -173,30 +168,38 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
               SizedBox(
                 height: 20,
               ),
-              Textfield().text(before_after, TextStyles.mb18),
+              Textfield().text(
+                  midrange,
+                  TextStyles.withColor(
+                      TextStyles.mb18, color.Primary_second_Color)),
               SizedBox(
                 height: 20,
               ),
               Container(
-                width: size.width * 0.75,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(
-                        service_img,
-                        height: size.height * 0.15,
-                      ),
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(
-                        service_img,
-                        height: size.height * 0.15,
-                      ),
-                    ),
-                  ],
+                // elevation: 0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border:
+                      Border.all(color: color.border_grey4_color, width: 0.5),
+                ),
+                child: Assistance_immediately_Cart(
+                  adddress: "Per tyre, fitted.",
+                  price: "£139.23",
+                  headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
+                  Img: tyre_img,
+                  btnname: working,
+                  btncolor: color.btncolor3,
+                  quantity: '1',
+                  Ontap: () {
+                    // nextScreen(
+                    //     context,
+                    //     Assistance_tyreListDetail(
+                    //         // dropdown: true,
+                    //         // pagetype: booking_details,
+                    //         // status: working
+                    //         ));
+                  },
+                  Ontapdelete: () {},
                 ),
               ),
               SizedBox(
@@ -236,21 +239,21 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
               SizedBox(
                 height: 35,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Textfield().text(paymen_rec, TextStyles.mb18),
-                  Image.asset(
-                    pdf,
-                    height: size.height * 0.07,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Textfield().text(paymen_rec, TextStyles.mb18),
+              //     Image.asset(
+              //       pdf,
+              //       height: size.height * 0.07,
+              //     )
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 20,
+              // ),
               ElevatedButtons(
-                name: give_review,
+                name: modifyorder,
                 onTap: () {
                   showDialog(
                       context: context, builder: (context) => ReviewPopUp());

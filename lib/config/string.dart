@@ -27,6 +27,7 @@ final paymen_rec = "Payment Receipt";
 final payment_details = "Payment Detail";
 final before_after = "Before and After ";
 final give_review = "Give a review ";
+final modifyorder = "Modify Order";
 final sent_reuest = "Your request has been sent.";
 final view_req = "View My Requests";
 final notification = "Notification";
