@@ -97,6 +97,8 @@ final batteryreplacement = "Battery replacement";
 final wheelalignment = "Wheel alignment";
 final get_shifter = "Get a shifter";
 final punctureRepair = "Puncture Repair";
+final punctureRepairmsg =
+    "In case a puncture repair is not doable we will have to take a tyre with us in case a tyre replacement  is the only solution";
 final suv = "SUV";
 final normal = "Normal";
 final tyreReplacement = "Tyre Replacement";

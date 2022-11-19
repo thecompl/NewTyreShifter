@@ -5,10 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyreshifter/Common/CalenderScreen.dart';
-import 'package:tyreshifter/Customer/Assistance_afterTyre.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately2.dart';
-import 'package:tyreshifter/Customer/Dialogs/Delete_dialog.dart';
-import 'package:tyreshifter/Customer/Dialogs/immediately_pun.dart';
 import 'package:tyreshifter/Suppliers/Complete_Order.dart';
 
 import 'package:tyreshifter/Widget/Button.dart';
@@ -24,18 +21,19 @@ import '../Suppliers/Set_Availability.dart';
 import '../Suppliers/Setprice.dart';
 import '../Widget/Textfield.dart';
 
-class Assistanceimmediately extends StatefulWidget {
-  const Assistanceimmediately({Key? key}) : super(key: key);
+class Assistance_afterTyre extends StatefulWidget {
+  final type;
+  final service;
+
+  const Assistance_afterTyre({Key? key, this.type, this.service})
+      : super(key: key);
 
   @override
-  _AssistanceimmediatelyState createState() => _AssistanceimmediatelyState();
+  _Assistance_afterTyreState createState() => _Assistance_afterTyreState();
 }
 
-class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
-  String? type;
-  String? service = punctureRepair;
-
-  String? type_account;
+class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
+  String? subtype = newtyre;
   @override
   void initState() {
     super.initState();
@@ -52,12 +50,6 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
             : Size.fromHeight(appbarheight_ios),
         child: Appbartext(title: Assistance),
       ),
-      // Appbartext().appbar(
-      //       '',
-      //       TextStyles.withColor(TextStyles.mb16, color.black),
-      //       context,
-      //       1,0,'',0.0,0.0),
-
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         child: SingleChildScrollView(
@@ -102,15 +94,6 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                   SizedBox(
                     height: 10,
                   ),
-                  // Container(
-                  //   width: size.width * 0.75,
-                  //   child: Textfield().text(
-                  //     get_start_dmsg,
-                  //     TextStyles.withColor(
-                  //         TextStyles.mn18, color.textgrey_color, 1.2),
-                  //     TextAlign.center,
-                  //   ),
-                  // ),
                   SizedBox(height: 30),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
@@ -121,103 +104,58 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              service = flatbattery;
+                              subtype = newtyre;
                             });
                           },
                           child: Container(
                             child: Row(
                               children: [
                                 Transform.scale(
-                                  scale: 1.5,
+                                  scale: 1.2,
                                   child: Radio(
-                                      value: flatbattery,
-                                      groupValue: service,
+                                      value: newtyre,
+                                      groupValue: subtype,
                                       onChanged: (value) {
                                         setState(() {
-                                          service = value.toString();
-                                          print("value" + value.toString());
+                                          subtype = value.toString();
+                                          // print("value" + value.toString());
                                         });
                                       }),
                                 ),
                                 Textfield().text(
-                                  flatbattery,
-                                  TextStyles.withColor(TextStyles.mn18,
+                                  newtyre,
+                                  TextStyles.withColor(TextStyles.mn16,
                                       color.textgrey_color, 1.2),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              service = tyreReplacement;
+                              subtype = oldtyre;
                             });
                           },
                           child: Container(
                             width: size.width * 0.7,
-                            // decoration: BoxDecoration(
-                            //     border: Border.all(
-                            //         color: color.Primary_second_Color)),
                             child: Row(
                               children: [
                                 Transform.scale(
-                                  scale: 1.5,
+                                  scale: 1.2,
                                   child: Radio(
-                                      value: tyreReplacement,
-                                      groupValue: service,
+                                      value: oldtyre,
+                                      groupValue: subtype,
                                       onChanged: (value) {
                                         setState(() {
-                                          service = value.toString();
-                                          // print("fe =>" + value.toString());
+                                          subtype = value.toString();
+                                          print("fe =>" + value.toString());
                                         });
                                       }),
                                 ),
                                 Textfield().text(
-                                  tyreReplacement,
-                                  TextStyles.withColor(TextStyles.mn18,
-                                      color.textgrey_color, 1.2),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        // Container(),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              service = punctureRepair;
-                            });
-                          },
-                          child: Container(
-                            width: size.width * 0.7,
-                            // decoration: BoxDecoration(
-                            //     border: Border.all(
-                            //         color: color.Primary_second_Color)),
-                            child: Row(
-                              children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      value: punctureRepair,
-                                      groupValue: service,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          service = value.toString();
-                                          // print("fe =>" + value.toString());
-                                        });
-                                        // set_typeaccount();
-                                      }),
-                                ),
-                                Textfield().text(
-                                  punctureRepair,
-                                  TextStyles.withColor(TextStyles.mn18,
+                                  oldtyre,
+                                  TextStyles.withColor(TextStyles.mn16,
                                       color.textgrey_color, 1.2),
                                 ),
                               ],
@@ -237,27 +175,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                 child: ElevatedButtons(
                   name: next,
                   onTap: () {
-                    service == tyreReplacement
-                        ? nextScreen(context,
-                            Assistance_afterTyre(service: service, type: type))
-                        : service == punctureRepair
-                            ? showDialog(
-                                context: context,
-                                builder: (context) => Immediately_pun(
-                                      title: punctureRepair,
-                                      desc: punctureRepairmsg,
-                                      btn: proceed,
-                                      Onbtn: () {
-                                        nextScreen(
-                                            context,
-                                            Assistance_immediately2(
-                                                service: service, type: type));
-                                      },
-                                    ))
-                            : nextScreen(
-                                context,
-                                Assistance_immediately2(
-                                    service: service, type: type));
+                    nextScreen(context, Assistance_immediately2());
                   },
                 ),
               ),

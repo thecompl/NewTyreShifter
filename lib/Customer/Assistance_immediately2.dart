@@ -25,7 +25,9 @@ import 'Payement.dart';
 
 class Assistance_immediately2 extends StatefulWidget {
   final type;
-  Assistance_immediately2({Key? key, this.type}) : super(key: key);
+  final service;
+  Assistance_immediately2({Key? key, this.type, this.service})
+      : super(key: key);
 
   @override
   State<Assistance_immediately2> createState() =>
@@ -77,11 +79,6 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
             title: Assistance,
           ),
         ),
-
-        // Appbartext().appbar(
-        //     widget.type == "1" ? tyreshift_immidiate : send_req,
-        //     TextStyles.withColor(TextStyles.mb16, color.black),
-        //     context),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
