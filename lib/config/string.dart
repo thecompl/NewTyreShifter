@@ -57,7 +57,8 @@ final buynow = "Buy Now";
 final addtocart = "Add to cart";
 final added = "Added";
 final deletefromcart = "Delete from cart";
-final deletemsg = "Do you want to remove this selection from service as well? Click Yes to remove, Click No to choose another product.";
+final deletemsg =
+    "Do you want to remove this selection from service as well? Click Yes to remove, Click No to choose another product.";
 final budget = "Budget";
 final midrange = "Mid-range";
 final premium = "Premium";
@@ -71,6 +72,11 @@ final reserveline2 =
     "The chat and the name of the supplier will be visible 24 hours before the agreed booking.";
 final reserveline3 = "There is possible to book several services";
 final reserveline4 = "Enjoy!";
+final reserve1line1 = "Choose the services you want";
+final reserve2line2 =
+    "Then a search will be done to connect you to our nearest suppliers.";
+final reserve3line3 = "You will get help as soon as possible";
+final reserve4line4 = "Confirm if your locking wheel nut is present";
 
 final expirytxt = "Expiry";
 final cvvtxt = "CVV";

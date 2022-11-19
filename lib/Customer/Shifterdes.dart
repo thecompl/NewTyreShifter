@@ -58,28 +58,28 @@ class _Shifter_DesState extends State<Shifter_Des> {
                     height: 40,
                   ),
                   Textfield().text(
-                      reserveline1,
+                      widget.type == "0" ? reserveline1 : reserve1line1,
                       TextStyles.withColor(
                           TextStyles.mn16, color.textgrey_color, 1.3)),
                   SizedBox(
                     height: 15,
                   ),
                   Textfield().text(
-                      reserveline2,
+                      widget.type == "0" ? reserveline2 : reserve2line2,
                       TextStyles.withColor(
                           TextStyles.mn16, color.textgrey_color, 1.3)),
                   SizedBox(
                     height: 15,
                   ),
                   Textfield().text(
-                      reserveline3,
+                      widget.type == "0" ? reserveline3 : reserve3line3,
                       TextStyles.withColor(
                           TextStyles.mn16, color.textgrey_color, 1.3)),
                   SizedBox(
                     height: 15,
                   ),
                   Textfield().text(
-                      reserveline4,
+                      widget.type == "0" ? reserveline4 : reserve4line4,
                       TextStyles.withColor(
                           TextStyles.mn16, color.textgrey_color, 1.3)),
                   SizedBox(
