@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tyreshifter/Common/MessageScreen.dart';
+import 'package:tyreshifter/Customer/Assistance_tyreList.dart';
 import 'package:tyreshifter/Customer/ProductList.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
@@ -37,7 +38,7 @@ class _Immediately_ProviderListState extends State<Immediately_ProviderList> {
               track: true, //it will true before 1 hours
               showbottom: true,
               Ontap: () {
-                nextScreen(context, ProductList(
+                nextScreen(context, Assistance_tyreList(
                   type: widget.type,
                 ));
               },

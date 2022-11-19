@@ -12,7 +12,8 @@ import '../config/string.dart';
 import 'Payment_card.dart';
 
 class Payment extends StatefulWidget {
-  Payment({Key? key}) : super(key: key);
+  final type;
+  Payment({Key? key, this.type}) : super(key: key);
 
   @override
   State<Payment> createState() => _PaymentState();
@@ -53,7 +54,7 @@ class _PaymentState extends State<Payment> {
                 txt: 'Credit Card',
                 height: 25.0,
                 ontap: () {
-                  nextScreen(context, Payment_card());
+                  nextScreen(context, Payment_card(type : widget.type));
                 },
               ),
               SizedBox(
@@ -65,7 +66,7 @@ class _PaymentState extends State<Payment> {
                 txt: 'VIPPS',
                 height: 25.0,
                 ontap: () {
-                  nextScreen(context, Payment_card());
+                  nextScreen(context, Payment_card(type : widget.type));
                 },
               ),
               SizedBox(
@@ -77,7 +78,7 @@ class _PaymentState extends State<Payment> {
                 txt: 'Apple Pay',
                 height: 25.0,
                 ontap: () {
-                  nextScreen(context, Payment_card());
+                  nextScreen(context, Payment_card(type : widget.type));
                 },
               ),
             ],

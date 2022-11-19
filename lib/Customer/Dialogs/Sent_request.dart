@@ -30,7 +30,7 @@ class _Sent_requestState extends State<Sent_request> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Image.asset(
                     tick,
@@ -64,7 +64,7 @@ class _Sent_requestState extends State<Sent_request> {
                     width: double.infinity,
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   GestureDetector(
                       child: Padding(
@@ -76,6 +76,9 @@ class _Sent_requestState extends State<Sent_request> {
                       onTap: () {
                         nextScreen(context, Myrequest());
                       }),
+                  SizedBox(
+                    height: 10,
+                  ),
                   // Textfield().text("Your request has \n been sent.",
                   //     TextStyles.withColor(TextStyles.mb24, color.black))
                 ],

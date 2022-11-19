@@ -10,7 +10,8 @@ import 'Main screen/HomeScreen.dart';
 import 'Main screen/Orders.dart';
 
 class MainHomeScreen_Customer extends StatefulWidget {
-  MainHomeScreen_Customer({Key? key}) : super(key: key);
+  final pageIndex;
+  MainHomeScreen_Customer({Key? key, this.pageIndex=0}) : super(key: key);
 
   @override
   State<MainHomeScreen_Customer> createState() =>
@@ -27,7 +28,13 @@ class _MainHomeScreen_CustomerState extends State<MainHomeScreen_Customer> {
       pageIndex = index;
     });
   }
-
+@override
+  void initState() {
+    setState(() {
+      pageIndex = widget.pageIndex;
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

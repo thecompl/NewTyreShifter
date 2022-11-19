@@ -275,7 +275,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       name: addtocart,
                       onTap: () {
                         // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
-                        nextScreen(context, Assistance_Cart());
+                        nextScreen(context, Assistance_Cart(type: widget.type));
                         // nextScreen(context, Send_Request(type: widget.type));
                       },
                     ),

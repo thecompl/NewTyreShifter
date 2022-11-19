@@ -21,7 +21,8 @@ import 'Dialogs/Cancel_req_dialog.dart';
 import 'Immediate_service_detail.dart';
 
 class Myrequest extends StatefulWidget {
-  Myrequest({Key? key}) : super(key: key);
+  final type;
+  Myrequest({Key? key, this.type}) : super(key: key);
 
   @override
   State<Myrequest> createState() => _MyrequestState();

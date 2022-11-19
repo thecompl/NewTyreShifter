@@ -46,6 +46,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
 
   @override
   void initState() {
+    log("cart type"+widget.type.toString());
     super.initState();
   }
 
@@ -317,7 +318,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                       // decoration: TextDecoration.lineThrough,
                       ),
                   onTap: () {
-                    nextScreen(context, Payment());
+                    nextScreen(context, Payment(type : widget.type));
                   },
                 ),
               ),

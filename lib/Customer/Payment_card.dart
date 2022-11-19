@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:tyreshifter/Customer/Main%20screen/HomeScreen.dart';
+import 'package:tyreshifter/Customer/Main%20screen/Orders.dart';
 import 'package:tyreshifter/Customer/MainhomeScreen.dart';
 import 'package:tyreshifter/Customer/Myrequest.dart';
 import 'package:tyreshifter/Widget/ConfirmationDialog.dart';
@@ -17,7 +18,8 @@ import 'Dialogs/Sent_request.dart';
 import 'Send_request.dart';
 
 class Payment_card extends StatefulWidget {
-  Payment_card({Key? key}) : super(key: key);
+  final type;
+  Payment_card({Key? key, this.type}) : super(key: key);
 
   @override
   State<Payment_card> createState() => _Payment_cardState();
@@ -35,9 +37,12 @@ class _Payment_cardState extends State<Payment_card> {
     return Scaffold(
       backgroundColor: color.white,
 
-      appBar:PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: payment),),
+      appBar: PreferredSize(
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(title: payment),
+      ),
 
       // Appbartext().appbar(
       //     payment, TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -134,7 +139,11 @@ class _Payment_cardState extends State<Payment_card> {
                             head: true,
                             btntxt: view_req,
                             onTap: () {
-                              nextScreen(context, Myrequest());
+                              widget.type == '0'
+                                  ? nextScreen(
+                                      context, Myrequest(type: widget.type))
+                                  : nextScreen(context,
+                                      MainHomeScreen_Customer(pageIndex: 1));
                             },
                           ));
                 },
