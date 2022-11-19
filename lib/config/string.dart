@@ -153,7 +153,7 @@ final verification_msg_txt =
     "Thanks for registrations you will be verified within 24hrs";
 final req_des =
     "Thanks For the payment your payment is store with tyreshifter when your request will done we will send money to service provider";
-final cancel_req_des = "Are you sure want to cancel request with Summers tyres";
+final cancel_req_des = "Are you sure want to cancel request with Summers tyres?";
 final cancel_req_des1 =
     "Are you sure you want to cancel this request with XYZ Tyres? Please note that you are cancelling request in short notice and amount you paid will not be refunded?                                                                                                         ";
 
