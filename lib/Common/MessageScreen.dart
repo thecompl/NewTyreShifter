@@ -1,6 +1,8 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyreshifter/config/Color.dart';
 import '../Widget/Appbartext.dart';
@@ -19,7 +21,6 @@ class MessageScreen extends StatefulWidget {
 
 class _MessageScreenState extends State<MessageScreen> {
   List<ChatMessage> messages = [
-   
     ChatMessage(messageContent: "Hello, Will", messageType: "receiver"),
     ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
     ChatMessage(
@@ -34,25 +35,30 @@ class _MessageScreenState extends State<MessageScreen> {
     //     messageContent: "Is there any thing wrong?", messageType: "sender"),
     // ChatMessage(
     //     messageContent: "Is there any thing wrong?", messageType: "sender"),
-
   ];
 
   String? type_account;
-@override
+  bool chatstart = false;
+  @override
   void initState() {
-  get_typeaccount();
+    log(chatstart.toString());
+    get_typeaccount();
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color.white,
       appBar: PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title:type_account == get_shifter? msg :msg +" (23:59 hours)"),),
-
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(
+            title: type_account == get_shifter ? msg : msg + " (23:59 hours)"),
+      ),
 
       // Appbartext().appbar(msg + "",
       //     TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -80,99 +86,108 @@ class _MessageScreenState extends State<MessageScreen> {
                         TextStyles.withColor(
                             TextStyles.mb16, color.text_grey2_color)),
                   ),
-                  Container(
-                    // height: size.height*0.5,
-                    child: ListView.builder(
-                      itemCount: messages.length,
-                        shrinkWrap: true ,
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Container(
-                            padding: EdgeInsets.only(
-                                left: 14, right: 14, top: 10, bottom: 10),
-                            child: Align(
-                              alignment: messages[index].messageType == "receiver"
-                                  ? Alignment.topLeft
-                                  : Alignment
-                                      .topRight, //Change this to Alignment.topRight or Alignment.topLeft
-                              child: CustomPaint(
-                                painter: CustomChatBubble(
-                                    isOwn: messages[index].messageType == "receiver"
-                                        ? false
-                                        : true,
-                                    color: messages[index].messageType != "receiver"
-                                        ? color.Primary_second_Color
-                                        : color.msg_txt_color),
-                                child: Container(
-                                  margin: EdgeInsets.all(20),
-                                  child: Text(
-                                    textAlign: TextAlign.center,
-                                    "Hello World",
-                                    style: TextStyles.withColor(
-                                        TextStyles.mn14,
-                                        messages[index].messageType != "receiver"
-                                            ? color.white
-                                            : color.black),
-                                  ),
-                                ),
-                              ),
-                            ));
-                      },
-                    ),
-                  ),
-
+                  chatstart == false
+                      ? Container(
+                          height: size.height * 0.5,
+                          child: Center(
+                            child: SvgPicture.asset(frame_icon),
+                          ),
+                        )
+                      : Container(
+                          // height: size.height*0.5,
+                          child: ListView.builder(
+                            itemCount: messages.length,
+                            shrinkWrap: true,
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            physics: NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(
+                                      left: 14, right: 14, top: 10, bottom: 10),
+                                  child: Align(
+                                    alignment: messages[index].messageType ==
+                                            "receiver"
+                                        ? Alignment.topLeft
+                                        : Alignment
+                                            .topRight, //Change this to Alignment.topRight or Alignment.topLeft
+                                    child: CustomPaint(
+                                      painter: CustomChatBubble(
+                                          isOwn: messages[index].messageType ==
+                                                  "receiver"
+                                              ? false
+                                              : true,
+                                          color: messages[index].messageType !=
+                                                  "receiver"
+                                              ? color.Primary_second_Color
+                                              : color.msg_txt_color),
+                                      child: Container(
+                                        margin: EdgeInsets.all(20),
+                                        child: Text(
+                                          textAlign: TextAlign.center,
+                                          "Hello World",
+                                          style: TextStyles.withColor(
+                                              TextStyles.mn14,
+                                              messages[index].messageType !=
+                                                      "receiver"
+                                                  ? color.white
+                                                  : color.black),
+                                        ),
+                                      ),
+                                    ),
+                                  ));
+                            },
+                          ),
+                        ),
                 ],
               ),
             ),
           ),
-            Align(
+          Align(
             alignment: Alignment.bottomLeft,
-            child:Container(
-    height: 70,
-    // width: double.infinity,
-    color: color.Primary_second_Color,
-    child: Row(
-    children: <Widget>[
-    SizedBox(
-    width: 15,
-    ),
-    Container(
-    width: size.width * 0.8,
-    height: 40,
-    padding: EdgeInsets.only(left: 10),
-    decoration: BoxDecoration(
-    color: color.white,
-    borderRadius: BorderRadius.circular(10)),
-    child: TextField(
-    decoration: InputDecoration(
-    hintText: "Type a message...",
-    hintStyle: TextStyles.withColor(
-    TextStyles.mn14, color.txt_grey4_color),
-    border: InputBorder.none),
-    ),
-    ),
-    SizedBox(
-    width: 15,
-    ),
-    GestureDetector(
-    onTap: () {},
-    child: Icon(
-    Icons.send,
-    color: Colors.white,
-    size: 25,
-    ),
-    ),
-    ],
-    ),
-    ),
+            child: Container(
+              height: 70,
+              // width: double.infinity,
+              color: color.Primary_second_Color,
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    height: 40,
+                    padding: EdgeInsets.only(left: 10),
+                    decoration: BoxDecoration(
+                        color: color.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          hintText: "Type a message...",
+                          hintStyle: TextStyles.withColor(
+                              TextStyles.mn14, color.txt_grey4_color),
+                          border: InputBorder.none),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      Icons.send,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                  ),
+                ],
+              ),
             ),
+          ),
         ],
       ),
-
-
     );
   }
+
   get_typeaccount() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tyreshifter/Common/MessageScreen.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
@@ -29,6 +30,7 @@ class _CancelledrequestState extends State<Cancelledrequest> {
               Img: service_img,
               // btntype: true,
               btnname: canceled,
+              ontapmsg: () => {nextScreen(context, MessageScreen())},
               Ontap: () {
                 nextScreen(context, Immediate_service_detail(
                   orderstatus: canceled,

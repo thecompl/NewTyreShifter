@@ -3,6 +3,7 @@ import 'package:tyreshifter/Customer/Service_Detail.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
+import '../Common/MessageScreen.dart';
 import '../Widget/Customer_Req_Card.dart';
 import '../config/string.dart';
 import 'Dialogs/Cancel_req_dialog.dart';
@@ -33,6 +34,7 @@ class _InprogressState extends State<Inprogress> {
               Img: service_img,
               track: true,
               btnname: cancel_req,
+              ontapmsg: () => {nextScreen(context, MessageScreen())},
               Ontap: () {
                 nextScreen(context, Immediate_service_detail());
               },
@@ -43,7 +45,7 @@ class _InprogressState extends State<Inprogress> {
                           msg: cancel_req_des,
                         ));
               },
-                color:color.txt_dark_color,
+              color: color.txt_dark_color,
             );
           }),
     );

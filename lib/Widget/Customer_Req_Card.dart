@@ -22,6 +22,7 @@ class Customer_Req_Card extends StatefulWidget {
 
   final Function? Ontap;
   final Function? ontapbtn;
+  final Function? ontapmsg;
   final btnname;
 
   final btncolor;
@@ -42,6 +43,7 @@ class Customer_Req_Card extends StatefulWidget {
     this.showbtn = true,
     this.ontapbtn,
     this.color,
+    this.ontapmsg,
   }) : super(key: key);
 
   @override
@@ -234,8 +236,7 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                         // if (widget.msg == true)
                         GestureDetector(
                           onTap: () => {
-                            // widget.msg == true ?  nextScreen(context,
-                            //        Assistance_Cart()) : ''
+                            widget.ontapmsg!()
                           },
                           child: Row(children: [
                             widget.msg == true

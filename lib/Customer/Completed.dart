@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tyreshifter/Common/MessageScreen.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
 import '../Widget/Customer_Req_Card.dart';
@@ -28,6 +29,7 @@ class _CompletedState extends State<Completed> {
               headtxt: 'Summer times',
               Img: service_img,
               btntype: true,
+              ontapmsg: () => {nextScreen(context, MessageScreen())},
               track: true, //it will true before 1 hours
               btnname: cancel_req + "(23:59 hour)",
               Ontap: () {

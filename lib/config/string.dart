@@ -227,6 +227,7 @@ final notification_pink = "assets/notification_pink.png";
 final msg_icon = "assets/msg_icon.png";
 final edit_icon = "assets/edit_icon.png";
 final mail_icon = "assets/mail_icon.png";
+final frame_icon = "assets/Frame.svg";
 final lock_icon = "assets/lock_icon.png";
 final change_password_img = "assets/change_password_img.png";
 final supportimg = "assets/support_icon.png";
