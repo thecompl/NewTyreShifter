@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -230,7 +231,7 @@ class _ProductDetailState extends State<ProductDetail> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  if (widget.type == '1')
+                  if (widget.type != '0')
                     Row(
                       children: [
                         SizedBox(
@@ -269,7 +270,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButtons(
-                      width: widget.type == '1' ? 0.6 : 0.9,
+                      width: widget.type != '0' ? 0.6 : 0.9,
                       height: 65,
                       name: addtocart,
                       onTap: () {

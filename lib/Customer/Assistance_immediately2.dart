@@ -310,7 +310,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                         context,
                         widget.type == '0'
                             ? ProductList(type: widget.type)
-                            : Assistance_immediately3());
+                            : Assistance_immediately3(type: widget.type));
                   },
                 )
               ],

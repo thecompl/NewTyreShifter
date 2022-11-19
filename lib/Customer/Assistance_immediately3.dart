@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately.dart';
 import 'package:tyreshifter/Customer/Assistance_tyreList.dart';
+import 'package:tyreshifter/Customer/Immediately_Provider.dart';
 import 'package:tyreshifter/Widget/Texboxwidget.dart';
 
 import 'package:tyreshifter/Widget/Textfield.dart';
@@ -125,7 +126,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                 ElevatedButtons(
                   name: search,
                   onTap: () {
-                    nextScreen(context, Assistance_tyreList());
+                    nextScreen(context, Immediately_Provider(type :widget.type));
                   },
                 ),
                 SizedBox(

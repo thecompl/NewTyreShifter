@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'dart:core';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class _ProductListState extends State<ProductList> {
   @override
   void initState() {
     getxcartypecontroller.getcartype(context);
-
+      log("pro"+widget.type.toString());
     super.initState();
   }
 

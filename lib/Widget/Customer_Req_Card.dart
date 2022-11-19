@@ -238,7 +238,7 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                   ],
                                 ),
                               ),
-                              // if (widget.msg == true)
+                              if (widget.msg == true)
                               GestureDetector(
                                 onTap: () => {widget.ontapmsg!()},
                                 child: Row(children: [
