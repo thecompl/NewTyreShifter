@@ -42,46 +42,41 @@ class _SupplierList_widgetState extends State<SupplierList_widget> {
       onTap: () {
         widget.Ontap!();
       },
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: color.border_grey4_color),
-          borderRadius: BorderRadius.circular(20),
-          color: color.white,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 85,
-                    child: Image.asset(widget.Img, fit: BoxFit.cover), //Text
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
+      child: Padding(
+        padding: const EdgeInsets.only(right:5.0),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: color.border_grey4_color),
+            borderRadius: BorderRadius.circular(20),
+            color: color.white,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: 85,
+                  child: Image.asset(widget.Img, fit: BoxFit.cover), //Text
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                            Textfield().text(widget.headtxt, TextStyles.mb16),
-                            Transform.scale(
-                              scale: 1.2,
-                              child: widget.supplier
-                            ),
-                          ]),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
+                              Textfield().text(widget.headtxt, TextStyles.mb16),
+                              Transform.scale(scale: 1.2, child: widget.supplier),
+                            ]),
+                        Expanded(
+                          child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
@@ -95,27 +90,26 @@ class _SupplierList_widgetState extends State<SupplierList_widget> {
                                   size: 20,
                                 ),
                               ),
-                              Container(
-                                width: size.width * 0.5,
-                                child: Textfield().text(
-                                    widget.adddress,
-                                    TextStyles.withColor(
-                                        TextStyles.mn16, color.textgrey_color),
-                                    TextAlign.left,
-                                    TextOverflow.ellipsis),
+                              Expanded(
+                                child: Container(
+                                  width: size.width * 0.5,
+                                  child: Textfield().text(
+                                      widget.adddress,
+                                      TextStyles.withColor(
+                                          TextStyles.mn14, color.textgrey_color),
+                                      TextAlign.left,
+                                      TextOverflow.ellipsis),
+                                ),
                               )
                             ],
                           ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -58,11 +58,12 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                           height: 15,
                         ),
                         Container(
-                          width: size.width,
-                          height: 154,
+                          height: 115,
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
+                              physics: const BouncingScrollPhysics(),
                               itemCount: 2,
+                              shrinkWrap: true,
                               itemBuilder: (BuildContext context, int index) {
                                 return Container(
                                   width: size.width - 30,
