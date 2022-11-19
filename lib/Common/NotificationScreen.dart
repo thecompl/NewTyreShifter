@@ -28,37 +28,36 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
       // Appbartext().appbar(notification,
       //     TextStyles.withColor(TextStyles.mb16, color.black), context),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-          height: size.height,
-          child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: 15,
-              itemBuilder: (BuildContext context, int index) {
-                if (index % 2 == 0) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
-                    child: Notification_Card(
-                        Img: notification_pink,
-                        txt: "Summer tires accept your request",
-                        style: TextStyles.withletterspacing(
-                          TextStyles.mb16,
-                          color.text_grey2_color,
-                          0.5,
-                        )),
-                  );
-                }
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        height: size.height,
+        child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: 15,
+            itemBuilder: (BuildContext context, int index) {
+              if (index % 2 == 0) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 15),
                   child: Notification_Card(
-                      Img: notification_blue,
+                      Img: notification_pink,
                       txt: "Summer tires accept your request",
                       style: TextStyles.withletterspacing(
-                          TextStyles.mb16, color.text_grey2_color, 0.5)),
+                        TextStyles.mb16,
+                        color.text_grey2_color,
+                        0.5,
+                      )),
                 );
-              }),
-        ),
+              }
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Notification_Card(
+                    Img: notification_blue,
+                    txt: "Summer tires accept your request",
+                    style: TextStyles.withletterspacing(
+                        TextStyles.mb16, color.text_grey2_color, 0.5)),
+              );
+            }),
       ),
     );
   }
