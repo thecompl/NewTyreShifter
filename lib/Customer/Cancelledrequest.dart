@@ -30,6 +30,7 @@ class _CancelledrequestState extends State<Cancelledrequest> {
               Img: service_img,
               // btntype: true,
               btnname: canceled,
+              showbottom: true,
               ontapmsg: () => {nextScreen(context, MessageScreen())},
               Ontap: () {
                 nextScreen(context, Immediate_service_detail(

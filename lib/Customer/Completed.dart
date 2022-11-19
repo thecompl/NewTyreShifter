@@ -32,6 +32,7 @@ class _CompletedState extends State<Completed> {
               ontapmsg: () => {nextScreen(context, MessageScreen())},
               track: true, //it will true before 1 hours
               btnname: cancel_req + "(23:59 hour)",
+              showbottom: true,
               Ontap: () {
                  nextScreen(context, Immediate_service_detail(
                   orderstatus: completed,

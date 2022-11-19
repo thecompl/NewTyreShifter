@@ -35,6 +35,7 @@ class _InprogressState extends State<Inprogress> {
               track: true,
               btnname: cancel_req,
               ontapmsg: () => {nextScreen(context, MessageScreen())},
+              showbottom: true,
               Ontap: () {
                 nextScreen(context, Immediate_service_detail());
               },

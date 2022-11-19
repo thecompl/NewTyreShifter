@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tyreshifter/Customer/Completed_Order.dart';
 import 'package:tyreshifter/Suppliers/My_Booking.dart';
 import 'package:tyreshifter/Suppliers/Set_Availability.dart';
 import 'package:tyreshifter/Suppliers/Setprice.dart';
@@ -157,6 +158,9 @@ class _ProfileState extends State<Profile> {
                     height: 15,
                   )
                 : Container(),
+                SizedBox(
+                  height: 20,
+                ),
             Profilemenu(profile_person, edit_profile, () {
               nextScreen(context, Edit_Screen());
             }),
@@ -237,7 +241,7 @@ class _ProfileState extends State<Profile> {
                 // ? Profilemenu(profile_req, my_booking, My_Booking(appbarname:my_booking,showarrow:1))
                 ? Container()
                 : Profilemenu(profile_req, completed_bookings, () {
-                    nextScreen(context, Myrequest());
+                    nextScreen(context, Completed_Order());
                   }),
             Divider(
               thickness: 1,
