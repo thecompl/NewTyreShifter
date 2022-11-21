@@ -379,66 +379,66 @@ class _Create_AccountState extends State<Create_Account> {
                         ],
                       )
                     : Container(),
-                SizedBox(
-                  height: 15,
-                ),
-                type_account == become_shifter
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Textfield().text(upload_hms_card, TextStyles.mb14),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              GestureDetector(
-                                  onTap: () {
-                                    openImages();
-                                  },
-                                  child: SvgPicture.string(upload_iconsvg)),
-                              imagefiles != null
-                                  ? SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Wrap(
-                                        children: imagefiles!.map((imageone) {
-                                          return Stack(
-                                            alignment: Alignment.topRight,
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                  child: Container(
-                                                    height: 60,
-                                                    width: 60,
-                                                    child: Image.file(
-                                                      File(imageone.path),
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Image.asset(
-                                                removeimg,
-                                                height: 15,
-                                              ),
-                                            ],
-                                          );
-                                        }).toList(),
-                                      ),
-                                    )
-                                  : Container(),
-                            ],
-                          ),
-                        ],
-                      )
-                    : Container(),
+                // SizedBox(
+                //   height: 15,
+                // ),
+                // type_account == become_shifter
+                //     ? Column(
+                //         crossAxisAlignment: CrossAxisAlignment.start,
+                //         children: [
+                //           Textfield().text(upload_hms_card, TextStyles.mb14),
+                //           SizedBox(
+                //             height: 10,
+                //           ),
+                //           Row(
+                //             children: [
+                //               GestureDetector(
+                //                   onTap: () {
+                //                     openImages();
+                //                   },
+                //                   child: SvgPicture.string(upload_iconsvg)),
+                //               imagefiles != null
+                //                   ? SingleChildScrollView(
+                //                       scrollDirection: Axis.horizontal,
+                //                       child: Wrap(
+                //                         children: imagefiles!.map((imageone) {
+                //                           return Stack(
+                //                             alignment: Alignment.topRight,
+                //                             children: [
+                //                               Padding(
+                //                                 padding:
+                //                                     const EdgeInsets.all(8.0),
+                //                                 child: ClipRRect(
+                //                                   borderRadius:
+                //                                       BorderRadius.circular(10),
+                //                                   child: Container(
+                //                                     height: 60,
+                //                                     width: 60,
+                //                                     child: Image.file(
+                //                                       File(imageone.path),
+                //                                       fit: BoxFit.fill,
+                //                                     ),
+                //                                   ),
+                //                                 ),
+                //                               ),
+                //                               Image.asset(
+                //                                 removeimg,
+                //                                 height: 15,
+                //                               ),
+                //                             ],
+                //                           );
+                //                         }).toList(),
+                //                       ),
+                //                     )
+                //                   : Container(),
+                //             ],
+                //           ),
+                //         ],
+                //       )
+                //     : Container(),
                 type_account == become_shifter
                     ? SizedBox(
-                        height: 20,
+                        height: 10,
                       )
                     : Container(),
                 Row(

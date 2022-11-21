@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tyreshifter/Customer/Book_Service.dart';
+import 'package:tyreshifter/Suppliers/Select_Services.dart';
 import 'package:tyreshifter/Suppliers/Setprice.dart';
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/Widget/Notetxt.dart';
@@ -43,7 +45,7 @@ class _Welcome_TyreshifterState extends State<Welcome_Tyreshifter> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Textfield().text("The preferred equipments",
+                Textfield().text(welcome_txt,
                     TextStyles.withColor(TextStyles.mb16, color.black)),
                 SizedBox(
                   height: 10,
@@ -62,9 +64,12 @@ class _Welcome_TyreshifterState extends State<Welcome_Tyreshifter> {
               onTap: () {
                 nextScreen(
                     context,
-                    SetPrice(
-                      type: "0",
+                    Select_Services(
+                      type: 0,
                     ));
+                // SetPrice(
+                //   type: "0",
+                // ));
               },
             )
           ],
