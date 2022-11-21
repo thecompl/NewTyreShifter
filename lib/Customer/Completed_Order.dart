@@ -53,7 +53,7 @@ class _Completed_OrderState extends State<Completed_Order> {
         // Appbartext().appbar(
         //     my_req, TextStyles.withColor(TextStyles.mb16, color.black), context),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Container(
             height: size.height,
             child: ListView.builder(

@@ -46,7 +46,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
 
   @override
   void initState() {
-    log("cart type"+widget.type.toString());
+    log("cart type" + widget.type.toString());
     super.initState();
   }
 
@@ -65,7 +65,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               SizedBox(height: 5),
@@ -79,7 +79,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                 style: TextStyles.withColor(
                     TextStyles.mn18, color.text_grey2_color),
               ).paddingSymmetric(vertical: 0),
-              SizedBox(height: 25),
+              SizedBox(height: 30),
               Container(
                 // width: size.height,
                 child: ListView.builder(
@@ -240,7 +240,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: ElevatedButtons(
-                            width: 0.26,
+                            width: 0.28,
                             height: 58,
                             name: apply,
                             onTap: () {
@@ -267,7 +267,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                                     color: color.Primary_second_Color,
                                     width: 1)),
                             padding: EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 16),
+                                horizontal: 9, vertical: 16),
                             child: Row(children: [
                               Icon(
                                 Icons.check_circle_outline,
@@ -291,7 +291,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: ElevatedButtons(
-                            width: 0.26,
+                            width: 0.28,
                             height: 58,
                             name: remove,
                             style: TextStyles.mn14,
@@ -312,13 +312,14 @@ class _Assistance_CartState extends State<Assistance_Cart> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButtons(
+                  width: 0.96,
                   name: proceed + "(£417.69)",
                   style: new TextStyle(
                       // color: Colors.grey,
                       // decoration: TextDecoration.lineThrough,
                       ),
                   onTap: () {
-                    nextScreen(context, Payment(type : widget.type));
+                    nextScreen(context, Payment(type: widget.type));
                   },
                 ),
               ),

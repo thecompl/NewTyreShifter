@@ -29,6 +29,8 @@ class Customer_Req_Card extends StatefulWidget {
 
   final color;
   final bool? showbottom;
+  
+  final bool? showdate;
 
   Customer_Req_Card({
     Key? key,
@@ -45,7 +47,8 @@ class Customer_Req_Card extends StatefulWidget {
     this.ontapbtn,
     this.color,
     this.ontapmsg,
-    this.showbottom,
+    this.showbottom, 
+    this.showdate = true,
   }) : super(key: key);
 
   @override
@@ -62,7 +65,7 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
         // nextScreen(cntx, Booking_Details());
       },
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.only(bottom: 10, top: 10),
         child: Container(
           // elevation: 0,
           decoration: BoxDecoration(
@@ -79,9 +82,7 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10)),
+                  borderRadius: BorderRadius.circular(10),
                   color: color.white,
                 ),
                 child: Padding(
@@ -165,6 +166,7 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                           ],
                                         ),
                                       ),
+                                      if(widget.showdate == true)
                                       Textfield().text(
                                           "30 April 2022",
                                           TextStyles.withColor(TextStyles.mb14,
@@ -184,11 +186,14 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
               if (widget.showbottom == true)
                 Column(
                   children: [
-                    Container(
-                      color: color.white,
-                      child: Image.asset(
-                        divider,
-                        width: size.width,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Container(
+                        color: color.white,
+                        child: Image.asset(
+                          divider,
+                          width: size.width,
+                        ),
                       ),
                     ),
                     Container(
@@ -196,7 +201,8 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                           borderRadius: BorderRadius.circular(10),
                           // color: color.skylight,
                         ),
-                        padding: EdgeInsets.all(15),
+                        padding: EdgeInsets.only(
+                            left: 15, right: 15, top: 10, bottom: 15),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -239,30 +245,30 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                 ),
                               ),
                               if (widget.msg == true)
-                              GestureDetector(
-                                onTap: () => {widget.ontapmsg!()},
-                                child: Row(children: [
-                                  widget.msg == true
-                                      ? Image.asset(msg_icon,
-                                          height: size.height * 0.04)
-                                      : SvgPicture.string(messagesvg),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Textfield().text(
-                                      msg,
-                                      TextStyles.withColor(
-                                          TextStyles.mn16,
-                                          widget.msg == true
-                                              ? color.textgrey_color
-                                              : color.border_grey_color))
-                                ]),
-                              )
+                                GestureDetector(
+                                  onTap: () => {widget.ontapmsg!()},
+                                  child: Row(children: [
+                                    widget.msg == true
+                                        ? Image.asset(msg_icon,
+                                            height: size.height * 0.04)
+                                        : SvgPicture.string(messagesvg),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Textfield().text(
+                                        msg,
+                                        TextStyles.withColor(
+                                            TextStyles.mn16,
+                                            widget.msg == true
+                                                ? color.textgrey_color
+                                                : color.border_grey_color))
+                                  ]),
+                                )
                             ])),
                     widget.showbtn
                         ? widget.btntype
                             ? Container(
-                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                padding: EdgeInsets.symmetric(horizontal: 10),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,

@@ -63,6 +63,8 @@ final deletemsg =
     "Do you want to remove this selection from service as well? Click Yes to remove, Click No to choose another product.";
 final budget = "Budget";
 final midrange = "Mid-range";
+final after24hrs = "After 24 hours Message";
+final willavailable = "will Available";
 final premium = "Premium";
 final location = "Location";
 final Assistance = "Assistance immediately";
@@ -88,6 +90,7 @@ final update = "Update";
 final send = "Send";
 final home = "Home";
 final calendertxt = "Calender";
+final immediatelyRequest = "Immediately Request";
 final reserve = "Reserve";
 final lets_get_started = "LETS GET STARTED";
 final pleaseselect = "Please select the services you need";

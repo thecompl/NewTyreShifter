@@ -89,7 +89,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 Text(
                   searchfor,

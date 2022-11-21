@@ -67,24 +67,23 @@ class _Immediately_punState extends State<Immediately_pun> {
                   // SizedBox(
                   //   height: 20,
                   // ),
-                  Expanded(
-                    child: GestureDetector(
-                        child: Container(
-                          width: size.width,
-                          decoration: BoxDecoration(
-                              color: color.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
-                          child: Center(
-                            child: Text(widget.btn,
-                                style: TextStyles.withColor(TextStyles.mb20,
-                                    color.Primary_second_Color)),
-                          ),
+                  GestureDetector(
+                      child: Container(
+                        width: size.width,
+                        height: 65,
+                        decoration: BoxDecoration(
+                            color: color.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Center(
+                          child: Text(widget.btn,
+                              style: TextStyles.withColor(TextStyles.mb20,
+                                  color.Primary_second_Color)),
                         ),
-                        onTap: () {
-                          widget.Onbtn!();
-                        }),
-                  ),
+                      ),
+                      onTap: () {
+                        widget.Onbtn!();
+                      }),
                   // Textfield().text("Your request has \n been sent.",
                   //     TextStyles.withColor(TextStyles.mb24, color.black))
                 ],

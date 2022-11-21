@@ -111,7 +111,7 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 0,
             ),
             Expanded(
               child: Container(

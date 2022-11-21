@@ -39,7 +39,7 @@ class _Shifter_DesState extends State<Shifter_Des> {
       // Appbartext().appbar(
       //     home, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Container(
             height: height,

@@ -75,7 +75,7 @@ class _ProductListState extends State<ProductList> {
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount:
                               (orientation == Orientation.portrait) ? 2 : 3,
-                          mainAxisExtent: 320,
+                          mainAxisExtent: 325,
                         ),
                         itemCount: 8,
                         itemBuilder: (BuildContext context, int index) {

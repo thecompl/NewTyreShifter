@@ -90,7 +90,23 @@ class _MessageScreenState extends State<MessageScreen> {
                       ? Container(
                           height: size.height * 0.5,
                           child: Center(
-                            child: SvgPicture.asset(frame_icon),
+                            child: Column(children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              SvgPicture.asset(frame_icon),
+                              Textfield().text(
+                                  after24hrs,
+                                  TextStyles.withColor(
+                                      TextStyles.mb16, color.text_grey2_color)),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Textfield().text(
+                                  willavailable,
+                                  TextStyles.withColor(
+                                      TextStyles.mb16, color.text_grey2_color))
+                            ]),
                           ),
                         )
                       : Container(

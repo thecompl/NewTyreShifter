@@ -83,7 +83,7 @@ class _Assistance_tyreListState extends State<Assistance_tyreList> {
               budget,
               style: TextStyles.withColor(
                   TextStyles.mb18, color.Primary_second_Color),
-            ).paddingSymmetric(horizontal: 15, vertical: 5),
+            ).paddingSymmetric(horizontal: 15, vertical: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Container(
@@ -117,7 +117,7 @@ class _Assistance_tyreListState extends State<Assistance_tyreList> {
               midrange,
               style: TextStyles.withColor(
                   TextStyles.mb18, color.Primary_second_Color),
-            ).paddingSymmetric(horizontal: 15, vertical: 5),
+            ).paddingSymmetric(horizontal: 15, vertical: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Container(
@@ -152,7 +152,7 @@ class _Assistance_tyreListState extends State<Assistance_tyreList> {
               premium,
               style: TextStyles.withColor(
                   TextStyles.mb18, color.Primary_second_Color),
-            ).paddingSymmetric(horizontal: 15, vertical: 5),
+            ).paddingSymmetric(horizontal: 15, vertical: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Container(

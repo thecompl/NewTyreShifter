@@ -18,35 +18,38 @@ class _CompletedState extends State<Completed> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height,
-      child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: 5,
-          itemBuilder: (BuildContext context, int index) {
-            return Customer_Req_Card(
-              adddress: '752 Longbranch St.Calhoun, GA 30701',
-              headtxt: 'Summer times',
-              Img: service_img,
-              btntype: true,
-              ontapmsg: () => {nextScreen(context, MessageScreen())},
-              track: true, //it will true before 1 hours
-              btnname: cancel_req + "(23:59 hour)",
-              showbottom: true,
-              Ontap: () {
-                 nextScreen(context, Immediate_service_detail(
-                  orderstatus: completed,
-                 ));
-              },
-              ontapbtn: () {
-                showDialog(
-                    context: context,
-                    builder: (context) => Cancel_req_dialog(
-                          msg: cancel_req_des1,
-                        ));
-              },
-            );
-          }),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Container(
+        height: size.height,
+        child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: 5,
+            itemBuilder: (BuildContext context, int index) {
+              return Customer_Req_Card(
+                adddress: '752 Longbranch St.Calhoun, GA 30701',
+                headtxt: 'Summer times',
+                Img: service_img,
+                btntype: true,
+                ontapmsg: () => {nextScreen(context, MessageScreen())},
+                track: true, //it will true before 1 hours
+                btnname: cancel_req + "(23:59 hour)",
+                showbottom: true,
+                Ontap: () {
+                   nextScreen(context, Immediate_service_detail(
+                    orderstatus: completed,
+                   ));
+                },
+                ontapbtn: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => Cancel_req_dialog(
+                            msg: cancel_req_des1,
+                          ));
+                },
+              );
+            }),
+      ),
     );
   }
 }

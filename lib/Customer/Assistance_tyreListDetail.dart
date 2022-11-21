@@ -39,7 +39,7 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
       // Appbartext().appbar(
       //     home, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
                       child: Image.asset(
                     tyre_img,
                     fit: BoxFit.cover,
-                    height: 285,
+                    height: 275,
                   ))),
               SizedBox(
                 height: 20,
@@ -231,9 +231,6 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 5,
-                  ),
                   Textfield().text(
                       qty,
                       TextStyles.withColor(
@@ -258,12 +255,12 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
                         TextAlign.center),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 9,
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButtons(
-                      width: 0.6,
+                      width: 0.59,
                       height: 65,
                       name: buynow,
                       onTap: () {

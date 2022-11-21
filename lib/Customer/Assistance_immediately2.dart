@@ -210,95 +210,92 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                 SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          // GetStorage().write("subtype", become_shifter);
-                          setState(() {
-                            typecar = become_shifter;
-                            // set_typeaccount();
-                          });
-                        },
-                        child: Container(
-                          // width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              Transform.scale(
-                                scale: 1.2,
-                                child: Radio(
-                                    value: suv,
-                                    groupValue: typecar,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        typecar = value.toString();
-                                        print("value" + value.toString());
-                                      });
-                                      // set_typeaccount();
-                                    }),
-                              ),
-                              Textfield().text(
-                                suv,
-                                TextStyles.withColor(
-                                    TextStyles.mn16, color.textgrey_color, 1.2),
-                              ),
-                            ],
-                          ),
+                Row(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // GetStorage().write("subtype", become_shifter);
+                        setState(() {
+                          typecar = become_shifter;
+                          // set_typeaccount();
+                        });
+                      },
+                      child: Container(
+                        // width: size.width * 0.7,
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(
+                        //         color: color.Primary_second_Color)),
+                        child: Row(
+                          children: [
+                            Transform.scale(
+                              scale: 1.2,
+                              child: Radio(
+                                  value: suv,
+                                  groupValue: typecar,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      typecar = value.toString();
+                                      print("value" + value.toString());
+                                    });
+                                    // set_typeaccount();
+                                  }),
+                            ),
+                            Textfield().text(
+                              suv,
+                              TextStyles.withColor(
+                                  TextStyles.mn16, color.textgrey_color, 1.2),
+                            ),
+                          ],
                         ),
                       ),
-                      // SizedBox(
-                      //   height: 5,
-                      // ),
-                      GestureDetector(
-                        onTap: () {
-                          // print("hii");
-                          // GetStorage().write("type", get_shifter);
-                          setState(() {
-                            typecar = normal;
-                            // set_typeaccount();
-                          });
-                        },
-                        child: Container(
-                          width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              Transform.scale(
-                                scale: 1.2,
-                                child: Radio(
-                                    value: normal,
-                                    groupValue: typecar,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        typecar = value.toString();
-                                        print("fe =>" + value.toString());
-                                      });
-                                      // set_typeaccount();
-                                    }),
-                              ),
-                              Textfield().text(
-                                normal,
-                                TextStyles.withColor(
-                                    TextStyles.mn16, color.textgrey_color, 1.2),
-                              ),
-                            ],
-                          ),
+                    ),
+                    // SizedBox(
+                    //   height: 5,
+                    // ),
+                    GestureDetector(
+                      onTap: () {
+                        // print("hii");
+                        // GetStorage().write("type", get_shifter);
+                        setState(() {
+                          typecar = normal;
+                          // set_typeaccount();
+                        });
+                      },
+                      child: Container(
+                        // width: size.width * 0.7,
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(
+                        //         color: color.Primary_second_Color)),
+                        child: Row(
+                          children: [
+                            Transform.scale(
+                              scale: 1.2,
+                              child: Radio(
+                                  value: normal,
+                                  groupValue: typecar,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      typecar = value.toString();
+                                      print("fe =>" + value.toString());
+                                    });
+                                    // set_typeaccount();
+                                  }),
+                            ),
+                            Textfield().text(
+                              normal,
+                              TextStyles.withColor(
+                                  TextStyles.mn16, color.textgrey_color, 1.2),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 25,

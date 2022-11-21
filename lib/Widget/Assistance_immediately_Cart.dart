@@ -27,6 +27,8 @@ class Assistance_immediately_Cart extends StatefulWidget {
 
   final btncolor;
 
+  final double? height;
+
   Assistance_immediately_Cart({
     Key? key,
     required this.Img,
@@ -42,6 +44,7 @@ class Assistance_immediately_Cart extends StatefulWidget {
     this.btncolor,
     this.showbtn = true,
     this.showqtyrow = false,
+    this.height: 140,
   }) : super(key: key);
 
   @override
@@ -69,7 +72,7 @@ class _Assistance_immediately_CartState
             color: color.white,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(7.0),
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -94,10 +97,11 @@ class _Assistance_immediately_CartState
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20)),
                                   border: Border.all(
-                                      color: color.border_grey4_color,)),
+                                    color: color.border_grey4_color,
+                                  )),
                               padding: EdgeInsets.symmetric(
                                   horizontal: 5, vertical: 5),
-                              height: 140,
+                              height: widget.height,
                               child: Image.asset(widget.Img,
                                   fit: BoxFit.cover), //Text
                             ),

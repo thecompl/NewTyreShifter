@@ -60,7 +60,7 @@ class _Book_ServiceState extends State<Book_Service> {
 
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
           child: Column(
             children: [
               // SizedBox(height: 40),

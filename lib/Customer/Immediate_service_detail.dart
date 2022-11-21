@@ -42,7 +42,7 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
       //     detail, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -249,24 +249,28 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                   border:
                       Border.all(color: color.border_grey4_color, width: 0.5),
                 ),
-                child: Assistance_immediately_Cart(
-                  adddress: "Per tyre, fitted.",
-                  price: "£139.23",
-                  headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
-                  Img: tyre_img,
-                  btnname: working,
-                  btncolor: color.btncolor3,
-                  quantity: '1',
-                  Ontap: () {
-                    // nextScreen(
-                    //     context,
-                    //     Assistance_tyreListDetail(
-                    //         // dropdown: true,
-                    //         // pagetype: booking_details,
-                    //         // status: working
-                    //         ));
-                  },
-                  Ontapdelete: () {},
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Assistance_immediately_Cart(
+                    adddress: "Per tyre, fitted.",
+                    price: "£139.23",
+                    headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
+                    Img: tyre_img,
+                    btnname: working,
+                    btncolor: color.btncolor3,
+                    quantity: '1',
+                    height: 125,
+                    Ontap: () {
+                      // nextScreen(
+                      //     context,
+                      //     Assistance_tyreListDetail(
+                      //         // dropdown: true,
+                      //         // pagetype: booking_details,
+                      //         // status: working
+                      //         ));
+                    },
+                    Ontapdelete: () {},
+                  ),
                 ),
               ),
               SizedBox(
@@ -421,6 +425,7 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                 height: 20,
               ),
               ElevatedButtons(
+                width: 0.95,
                 name: widget.orderstatus == completed
                     ? give_review
                     : widget.orderstatus == canceled
