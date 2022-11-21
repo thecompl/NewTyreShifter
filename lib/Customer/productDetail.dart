@@ -24,10 +24,12 @@ class ProductDetail extends StatefulWidget {
   State<ProductDetail> createState() => _ProductDetailState();
 }
 
+
 class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    log(widget.type.toString());
     return Scaffold(
       backgroundColor: color.white,
       appBar: PreferredSize(
@@ -232,7 +234,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    if (widget.type != '0')
+                    if (widget.type != 0)
                       Row(
                         children: [
                           SizedBox(
@@ -271,7 +273,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: ElevatedButtons(
-                        width: widget.type != '0' ? 0.6 : 0.9,
+                        width: widget.type != 0 ? 0.6 : 0.9,
                         height: 65,
                         name: addtocart,
                         onTap: () {

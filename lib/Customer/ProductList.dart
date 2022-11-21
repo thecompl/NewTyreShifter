@@ -49,19 +49,8 @@ class _ProductListState extends State<ProductList> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
-    return Scaffold(
-        backgroundColor: color.white,
-        appBar: PreferredSize(
-          preferredSize: Platform.isAndroid
-              ? Size.fromHeight(appbarheight_android)
-              : Size.fromHeight(appbarheight_ios),
-          child: Appbartext(
-            title: Assistance,
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+    return Container(
+      child: SingleChildScrollView(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,7 +95,7 @@ class _ProductListState extends State<ProductList> {
                   ),
                 ]),
           ),
-        ));
+    );
     // ),
   }
 }

@@ -25,7 +25,8 @@ import '../Suppliers/Setprice.dart';
 import '../Widget/Textfield.dart';
 
 class Assistanceimmediately extends StatefulWidget {
-  const Assistanceimmediately({Key? key}) : super(key: key);
+  final type;
+  const Assistanceimmediately({Key? key, this.type}) : super(key: key);
 
   @override
   _AssistanceimmediatelyState createState() => _AssistanceimmediatelyState();

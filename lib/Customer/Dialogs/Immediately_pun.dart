@@ -33,7 +33,7 @@ class _Immediately_punState extends State<Immediately_pun> {
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20))),
           child: Container(
-            height: 300,
+            height: 290,
             child: Container(
               child: Column(
                 children: [
@@ -68,22 +68,32 @@ class _Immediately_punState extends State<Immediately_pun> {
                   //   height: 20,
                   // ),
                   GestureDetector(
-                      child: Container(
-                        width: size.width,
-                        height: 65,
-                        decoration: BoxDecoration(
-                            color: color.white,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Center(
-                          child: Text(widget.btn,
-                              style: TextStyles.withColor(TextStyles.mb20,
-                                  color.Primary_second_Color)),
-                        ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top:10),
+                        child: Text(proceed,
+                            style: TextStyles.withColor(
+                                TextStyles.mb20, color.Primary_second_Color)),
                       ),
                       onTap: () {
                         widget.Onbtn!();
                       }),
+                  // GestureDetector(
+                  //     child: Container(
+                  //       width: size.width,
+                  //       height: 65,
+                  //       decoration: BoxDecoration(
+                  //           color: color.white,
+                  //           borderRadius:
+                  //               BorderRadius.all(Radius.circular(20))),
+                  //       child: Center(
+                  //         child: Text(widget.btn,
+                  //             style: TextStyles.withColor(
+                  //                 TextStyles.mb20, color.Primary_second_Color)),
+                  //       ),
+                  //     ),
+                  //     onTap: () {
+                  //       widget.Onbtn!();
+                  //     }),
                   // Textfield().text("Your request has \n been sent.",
                   //     TextStyles.withColor(TextStyles.mb24, color.black))
                 ],

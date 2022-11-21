@@ -20,12 +20,14 @@ import '../Widget/Dropdown.dart';
 import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import '../config/Color.dart';
+import 'Assistance_immediately2.dart';
 import 'Immediate_Request.dart';
 import 'Payement.dart';
 
 class Assistance_immediately3 extends StatefulWidget {
   final type;
-  Assistance_immediately3({Key? key, this.type}) : super(key: key);
+  final servicetype;
+  Assistance_immediately3({Key? key, this.type, this.servicetype}) : super(key: key);
 
   @override
   State<Assistance_immediately3> createState() =>
@@ -126,7 +128,12 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                 ElevatedButtons(
                   name: search,
                   onTap: () {
-                    nextScreen(context, Immediately_Provider(type :widget.type));
+                    widget.servicetype == tyreReplacement ?
+                    nextScreen(
+                        context, Assistance_immediately2(type: widget.type))
+                    :
+                    nextScreen(
+                        context, Immediately_Provider(type: widget.type));
                   },
                 ),
                 SizedBox(
@@ -135,7 +142,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                 Textfield().image("asset", "assets/or.png"),
                 SizedBox(
                   height: 25,
-                ),  
+                ),
               ],
             ),
           ),

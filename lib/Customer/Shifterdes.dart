@@ -95,9 +95,9 @@ class _Shifter_DesState extends State<Shifter_Des> {
                           nextScreen(
                               context,
                               widget.type == "0"
-                                  ? Book_Service()
+                                  ? Book_Service(type:widget.type)
                                   // HomeCalendarPage()
-                                  : Assistanceimmediately());
+                                  : Assistanceimmediately(type:widget.type));
                           // nextScreen(context, Send_Request(type: widget.type));
                         },
                       ),

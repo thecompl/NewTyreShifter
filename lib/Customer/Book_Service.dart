@@ -23,14 +23,15 @@ import '../Suppliers/Setprice.dart';
 import '../Widget/Textfield.dart';
 
 class Book_Service extends StatefulWidget {
-  const Book_Service({Key? key}) : super(key: key);
+  final type;
+  const Book_Service({Key? key, this.type}) : super(key: key);
 
   @override
   _Book_ServiceState createState() => _Book_ServiceState();
 }
 
 class _Book_ServiceState extends State<Book_Service> {
-  String? type = punctureRepair;
+  String? servicetype = punctureRepair;
   String? subtype = newtyre;
 
   String? type_account;
@@ -123,7 +124,7 @@ class _Book_ServiceState extends State<Book_Service> {
                             // print("hii");
                             // GetStorage().write("type", get_shifter);
                             setState(() {
-                              type = tyreReplacement;
+                              servicetype = tyreReplacement;
                               // set_typeaccount();
                             });
                           },
@@ -138,11 +139,11 @@ class _Book_ServiceState extends State<Book_Service> {
                                   scale: 1.5,
                                   child: Radio(
                                       value: tyreReplacement,
-                                      groupValue: type,
+                                      groupValue: servicetype,
                                       onChanged: (value) {
                                         setState(() {
-                                          type = value.toString();
-                                          print("fe =>" + value.toString());
+                                          servicetype = value.toString();
+                                          // print("fe =>" + value.toString());
                                         });
                                         // set_typeaccount();
                                       }),
@@ -164,7 +165,7 @@ class _Book_ServiceState extends State<Book_Service> {
                             // print("hii");
                             // GetStorage().write("type", get_shifter);
                             setState(() {
-                              type = wheelalignment;
+                              servicetype = wheelalignment;
                               // set_typeaccount();
                             });
                           },
@@ -179,10 +180,10 @@ class _Book_ServiceState extends State<Book_Service> {
                                   scale: 1.5,
                                   child: Radio(
                                       value: wheelalignment,
-                                      groupValue: type,
+                                      groupValue: servicetype,
                                       onChanged: (value) {
                                         setState(() {
-                                          type = value.toString();
+                                          servicetype = value.toString();
                                           print("fe =>" + value.toString());
                                         });
                                         // set_typeaccount();
@@ -205,7 +206,7 @@ class _Book_ServiceState extends State<Book_Service> {
                             // print("hii");
                             // GetStorage().write("type", get_shifter);
                             setState(() {
-                              type = punctureRepair;
+                              servicetype = punctureRepair;
                               // set_typeaccount();
                             });
                           },
@@ -220,13 +221,13 @@ class _Book_ServiceState extends State<Book_Service> {
                                   scale: 1.5,
                                   child: Radio(
                                       value: punctureRepair,
-                                      groupValue: type,
+                                      groupValue: servicetype,
                                       onChanged: (value) {
                                         setState(() {
-                                          type = value.toString();
+                                          servicetype = value.toString();
                                           // print("fe =>" + value.toString());
                                         });
-                                        // set_typeaccount();
+                                        // set_servicetypeaccount();
                                       }),
                                 ),
                                 Textfield().text(
@@ -245,7 +246,7 @@ class _Book_ServiceState extends State<Book_Service> {
                           onTap: () {
                             // GetStorage().write("type", become_shifter);
                             setState(() {
-                              type = flatbattery;
+                              servicetype = flatbattery;
                               // set_typeaccount();
                             });
                           },
@@ -260,10 +261,10 @@ class _Book_ServiceState extends State<Book_Service> {
                                   scale: 1.5,
                                   child: Radio(
                                       value: flatbattery,
-                                      groupValue: type,
+                                      groupValue: servicetype,
                                       onChanged: (value) {
                                         setState(() {
-                                          type = value.toString();
+                                          servicetype = value.toString();
                                           print("value" + value.toString());
                                         });
                                         // set_typeaccount();
@@ -285,7 +286,7 @@ class _Book_ServiceState extends State<Book_Service> {
                           onTap: () {
                             // GetStorage().write("type", become_shifter);
                             setState(() {
-                              type = batteryreplacement;
+                              servicetype = batteryreplacement;
                             });
                           },
                           child: Container(
@@ -299,10 +300,10 @@ class _Book_ServiceState extends State<Book_Service> {
                                   scale: 1.5,
                                   child: Radio(
                                       value: batteryreplacement,
-                                      groupValue: type,
+                                      groupValue: servicetype,
                                       onChanged: (value) {
                                         setState(() {
-                                          type = value.toString();
+                                          servicetype = value.toString();
                                           print("value" + value.toString());
                                         });
                                       }),
@@ -323,7 +324,7 @@ class _Book_ServiceState extends State<Book_Service> {
                           onTap: () {
                             // GetStorage().write("type", become_shifter);
                             setState(() {
-                              type = oilchange;
+                              servicetype = oilchange;
                             });
                           },
                           child: Container(
@@ -337,10 +338,10 @@ class _Book_ServiceState extends State<Book_Service> {
                                   scale: 1.5,
                                   child: Radio(
                                       value: oilchange,
-                                      groupValue: type,
+                                      groupValue: servicetype,
                                       onChanged: (value) {
                                         setState(() {
-                                          type = value.toString();
+                                          servicetype = value.toString();
                                           print("value" + value.toString());
                                         });
                                       }),
@@ -370,9 +371,9 @@ class _Book_ServiceState extends State<Book_Service> {
                     // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
                     nextScreen(
                         context,
-                        type == tyreReplacement
-                            ? Assistance_immediately3()
-                            : Assistance_immediately2(type: '0'));
+                        servicetype == tyreReplacement
+                            ? Assistance_immediately3(servicetype:servicetype,type: widget.type,)
+                            : Assistance_immediately2(type: widget.type));
                     // nextScreen(context, Send_Request(type: widget.type));
                   },
                 ),

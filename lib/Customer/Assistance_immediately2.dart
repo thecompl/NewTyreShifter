@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately3.dart';
 import 'package:tyreshifter/Customer/ProductList.dart';
+import 'package:tyreshifter/Customer/Products.dart';
 import 'package:tyreshifter/Widget/Texboxwidget.dart';
 
 import 'package:tyreshifter/Widget/Textfield.dart';
@@ -306,7 +307,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                     nextScreen(
                         context,
                         widget.type == '0'
-                            ? ProductList(type: widget.type)
+                            ? Products(type: widget.type)
                             : Assistance_immediately3(type: widget.type));
                   },
                 )
