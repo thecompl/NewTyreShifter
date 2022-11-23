@@ -42,6 +42,13 @@ final completed = "Completed";
 final msg = "Message";
 final services = "Services";
 final bookedServices = "Booked Services";
+final explanation = "Explanation";
+final assimmediatelymsg1 =
+    "Based on the tyre sizes a search should be done to align all available suppliers in the nearby area(15km as default, but this can be adjusted from the customer).";
+final assimmediatelymsg2 =
+    "Based on the search the CHEAPEST price for all tyres available in each category should be displayed with a multiplied factor";
+final assimmediatelymsg3 =
+    "For example cheapest price on budget tyres *1,25 (25%) will give a cost which will be fixed for the budget tyre for that customer.";
 final repeat_order = "Repeat Order";
 final cancel_req = "Cancel Request";
 final inbox = "Inbox";
@@ -103,6 +110,8 @@ final become_shifter = "Become a shifter";
 final flatbattery = "Flat battery";
 final oilchange = "Oil Change";
 final fees = "Fees";
+final replacement = "Replacement";
+final normalcars = "Normal Car(excl. tyres)";
 final batteryreplacement = "Battery replacement";
 final wheelalignment = "Wheel alignment";
 final get_shifter = "Get a shifter";
@@ -139,6 +148,7 @@ final applied = "applied";
 final remove = "Remove";
 final enable_locationtxt = "Enable location";
 final enable = "Enable";
+final assfixedprice = "Assistance immediate - fixed price";
 final setup_price = "Setup Price";
 final hii_welcome = "Hi! Welcome";
 final hii_welcome_back = "Hi! Welcome Back";
@@ -161,7 +171,8 @@ final verification_msg_txt =
     "Thanks for registrations you will be verified within 24hrs";
 final req_des =
     "Thanks For the payment your payment is store with tyreshifter when your request will done we will send money to service provider";
-final cancel_req_des = "Are you sure want to cancel request with Summers tyres?";
+final cancel_req_des =
+    "Are you sure want to cancel request with Summers tyres?";
 final cancel_req_des1 =
     "Are you sure you want to cancel this request with XYZ Tyres? Please note that you are cancelling request in short notice and amount you paid will not be refunded?                                                                                                         ";
 
@@ -268,6 +279,7 @@ final kr_icon = "assets/Kr.png";
 final immi_icon = "assets/Immi_icon.png";
 final change_availibity_icon = "assets/change_avalibilty.png";
 final company_no_icon = "assets/company_no.png";
+final checkcircle = "assets/check-circle.svg";
 
 final check_iconsvg =
     '''<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
