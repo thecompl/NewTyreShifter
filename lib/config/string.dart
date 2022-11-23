@@ -1,3 +1,5 @@
+import 'package:tyreshifter/Suppliers/AddEmployee.dart';
+
 final login = "Log in";
 final appbartext = "TyreShifter";
 final forgotpassword = "Forgot Password?";
@@ -148,6 +150,7 @@ final applied = "applied";
 final remove = "Remove";
 final enable_locationtxt = "Enable location";
 final enable = "Enable";
+final addEmployee = "Add Employee";
 final assfixedprice = "Assistance immediate - fixed price";
 final setup_price = "Setup Price";
 final hii_welcome = "Hi! Welcome";
@@ -185,6 +188,7 @@ final always = "Always";
 final set_availabilty = "Set Availability";
 final availabilty = "Availability";
 final how_many_work = "How many Workers?";
+final how_many_car = "How many cars?";
 final latest_req = "Latest Requests";
 final change_tyre = "Change My tyre ";
 final completed_orders = "Completed orders ";
@@ -206,7 +210,9 @@ final view_booking_btn_txt = "View My Booking";
 final complete = "Complete";
 final booking_details = "Booking Details";
 final upload_hms_card = "Upload HMS Card";
-final i_agreetxt = "I agree with ";
+final i_agreetxt = "I agree with";
+final i_agreetxt2 = "Allow to accept request";
+final learnmore = "(Learn more)";
 final locationskipmsg = "Want to not Enable Location ";
 final terms_condition = " Terms and conditions";
 final company = "Company";
@@ -228,6 +234,7 @@ final viewbookingmsg =
 final cancel = "Cancel";
 // final canceled = "Canceled";
 //image------
+final carbon_svg = "assets/carbon_add-filled.svg";
 final enable_locationimg = "assets/enable_locationimg.png";
 final reserver_shifterimg = "assets/shifter.png";
 final crossimage = "assets/cross.png";

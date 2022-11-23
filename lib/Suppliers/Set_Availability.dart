@@ -5,6 +5,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
+import 'package:tyreshifter/Suppliers/AddEmployee.dart';
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/Widget/Radiobtn.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -26,7 +27,7 @@ class Set_Availability extends StatefulWidget {
     Key? key,
     this.type,
   }) : super(key: key);
-
+  
   @override
   State<Set_Availability> createState() => _Set_AvailabilityState();
 }
@@ -239,10 +240,10 @@ class _Set_AvailabilityState extends State<Set_Availability> {
                     ListView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: getweekday.weekday.length,
+                        itemCount: day.length,
                         itemBuilder: (BuildContext context, int index) {
                           return availbilty_time(
-                              getweekday.weekday[index]['weekdayName'], index);
+                              day[index], index);
                         }),
                   ],
                 ),
@@ -256,7 +257,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Textfield().text(
-                          how_many_work,
+                          how_many_car,
                           TextStyles.withColor(TextStyles.mb16, color.black),
                           TextAlign.left),
                       increase_decraese()
@@ -270,7 +271,8 @@ class _Set_AvailabilityState extends State<Set_Availability> {
 
                   print("hii" + checkedValue.toString());
 
-                  nextScreen(context, Enable_location());
+                  nextScreen(context, AddEmployee());
+                  // nextScreen(context, Enable_location());
                 },
               ),
               SizedBox(height: 15),
@@ -357,7 +359,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
                   });
                 },
                 child: Container(
-                    width: 95,
+                    width: 96,
                     height: 40,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
@@ -375,7 +377,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
                             color: color.Primary_second_Color,
                           ),
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 2),
                         Textfield().text(
                             starttime[index],
                             TextStyles.withColor(
