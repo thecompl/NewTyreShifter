@@ -40,6 +40,7 @@ class _Immedite_reqState extends State<Immedite_req> {
                       Service_Details(
                         dropdown: true,
                         pagetype: booking_details,
+                        
                       ));
                 },
               ),

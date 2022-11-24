@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tyreshifter/Common/Enable_location.dart';
 import 'package:tyreshifter/Widget/Appbartext.dart';
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -31,7 +32,7 @@ class _AddVehicleState extends State<AddVehicle> {
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: addEmployee, show_arrow_icon: 0),
+        child: Appbartext(title: addvehicle, show_arrow_icon: 0),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -100,7 +101,7 @@ class _AddVehicleState extends State<AddVehicle> {
                     SizedBox(
                       width: 5,
                     ),
-                    Textfield().text(addanotheremployee, TextStyles.mn16),
+                    Textfield().text(addanothervehicle, TextStyles.mn16),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -108,7 +109,7 @@ class _AddVehicleState extends State<AddVehicle> {
                   name: done,
                   onTap: () {
                     // nextScreen(context, AddEmployee());
-                    // nextScreen(context, Enable_location());
+                    nextScreen(context, Enable_location());
                   },
                 ),
                 SizedBox(height: 15),

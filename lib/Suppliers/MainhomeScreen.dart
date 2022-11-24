@@ -10,7 +10,8 @@ import 'MainScreen/Orders.dart';
 import '../Common/Profile.dart';
 
 class MainHomeScreen_Supplier extends StatefulWidget {
-  MainHomeScreen_Supplier({Key? key}) : super(key: key);
+  final pageIndex;
+  MainHomeScreen_Supplier({Key? key, this.pageIndex = 0}) : super(key: key);
 
   @override
   State<MainHomeScreen_Supplier> createState() =>
@@ -26,6 +27,14 @@ class _MainHomeScreen_SupplierState extends State<MainHomeScreen_Supplier> {
     setState(() {
       pageIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    setState(() {
+      pageIndex = widget.pageIndex;
+    });
+    super.initState();
   }
 
   @override
