@@ -157,10 +157,9 @@ class _ProfileState extends State<Profile> {
                 ? SizedBox(
                     height: 15,
                   )
-                : Container(),
-                SizedBox(
-                  height: 20,
-                ),
+                : SizedBox(
+                    height: 20,
+                  ),
             Profilemenu(profile_person, edit_profile, () {
               nextScreen(context, Edit_Screen());
             }),
@@ -239,10 +238,13 @@ class _ProfileState extends State<Profile> {
             ),
             type_account == become_shifter
                 // ? Profilemenu(profile_req, my_booking, My_Booking(appbarname:my_booking,showarrow:1))
-                ? Container()
+                ? Profilemenu(profile_req, completed_bookings, () {
+                    // nextScreen(context, Completed_Order());
+                  })
                 : Profilemenu(profile_req, completed_bookings, () {
                     nextScreen(context, Completed_Order());
                   }),
+            // if (type_account != become_shifter)
             Divider(
               thickness: 1,
             ),
@@ -255,6 +257,43 @@ class _ProfileState extends State<Profile> {
                         ));
                   })
                 : Container(),
+            Divider(
+              thickness: 1,
+            ),
+            type_account == become_shifter
+                ? Profilemenu(producticon, products, () {
+                    // nextScreen(
+                    //     context,
+                    //     Set_Availability(
+                    //       type: "1",
+                    //     ));
+                  })
+                : Container(),
+            Divider(
+              thickness: 1,
+            ),
+            type_account == become_shifter
+                ? Profilemenu(profile_person, employee, () {
+                    // nextScreen(
+                    //     context,
+                    //     Set_Availability(
+                    //       type: "1",
+                    //     ));
+                  })
+                : Container(),
+            Divider(
+              thickness: 1,
+            ),
+            type_account == become_shifter
+                ? Profilemenu(profile_req, vehicles, () {
+                    // nextScreen(
+                    //     context,
+                    //     Set_Availability(
+                    //       type: "1",
+                    //     ));
+                  })
+                : Container(),
+
             type_account == become_shifter
                 ? Divider(
                     thickness: 1,
@@ -272,10 +311,32 @@ class _ProfileState extends State<Profile> {
             Divider(
               thickness: 1,
             ),
+            type_account == become_shifter
+                ? Profilemenu(deletepng, deleteaccount, () {
+                    // nextScreen(
+                    //     context,
+                    //     Set_Availability(
+                    //       type: "1",
+                    //     ));
+                  })
+                : Container(),
+            if (type_account == become_shifter)
+              Divider(
+                thickness: 1,
+              ),
             Profilemenu(profile_logout, log_out, () {
               logoutctrl.logout(context);
               if (box.read("logoutmsg") != null) nextScreen(context, Login());
             }),
+            SizedBox(height: 30),
+            Textfield().text(
+                appversion,
+                TextStyles.withColor(
+                  TextStyles.mn16,
+                  color.textgrey_color,
+                ),
+                TextAlign.center),
+            SizedBox(height: 20),
           ],
         ),
       ),
@@ -331,10 +392,12 @@ class _ProfileState extends State<Profile> {
                               setState(() => _value = newValue),
                         ),
                       )
-                    : Icon(
-                        Icons.arrow_forward_ios_sharp,
-                        size: 20,
-                      )
+                    : menuname == deleteaccount
+                        ? Container()
+                        : Icon(
+                            Icons.arrow_forward_ios_sharp,
+                            size: 20,
+                          )
                 : Container()
           ],
         ),
