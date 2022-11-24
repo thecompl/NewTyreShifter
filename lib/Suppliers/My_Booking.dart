@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
+import 'package:intl/intl.dart';
 import 'package:tyreshifter/Common/NotificationScreen.dart';
 import 'package:tyreshifter/Suppliers/Booking_Details.dart';
 
@@ -23,7 +25,8 @@ import '../Widget/Booking_Card.dart';
 class My_Booking extends StatefulWidget {
   final String? appbarname;
   final showarrow;
-  My_Booking({Key? key,this.appbarname = "Home", this.showarrow=0}) : super(key: key);
+  My_Booking({Key? key, this.appbarname = "Home", this.showarrow = 0})
+      : super(key: key);
 
   @override
   State<My_Booking> createState() => _My_BookingState();
@@ -33,21 +36,31 @@ class _My_BookingState extends State<My_Booking> {
   bool need_tyre = false;
   bool resever_tyre = false;
   var btn_change = false;
-
+  DateTime? pickedDate = DateTime.now();
+  TextEditingController date = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: color.skylight,
+      backgroundColor: color.skylight,
       appBar: PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: widget.appbarname!,show_arrow_icon:widget.showarrow == 1?0:1,show_icon:widget.showarrow == 1?0: 1,icon: Icons.notifications,ontap: (){
-          nextScreen(context, NotificationScreen());
-        },),),
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(
+          title: widget.appbarname!,
+          show_arrow_icon: widget.showarrow == 1 ? 0 : 1,
+          show_icon: widget.showarrow == 1 ? 0 : 1,
+          icon: Icons.notifications,
+          ontap: () {
+            nextScreen(context, NotificationScreen());
+          },
+        ),
+      ),
 
-        //my booking appp --------
+      //my booking appp --------
 
-        // PreferredSize(
+      // PreferredSize(
       //   preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
       //   child: Appbartext(title: my_booking,show_arrow_icon: 0,),),
 
@@ -56,59 +69,90 @@ class _My_BookingState extends State<My_Booking> {
       //     TextStyles.withColor(TextStyles.mb16, color.black),
       //     context,1),
       body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            child: Column(
-              children: [
-                Container(
-                  height: size.height,
-                  child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: 8,
-                      itemBuilder: (BuildContext context, int index) {
-                        if (index % 2 == 0) {
-                          return Booking_Card(
-                            adddress: "752 Longbranch St.Calhoun, GA 30701",
-                            headtxt: 'Jaylon Rosser',
-                            Img: service_img,
-                            btnname: working,
-                            btncolor: color.btncolor3,
-                            Ontap: () {
-                              nextScreen(
-                                  context,
-                                  Service_Details(
-                                      dropdown: true,
-                                      pagetype: booking_details,
-                                      status: working));
-                            },
-                          );
-                        }
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 5,left: 2),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Textfield().text(today, TextStyles.mb16),
+                    GestureDetector(
+                        onTap: () {
+                          opendatepiker();
+                          setState(() {
+                            date.text = DateFormat('dd/MM/yyyy')
+                                .format(pickedDate!)
+                                .toString();
+                          });
+                        },
+                        child: SvgPicture.string(calendarsvg)),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                height: size.height,
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 8,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (index % 2 == 0) {
                         return Booking_Card(
                           adddress: "752 Longbranch St.Calhoun, GA 30701",
                           headtxt: 'Jaylon Rosser',
                           Img: service_img,
-                          btnname: complete,
-                          btncolor: color.btncolor2,
+                          btnname: working,
+                          btncolor: color.btncolor3,
                           Ontap: () {
                             nextScreen(
                                 context,
                                 Service_Details(
-                                  dropdown: true,
-                                  pagetype: booking_details,
-                                  status: complete,
-                                ));
+                                    dropdown: true,
+                                    pagetype: booking_details,
+                                    status: working));
                           },
                         );
-                      }),
-                ),
-              ],
-            ),
+                      }
+                      return Booking_Card(
+                        adddress: "752 Longbranch St.Calhoun, GA 30701",
+                        headtxt: 'Jaylon Rosser',
+                        Img: service_img,
+                        btnname: complete,
+                        btncolor: color.btncolor2,
+                        Ontap: () {
+                          nextScreen(
+                              context,
+                              Service_Details(
+                                dropdown: true,
+                                pagetype: booking_details,
+                                status: complete,
+                              ));
+                        },
+                      );
+                    }),
+              ),
+            ],
           ),
         ),
-      );
-
+      ),
+    );
   }
 
+  opendatepiker() async {
+    DateTime? tmpdate = await showDatePicker(
+        context: context, //context of current state
+        initialDate: DateTime.now(),
+        firstDate: DateTime(
+            2000), //DateTime.now() - not to allow to choose before today.
+        lastDate: DateTime(2101));
+    setState(() {
+      pickedDate = tmpdate;
+    });
+  }
+// }
   // my_req_card(cntx, value) {
   //   var size = MediaQuery.of(cntx).size;
   //   return GestureDetector(

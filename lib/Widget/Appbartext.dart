@@ -100,12 +100,12 @@ class _AppbartextState extends State<Appbartext> {
                           widget.ontap!();
                         },
                         child: Container(
-                          decoration: BoxDecoration(
-                              color: color.Primary_second_Color,
-                              border: Border.all(
-                                  color: color.border_grey4_color, width: 0),
-                              borderRadius: BorderRadius.circular(15)),
-                          alignment: Alignment.topCenter,
+                          // decoration: BoxDecoration(
+                          //     color: color.Primary_second_Color,
+                          //     border: Border.all(
+                          //         color: color.border_grey4_color, width: 0),
+                          //     borderRadius: BorderRadius.circular(15)),
+                          alignment: Alignment.centerRight,
                           width: 80,
                           child: widget.showtext! == false
                               ? Icon(

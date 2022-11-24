@@ -30,7 +30,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   List pages = [Latest_req(), Immedite_req()];
   bool need_tyre = false;
   bool resever_tyre = false;
@@ -46,11 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color.skylight,
-      appBar:
-      PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: immediate_req,show_arrow_icon: 1)),
-          //home screen app bar
+      appBar: PreferredSize(
+          preferredSize: Platform.isAndroid
+              ? Size.fromHeight(appbarheight_android)
+              : Size.fromHeight(appbarheight_ios),
+          child: Appbartext(title: immediate_req, show_arrow_icon: 1)),
+      //home screen app bar
 
       // PreferredSize(
       //   preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
@@ -139,7 +139,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                   height: size.height * 0.71,
                   child: PageView.builder(
-
                     onPageChanged: (value) {
                       setState(() {
                         index = value;
