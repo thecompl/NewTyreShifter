@@ -34,6 +34,8 @@ final canceled = "Cancelled";
 final booking = "Bookings";
 final no = "No";
 final yes = "Yes";
+final starttime = "Start Time";
+final endtime = "End Time";
 final paymen_rec = "Payment Receipt";
 final payment_details = "Payment Detail";
 final before_after = "Before and After ";
@@ -309,6 +311,7 @@ final immi_icon = "assets/Immi_icon.png";
 final change_availibity_icon = "assets/change_avalibilty.png";
 final company_no_icon = "assets/company_no.png";
 final checkcircle = "assets/check-circle.svg";
+final exiticon = "assets/exiticon.svg";
 
 final check_iconsvg =
     '''<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
