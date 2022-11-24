@@ -199,6 +199,7 @@ final my_booking = "My booking";
 final Upload_Vehicle_photo = "Upload Vehicle photo";
 final before = "Before";
 final after = "After";
+final addanotheremployee = "Add another employee";
 final withdraw = "Withdraw";
 final personal_bal = "Personal Balance";
 final withdraw_to = "Withdraw To";
@@ -235,6 +236,7 @@ final cancel = "Cancel";
 // final canceled = "Canceled";
 //image------
 final carbon_svg = "assets/carbon_add-filled.svg";
+final addicon_svg = "assets/addicon.svg";
 final enable_locationimg = "assets/enable_locationimg.png";
 final reserver_shifterimg = "assets/shifter.png";
 final crossimage = "assets/cross.png";
@@ -276,6 +278,7 @@ final perosnimg = "assets/person.png";
 final birthdayimg = "assets/birthday.png";
 final location_globe = "assets/globe.png";
 final lock_forget_pwd = "assets/lock.png";
+final hassicon = "assets/hassicon.svg";
 
 //supplier_image
 final check_circle = "assets/check_circle.png";
