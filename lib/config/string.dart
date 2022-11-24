@@ -222,6 +222,7 @@ final back_transfer = "Bank Transfer";
 final withdraw_to_credit_card = "Withdraw To Credit card";
 final change_availability = "Change Availability";
 final employee = "Employee";
+final myshift = "My Shift";
 final products = "Products";
 final vehicles = "Vehicles";
 final deleteaccount = "Delete Account";
@@ -312,6 +313,7 @@ final change_availibity_icon = "assets/change_avalibilty.png";
 final company_no_icon = "assets/company_no.png";
 final checkcircle = "assets/check-circle.svg";
 final exiticon = "assets/exiticon.svg";
+final calendaroutline = "assets/calendaroutline.svg";
 
 final check_iconsvg =
     '''<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">

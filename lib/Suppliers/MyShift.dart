@@ -7,6 +7,7 @@ import 'package:tyreshifter/Suppliers/AddVehicle.dart';
 import 'package:tyreshifter/Widget/Appbartext.dart';
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/Widget/EmployeeListwidget.dart';
+import 'package:tyreshifter/Widget/MyShiftwidget.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import 'package:tyreshifter/config/TextStyles/Textstyles.dart';
@@ -33,7 +34,7 @@ class _MyShiftState extends State<MyShift> {
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: employee, show_arrow_icon: 0),
+        child: Appbartext(title: myshift, show_arrow_icon: 0),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -43,23 +44,25 @@ class _MyShiftState extends State<MyShift> {
                 // scrollDirection: Axis.vertical,
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
-                  return EmployeeListwidget(
-                    title: 'Jane Cooper',
-                    email: 'Janeooper123@gmail.com',
-                    subtitle: 'Gj01 pu6756',
+                  return MyShiftwidget(
+                    title: '08/29/2022',
+                    child1: SvgPicture.asset(calendaroutline),
+                    child2: Icon(
+                      Icons.access_time_rounded,
+                      size: 24,
+                      color: color.Primary_second_Color,
+                    ),
+                    child3: Icon(
+                      Icons.access_time_rounded,
+                      size: 24,
+                      color: color.Primary_second_Color,
+                    ),
                     label1: starttime,
                     label2: endtime,
                     value1: '11:00 AM',
                     value2: '01:05 PM',
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: (() {}),
-                        child: SvgPicture.asset(exiticon),
-                      ),
-                    ),
                   );
                 }),
           ),

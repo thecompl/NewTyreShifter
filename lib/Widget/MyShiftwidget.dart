@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tyreshifter/Suppliers/Complete_Order.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import 'package:tyreshifter/config/TextStyles/Textstyles.dart';
+import 'package:tyreshifter/config/string.dart';
 import 'dart:io' show Platform;
 
 import 'Textfield.dart';
@@ -16,8 +18,10 @@ class MyShiftwidget extends StatefulWidget {
   final label2;
   final value1;
   final value2;
+  final child1;
+  final child2;
+  final child3;
 
-  final child;
   MyShiftwidget({
     Key? key,
     this.title,
@@ -27,7 +31,9 @@ class MyShiftwidget extends StatefulWidget {
     this.label2,
     this.value1,
     this.value2,
-    this.child,
+    this.child1,
+    this.child3,
+    this.child2,
   }) : super(key: key);
 
   @override
@@ -46,62 +52,74 @@ class _MyShiftwidgetState extends State<MyShiftwidget> {
 
     return Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 5),
-            Textfield().text(
-                widget.title,
-                TextStyles.withColor(
-                    TextStyles.mb16, color.Primary_second_Color)),
-            SizedBox(
-              height: 10,
-            ),
-            Textfield().text(widget.email,
-                TextStyles.withColor(TextStyles.mn14, color.textgrey_color)),
-            SizedBox(
-              height: 10,
-            ),
-            Textfield().text(widget.subtitle,
-                TextStyles.withColor(TextStyles.mn14, color.textgrey_color)),
+            Row(children: [
+              Container(
+                child: widget.child1!,
+              ),
+              SizedBox(width: 10),
+              Textfield().text(widget.title,
+                  TextStyles.withColor(TextStyles.mb16, color.txt_dark_color)),
+            ]),
             SizedBox(
               height: 10,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  child: Column(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Textfield().text(
-                          widget.label1,
-                          TextStyles.withColor(
-                              TextStyles.mb16, color.Primary_second_Color)),
-                      Textfield().text(
-                          widget.value2,
-                          TextStyles.withColor(
-                              TextStyles.mb16, color.txt_dark_color)),
+                      Container(
+                        child: widget.child2!,
+                      ),
+                      SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Textfield().text(
+                              widget.label1,
+                              TextStyles.withColor(TextStyles.mb16,
+                                  color.Primary_second_Color, 1.2)),
+                          Textfield().text(
+                              widget.value2,
+                              TextStyles.withColor(
+                                  TextStyles.mb16, color.txt_dark_color)),
+                        ],
+                      ),
                     ],
                   ),
                 ),
+                SizedBox(width: 50),
                 Container(
-                  child: Column(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Textfield().text(
-                          widget.label2,
-                          TextStyles.withColor(
-                              TextStyles.mb16, color.Primary_second_Color)),
-                      Textfield().text(
-                          widget.value2,
-                          TextStyles.withColor(
-                              TextStyles.mb16, color.txt_dark_color)),
+                      Container(
+                        child: widget.child3!,
+                      ),
+                      SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Textfield().text(
+                              widget.label2,
+                              TextStyles.withColor(TextStyles.mb16,
+                                  color.Primary_second_Color, 1.2)),
+                          Textfield().text(
+                              widget.value2,
+                              TextStyles.withColor(
+                                  TextStyles.mb16, color.txt_dark_color)),
+                        ],
+                      ),
                     ],
                   ),
                 ),
-                Container(
-                  child: widget.child,
-                )
               ],
             ),
             SizedBox(

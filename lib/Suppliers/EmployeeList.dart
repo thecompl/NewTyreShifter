@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tyreshifter/Suppliers/AddVehicle.dart';
+import 'package:tyreshifter/Suppliers/MyShift.dart';
 import 'package:tyreshifter/Widget/Appbartext.dart';
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/Widget/EmployeeListwidget.dart';
@@ -56,7 +57,9 @@ class _EmployeeListState extends State<EmployeeList> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                        onTap: (() {}),
+                        onTap: (() {
+                          nextScreen(context, MyShift());
+                        }),
                         child: SvgPicture.asset(exiticon),
                       ),
                     ),
