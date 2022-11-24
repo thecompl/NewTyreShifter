@@ -23,7 +23,8 @@ import '../../Common/NotificationScreen.dart';
 import '../Service_Detail.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  final showarrow;
+  HomeScreen({Key? key, this.showarrow}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -49,7 +50,16 @@ class _HomeScreenState extends State<HomeScreen> {
           preferredSize: Platform.isAndroid
               ? Size.fromHeight(appbarheight_android)
               : Size.fromHeight(appbarheight_ios),
-          child: Appbartext(title: immediate_req, show_arrow_icon: 1)),
+          child: Appbartext(
+            title: requests,
+            // show_arrow_icon: 1,
+            show_arrow_icon: widget.showarrow == 1 ? 0 : 1,
+            show_icon: widget.showarrow == 1 ? 0 : 1,
+            icon: Icons.notifications,
+            ontap: () {
+              nextScreen(context, NotificationScreen());
+            },
+          )),
       //home screen app bar
 
       // PreferredSize(
@@ -89,69 +99,75 @@ class _HomeScreenState extends State<HomeScreen> {
       //   ),
       // ),
 
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 5,
-              ),
-              Container(
-                height: 60,
-                child: Card(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        child: Column(
+          children: [
+            Container(
+              height: 60,
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _pageController!.jumpToPage(0);
-                            index = 0;
-                          });
-                        },
-                        child: Togglebtn(
-                            txt: request,
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              index = 0;
+                              _pageController!.jumpToPage(0);
+                            });
+                          },
+                          child: Togglebtn(
+                            txt: latest,
                             style: TextStyles.withColor(TextStyles.mb16,
                                 index == 0 ? color.white : color.black),
                             active: index == 0 ? true : false,
-                            width: 0.4),
+                          ),
+                        ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _pageController!.jumpToPage(1);
-                            index = 1;
-                          });
-                        },
-                        child: Togglebtn(
-                          txt: immediate_req,
-                          style: TextStyles.withColor(TextStyles.mb16,
-                              index == 1 ? color.white : color.black),
-                          active: index == 1 ? true : false,
-                          width: 0.45,
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              index = 1;
+                              _pageController!.jumpToPage(1);
+                            });
+                          },
+                          child: Togglebtn(
+                            txt: immediate_req,
+                            style: TextStyles.withColor(TextStyles.mb16,
+                                index == 1 ? color.white : color.black),
+                            active: index == 1 ? true : false,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              Container(
-                  height: size.height * 0.71,
+            ),
+            SizedBox(
+              height: 0,
+            ),
+            Expanded(
+              child: Container(
+                  // height: size.height * 0.9,
                   child: PageView.builder(
-                    onPageChanged: (value) {
-                      setState(() {
-                        index = value;
-                      });
-                    },
-                    controller: _pageController,
-                    itemBuilder: (context, index) {
-                      return pages[index];
-                    },
-                    itemCount: pages.length, // Can be null
-                  )),
-            ],
-          ),
+                onPageChanged: (value) {
+                  setState(() {
+                    index = value;
+                  });
+                },
+                controller: _pageController,
+                itemBuilder: (context, index) {
+                  return pages[index];
+                },
+                itemCount: pages.length, // Can be null
+              )),
+            ),
+          ],
         ),
       ),
     );
