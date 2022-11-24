@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyreshifter/Customer/Completed_Order.dart';
+import 'package:tyreshifter/Suppliers/MyProducts.dart';
 import 'package:tyreshifter/Suppliers/My_Booking.dart';
 import 'package:tyreshifter/Suppliers/Set_Availability.dart';
 import 'package:tyreshifter/Suppliers/Setprice.dart';
@@ -263,11 +264,7 @@ class _ProfileState extends State<Profile> {
             ),
             type_account == become_shifter
                 ? Profilemenu(producticon, products, () {
-                    // nextScreen(
-                    //     context,
-                    //     Set_Availability(
-                    //       type: "1",
-                    //     ));
+                    nextScreen(context, MyProducts());
                   })
                 : Container(),
             Divider(
@@ -310,6 +307,19 @@ class _ProfileState extends State<Profile> {
             ),
             type_account == become_shifter
                 ? Profilemenu(deletepng, deleteaccount, () {
+                    // nextScreen(
+                    //     context,
+                    //     Set_Availability(
+                    //       type: "1",
+                    //     ));
+                  })
+                : Container(),
+            if (type_account == become_shifter)
+              Divider(
+                thickness: 1,
+              ),
+            type_account == become_shifter
+                ? Profilemenu(profile_logout, endshift, () {
                     // nextScreen(
                     //     context,
                     //     Set_Availability(
@@ -391,10 +401,12 @@ class _ProfileState extends State<Profile> {
                       )
                     : menuname == deleteaccount
                         ? Container()
-                        : Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            size: 20,
-                          )
+                        : menuname == endshift
+                            ? Container()
+                            : Icon(
+                                Icons.arrow_forward_ios_sharp,
+                                size: 20,
+                              )
                 : Container()
           ],
         ),
