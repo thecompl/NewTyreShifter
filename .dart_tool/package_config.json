@@ -176,6 +176,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "flutter_speed_dial",
+      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_speed_dial-1.2.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-1.1.3",
       "packageUri": "lib/",
@@ -584,7 +590,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-11-12T10:19:07.710763Z",
+  "generated": "2022-11-25T06:46:22.934211Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }

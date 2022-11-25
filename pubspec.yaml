@@ -53,6 +53,7 @@ dependencies:
   get:
   get_storage: ^2.0.3
   device_info_plus: ^4.1.2
+  flutter_speed_dial: ^1.0.9
   
   # flutter_fetch_data_getx:
 dev_dependencies:

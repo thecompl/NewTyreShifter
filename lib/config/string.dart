@@ -102,6 +102,8 @@ final reserve2line2 =
 final reserve3line3 = "You will get help as soon as possible";
 final reserve4line4 = "Confirm if your locking wheel nut is present";
 
+final addproducts = "Add Products";
+final uploadcsv = "Upload CSV";
 final expirytxt = "Expiry";
 final cvvtxt = "CVV";
 final support = "Support";
@@ -441,6 +443,8 @@ final producticon = "assets/Producticon.png";
 final profile_support = "assets/profile_support.png";
 final profile_notification = "assets/profile_notification.png";
 final deletepng = "assets/delete.png";
+final addproductsvg = "assets/addproducticon.svg";
+final exceliconsvg = "assets/excelicon.svg";
 
 final height = 0.5;
 final width = 0.7;
