@@ -79,6 +79,7 @@ final search = "Search";
 final buynow = "Buy Now";
 final addtocart = "Add to cart";
 final added = "Added";
+final changeqty = "Change Qty";
 final deletefromcart = "Delete from cart";
 final deletemsg =
     "Do you want to remove this selection from service as well? Click Yes to remove, Click No to choose another product.";

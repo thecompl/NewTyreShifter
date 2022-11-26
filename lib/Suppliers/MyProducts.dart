@@ -12,6 +12,7 @@ import 'package:tyreshifter/Customer/Inprogress.dart';
 import 'package:tyreshifter/Customer/ProductList.dart';
 import 'package:tyreshifter/Suppliers/AddProducts.dart';
 import 'package:tyreshifter/Suppliers/AddVehicle.dart';
+import 'package:tyreshifter/Suppliers/Dailogs/Quantitydailog.dart';
 import 'package:tyreshifter/config/Color.dart';
 import '../Widget/Appbartext.dart';
 import '../Widget/Assistance_immediately_Card.dart';
@@ -178,7 +179,7 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                                       SlidableAction(
                                         // An action can be bigger than the others.
                                         // flex: 2,
-                                        onPressed: doNothing,
+                                        onPressed: addquantity,
                                         backgroundColor: color.txt_dark_color,
                                         foregroundColor: Colors.white,
                                         icon: Icons.edit_note,
@@ -237,4 +238,18 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
   }
 }
 
+void addquantity(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (context) => Quantitydailog(
+            title: changeqty,
+            msg: qty,
+            quantity: '1',
+            cancellabel: done,
+            Oncanceltap: () {
+              backScreen(context);
+            },
+            
+          ));
+}
 void doNothing(BuildContext context) {}

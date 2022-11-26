@@ -115,7 +115,6 @@ class _AddProductsState extends State<AddProducts> {
                   border_color: color.border_grey4_color,
                   height: 52,
                 ),
-
                 Dropdown(
                   dropdowncolor: Colors.transparent,
                   borderradius: 15,
