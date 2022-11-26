@@ -18,11 +18,7 @@ class Quantitydailog extends StatefulWidget {
 
   final iconheight;
 
-  final cancellabel;
-
   final confirmlabel;
-
-  final Function? Oncanceltap;
 
   final Function? Onconfirmtap;
 
@@ -30,18 +26,22 @@ class Quantitydailog extends StatefulWidget {
 
   final quantity;
 
+  final showquantity;
+
+  final showtitle;
+
   Quantitydailog(
       {Key? key,
       this.msg,
       this.title,
       this.iconsvg,
       this.iconheight,
-      this.cancellabel,
       this.confirmlabel,
-      this.Oncanceltap,
       this.Onconfirmtap,
       this.showicon = false,
-      this.quantity})
+      this.quantity,
+      this.showquantity = true,
+      this.showtitle = true})
       : super(key: key);
 
   @override
@@ -73,61 +73,82 @@ class _QuantitydailogState extends State<Quantitydailog> {
                   height: widget.iconheight,
                 ),
               if (widget.showicon) SizedBox(height: 20),
-              Textfield().text(
-                  widget.title,
-                  TextStyles.withColor(
-                      TextStyles.mb18, color.text_grey2_color)),
-              SizedBox(height: 10),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              if (widget.showtitle)
+                Column(
                   children: [
-                    Container(
-                      // width: size.width * 0.65,
-                      child: Text(widget.msg,
-                          textAlign: TextAlign.center,
-                          style: TextStyles.withColor(
-                              TextStyles.mb16, color.text_grey2_color)),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                        width: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(
-                                color: color.Primary_second_Color, width: 2)),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.remove,
-                                color: color.Primary_second_Color,
-                                size: 22,
-                              ),
-                            ),
-                            Textfield().text(widget.quantity, TextStyles.mb18),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.add,
-                                color: color.Primary_second_Color,
-                                size: 22,
-                              ),
-                            ),
-                          ],
-                        )),
+                    Textfield().text(
+                        widget.title,
+                        TextStyles.withColor(
+                            TextStyles.mb18, color.text_grey2_color)),
+                    SizedBox(height: 10),
                   ],
                 ),
-              ),
+              widget.showquantity
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            // width: size.width * 0.65,
+                            child: Text(widget.msg,
+                                textAlign: TextAlign.center,
+                                style: TextStyles.withColor(
+                                    TextStyles.mb16, color.text_grey2_color)),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                              width: 100,
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  border: Border.all(
+                                      color: color.Primary_second_Color,
+                                      width: 2)),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Icon(
+                                      Icons.remove,
+                                      color: color.Primary_second_Color,
+                                      size: 22,
+                                    ),
+                                  ),
+                                  Textfield()
+                                      .text(widget.quantity, TextStyles.mb18),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Icon(
+                                      Icons.add,
+                                      color: color.Primary_second_Color,
+                                      size: 22,
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        ],
+                      ),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      child: Container(
+                        width: size.width * 0.65,
+                        child: Text(widget.msg,
+                            textAlign: TextAlign.center,
+                            style: TextStyles.withColor(
+                                TextStyles.mn14, color.textgrey_color)),
+                      ),
+                    ),
               SizedBox(
                 height: 10,
               ),
@@ -144,11 +165,11 @@ class _QuantitydailogState extends State<Quantitydailog> {
                       Expanded(
                         child: Center(
                           child: GestureDetector(
-                              child: Text(widget.cancellabel,
+                              child: Text(widget.confirmlabel,
                                   style: TextStyles.withColor(TextStyles.mb20,
                                       color.Primary_second_Color)),
                               onTap: () {
-                                widget.Oncanceltap!();
+                                widget.Onconfirmtap!();
                                 // backScreen(context);
                               }),
                         ),

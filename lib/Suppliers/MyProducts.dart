@@ -245,8 +245,8 @@ void addquantity(BuildContext context) {
             title: changeqty,
             msg: qty,
             quantity: '1',
-            cancellabel: done,
-            Oncanceltap: () {
+            confirmlabel: done,
+            Onconfirmtap: () {
               backScreen(context);
             },
             

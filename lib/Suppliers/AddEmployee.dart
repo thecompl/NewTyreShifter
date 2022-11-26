@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tyreshifter/Suppliers/AddVehicle.dart';
+import 'package:tyreshifter/Suppliers/Dailogs/Quantitydailog.dart';
 import 'package:tyreshifter/Widget/Appbartext.dart';
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -185,7 +186,22 @@ class _AddEmployeeState extends State<AddEmployee> {
                 ElevatedButtons(
                   name: done,
                   onTap: () {
-                    nextScreen(context, AddVehicle());
+                    showDialog(
+                              context: context,
+                              builder: (context) => Quantitydailog(
+                                    iconsvg: info_iconsvg,
+                                    iconheight: 50.0,
+                                    showicon: true,
+                                    showquantity: false,
+                                    showtitle: false,
+                                    msg: employeemsg,
+                                    confirmlabel: okay,
+                                    Onconfirmtap: () {
+                                      backScreen(context);
+                                      nextScreen(context, AddVehicle());
+                                    },
+                                  ));
+                    // nextScreen(context, AddVehicle());
                     // nextScreen(context, Enable_location());
                   },
                 ),
