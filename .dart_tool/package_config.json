@@ -176,6 +176,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "flutter_slidable",
+      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_slidable-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_speed_dial",
       "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_speed_dial-1.2.5",
       "packageUri": "lib/",
@@ -590,7 +596,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-11-25T06:46:22.934211Z",
+  "generated": "2022-11-25T09:10:55.331070Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }

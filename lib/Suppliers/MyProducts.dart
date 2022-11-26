@@ -3,12 +3,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:tyreshifter/Customer/Cancelledrequest.dart';
 import 'package:tyreshifter/Customer/Completed.dart';
 import 'package:tyreshifter/Customer/Inprogress.dart';
 import 'package:tyreshifter/Customer/ProductList.dart';
+import 'package:tyreshifter/Suppliers/AddProducts.dart';
+import 'package:tyreshifter/Suppliers/AddVehicle.dart';
 import 'package:tyreshifter/config/Color.dart';
 import '../Widget/Appbartext.dart';
 import '../Widget/Assistance_immediately_Card.dart';
@@ -40,6 +43,10 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
   List text = [
     addproducts,
     uploadcsv,
+  ];
+  List onpress = [
+    AddProducts(),
+    // AddVehicle(),
   ];
   void initState() {
     _controller = new AnimationController(
@@ -90,7 +97,9 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                       child: new SvgPicture.asset(
                         icons[index],
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        nextScreen(context, onpress[index]);
+                      },
                     ),
                   ],
                 ),
@@ -151,29 +160,67 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                                       color: color.border_grey4_color,
                                       width: 0.5),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 9.0),
-                                  child: Assistance_immediately_Cart(
-                                    adddress: availableqty + "5",
-                                    price: "£139.23",
-                                    headtxt:
-                                        'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
-                                    Img: tyre_img,
-                                    btnname: working,
-                                    btncolor: color.btncolor3,
-                                    quantity: '1',
-                                    height: 125,
-                                    Ontap: () {
-                                      // nextScreen(
-                                      //     context,
-                                      //     Assistance_tyreListDetail(
-                                      //         // dropdown: true,
-                                      //         // pagetype: booking_details,
-                                      //         // status: working
-                                      //         ));
-                                    },
-                                    Ontapdelete: () {},
+                                child: Slidable(
+                                  key: Key('item ${[index]}'),
+                                  endActionPane: const ActionPane(
+                                    motion: ScrollMotion(),
+                                    children: [
+                                      SlidableAction(
+                                        // An action can be bigger than the others.
+                                        // flex: 2,
+                                        onPressed: doNothing,
+                                        backgroundColor:
+                                            color.Primary_second_Color,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.edit,
+                                        // label: 'Archive',
+                                      ),
+                                      SlidableAction(
+                                        // An action can be bigger than the others.
+                                        // flex: 2,
+                                        onPressed: doNothing,
+                                        backgroundColor: color.txt_dark_color,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.edit_note,
+                                        // label: 'Archive',
+                                      ),
+                                      SlidableAction(
+                                        onPressed: doNothing,
+                                        backgroundColor: color.red_color,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.delete,
+                                        borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                        ),
+                                        // label: 'Save',
+                                      ),
+                                    ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 9.0),
+                                    child: Assistance_immediately_Cart(
+                                      adddress: availableqty + "5",
+                                      price: "£139.23",
+                                      headtxt:
+                                          'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
+                                      Img: tyre_img,
+                                      btnname: working,
+                                      btncolor: color.btncolor3,
+                                      quantity: '1',
+                                      height: 125,
+                                      Ontap: () {
+                                        // nextScreen(
+                                        //     context,
+                                        //     Assistance_tyreListDetail(
+                                        //         // dropdown: true,
+                                        //         // pagetype: booking_details,
+                                        //         // status: working
+                                        //         ));
+                                      },
+                                      Ontapdelete: () {},
+                                    ),
                                   ),
                                 ),
                               ),
@@ -189,3 +236,5 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
               ));
   }
 }
+
+void doNothing(BuildContext context) {}
