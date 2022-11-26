@@ -13,6 +13,7 @@ import 'package:tyreshifter/Suppliers/Withdraw.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import '../Suppliers/EmployeeList.dart';
+import '../Suppliers/MyTyres.dart';
 import '../provider/Logout_ctrl.dart';
 import 'Login.dart';
 import '../Customer/Myrequest.dart';
@@ -293,6 +294,12 @@ class _ProfileState extends State<Profile> {
                     thickness: 1,
                   )
                 : Container(),
+            Profilemenu(profile_faq, mytyres, () {
+              nextScreen(context, MyTyres());
+            }),
+            Divider(
+              thickness: 1,
+            ),
             Profilemenu(profile_faq, faq, () {
               nextScreen(context, FaqScreen());
             }),
