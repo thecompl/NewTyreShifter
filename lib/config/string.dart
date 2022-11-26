@@ -17,6 +17,7 @@ final tyres = "Tyres";
 final tyreshift_immidiate = "Tyreshifter Immediately";
 final done = "Done";
 final order = "Order";
+final cancelBooking = "Cancel Booking";
 final reasonforcancel = "Reason For Cancel order";
 final payment = "Payment";
 final service = "Service";
@@ -273,6 +274,8 @@ final submit_msg_txt = "Thank you are submit order early";
 final viewbookingmsg =
     "Thank you for accepting the order Your payment will be added to your account once the work is completed. Good luck!";
 final cancel = "Cancel";
+final cancelmsg1 = "Are you sure you want to cancel this booking?";
+final cancelmsg2 = "It is possible that you would not be refunded.";
 // final canceled = "Canceled";
 //image------
 final carbon_svg = "assets/carbon_add-filled.svg";

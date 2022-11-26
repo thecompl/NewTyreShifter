@@ -143,12 +143,14 @@ class _Service_DetailsState extends State<Service_Details> {
                   ),
                   if (widget.status == working)
                     GestureDetector(
-                      onTap: () {
-                        nextScreen(context, CancelOrder(
-                          ordernumber: '1212121',
-                        ));
-                      },
-                      child: SvgPicture.string(cancelordersvg))
+                        onTap: () {
+                          nextScreen(
+                              context,
+                              CancelOrder(
+                                ordernumber: '1212121',
+                              ));
+                        },
+                        child: SvgPicture.string(cancelordersvg))
                 ],
               ),
               SizedBox(
@@ -514,7 +516,10 @@ class _Service_DetailsState extends State<Service_Details> {
                                       btntxt: view_booking_btn_txt,
                                       destxt: viewbookingmsg,
                                       onTap: () {
-                                        nextScreen(context, My_Booking());
+                                        nextScreen(
+                                            context,
+                                            MainHomeScreen_Supplier(
+                                                pageIndex: 0));
                                       },
                                     ));
                           },

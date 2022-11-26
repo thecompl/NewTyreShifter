@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tyreshifter/Customer/Dialogs/Sent_request.dart';
+import 'package:tyreshifter/Suppliers/Dailogs/CancelBookingdailog.dart';
 
 import 'package:tyreshifter/Widget/ConfirmationDialog.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -83,7 +84,7 @@ class _CancelOrderState extends State<CancelOrder> {
                   Textfield().text(
                       "Lorem ipsum duumy text just reason",
                       TextStyles.withColor(
-                          TextStyles.mn16, color.txt_dark_blue_color,1.2)),
+                          TextStyles.mn16, color.txt_dark_blue_color, 1.2)),
                 ],
               ),
               Row(
@@ -106,7 +107,7 @@ class _CancelOrderState extends State<CancelOrder> {
                   Textfield().text(
                       "Lorem ipsum duumy text just reason",
                       TextStyles.withColor(
-                          TextStyles.mn16, color.txt_dark_blue_color,1.2)),
+                          TextStyles.mn16, color.txt_dark_blue_color, 1.2)),
                 ],
               ),
               SizedBox(height: 20),
@@ -137,16 +138,21 @@ class _CancelOrderState extends State<CancelOrder> {
                 style: TextStyles.mb16,
                 name: submit,
                 onTap: () {
-                  // showDialog(
-                  //     context: context,
-                  //     builder: (context) => ConfirmationDialog(
-                  //           destextwidth: 0.8,
-                  //           btntxt: view_booking_btn_txt,
-                  //           destxt: viewbookingmsg,
-                  //           onTap: () {
-                  //             nextScreen(context, My_Booking());
-                  //           },
-                  //         ));
+                  showDialog(
+                      context: context,
+                      builder: (context) => CancelBookingdailog(
+                            title: cancelBooking,
+                            msg: cancelmsg1,
+                            msg1: cancelmsg2,
+                            cancellabel: cancel,
+                            confirmlabel: confirm,
+                            Oncanceltap: () {
+                              backScreen(context);
+                            },
+                            Onconfirmtap: () {
+                              backScreen(context);
+                            },
+                          ));
                 },
               )
             ])),
