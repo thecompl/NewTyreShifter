@@ -19,9 +19,15 @@ import '../provider/Pricetypectrl.dart';
 class SetupPrice_detail extends StatefulWidget {
   final type;
   final title;
+  final List data;
   final servicetype;
-  SetupPrice_detail({Key? key, this.type, this.servicetype, this.title})
-      : super(key: key);
+  SetupPrice_detail({
+    Key? key,
+    this.type,
+    this.servicetype,
+    this.title,
+    required this.data,
+  }) : super(key: key);
 
   @override
   State<SetupPrice_detail> createState() => _SetupPrice_detailState();
@@ -34,6 +40,7 @@ class _SetupPrice_detailState extends State<SetupPrice_detail> {
 
   @override
   void initState() {
+    log("message===>" + widget.data.toString());
     super.initState();
   }
 
@@ -61,11 +68,12 @@ class _SetupPrice_detailState extends State<SetupPrice_detail> {
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
+                    itemCount: widget.data.length,
                     itemBuilder: (BuildContext context, int index) {
                       return SetupPriceWidget(
-                        title: replacement,
-                        service: normalcars,
+                        title: widget.data[index]['servicetitle'],
+                        service: widget.data[index]['servicedetail'],
+                        length: widget.data[index]['servicedetail'].length,
                         price: '£300',
                         // Oncardtap: () {
                         //   log("message");

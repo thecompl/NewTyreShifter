@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tyreshifter/Widget/SetupPriceCardWidget.dart';
 import 'package:tyreshifter/Widget/Textfield.dart';
@@ -16,6 +18,8 @@ class SetupPriceWidget extends StatefulWidget {
   final price;
 
   final Function? Oncardtap;
+  
+  final length;
 
   SetupPriceWidget({
     Key? key,
@@ -23,7 +27,7 @@ class SetupPriceWidget extends StatefulWidget {
     this.service,
     this.title,
     this.price,
-    this.Oncardtap,
+    this.Oncardtap, this.length,
   }) : super(key: key);
 
   @override
@@ -35,6 +39,7 @@ class _SetupPriceWidgetState extends State<SetupPriceWidget> {
 
   @override
   Widget build(BuildContext context) {
+   
     return Container(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SizedBox(
@@ -46,10 +51,10 @@ class _SetupPriceWidgetState extends State<SetupPriceWidget> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: 2,
+          itemCount: widget.service.length,
           itemBuilder: (BuildContext context, int index) {
             return SetupPriceCardWidget(
-              service: widget.service,
+              service: widget.service[index]['service_name'],
               price: widget.price,
               Oncardtap: () {
                 widget.Oncardtap!();

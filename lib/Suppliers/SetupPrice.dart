@@ -32,6 +32,77 @@ class _SetupPriceState extends State<SetupPrice> {
     return value.toStringAsFixed(0);
   }
 
+  List service = [
+    {
+      'title': "Tyres",
+      "service": [
+        {
+          'servicetitle': "Replacement",
+          "servicedetail": [
+            {"id": 1, "service_name": "Normal Car(excl. tyres)"},
+            {"id": 2, "service_name": "SUV (excl. tyres)"},
+            {"id": 3, "service_name": "Normal Car(excl. tyres)"},
+          ]
+        },
+        {
+          'servicetitle': "Puncture repair",
+          "servicedetail": [
+            {"id": 1, "service_name": "Normal car"},
+            {"id": 2, "service_name": "SUV"},
+          ]
+        },
+        {
+          'servicetitle': "Wheel alignment",
+          "servicedetail": [
+            {"id": 1, "service_name": "Wheel alignment"},
+          ]
+        },
+      ]
+    },
+    {
+      'title': "Battery Replacement",
+      "service": [
+        {
+          'servicetitle': "Flat Battery",
+          "servicedetail": [
+            {"id": 1, "service_name": "Flat battery"},
+          ]
+        },
+        {
+          'servicetitle': "Battery Replacement Normal Car(Incl.Battery)",
+          "servicedetail": [
+            {"id": 1, "service_name": "Premium"},
+            {"id": 2, "service_name": "Mid Range"},
+            {"id": 3, "service_name": "Budget"},
+          ]
+        },
+      ]
+    },
+    {
+      'title': "Oil Change",
+      "service": [
+        {
+          'servicetitle': "Oil change (Premium oil & Filter Included )",
+          "servicedetail": [
+            {"id": 1, "service_name": "Full Synthetic"},
+            {"id": 2, "service_name": "Synthetic Blend"},
+            {"id": 3, "service_name": "Conventional Oil"},
+            {"id": 4, "service_name": "High Mileage oil"},
+          ]
+        },
+        {
+          'servicetitle': "Oil change (Budget oil & Filter Included)",
+          "servicedetail": [
+            {"id": 1, "service_name": "Full Synthetic"},
+            {"id": 2, "service_name": "Synthetic Blend"},
+            {"id": 3, "service_name": "Conventional Oil"},
+            {"id": 4, "service_name": "High Mileage oil"},
+          ]
+        },
+      ]
+      // }
+    },
+  ];
   @override
   void initState() {
     super.initState();
@@ -61,18 +132,18 @@ class _SetupPriceState extends State<SetupPrice> {
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
+                    itemCount: service.length,
                     itemBuilder: (BuildContext context, int index) {
                       return SetupPriceCardWidget(
-                        title: "Tyres",
-                        service: normalcars,
+                        service: service[index]['title'],
                         showIcon: true,
                         icon: Icons.arrow_forward_ios,
                         Oncardtap: () {
                           nextScreen(
                               context,
                               SetupPrice_detail(
-                                title: "Tyres",
+                                title: service[index]['title'],
+                                data: service[index]['service'],
                               ));
                         },
                       );
