@@ -27,7 +27,10 @@ class color {
   static const btncolor2 = Color(0XFF52CAC3);
   static const btncolor3 = Color(0XFF185B98);
   static const red_color = Color(0XFFFF4343);
+  static const redtxt_color = Color(0XFFFF2020);
   static const green_color = Color(0XFF32CC70);
+  static const greentxt_color = Color(0XFF0F8B41);
+  static const green_bg_color = Color(0XFF98FFC1);
 
   static const disable_color = Color(0XFFE3E3E3);
   static const txt_grey3_color = Color(0XFF79776D);
