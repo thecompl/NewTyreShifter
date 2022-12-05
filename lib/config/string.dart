@@ -72,6 +72,7 @@ final emailtxt = "Email";
 final what_is_issue = "What is the issue...";
 final write_comment = "Write Comment...";
 final edit_profile = "Edit Profile";
+final edittxt = "Edit";
 final push_notification = "Push Notification";
 final change_Password = "Change Password";
 final faq = "Faq";
@@ -84,6 +85,7 @@ final addtocart = "Add to cart";
 final added = "Added";
 final changeqty = "Change Qty";
 final deletefromcart = "Delete from cart";
+final deletetxt = "Delete";
 final employeemsg =
     "Please note that you can add upto 2 of your employees to allow them to use the application. No need to add yourself as an employee, you can still use the application.";
 final deletemsg =
@@ -118,6 +120,9 @@ final expirytxt = "Expiry";
 final cvvtxt = "CVV";
 final support = "Support";
 final log_out = "Logout";
+final log_outmsg = "Are you sure want Logout?";
+final deletepopmsg = "Are you sure want delete?";
+
 final update = "Update";
 final send = "Send";
 final home = "Home";
@@ -189,6 +194,7 @@ final sign_up_to_accmsg = "Sign up to your account ";
 final enter_emailtxt = "Enter Email";
 final enter_company_nametxt = "Enter Company Name";
 final enter_company_numbertxt = "Enter Company number";
+final enter_vehicle_numbertxt = "Enter vehicle number";
 final enter_birthday_txt = "Enter Birthday";
 final password_txt = "Password";
 final con_password_txt = "Confirm Password";
@@ -196,6 +202,9 @@ final about_us_txt = "About us";
 final completed_bookings = "Completed Bookings";
 final completed_req = "Completed Requests";
 final skip = "Skip";
+final selecttxt = "Select";
+final searchheretxt = "Search here...";
+final availabletxt = "Available";
 final enterfull_name_txt = "Enter Full Name";
 final enable_locatin_msg = "Choose your location to start find around you.";
 final submit_order_early_msg = "Thank you are submit order early";
@@ -335,6 +344,24 @@ final change_availibity_icon = "assets/change_avalibilty.png";
 final company_no_icon = "assets/company_no.png";
 final checkcircle = "assets/check-circle.svg";
 final exiticon = "assets/exiticon.svg";
+
+final exiticonsvgstring =
+    '''<svg width="56" height="55" viewBox="0 0 56 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50.0976 41.4649H45.6352C45.3305 41.4649 45.0449 41.5982 44.8544 41.8331C44.4101 42.3727 43.934 42.8932 43.4326 43.3883C41.3816 45.4413 38.9522 47.0774 36.2787 48.2062C33.509 49.376 30.532 49.9762 27.5253 49.9708C24.4848 49.9708 21.5395 49.3741 18.7719 48.2062C16.0985 47.0774 13.6691 45.4413 11.6181 43.3883C9.56347 41.3422 7.92515 38.917 6.79389 36.2472C5.61958 33.4796 5.02924 30.5406 5.02924 27.5001C5.02924 24.4596 5.62592 21.5206 6.79389 18.753C7.92377 16.0807 9.54877 13.6749 11.6181 11.6119C13.6874 9.54892 16.0932 7.92392 18.7719 6.79404C21.5395 5.62607 24.4848 5.02939 27.5253 5.02939C30.5659 5.02939 33.5112 5.61973 36.2787 6.79404C38.9575 7.92392 41.3632 9.54892 43.4326 11.6119C43.934 12.1134 44.4038 12.6339 44.8544 13.1671C45.0449 13.402 45.3369 13.5353 45.6352 13.5353H50.0976C50.4975 13.5353 50.7451 13.0909 50.5229 12.7545C45.6542 5.18809 37.1357 0.179784 27.4555 0.205174C12.2465 0.24326 0.0526816 12.5895 0.205025 27.7794C0.357369 42.7281 12.5322 54.795 27.5253 54.795C37.1801 54.795 45.6606 49.7931 50.5229 42.2457C50.7387 41.9093 50.4975 41.4649 50.0976 41.4649ZM55.7407 27.1002L46.7333 19.9908C46.3969 19.7242 45.9081 19.9654 45.9081 20.3907V25.2149H25.9765C25.6972 25.2149 25.4687 25.4435 25.4687 25.7228V29.2774C25.4687 29.5567 25.6972 29.7853 25.9765 29.7853H45.9081V34.6095C45.9081 35.0348 46.4033 35.276 46.7333 35.0094L55.7407 27.9C55.8014 27.8525 55.8504 27.7918 55.8842 27.7225C55.918 27.6532 55.9355 27.5772 55.9355 27.5001C55.9355 27.423 55.918 27.347 55.8842 27.2777C55.8504 27.2084 55.8014 27.1477 55.7407 27.1002Z" fill="#52A9D8"/>
+</svg>
+''';
+final deletesvg =
+    '''<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 18C2.45 18 1.97933 17.8043 1.588 17.413C1.196 17.021 1 16.55 1 16V3H0V1H5V0H11V1H16V3H15V16C15 16.55 14.8043 17.021 14.413 17.413C14.021 17.8043 13.55 18 13 18H3ZM13 3H3V16H13V3ZM5 14H7V5H5V14ZM9 14H11V5H9V14ZM3 3V16V3Z" fill="#FF5E5E"/>
+</svg>
+
+''';
+final Editsvg =
+    '''<svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.06 6.02L11.98 6.94L2.92 16H2V15.08L11.06 6.02M14.66 0C14.41 0 14.15 0.1 13.96 0.29L12.13 2.12L15.88 5.87L17.71 4.04C17.8027 3.94749 17.8763 3.8376 17.9264 3.71662C17.9766 3.59565 18.0024 3.46597 18.0024 3.335C18.0024 3.20403 17.9766 3.07435 17.9264 2.95338C17.8763 2.8324 17.8027 2.72251 17.71 2.63L15.37 0.29C15.17 0.09 14.92 0 14.66 0V0ZM11.06 3.19L0 14.25V18H3.75L14.81 6.94L11.06 3.19V3.19Z" fill="#52A9D8"/>
+</svg>
+
+''';
 final calendaroutline = "assets/calendaroutline.svg";
 
 final check_iconsvg =
@@ -408,6 +435,7 @@ final home_assistancesvg =
 <rect width="52" height="52" fill="white" transform="translate(56 45)"/>
 </clipPath>
 </defs>
+
 </svg>
 ''';
 final locationsvg =

@@ -15,7 +15,7 @@ class Dropdown extends StatefulWidget {
   String current_value;
   final String? hinttxt;
   final hintstyle;
-
+  final Function? onchange;
   final double? height;
   final double? width;
 
@@ -37,7 +37,8 @@ class Dropdown extends StatefulWidget {
       this.width,
       this.dropdowncolor,
       this.Textalignment = AlignmentDirectional.center,
-      this.borderradius = 10})
+      this.borderradius = 10,
+      this.onchange})
       : super(key: key);
 
   @override
@@ -45,12 +46,11 @@ class Dropdown extends StatefulWidget {
 }
 
 class _DropdownState extends State<Dropdown> {
-
   String? _chosenValue = "";
   int index = 0;
   @override
   void initState() {
-    _chosenValue = widget.list[0].toString(); 
+    _chosenValue = widget.list[0].toString();
     widget.current_value = _chosenValue!;
     super.initState();
   }
@@ -61,17 +61,21 @@ class _DropdownState extends State<Dropdown> {
 
     return Column(
       children: [
-        _chosenValue !="" ?Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(widget.hinttxt!,style: widget.style,
-                textAlign: TextAlign.left,
-              ),
-            ),
-          ],
-        ):Container(),
+        _chosenValue != ""
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      widget.hinttxt!,
+                      style: widget.style,
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ],
+              )
+            : Container(),
         Container(
           height: widget.height,
           decoration: BoxDecoration(
@@ -121,6 +125,7 @@ class _DropdownState extends State<Dropdown> {
                         _chosenValue = value!;
                         // nextScreen(context, Complete_Order());
                       });
+                      widget.onchange!(value);
                     },
                   )
                 : CupertinoButton(
@@ -144,7 +149,8 @@ class _DropdownState extends State<Dropdown> {
                                   ),
                                 ),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     CupertinoButton(
                                       child: Text('Cancel'),
@@ -209,17 +215,17 @@ class _DropdownState extends State<Dropdown> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _chosenValue =="" ?
-                          Text(
-                            widget.hinttxt!,
-                            style: widget.style,
-                            textAlign: TextAlign.center,
-                          ):Text(
-                            _chosenValue!,
-                            style: widget.style,
-                            textAlign: TextAlign.center,
-                          )
-                          ,
+                          _chosenValue == ""
+                              ? Text(
+                                  widget.hinttxt!,
+                                  style: widget.style,
+                                  textAlign: TextAlign.center,
+                                )
+                              : Text(
+                                  _chosenValue!,
+                                  style: widget.style,
+                                  textAlign: TextAlign.center,
+                                ),
                           Container(
                               padding: EdgeInsets.only(right: 5),
                               child: Icon(

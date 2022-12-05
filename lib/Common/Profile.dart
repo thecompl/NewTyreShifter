@@ -14,6 +14,7 @@ import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import '../Suppliers/EmployeeList.dart';
 import '../Suppliers/MyTyres.dart';
+import '../Suppliers/Vehicles.dart';
 import '../provider/Logout_ctrl.dart';
 import 'Login.dart';
 import '../Customer/Myrequest.dart';
@@ -281,11 +282,7 @@ class _ProfileState extends State<Profile> {
             ),
             type_account == become_shifter
                 ? Profilemenu(profile_req, vehicles, () {
-                    // nextScreen(
-                    //     context,
-                    //     Set_Availability(
-                    //       type: "1",
-                    //     ));
+                    nextScreen(context, Vehicles());
                   })
                 : Container(),
 

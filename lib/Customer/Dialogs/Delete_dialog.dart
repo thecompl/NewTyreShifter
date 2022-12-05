@@ -26,6 +26,8 @@ class Delete_dialog extends StatefulWidget {
 
   final Function? Onconfirmtap;
 
+  final child;
+  final showchild;
   Delete_dialog(
       {Key? key,
       this.msg,
@@ -35,7 +37,9 @@ class Delete_dialog extends StatefulWidget {
       this.cancellabel,
       this.confirmlabel,
       this.Oncanceltap,
-      this.Onconfirmtap})
+      this.Onconfirmtap,
+      this.child,
+      this.showchild = false})
       : super(key: key);
 
   @override
@@ -56,7 +60,7 @@ class _Delete_dialogState extends State<Delete_dialog> {
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,
         child: SizedBox(
-          width: size.width * 0.8,
+          width: size.width * 0.9,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -70,17 +74,21 @@ class _Delete_dialogState extends State<Delete_dialog> {
                   widget.title,
                   TextStyles.withColor(
                       TextStyles.mb18, color.text_grey2_color)),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Container(
-                  width: size.width * 0.65,
-                  child: Text(widget.msg,
-                      textAlign: TextAlign.center,
-                      style: TextStyles.withColor(
-                          TextStyles.mn16, color.textgrey_color)),
-                ),
-              ),
+              widget.showchild
+                  ? Container(
+                      child: widget.child,
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      child: Container(
+                        width: size.width * 0.65,
+                        child: Text(widget.msg,
+                            textAlign: TextAlign.center,
+                            style: TextStyles.withColor(
+                                TextStyles.mn16, color.textgrey_color)),
+                      ),
+                    ),
               SizedBox(
                 height: 10,
               ),
@@ -88,38 +96,47 @@ class _Delete_dialogState extends State<Delete_dialog> {
                 divider,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 0),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: Center(
-                          child: GestureDetector(
-                              child: Text(widget.cancellabel,
-                                  style: TextStyles.withColor(TextStyles.mb20,
-                                      color.Primary_second_Color)),
-                              onTap: () {
-                                widget.Oncanceltap!();
-                                // backScreen(context);
-                              }),
+                      InkWell(
+                        onTap: () {
+                          widget.Oncanceltap!();
+                          // backScreen(context);
+                        },
+                        child: Container(
+                          // decoration: BoxDecoration(
+                          //     border: Border.all(color: Colors.red)),
+                          width: size.width * 0.39,
+                          height: 60,
+                          child: Center(
+                            child: Text(widget.cancellabel,
+                                style: TextStyles.withColor(TextStyles.mb16,
+                                    color.Primary_second_Color)),
+                          ),
                         ),
                       ),
                       Image.asset(
                         vertical,
-                        height: size.height * 0.04,
+                        height: size.height * 0.06,
                       ),
-                      Expanded(
-                        child: Center(
-                          child: GestureDetector(
-                              child: Text(widget.confirmlabel,
-                                  style: TextStyles.withColor(TextStyles.mb20,
-                                      color.Primary_second_Color)),
-                              onTap: () {
-                                widget.Onconfirmtap!();
-                                // backScreen(context);
-                              }),
+                      InkWell(
+                        onTap: () {
+                          widget.Onconfirmtap!();
+                          // backScreen(context);
+                        },
+                        child: Container(
+                          // decoration: BoxDecoration(
+                          //     border: Border.all(color: Colors.red)),
+                          width: size.width * 0.39,
+                          height: 60,
+                          child: Center(
+                            child: Text(widget.confirmlabel,
+                                style: TextStyles.withColor(TextStyles.mb16,
+                                    color.Primary_second_Color)),
+                          ),
                         ),
                       )
                     ]),

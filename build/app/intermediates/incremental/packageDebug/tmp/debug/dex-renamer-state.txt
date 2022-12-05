@@ -1,4 +1,4 @@
-#Sat Dec 03 16:04:36 IST 2022
-base.0=D\:\\Flutter-Projects\\tyreshifter\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Mon Dec 05 15:04:14 IST 2022
+base.0=D\:\\flutter projects\\Tyreshifter-clone\\NewTyreShifter\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
