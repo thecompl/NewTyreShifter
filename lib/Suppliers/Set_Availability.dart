@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'dart:io' show Platform;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
@@ -10,7 +8,6 @@ import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/Widget/Radiobtn.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
-
 import '../Widget/Appbartext.dart';
 import '../Widget/Textfield.dart';
 import '../config/TextStyles/Textstyles.dart';
@@ -27,7 +24,7 @@ class Set_Availability extends StatefulWidget {
     Key? key,
     this.type,
   }) : super(key: key);
-  
+
   @override
   State<Set_Availability> createState() => _Set_AvailabilityState();
 }
@@ -242,8 +239,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
                         shrinkWrap: true,
                         itemCount: day.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return availbilty_time(
-                              day[index], index);
+                          return availbilty_time(day[index], index);
                         }),
                   ],
                 ),

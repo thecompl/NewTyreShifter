@@ -21,6 +21,7 @@ import '../config/Navagate_Next.dart';
 import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import 'Complete_Order.dart';
+import 'Dailogs/Select_Employee.dart';
 import 'My_Booking.dart';
 
 class Service_Details extends StatefulWidget {
@@ -324,16 +325,29 @@ class _Service_DetailsState extends State<Service_Details> {
               //   ),
 
               widget.employeedropdown == true && widget.status == pending
-                  ? Dropdown(
-                      width: size.width * 0.9,
-                      hinttxt: selectEmployee,
-                      style: TextStyles.withColor(
-                          TextStyles.mb14, color.Primary_second_Color),
-                      list: ["Ongoing", "Completed", in_progess, "Not started"],
-                      current_value: currentvalue,
-                      border_color: color.Primary_second_Color,
-                      height: 52,
-                      Textalignment: AlignmentDirectional.center,
+                  ? GestureDetector(
+                      onTap: () {},
+                      child: Dropdown(
+                        width: size.width * 0.9,
+                        hinttxt: selectEmployee,
+                        style: TextStyles.withColor(
+                            TextStyles.mb14, color.Primary_second_Color),
+                        list: [
+                          "Ongoing",
+                          "Completed",
+                          in_progess,
+                          "Not started"
+                        ],
+                        current_value: currentvalue,
+                        onchange: (value) {
+                          showDialog(
+                              context: context,
+                              builder: (context) => Select_Employee());
+                        },
+                        border_color: color.Primary_second_Color,
+                        height: 52,
+                        Textalignment: AlignmentDirectional.center,
+                      ),
                     )
                   : widget.status != pending
                       ? Column(
