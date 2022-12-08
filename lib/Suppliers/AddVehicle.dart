@@ -56,7 +56,7 @@ class _AddVehicleState extends State<AddVehicle> {
                             )
                           ],
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         Container(
                           decoration: BoxDecoration(
                               border:
@@ -95,14 +95,17 @@ class _AddVehicleState extends State<AddVehicle> {
                 SizedBox(
                   height: 40,
                 ),
-                Row(
-                  children: [
-                    SvgPicture.asset(addicon_svg),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Textfield().text(addanothervehicle, TextStyles.mn16),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(addicon_svg),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Textfield().text(addanothervehicle, TextStyles.mn16),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 20),
                 ElevatedButtons(

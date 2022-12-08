@@ -241,6 +241,7 @@ class _OtpState extends State<Otp> {
                                         btntxt: done,
                                         destxt: verification_msg_txt,
                                         onTap: () {
+                                          backScreen(context);
                                           nextScreen(
                                               context, Welcome_Tyreshifter());
                                         },

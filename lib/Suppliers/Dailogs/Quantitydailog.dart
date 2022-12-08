@@ -155,26 +155,23 @@ class _QuantitydailogState extends State<Quantitydailog> {
               Image.asset(
                 divider,
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Center(
-                          child: GestureDetector(
-                              child: Text(widget.confirmlabel,
-                                  style: TextStyles.withColor(TextStyles.mb20,
-                                      color.Primary_second_Color)),
-                              onTap: () {
-                                widget.Onconfirmtap!();
-                                // backScreen(context);
-                              }),
-                        ),
-                      ),
-                    ]),
+              GestureDetector(
+                onTap: () {
+                  widget.Onconfirmtap!();
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: color.white,
+                  ),
+                  alignment: Alignment.center,
+                  height: 60, 
+                  child: InkWell(
+                      child: Text(widget.confirmlabel,
+                          style: TextStyles.withColor(TextStyles.mb18,
+                              color.Primary_second_Color, 1.2)),
+                      onTap: () => widget.Onconfirmtap!()),
+                ),
               )
             ],
           ),

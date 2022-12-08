@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:tyreshifter/Suppliers/Set_Availability.dart';
+import 'package:tyreshifter/Suppliers/SetupPrice.dart';
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/Widget/SetupPriceWidget.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -85,7 +86,8 @@ class _SetupPrice_detailState extends State<SetupPrice_detail> {
                 ElevatedButtons(
                   name: done,
                   onTap: () {
-                    nextScreen(context, Set_Availability(type: '0'));
+                    // nextScreen(context, Set_Availability(type: '0'));
+                    nextScreen(context, SetupPrice(type: '0'));
                   },
                 ),
                 SizedBox(

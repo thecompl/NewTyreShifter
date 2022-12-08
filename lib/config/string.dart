@@ -133,6 +133,7 @@ final flatbattery = "Flat battery";
 final oilchange = "Oil Change";
 final fees = "Fees";
 final replacement = "Replacement";
+final nightfee = "Night Fee (7pm-06am)";
 final normalcars = "Normal Car(excl. tyres)";
 final batteryreplacement = "Battery replacement";
 final wheelalignment = "Wheel alignment";

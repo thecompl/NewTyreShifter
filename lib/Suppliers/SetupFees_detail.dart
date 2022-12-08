@@ -58,22 +58,32 @@ class _SetupFees_detailState extends State<SetupFees_detail> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
-                    itemBuilder: (BuildContext context, int index) {
-                      return SetupPriceCardWidget(
+                // ListView.builder(
+                //     scrollDirection: Axis.vertical,
+                //     shrinkWrap: true,
+                //     physics: NeverScrollableScrollPhysics(),
+                //     itemCount: 2,
+                //     itemBuilder: (BuildContext context, int index) {
+                //       return 
+                      SetupPriceCardWidget(
                         title: replacement,
-                        service: normalcars,
+                        service: calloutfee,
                         price: '£300',
                         // Oncardtap: () {
                         //   log("message");
                         //   // nextScreen(context, page)
                         // },
-                      );
-                    }),
+                      ),
+                      SetupPriceCardWidget(
+                        title: replacement,
+                        service: nightfee,
+                        price: '£300',
+                        // Oncardtap: () {
+                        //   log("message");
+                        //   // nextScreen(context, page)
+                        // },
+                      ),
+                    // }),
                 SizedBox(height: 20),
                 Card(
                   child: Padding(
@@ -90,18 +100,41 @@ class _SetupFees_detailState extends State<SetupFees_detail> {
                         SizedBox(
                           height: 10,
                         ),
-                        ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: 2,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Row(
+                        // ListView.builder(
+                        //     scrollDirection: Axis.vertical,
+                        //     shrinkWrap: true,
+                        //     physics: NeverScrollableScrollPhysics(),
+                        //     itemCount: 2,
+                        //     itemBuilder: (BuildContext context, int index) {
+                        //       return
+                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Textfield().text(
                                       '0-15 KM',
+                                      TextStyles.withColor(TextStyles.mb14,
+                                          color.txt_dark_color),
+                                      TextAlign.center),
+                                  Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 5),
+                                      child: Textfield().text(
+                                          '£50',
+                                          TextStyles.withColor(TextStyles.mb14,
+                                              color.txt_dark_color),
+                                          TextAlign.center),
+                                    ),
+                                  )
+                                ],
+                              ).paddingSymmetric(vertical: 10),
+                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Textfield().text(
+                                      '16-30 KM',
                                       TextStyles.withColor(TextStyles.mb14,
                                           color.txt_dark_color),
                                       TextAlign.center),
@@ -117,8 +150,30 @@ class _SetupFees_detailState extends State<SetupFees_detail> {
                                     ),
                                   )
                                 ],
-                              ).paddingSymmetric(vertical: 10);
-                            }),
+                              ).paddingSymmetric(vertical: 10),
+                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Textfield().text(
+                                      '31+ KM',
+                                      TextStyles.withColor(TextStyles.mb14,
+                                          color.txt_dark_color),
+                                      TextAlign.center),
+                                  Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 5),
+                                      child: Textfield().text(
+                                          '£150',
+                                          TextStyles.withColor(TextStyles.mb14,
+                                              color.txt_dark_color),
+                                          TextAlign.center),
+                                    ),
+                                  )
+                                ],
+                              ).paddingSymmetric(vertical: 10),
+                            // }),
                       ],
                     ),
                   ),

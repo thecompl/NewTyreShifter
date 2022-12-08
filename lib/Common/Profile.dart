@@ -260,25 +260,31 @@ class _ProfileState extends State<Profile> {
                         ));
                   })
                 : Container(),
-            Divider(
-              thickness: 1,
-            ),
+            type_account == become_shifter
+                ? Divider(
+                    thickness: 1,
+                  )
+                : Container(),
             type_account == become_shifter
                 ? Profilemenu(producticon, products, () {
                     nextScreen(context, MyProducts());
                   })
                 : Container(),
-            Divider(
-              thickness: 1,
-            ),
+            type_account == become_shifter
+                ? Divider(
+                    thickness: 1,
+                  )
+                : Container(),
             type_account == become_shifter
                 ? Profilemenu(profile_person, employee, () {
                     nextScreen(context, EmployeeList());
                   })
                 : Container(),
-            Divider(
-              thickness: 1,
-            ),
+            type_account == become_shifter
+                ? Divider(
+                    thickness: 1,
+                  )
+                : Container(),
             type_account == become_shifter
                 ? Profilemenu(profile_req, vehicles, () {
                     // nextScreen(

@@ -77,8 +77,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                                       perosnimg,
                                     ),
                                   ),
-                                  prefixIconConstraints:
-                                      BoxConstraints(maxHeight: 30, maxWidth: 30),
+                                  prefixIconConstraints: BoxConstraints(
+                                      maxHeight: 30, maxWidth: 30),
                                   border: InputBorder.none,
                                   hintText: "Employee name",
                                   hintStyle: TextStyles.withColor(
@@ -108,8 +108,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                                       mail_icon,
                                     ),
                                   ),
-                                  prefixIconConstraints:
-                                      BoxConstraints(maxHeight: 30, maxWidth: 30),
+                                  prefixIconConstraints: BoxConstraints(
+                                      maxHeight: 30, maxWidth: 30),
                                   border: InputBorder.none,
                                   hintText: "Enter Email here",
                                   hintStyle: TextStyles.withColor(
@@ -159,7 +159,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                                       children: <InlineSpan>[
                                     TextSpan(
                                       text: learnmore,
-                                      style: TextStyles.withColor(TextStyles.mn14,
+                                      style: TextStyles.withColor(
+                                          TextStyles.mn14,
                                           color.Primary_second_Color),
                                     )
                                   ])),
@@ -173,36 +174,40 @@ class _AddEmployeeState extends State<AddEmployee> {
                 SizedBox(
                   height: 40,
                 ),
-                Row(
-                  children: [
-                    SvgPicture.asset(addicon_svg),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Textfield().text(addanotheremployee, TextStyles.mn16),
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) => Quantitydailog(
+                              iconsvg: info_iconsvg,
+                              iconheight: 50.0,
+                              showicon: true,
+                              showquantity: false,
+                              showtitle: false,
+                              msg: employeemsg,
+                              confirmlabel: okay,
+                              Onconfirmtap: () {
+                                backScreen(context);
+                              },
+                            ));
+                    // nextScreen(context, AddVehicle());
+                    // nextScreen(context, Enable_location());
+                  },
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(addicon_svg),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Textfield().text(addanotheremployee, TextStyles.mn16),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 20),
                 ElevatedButtons(
                   name: done,
                   onTap: () {
-                    showDialog(
-                              context: context,
-                              builder: (context) => Quantitydailog(
-                                    iconsvg: info_iconsvg,
-                                    iconheight: 50.0,
-                                    showicon: true,
-                                    showquantity: false,
-                                    showtitle: false,
-                                    msg: employeemsg,
-                                    confirmlabel: okay,
-                                    Onconfirmtap: () {
-                                      backScreen(context);
-                                      nextScreen(context, AddVehicle());
-                                    },
-                                  ));
-                    // nextScreen(context, AddVehicle());
-                    // nextScreen(context, Enable_location());
+                    nextScreen(context, AddVehicle());
                   },
                 ),
                 SizedBox(height: 15),
