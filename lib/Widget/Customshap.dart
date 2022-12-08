@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomChatBubble extends CustomPainter {
-  CustomChatBubble({this.color, @required this.isOwn});
+  CustomChatBubble({this.color,  this.isOwn});
   final Color? color;
   final bool? isOwn;
 
