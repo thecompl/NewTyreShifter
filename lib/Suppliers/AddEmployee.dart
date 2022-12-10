@@ -44,6 +44,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               confirmlabel: okay,
               Onconfirmtap: () {
                 backScreen(context);
+                nextScreen(context, AddVehicle());
               },
             ));
   }
