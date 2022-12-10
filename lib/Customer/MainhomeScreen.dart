@@ -11,7 +11,7 @@ import 'Main screen/Orders.dart';
 
 class MainHomeScreen_Customer extends StatefulWidget {
   final pageIndex;
-  MainHomeScreen_Customer({Key? key, this.pageIndex=0}) : super(key: key);
+  MainHomeScreen_Customer({Key? key, this.pageIndex = 0}) : super(key: key);
 
   @override
   State<MainHomeScreen_Customer> createState() =>
@@ -28,13 +28,15 @@ class _MainHomeScreen_CustomerState extends State<MainHomeScreen_Customer> {
       pageIndex = index;
     });
   }
-@override
+
+  @override
   void initState() {
     setState(() {
       pageIndex = widget.pageIndex;
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,13 +72,19 @@ class _MainHomeScreen_CustomerState extends State<MainHomeScreen_Customer> {
               BottomNavigationBarItem(
                   backgroundColor: color.PrimaryColor,
                   icon: pageIndex == 0
-                      ? Image.asset(
-                          home_active,
-                          height: 30,
+                      ? Padding(
+                          padding: const EdgeInsets.only(top: 6),
+                          child: Image.asset(
+                            home_active,
+                            height: 30,
+                          ),
                         )
-                      : Image.asset(
-                          home_deactive,
-                          height: 30,
+                      : Padding(
+                          padding: const EdgeInsets.only(top: 6),
+                          child: Image.asset(
+                            home_deactive,
+                            height: 30,
+                          ),
                         ),
                   label: ""),
               BottomNavigationBarItem(

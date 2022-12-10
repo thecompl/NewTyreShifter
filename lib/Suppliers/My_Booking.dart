@@ -96,9 +96,10 @@ class _My_BookingState extends State<My_Booking> {
               ),
               SizedBox(height: 10),
               Container(
-                height: size.height,
                 child: ListView.builder(
-                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    // scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
                     itemCount: 8,
                     itemBuilder: (BuildContext context, int index) {
                       if (index % 2 == 0) {
