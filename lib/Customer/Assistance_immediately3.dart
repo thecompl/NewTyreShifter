@@ -1,8 +1,10 @@
 import 'dart:core';
 import 'dart:core';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately.dart';
@@ -27,7 +29,8 @@ import 'Payement.dart';
 class Assistance_immediately3 extends StatefulWidget {
   final type;
   final servicetype;
-  Assistance_immediately3({Key? key, this.type, this.servicetype}) : super(key: key);
+  Assistance_immediately3({Key? key, this.type, this.servicetype})
+      : super(key: key);
 
   @override
   State<Assistance_immediately3> createState() =>
@@ -54,6 +57,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
 
   @override
   void initState() {
+    log("TYPEE" + widget.type.toString());
     getxcartypecontroller.getcartype(context);
     print("hii" + getxcartypecontroller.carlist.toString());
     for (var i = 0; i < getxcartypecontroller.carlist.length; i++) {
@@ -123,17 +127,16 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                   showicon: false,
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 20,
                 ),
                 ElevatedButtons(
                   name: search,
                   onTap: () {
-                    widget.servicetype == tyreReplacement ?
-                    nextScreen(
-                        context, Assistance_immediately2(type: widget.type))
-                    :
-                    nextScreen(
-                        context, Immediately_Provider(type: widget.type));
+                    // widget.servicetype == tyreReplacement
+                    //     ? nextScreen(
+                    //         context, Assistance_immediately2(type: widget.type))
+                    //     : nextScreen(
+                    //         context, Immediately_Provider(type: widget.type));
                   },
                 ),
                 SizedBox(
@@ -142,6 +145,124 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                 Textfield().image("asset", "assets/or.png"),
                 SizedBox(
                   height: 25,
+                ),
+                Container(
+                  width: size.width * 0.9,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border:
+                        Border.all(color: color.border_grey_color, width: 1),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Textfield().text(
+                        tyreProfile,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.0),
+                      ),
+                      SvgPicture.string(
+                        arrowdown1_iconsvg,
+                        // height: 6,
+                      ),
+                    ],
+                  ).paddingSymmetric(horizontal: 10),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: size.width * 0.9,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border:
+                        Border.all(color: color.border_grey_color, width: 1),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Textfield().text(
+                        wheeldiameterlabel,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.0),
+                      ),
+                      SvgPicture.string(
+                        arrowdown1_iconsvg,
+                        // height: 6,
+                      ),
+                    ],
+                  ).paddingSymmetric(horizontal: 10),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: size.width * 0.9,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border:
+                        Border.all(color: color.border_grey_color, width: 1),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Textfield().text(
+                        tyrewidthlabel,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.0),
+                      ),
+                      SvgPicture.string(
+                        arrowdown1_iconsvg,
+                        // height: 6,
+                      ),
+                    ],
+                  ).paddingSymmetric(horizontal: 10),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: size.width * 0.9,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border:
+                        Border.all(color: color.border_grey_color, width: 1),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Textfield().text(
+                        speedratinglabel,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.0),
+                      ),
+                      SvgPicture.string(
+                        arrowdown1_iconsvg,
+                        // height: 6,
+                      ),
+                    ],
+                  ).paddingSymmetric(horizontal: 10),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButtons(
+                  name: search,
+                  onTap: () {
+                    widget.servicetype == tyreReplacement
+                        ? nextScreen(
+                            context, Assistance_immediately2(type: widget.type))
+                        : nextScreen(
+                            context, Immediately_Provider(type: widget.type));
+                  },
                 ),
               ],
             ),

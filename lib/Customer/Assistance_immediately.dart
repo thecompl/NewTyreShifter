@@ -249,6 +249,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                       desc: punctureRepairmsg,
                                       btn: proceed,
                                       Onbtn: () {
+                                        backScreen(context);
                                         nextScreen(
                                             context,
                                             Assistance_immediately2(

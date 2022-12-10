@@ -38,18 +38,21 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
   int index = 1;
   PageController? _pageController;
 
-  List pages = [
-    '',
-    Immediately_ProviderList(),
-  ];
   void initState() {
     _pageController = PageController(initialPage: index);
-    // log("providerlisttype"+ widget.type.toString());
+
+    log("providerlisttype" + widget.type.toString());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    List pages = [
+      '',
+      Immediately_ProviderList(
+        type: widget.type,
+      ),
+    ];
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color.skylight,

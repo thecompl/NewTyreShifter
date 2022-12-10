@@ -67,16 +67,36 @@ class _Immediately_punState extends State<Immediately_pun> {
                   // SizedBox(
                   //   height: 20,
                   // ),
+                  // GestureDetector(
+                  //     child: Padding(
+                  //       padding: const EdgeInsets.only(top: 10),
+                  //       child: Text(proceed,
+                  //           style: TextStyles.withColor(
+                  //               TextStyles.mb20, color.Primary_second_Color)),
+                  //     ),
+                  //     onTap: () {
+                  //       widget.Onbtn!();
+                  //     }),
                   GestureDetector(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top:10),
-                        child: Text(proceed,
-                            style: TextStyles.withColor(
-                                TextStyles.mb20, color.Primary_second_Color)),
+                    onTap: () {
+                      widget.Onbtn!();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: color.white,
                       ),
-                      onTap: () {
-                        widget.Onbtn!();
-                      }),
+                      alignment: Alignment.center,
+                      height: 55,
+                      child: InkWell(
+                          child: Text(proceed,
+                              style: TextStyles.withColor(TextStyles.mb18,
+                                  color.Primary_second_Color, 1.3)),
+                          onTap: () {
+                            widget.Onbtn!();
+                          }),
+                    ),
+                  )
                   // GestureDetector(
                   //     child: Container(
                   //       width: size.width,

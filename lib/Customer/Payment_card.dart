@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -139,7 +140,7 @@ class _Payment_cardState extends State<Payment_card> {
                             head: true,
                             btntxt: view_req,
                             onTap: () {
-                              widget.type == '0'
+                              widget.type == 0
                                   ? nextScreen(
                                       context, Myrequest(type: widget.type))
                                   : nextScreen(context,

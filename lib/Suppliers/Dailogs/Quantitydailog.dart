@@ -165,7 +165,7 @@ class _QuantitydailogState extends State<Quantitydailog> {
                     color: color.white,
                   ),
                   alignment: Alignment.center,
-                  height: 60, 
+                  height: 60,
                   child: InkWell(
                       child: Text(widget.confirmlabel,
                           style: TextStyles.withColor(TextStyles.mb18,

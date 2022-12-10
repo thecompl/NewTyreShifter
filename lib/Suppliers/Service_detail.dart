@@ -323,27 +323,54 @@ class _Service_DetailsState extends State<Service_Details> {
               //       ),
               //     ],
               //   ),
-
+              SizedBox(
+                height: 10,
+              ),
               widget.employeedropdown == true && widget.status == pending
                   ? GestureDetector(
-                      onTap: () {},
-                      child: Dropdown(
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => Select_Employee());
+                      },
+                      child: Container(
                         width: size.width * 0.9,
-                        hinttxt: selectEmployee,
-                        style: TextStyles.withColor(
-                            TextStyles.mb14, color.Primary_second_Color),
-                        list: [
-                          "Select Employee",
-                        ],
-                        current_value: currentvalue,
-                        onchange: (value) {
-                          showDialog(
-                              context: context,
-                              builder: (context) => Select_Employee());
-                        },
-                        border_color: color.Primary_second_Color,
-                        height: 52,
-                        Textalignment: AlignmentDirectional.centerStart,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                              color: color.Primary_second_Color, width: 1),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Textfield().text(
+                              selectEmployee,
+                              TextStyles.withColor(TextStyles.mb16,
+                                  color.Primary_second_Color, 1.0),
+                            ),
+                            SvgPicture.string(
+                              arrowdown_iconsvg,
+                              height: 6,
+                            ),
+                          ],
+                        ).paddingSymmetric(horizontal: 10),
+                        // hinttxt: selectEmployee,
+                        // style: TextStyles.withColor(
+                        //     TextStyles.mb14, color.Primary_second_Color),
+                        // // list: [
+                        // //   "Select Employee",
+                        // // ],
+                        // current_value: currentvalue,
+                        // onchange: (value) {
+                        //   showDialog(
+                        //       context: context,
+                        //       builder: (context) => Select_Employee());
+                        // },
+                        // border_color: color.Primary_second_Color,
+                        // height: 52,
+                        // Textalignment: AlignmentDirectional.centerStart,
                       ),
                     )
                   : widget.status != pending

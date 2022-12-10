@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tyreshifter/Common/MessageScreen.dart';
 import 'package:tyreshifter/Customer/Assistance_tyreList.dart';
@@ -21,6 +23,7 @@ class Immediately_ProviderList extends StatefulWidget {
 class _Immediately_ProviderListState extends State<Immediately_ProviderList> {
   @override
   Widget build(BuildContext context) {
+    log("type" + widget.type.toString());
     var size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(5.0),
@@ -40,9 +43,11 @@ class _Immediately_ProviderListState extends State<Immediately_ProviderList> {
                 track: true, //it will true before 1 hours
                 showbottom: true,
                 Ontap: () {
-                  nextScreen(context, Assistance_tyreList(
-                    type: widget.type,
-                  ));
+                  nextScreen(
+                      context,
+                      Assistance_tyreList(
+                        type: widget.type,
+                      ));
                 },
               );
             }),

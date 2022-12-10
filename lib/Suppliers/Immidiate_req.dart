@@ -18,7 +18,7 @@ class _Immedite_reqState extends State<Immedite_req> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 8),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
       height: size.height,
       child: ListView.builder(
           scrollDirection: Axis.vertical,
@@ -34,15 +34,15 @@ class _Immedite_reqState extends State<Immedite_req> {
                 msg: false,
                 immidate: true,
                 btncolor: color.btncolor2,
-                Ontap: () {
-                  nextScreen(
-                      context,
-                      Service_Details(
-                        dropdown: true,
-                        pagetype: booking_details,
-                        
-                      ));
-                },
+                // Ontap: () {
+                //   nextScreen(
+                //       context,
+                //       Service_Details(
+                //         dropdown: true,
+                //         pagetype: booking_details,
+
+                //       ));
+                // },
               ),
             );
           }),
