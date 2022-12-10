@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyreshifter/Customer/Completed_Order.dart';
 import 'package:tyreshifter/Suppliers/MyProducts.dart';
+import 'package:tyreshifter/Suppliers/MyShift.dart';
 import 'package:tyreshifter/Suppliers/My_Booking.dart';
 import 'package:tyreshifter/Suppliers/Set_Availability.dart';
 import 'package:tyreshifter/Suppliers/Setprice.dart';
@@ -289,6 +290,16 @@ class _ProfileState extends State<Profile> {
             type_account == become_shifter
                 ? Profilemenu(profile_req, vehicles, () {
                     nextScreen(context, Vehicles());
+                  })
+                : Container(),
+            type_account == become_shifter
+                ? Divider(
+                    thickness: 1,
+                  )
+                : Container(),
+            type_account == become_shifter
+                ? Profilemenu(profile_person, myshift, () {
+                    nextScreen(context, MyShift());
                   })
                 : Container(),
 
