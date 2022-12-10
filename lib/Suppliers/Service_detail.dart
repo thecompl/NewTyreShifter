@@ -333,10 +333,7 @@ class _Service_DetailsState extends State<Service_Details> {
                         style: TextStyles.withColor(
                             TextStyles.mb14, color.Primary_second_Color),
                         list: [
-                          "Ongoing",
-                          "Completed",
-                          in_progess,
-                          "Not started"
+                          "Select Employee",
                         ],
                         current_value: currentvalue,
                         onchange: (value) {
@@ -346,7 +343,7 @@ class _Service_DetailsState extends State<Service_Details> {
                         },
                         border_color: color.Primary_second_Color,
                         height: 52,
-                        Textalignment: AlignmentDirectional.center,
+                        Textalignment: AlignmentDirectional.centerStart,
                       ),
                     )
                   : widget.status != pending

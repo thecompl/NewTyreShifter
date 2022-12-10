@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyreshifter/Common/CalenderScreen.dart';
 import 'package:tyreshifter/Customer/Assistance_immediately2.dart';
@@ -33,10 +34,15 @@ class Select_Services extends StatefulWidget {
 }
 
 class _Select_ServicesState extends State<Select_Services> {
-  String? servicetype = punctureRepair;
+  bool servicetype1 = false;
+  bool servicetype2 = false;
+  bool servicetype3 = false;
+  bool servicetype4 = false;
+  bool servicetype5 = false;
+  bool servicetype6 = false;
 
   String? type_account;
-
+  bool isChecked = false;
   String question = 'Q 1', answer = 'A 3', defaultValue = 'nil';
   List<String> _texts = [
     "InduceSmile.com",
@@ -46,7 +52,7 @@ class _Select_ServicesState extends State<Select_Services> {
     "yahoo.com",
     "gmail.com"
   ];
-  List<bool> _isChecked =[false];
+  List<bool> _isChecked = [false];
   @override
   void initState() {
     _isChecked = List<bool>.filled(_texts.length, false);
@@ -112,7 +118,7 @@ class _Select_ServicesState extends State<Select_Services> {
                       //             () {
                       //               _isChecked[index] = val!;
                       //             },
-                      //   
+                      //
                       //           log(_isChecked.toString());
                       //         },
                       //       );
@@ -132,7 +138,7 @@ class _Select_ServicesState extends State<Select_Services> {
                           // print("hii");
                           // GetStorage().write("type", get_shifter);
                           setState(() {
-                            servicetype = tyreReplacement;
+                            servicetype1 = true;
                             // set_typeaccount();
                           });
                         },
@@ -143,18 +149,17 @@ class _Select_ServicesState extends State<Select_Services> {
                           //         color: color.Primary_second_Color)),
                           child: Row(
                             children: [
-                              Transform.scale(
-                                scale: 1.5,
-                                child: Radio(
-                                    value: tyreReplacement,
-                                    groupValue: servicetype,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        servicetype = value.toString();
-                                        // print("fe =>" + value.toString());
-                                      });
-                                      // set_typeaccount();
-                                    }),
+                              servicetype1
+                                  ? Image.asset(
+                                      'assets/checkedcircle.png',
+                                      height: 20,
+                                    )
+                                  : Image.asset(
+                                      'assets/unselectcircle.png',
+                                      height: 20,
+                                    ),
+                              SizedBox(
+                                width: 10,
                               ),
                               Textfield().text(
                                 tyreReplacement,
@@ -173,7 +178,7 @@ class _Select_ServicesState extends State<Select_Services> {
                           // print("hii");
                           // GetStorage().write("type", get_shifter);
                           setState(() {
-                            servicetype = wheelalignment;
+                            servicetype2 = !servicetype2;
                             // set_typeaccount();
                           });
                         },
@@ -184,18 +189,17 @@ class _Select_ServicesState extends State<Select_Services> {
                           //         color: color.Primary_second_Color)),
                           child: Row(
                             children: [
-                              Transform.scale(
-                                scale: 1.5,
-                                child: Radio(
-                                    value: wheelalignment,
-                                    groupValue: servicetype,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        servicetype = value.toString();
-                                        print("fe =>" + value.toString());
-                                      });
-                                      // set_typeaccount();
-                                    }),
+                              servicetype2
+                                  ? Image.asset(
+                                      'assets/checkedcircle.png',
+                                      height: 20,
+                                    )
+                                  : Image.asset(
+                                      'assets/unselectcircle.png',
+                                      height: 20,
+                                    ),
+                              SizedBox(
+                                width: 10,
                               ),
                               Textfield().text(
                                 wheelalignment,
@@ -214,7 +218,7 @@ class _Select_ServicesState extends State<Select_Services> {
                           // print("hii");
                           // GetStorage().write("type", get_shifter);
                           setState(() {
-                            servicetype = punctureRepair;
+                            servicetype3 = !servicetype3;
                             // set_typeaccount();
                           });
                         },
@@ -225,18 +229,17 @@ class _Select_ServicesState extends State<Select_Services> {
                           //         color: color.Primary_second_Color)),
                           child: Row(
                             children: [
-                              Transform.scale(
-                                scale: 1.5,
-                                child: Radio(
-                                    value: punctureRepair,
-                                    groupValue: servicetype,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        servicetype = value.toString();
-                                        // print("fe =>" + value.toString());
-                                      });
-                                      // set_servicetypeaccount();
-                                    }),
+                              servicetype3
+                                  ? Image.asset(
+                                      'assets/checkedcircle.png',
+                                      height: 20,
+                                    )
+                                  : Image.asset(
+                                      'assets/unselectcircle.png',
+                                      height: 20,
+                                    ),
+                              SizedBox(
+                                width: 10,
                               ),
                               Textfield().text(
                                 punctureRepair,
@@ -254,7 +257,7 @@ class _Select_ServicesState extends State<Select_Services> {
                         onTap: () {
                           // GetStorage().write("type", become_shifter);
                           setState(() {
-                            servicetype = flatbattery;
+                            servicetype4 = !servicetype4;
                             // set_typeaccount();
                           });
                         },
@@ -265,18 +268,17 @@ class _Select_ServicesState extends State<Select_Services> {
                           //         color: color.Primary_second_Color)),
                           child: Row(
                             children: [
-                              Transform.scale(
-                                scale: 1.5,
-                                child: Radio(
-                                    value: flatbattery,
-                                    groupValue: servicetype,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        servicetype = value.toString();
-                                        print("value" + value.toString());
-                                      });
-                                      // set_typeaccount();
-                                    }),
+                              servicetype4
+                                  ? Image.asset(
+                                      'assets/checkedcircle.png',
+                                      height: 20,
+                                    )
+                                  : Image.asset(
+                                      'assets/unselectcircle.png',
+                                      height: 20,
+                                    ),
+                              SizedBox(
+                                width: 10,
                               ),
                               Textfield().text(
                                 flatbattery,
@@ -294,7 +296,7 @@ class _Select_ServicesState extends State<Select_Services> {
                         onTap: () {
                           // GetStorage().write("type", become_shifter);
                           setState(() {
-                            servicetype = batteryreplacement;
+                            servicetype5 = !servicetype5;
                           });
                         },
                         child: Container(
@@ -304,17 +306,17 @@ class _Select_ServicesState extends State<Select_Services> {
                           //         color: color.Primary_second_Color)),
                           child: Row(
                             children: [
-                              Transform.scale(
-                                scale: 1.5,
-                                child: Radio(
-                                    value: batteryreplacement,
-                                    groupValue: servicetype,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        servicetype = value.toString();
-                                        print("value" + value.toString());
-                                      });
-                                    }),
+                              servicetype5
+                                  ? Image.asset(
+                                      'assets/checkedcircle.png',
+                                      height: 20,
+                                    )
+                                  : Image.asset(
+                                      'assets/unselectcircle.png',
+                                      height: 20,
+                                    ),
+                              SizedBox(
+                                width: 10,
                               ),
                               Textfield().text(
                                 batteryreplacement,
@@ -332,7 +334,7 @@ class _Select_ServicesState extends State<Select_Services> {
                         onTap: () {
                           // GetStorage().write("type", become_shifter);
                           setState(() {
-                            servicetype = oilchange;
+                            servicetype6 = !servicetype6;
                           });
                         },
                         child: Container(
@@ -342,17 +344,17 @@ class _Select_ServicesState extends State<Select_Services> {
                           //         color: color.Primary_second_Color)),
                           child: Row(
                             children: [
-                              Transform.scale(
-                                scale: 1.5,
-                                child: Radio(
-                                    value: oilchange,
-                                    groupValue: servicetype,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        servicetype = value.toString();
-                                        print("value" + value.toString());
-                                      });
-                                    }),
+                              servicetype6
+                                  ? Image.asset(
+                                      'assets/checkedcircle.png',
+                                      height: 20,
+                                    )
+                                  : Image.asset(
+                                      'assets/unselectcircle.png',
+                                      height: 20,
+                                    ),
+                              SizedBox(
+                                width: 10,
                               ),
                               Textfield().text(
                                 oilchange,
@@ -379,7 +381,7 @@ class _Select_ServicesState extends State<Select_Services> {
                     nextScreen(
                         context,
                         SetupPrice(
-                            type: widget.type, servicetype: servicetype));
+                            type: widget.type, servicetype: tyreReplacement));
                   },
                 ),
               ),

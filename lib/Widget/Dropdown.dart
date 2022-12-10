@@ -61,21 +61,21 @@ class _DropdownState extends State<Dropdown> {
 
     return Column(
       children: [
-        _chosenValue != ""
-            ? Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Text(
-                      widget.hinttxt!,
-                      style: widget.style,
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ],
-              )
-            : Container(),
+        // _chosenValue != ""
+        //     ? Row(
+        //         mainAxisAlignment: MainAxisAlignment.start,
+        //         children: [
+        //           Padding(
+        //             padding: const EdgeInsets.all(5.0),
+        //             child: Text(
+        //               widget.hinttxt!,
+        //               style: widget.style,
+        //               textAlign: TextAlign.left,
+        //             ),
+        //           ),
+        //         ],
+        //       )
+        //     : Container(),
         Container(
           height: widget.height,
           decoration: BoxDecoration(
@@ -116,9 +116,13 @@ class _DropdownState extends State<Dropdown> {
                             ),
                           ));
                     }).toList(),
-                    hint: Textfield().text(
-                      widget.hinttxt,
-                      widget.hintstyle,
+                    hint: Container(
+                      width: 150, //and here
+                      child: Text(
+                        "Select Item Type",
+                        style: TextStyle(color: Colors.grey),
+                        textAlign: TextAlign.end,
+                      ),
                     ),
                     onChanged: (value) {
                       setState(() {

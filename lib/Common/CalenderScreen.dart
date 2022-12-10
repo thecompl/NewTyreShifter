@@ -42,19 +42,21 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color.skylight,
-      appBar:PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: type_account == get_shifter ? home : calendertxt,show_icon:  type_account == get_shifter ? 1:0,icon: type_account == get_shifter ? Icons.filter_list:null,
-          show_arrow_icon:type_account == get_shifter ?  0:1,
-          ontap: (){
-
-          showDialog(
-              context: context,
-              builder: (context) => Filter_dialog());
-        },elevation: type_account == get_shifter ?0.0:1.0,
+      appBar: PreferredSize(
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(
+          title: type_account == get_shifter ? home : calendertxt,
+          show_icon: type_account == get_shifter ? 1 : 0,
+          icon: type_account == get_shifter ? Icons.filter_list : null,
+          show_arrow_icon: type_account == get_shifter ? 0 : 1,
+          ontap: () {
+            showDialog(context: context, builder: (context) => Filter_dialog());
+          },
+          elevation: type_account == get_shifter ? 0.0 : 1.0,
         ),
       ),
-
       body: SingleChildScrollView(
         child: Container(
           color: color.skylight,
@@ -64,7 +66,6 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
               Container(
                 color: color.white,
                 child: TableCalendar(
-
                   initialCalendarFormat: CalendarFormat.month,
                   calendarStyle: CalendarStyle(
                       weekdayStyle: TextStyles.mb12,
@@ -138,23 +139,25 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Textfield().text(time, TextStyles.mb18),
-                      Dropdown(
-                        width: 120,
-                        hinttxt: "vehicle_type",
-                        style:
-                            TextStyles.withColor(TextStyles.mn14, color.black),
-                        list: time_list,
-                        current_value: currentvalue,
-                        border_color: Colors.transparent,
-                        dropdowncolor: color.dropdown_bg_color,
-                        height: 52,
-                      )
-                    ],
-                  ),
+                  child: type_account == get_shifter
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Textfield().text(time, TextStyles.mb18),
+                            Dropdown(
+                              width: 120,
+                              hinttxt: "vehicle type",
+                              style: TextStyles.withColor(
+                                  TextStyles.mn14, color.black),
+                              list: time_list,
+                              current_value: currentvalue,
+                              border_color: Colors.transparent,
+                              dropdowncolor: color.dropdown_bg_color,
+                              height: 52,
+                            )
+                          ],
+                        )
+                      : Container(),
                 ),
               ),
               type_account == get_shifter
@@ -175,7 +178,11 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
                               showbtn: false,
                               msg: false,
                               Ontap: () {
-                                nextScreen(context, Service_Detail(type: "0",));
+                                nextScreen(
+                                    context,
+                                    Service_Detail(
+                                      type: "0",
+                                    ));
                               },
                             );
                           }),
@@ -183,7 +190,6 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
                   : Container(
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-
                       child: ListView.builder(
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),

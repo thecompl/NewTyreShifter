@@ -36,9 +36,11 @@ class _AddVehicleState extends State<AddVehicle> {
       ),
       body: SingleChildScrollView(
         child: Container(
+          height: size.height * .9,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Card(
                   child: Padding(
@@ -92,30 +94,31 @@ class _AddVehicleState extends State<AddVehicle> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 40,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(addicon_svg),
-                      SizedBox(
-                        width: 5,
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(addicon_svg),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Textfield().text(addanothervehicle, TextStyles.mn16),
+                        ],
                       ),
-                      Textfield().text(addanothervehicle, TextStyles.mn16),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButtons(
+                      name: done,
+                      onTap: () {
+                        // nextScreen(context, AddEmployee());
+                        nextScreen(context, Enable_location());
+                      },
+                    ),
+                    SizedBox(height: 15),
+                  ],
                 ),
-                SizedBox(height: 20),
-                ElevatedButtons(
-                  name: done,
-                  onTap: () {
-                    // nextScreen(context, AddEmployee());
-                    nextScreen(context, Enable_location());
-                  },
-                ),
-                SizedBox(height: 15),
               ],
             ),
           ),

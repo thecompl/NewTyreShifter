@@ -21,58 +21,59 @@ class _Select_EmployeeState extends State<Select_Employee> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
-      child: Dialog(
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20.0))),
-        insetPadding: EdgeInsets.zero,
-        child: SizedBox(
-          width: size.width * 0.9,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 20),
-                TextBoxwidget(
-                  hinttext: searchheretxt,
-                  hintstyle: TextStyles.withColor(
-                      TextStyles.mb14, color.text_grey2_color),
-                  controller: Serach,
-                  border_color: color.Primary_second_Color,
-                  style: TextStyles.withColor(TextStyles.mb14, color.black),
-                  prefixshowicon: false,
-                  iconorimage: false,
-                  // ontap: () {
-                  //   // print("hii");
-                  //   // opendatepiker();
-                  //   setState(() {
-                  //     // address.text = "114, zoo chopati pawder USA";
-                  //   });
-                  // },
-                  readtype: false,
-                  showicon: false,
-                ),
-                SizedBox(height: 10),
-                ListView.builder(
-                  itemCount: 6,
+    return Dialog(
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
+      insetPadding: EdgeInsets.zero,
+      child: Container(
+        width: size.width * 0.9,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 20),
+              TextBoxwidget(
+                hinttext: searchheretxt,
+                hintstyle: TextStyles.withColor(
+                    TextStyles.mb14, color.text_grey2_color),
+                controller: Serach,
+                border_color: color.Primary_second_Color,
+                style: TextStyles.withColor(TextStyles.mb14, color.black),
+                prefixshowicon: false,
+                iconorimage: false,
+                // ontap: () {
+                //   // print("hii");
+                //   // opendatepiker();
+                //   setState(() {
+                //     // address.text = "114, zoo chopati pawder USA";
+                //   });
+                // },
+                readtype: false,
+                showicon: false,
+              ),
+              SizedBox(height: 10),
+              Container(
+                height: size.height * .6,
+                child: ListView.builder(
+                  itemCount: 5,
                   shrinkWrap: true,
                   itemBuilder: (context, i) {
                     return select_emp(working, i);
                   },
                 ),
-                SizedBox(height: 10),
-                ElevatedButtons(
-                  name: selecttxt,
-                  width: 0.4,
-                  height: 60,
-                  onTap: () {
-                    backScreen(context);
-                  },
-                ),
-                SizedBox(height: 10),
-              ],
-            ),
+              ),
+              SizedBox(height: 10),
+              ElevatedButtons(
+                name: selecttxt,
+                width: 0.4,
+                height: 60,
+                onTap: () {
+                  backScreen(context);
+                },
+              ),
+              SizedBox(height: 10),
+            ],
           ),
         ),
       ),

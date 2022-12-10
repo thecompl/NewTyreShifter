@@ -25,8 +25,53 @@ class _AddEmployeeState extends State<AddEmployee> {
   bool focus = false;
   var checkedValue = false;
   @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
+
+  void ShowVehicalDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) => Quantitydailog(
+              iconsvg: info_iconsvg,
+              iconheight: 50.0,
+              showicon: true,
+              showquantity: false,
+              showtitle: false,
+              msg: employeemsg,
+              confirmlabel: okay,
+              Onconfirmtap: () {
+                backScreen(context);
+                nextScreen(context, AddVehicle());
+              },
+            ));
+  }
+
+  show_dialog(context) {
+    showDialog(
+        context: context,
+        builder: (context) => Quantitydailog(
+              iconsvg: info_iconsvg,
+              iconheight: 50.0,
+              showicon: true,
+              showquantity: false,
+              showtitle: false,
+              msg: employeemsg,
+              confirmlabel: okay,
+              Onconfirmtap: () {
+                backScreen(context);
+              },
+            ));
+  }
+
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    Future.delayed(Duration.zero, () => show_dialog(context));
+    // show_dialog(context);
+
     return Scaffold(
       backgroundColor: color.skylight,
       appBar: PreferredSize(
@@ -37,9 +82,11 @@ class _AddEmployeeState extends State<AddEmployee> {
       ),
       body: SingleChildScrollView(
         child: Container(
+          height: size.height * .9,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Card(
                   child: Padding(
@@ -171,46 +218,32 @@ class _AddEmployeeState extends State<AddEmployee> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 40,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) => Quantitydailog(
-                              iconsvg: info_iconsvg,
-                              iconheight: 50.0,
-                              showicon: true,
-                              showquantity: false,
-                              showtitle: false,
-                              msg: employeemsg,
-                              confirmlabel: okay,
-                              Onconfirmtap: () {
-                                backScreen(context);
-                              },
-                            ));
-                    // nextScreen(context, AddVehicle());
-                    // nextScreen(context, Enable_location());
-                  },
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(addicon_svg),
-                      SizedBox(
-                        width: 5,
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // nextScreen(context, AddVehicle());
+                        // nextScreen(context, Enable_location());
+                      },
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(addicon_svg),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Textfield().text(addanotheremployee, TextStyles.mn16),
+                        ],
                       ),
-                      Textfield().text(addanotheremployee, TextStyles.mn16),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                ElevatedButtons(
-                  name: done,
-                  onTap: () {
-                    nextScreen(context, AddVehicle());
-                  },
-                ),
-                SizedBox(height: 15),
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButtons(
+                      name: done,
+                      onTap: () {
+                        ShowVehicalDialog(context);
+                      },
+                    ),
+                  ],
+                )
               ],
             ),
           ),

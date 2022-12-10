@@ -19,6 +19,7 @@ import 'package:tyreshifter/config/string.dart';
 import '../../Widget/BottomBar.dart';
 import '../../Widget/Textfield.dart';
 import '../../config/Navagate_Next.dart';
+import '../Common/CalenderScreen.dart';
 import '../Widget/Appbartext.dart';
 import '../Widget/Booking_Card.dart';
 
@@ -74,19 +75,20 @@ class _My_BookingState extends State<My_Booking> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 5,left: 2),
+                padding: const EdgeInsets.only(right: 5, left: 2),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Textfield().text(today, TextStyles.mb16),
                     GestureDetector(
                         onTap: () {
-                          opendatepiker();
-                          setState(() {
-                            date.text = DateFormat('dd/MM/yyyy')
-                                .format(pickedDate!)
-                                .toString();
-                          });
+                          nextScreen(context, HomeCalendarPage());
+                          // opendatepiker();
+                          // setState(() {
+                          //   date.text = DateFormat('dd/MM/yyyy')
+                          //       .format(pickedDate!)
+                          //       .toString();
+                          // });
                         },
                         child: SvgPicture.string(calendarsvg)),
                   ],
