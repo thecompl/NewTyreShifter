@@ -138,7 +138,7 @@ class _Select_ServicesState extends State<Select_Services> {
                           // print("hii");
                           // GetStorage().write("type", get_shifter);
                           setState(() {
-                            servicetype1 = true;
+                            servicetype1 = !servicetype1;
                             // set_typeaccount();
                           });
                         },
