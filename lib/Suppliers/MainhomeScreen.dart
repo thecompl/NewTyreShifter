@@ -72,15 +72,21 @@ class _MainHomeScreen_SupplierState extends State<MainHomeScreen_Supplier> {
               BottomNavigationBarItem(
                   backgroundColor: color.PrimaryColor,
                   icon: pageIndex == 0
-                      ? Image.asset(
-                          home_active,
-                          height: 25,
+                      ? Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Image.asset(
+                            home_active,
+                            height: 25,
+                          ),
                         )
-                      : Image.asset(
-                          home_deactive,
-                          height: 25,
+                      : Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Image.asset(
+                            home_deactive,
+                            height: 25,
+                          ),
                         ),
-                  label: ""),
+                  label: bookingtxt),
               BottomNavigationBarItem(
                   backgroundColor: color.PrimaryColor,
                   icon: pageIndex == 1
@@ -98,7 +104,7 @@ class _MainHomeScreen_SupplierState extends State<MainHomeScreen_Supplier> {
                             height: 25,
                           ),
                         ),
-                  label: ""),
+                  label: request),
               BottomNavigationBarItem(
                   backgroundColor: color.PrimaryColor,
                   icon: pageIndex == 2
@@ -116,7 +122,7 @@ class _MainHomeScreen_SupplierState extends State<MainHomeScreen_Supplier> {
                             height: 25,
                           ),
                         ),
-                  label: ""),
+                  label: inbox),
               BottomNavigationBarItem(
                   backgroundColor: color.PrimaryColor,
                   icon: pageIndex == 3
@@ -134,7 +140,7 @@ class _MainHomeScreen_SupplierState extends State<MainHomeScreen_Supplier> {
                             height: 25,
                           ),
                         ),
-                  label: ""),
+                  label: profile),
             ],
           ),
         ),

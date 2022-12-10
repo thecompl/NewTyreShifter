@@ -33,6 +33,7 @@ final confirm = "Confirm";
 final confirmed = "Confirmed";
 final canceled = "Cancelled";
 final booking = "Bookings";
+final bookingtxt = "Booking";
 final no = "No";
 final yes = "Yes";
 final okay = "Okay";
