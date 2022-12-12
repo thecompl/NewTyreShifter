@@ -4,8 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:tyreshifter/Customer/Cancelledrequest.dart';
 import 'package:tyreshifter/Customer/Completed.dart';
 import 'package:tyreshifter/Customer/Inprogress.dart';
@@ -41,6 +43,7 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
     addproductsvg,
     exceliconsvg,
   ];
+  var quntity = 0;
   List text = [
     addproducts,
     uploadcsv,
@@ -72,6 +75,7 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
           mainAxisSize: MainAxisSize.min,
           children: new List.generate(icons.length, (int index) {
             Widget child = new Container(
+              padding: EdgeInsets.only(right: 15),
               height: 70.0,
               alignment: FractionalOffset.centerRight,
               child: new ScaleTransition(
@@ -89,14 +93,18 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                       child: Textfield().text(
                           text[index].toString(),
                           TextStyles.withColor(
-                              TextStyles.mn14, color.txt_dark_color)),
+                              TextStyles.mn16, color.txt_dark_color)),
+                    ),
+                    SizedBox(
+                      width: 15,
                     ),
                     new FloatingActionButton(
                       heroTag: null,
                       backgroundColor: color.white,
-                      mini: true,
+                      mini: false,
                       child: new SvgPicture.asset(
                         icons[index],
+                        height: 30,
                       ),
                       onPressed: () {
                         nextScreen(context, onpress[index]);
@@ -110,30 +118,41 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
           }).toList()
             ..add(
               Container(
+                margin: EdgeInsets.only(top: 20, right: 15),
                 alignment: FractionalOffset.centerRight,
-                child: new FloatingActionButton(
-                  // alignment: FractionalOffset.center,
-                  heroTag: null,
-                  backgroundColor: color.Primary_second_Color,
-                  child: new AnimatedBuilder(
-                    animation: _controller,
-                    builder: (BuildContext context, Widget) {
-                      return Transform(
-                        transform: new Matrix4.rotationZ(
-                            _controller.value * 0.5 * math.pi),
-                        alignment: FractionalOffset.center,
-                        child: new Icon(
-                            _controller.isDismissed ? Icons.add : Icons.close),
-                      );
-                    },
-                  ),
-                  onPressed: () {
+                child: GestureDetector(
+                  onTap: (() {
                     if (_controller.isDismissed) {
                       _controller.forward();
                     } else {
                       _controller.reverse();
                     }
-                  },
+                  }),
+                  child: new Container(
+                    height: 70,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: color.Primary_second_Color,
+                        borderRadius: BorderRadius.circular(50)),
+                    // alignment: FractionalOffset.center,
+                    // heroTag: null,
+                    // backgroundColor: color.Primary_second_Color,
+                    child: new AnimatedBuilder(
+                      animation: _controller,
+                      builder: (BuildContext context, Widget) {
+                        return Transform(
+                          transform: new Matrix4.rotationZ(
+                              _controller.value * 0.5 * math.pi),
+                          alignment: FractionalOffset.center,
+                          child: new Icon(
+                            _controller.isDismissed ? Icons.add : Icons.close,
+                            size: 40,
+                            color: color.white,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -163,7 +182,7 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                                 ),
                                 child: Slidable(
                                   key: Key('item ${[index]}'),
-                                  endActionPane: const ActionPane(
+                                  endActionPane: ActionPane(
                                     motion: ScrollMotion(),
                                     children: [
                                       SlidableAction(
@@ -173,7 +192,8 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                                         backgroundColor:
                                             color.Primary_second_Color,
                                         foregroundColor: Colors.white,
-                                        icon: Icons.edit,
+                                        icon: edit_icon_svg,
+
                                         // label: 'Archive',
                                       ),
                                       SlidableAction(
@@ -182,14 +202,14 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                                         onPressed: addquantity,
                                         backgroundColor: color.txt_dark_color,
                                         foregroundColor: Colors.white,
-                                        icon: Icons.edit_note,
+                                        icon: edit_quntity_svg,
                                         // label: 'Archive',
                                       ),
                                       SlidableAction(
                                         onPressed: doNothing,
                                         backgroundColor: color.red_color,
                                         foregroundColor: Colors.white,
-                                        icon: Icons.delete,
+                                        icon: deleteproductsvg,
                                         borderRadius: BorderRadius.only(
                                           bottomRight: Radius.circular(20),
                                           topRight: Radius.circular(20),
@@ -231,25 +251,42 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                   ],
                 ),
               )
-            : Container(
-                height: size.height,
-                child: Center(child: SvgPicture.string(sadfaceicon)),
+            : Center(
+                child: Container(
+                  alignment: Alignment.center,
+                  height: size.height,
+                  child: SvgPicture.string(sadfaceicon),
+                ),
               ));
   }
-}
 
-void addquantity(BuildContext context) {
-  showDialog(
-      context: context,
-      builder: (context) => Quantitydailog(
-            title: changeqty,
-            msg: qty,
-            quantity: '1',
-            confirmlabel: done,
-            Onconfirmtap: () {
-              backScreen(context);
-            },
-          ));
-}
+  addquantity(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) =>
+            StatefulBuilder(builder: (context, StateSetter setState) {
+              return Quantitydailog(
+                quantity_increase: () {
+                  print("hiii");
+                  setState(() {
+                    quntity++;
+                  });
+                },
+                quantity_decrease: () {
+                  setState(() {
+                    quntity--;
+                  });
+                },
+                title: changeqty,
+                msg: qty,
+                quantity: quntity.toString(),
+                confirmlabel: done,
+                Onconfirmtap: () {
+                  backScreen(context);
+                },
+              );
+            }));
+  }
 
-void doNothing(BuildContext context) {}
+  void doNothing(BuildContext context) {}
+}

@@ -29,7 +29,8 @@ class Quantitydailog extends StatefulWidget {
   final showquantity;
 
   final showtitle;
-
+  final Function? quantity_decrease;
+  final Function? quantity_increase;
   Quantitydailog(
       {Key? key,
       this.msg,
@@ -41,7 +42,9 @@ class Quantitydailog extends StatefulWidget {
       this.showicon = false,
       this.quantity,
       this.showquantity = true,
-      this.showtitle = true})
+      this.showtitle = true,
+      this.quantity_decrease,
+      this.quantity_increase})
       : super(key: key);
 
   @override
@@ -116,7 +119,9 @@ class _QuantitydailogState extends State<Quantitydailog> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      widget.quantity_decrease!();
+                                    },
                                     child: Icon(
                                       Icons.remove,
                                       color: color.Primary_second_Color,
@@ -126,7 +131,9 @@ class _QuantitydailogState extends State<Quantitydailog> {
                                   Textfield()
                                       .text(widget.quantity, TextStyles.mb18),
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      widget.quantity_increase!();
+                                    },
                                     child: Icon(
                                       Icons.add,
                                       color: color.Primary_second_Color,
@@ -146,7 +153,7 @@ class _QuantitydailogState extends State<Quantitydailog> {
                         child: Text(widget.msg,
                             textAlign: TextAlign.center,
                             style: TextStyles.withColor(
-                                TextStyles.mn14, color.textgrey_color)),
+                                TextStyles.mn14, color.popup_txt_color)),
                       ),
                     ),
               SizedBox(

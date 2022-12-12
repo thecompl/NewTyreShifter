@@ -14,6 +14,7 @@ import 'package:tyreshifter/config/TextStyles/Textstyles.dart';
 import 'package:tyreshifter/config/string.dart';
 
 import '../Customer/Dialogs/Delete_dialog.dart';
+import '../Widget/Custome_Dialog.dart';
 import '../Widget/Textfield.dart';
 import 'Dailogs/CancelBookingdailog.dart';
 
@@ -48,55 +49,107 @@ class _EmployeeListState extends State<EmployeeList> {
                 shrinkWrap: true,
                 itemCount: 5,
                 itemBuilder: (BuildContext context, int index) {
-                  return EmployeeListwidget(
-                    title: 'Jane Cooper',
-                    email: 'Janeooper123@gmail.com',
-                    subtitle: 'Gj01 pu6756',
-                    label1: starttime,
-                    label2: endtime,
-                    value1: '11:00 AM',
-                    value2: '01:05 PM',
-                    ontapdelete: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => Delete_dialog(
-                                iconsvg: deletesvg,
-                                iconheight: 50.0,
-                                title: deletetxt,
-                                msg: deletepopmsg,
-                                cancellabel: no,
-                                confirmlabel: yes,
-                                Oncanceltap: () {
-                                  backScreen(context);
-                                },
-                                Onconfirmtap: () {
-                                  backScreen(context);
-                                },
-                              ));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: (() {
-                          showDialog(
-                              context: context,
-                              builder: (context) => Delete_dialog(
-                                    iconsvg: exiticonsvgstring,
-                                    iconheight: 50.0,
-                                    title: log_out,
-                                    msg: log_outmsg,
-                                    cancellabel: no,
-                                    confirmlabel: yes,
-                                    Oncanceltap: () {
-                                      backScreen(context);
-                                    },
-                                    Onconfirmtap: () {
-                                      backScreen(context);
-                                    },
-                                  ));
-                          // nextScreen(context, MyShift());
-                        }),
-                        child: SvgPicture.asset(exiticon),
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 3),
+                    child: EmployeeListwidget(
+                      title: 'Jane Cooper',
+                      email: 'Janeooper123@gmail.com',
+                      subtitle: 'Gj01 pu6756',
+                      label1: starttime,
+                      label2: endtime,
+                      value1: '11:00 AM',
+                      value2: '01:05 PM',
+                      ontapdelete: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => Custom_dialog(
+                                  iconheight: 50.0,
+                                  title: edittxt,
+                                  showchild: true,
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: 35),
+                                      SvgPicture.string(
+                                        deletesvg,
+                                        height: 50,
+                                      ),
+                                      SizedBox(height: 20),
+                                      Textfield().text(
+                                          deletetxt,
+                                          TextStyles.withColor(TextStyles.mb20,
+                                              color.text_grey2_color)),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Textfield().text(
+                                          deletepopmsg,
+                                          TextStyles.withColor(TextStyles.mn18,
+                                              color.text_grey2_color)),
+                                      SizedBox(
+                                        height: 40,
+                                      )
+                                    ],
+                                  ),
+                                  cancellabel: no,
+                                  confirmlabel: yes,
+                                  Oncanceltap: () {
+                                    backScreen(context);
+                                  },
+                                  Onconfirmtap: () {
+                                    backScreen(context);
+                                  },
+                                ));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GestureDetector(
+                          onTap: (() {
+                            showDialog(
+                                context: context,
+                                builder: (context) => Custom_dialog(
+                                      iconheight: 50.0,
+                                      title: edittxt,
+                                      showchild: true,
+                                      child: Column(
+                                        children: [
+                                          SizedBox(height: 35),
+                                          SvgPicture.string(
+                                            exiticonsvgstring,
+                                            height: 50,
+                                          ),
+                                          SizedBox(height: 20),
+                                          Textfield().text(
+                                              log_out,
+                                              TextStyles.withColor(
+                                                  TextStyles.mb20,
+                                                  color.text_grey2_color)),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Textfield().text(
+                                              log_outmsg,
+                                              TextStyles.withColor(
+                                                  TextStyles.mn18,
+                                                  color.text_grey2_color)),
+                                          SizedBox(
+                                            height: 40,
+                                          )
+                                        ],
+                                      ),
+                                      cancellabel: no,
+                                      confirmlabel: yes,
+                                      Oncanceltap: () {
+                                        backScreen(context);
+                                      },
+                                      Onconfirmtap: () {
+                                        backScreen(context);
+                                      },
+                                    ));
+
+                            // nextScreen(context, MyShift());
+                          }),
+                          child: SvgPicture.asset(exiticon),
+                        ),
                       ),
                     ),
                   );

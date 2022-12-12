@@ -25,9 +25,14 @@ class Custom_dialog extends StatefulWidget {
   final Function? Oncanceltap;
 
   final Function? Onconfirmtap;
+  final Function? ontaponebtn;
 
   final child;
   final showchild;
+
+  final showonebtn;
+
+  final onbtnname;
   Custom_dialog(
       {Key? key,
       this.msg,
@@ -39,7 +44,10 @@ class Custom_dialog extends StatefulWidget {
       this.Oncanceltap,
       this.Onconfirmtap,
       this.child,
-      this.showchild = false})
+      this.showchild = false,
+      this.showonebtn = false,
+      this.ontaponebtn,
+      this.onbtnname})
       : super(key: key);
 
   @override
@@ -70,52 +78,72 @@ class _Custom_dialogState extends State<Custom_dialog> {
               Image.asset(
                 divider,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 0),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          widget.Oncanceltap!();
-                          // backScreen(context);
-                        },
-                        child: Container(
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(color: Colors.red)),
-                          width: size.width * 0.39,
-                          height: 60,
-                          child: Center(
-                            child: Text(widget.cancellabel,
-                                style: TextStyles.withColor(TextStyles.mb16,
-                                    color.Primary_second_Color)),
-                          ),
+              !widget.showonebtn
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 0),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                widget.Oncanceltap!();
+                                // backScreen(context);
+                              },
+                              child: Container(
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(color: Colors.red)),
+                                width: size.width * 0.39,
+                                height: 60,
+                                child: Center(
+                                  child: Text(widget.cancellabel,
+                                      style: TextStyles.withColor(
+                                          TextStyles.mn18,
+                                          color.txt_dark_color)),
+                                ),
+                              ),
+                            ),
+                            Image.asset(
+                              vertical,
+                              height: size.height * 0.06,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                widget.Onconfirmtap!();
+                                // backScreen(context);
+                              },
+                              child: Container(
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(color: Colors.red)),
+                                width: size.width * 0.39,
+                                height: 60,
+                                child: Center(
+                                  child: Text(widget.confirmlabel,
+                                      style: TextStyles.withColor(
+                                          TextStyles.mb18,
+                                          color.Primary_second_Color)),
+                                ),
+                              ),
+                            )
+                          ]),
+                    )
+                  : InkWell(
+                      onTap: () {
+                        widget.ontaponebtn!();
+                        // backScreen(context);
+                      },
+                      child: Container(
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(color: Colors.red)),
+                        width: size.width,
+                        height: 60,
+                        child: Center(
+                          child: Text(widget.onbtnname,
+                              style: TextStyles.withColor(
+                                  TextStyles.mn18, color.Primary_second_Color)),
                         ),
                       ),
-                      Image.asset(
-                        vertical,
-                        height: size.height * 0.06,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          widget.Onconfirmtap!();
-                          // backScreen(context);
-                        },
-                        child: Container(
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(color: Colors.red)),
-                          width: size.width * 0.39,
-                          height: 60,
-                          child: Center(
-                            child: Text(widget.confirmlabel,
-                                style: TextStyles.withColor(TextStyles.mb16,
-                                    color.Primary_second_Color)),
-                          ),
-                        ),
-                      )
-                    ]),
-              )
+                    ),
             ],
           ),
         ),

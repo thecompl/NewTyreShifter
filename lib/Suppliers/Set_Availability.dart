@@ -93,7 +93,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Textfield().text(
                 availabilty,
@@ -228,6 +228,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
                 height: 20,
               ),
               Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
                     color: color.white,
                     borderRadius: BorderRadius.circular(10)),
@@ -235,6 +236,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ListView.builder(
+                        padding: EdgeInsets.zero,
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: day.length,
@@ -262,6 +264,7 @@ class _Set_AvailabilityState extends State<Set_Availability> {
               SizedBox(height: 20),
               ElevatedButtons(
                 name: type == "0" ? done : update,
+                width: size.width,
                 onTap: () {
                   save_avalabilty_ctrl.save_avalability(context);
 

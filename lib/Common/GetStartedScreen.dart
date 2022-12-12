@@ -175,11 +175,12 @@ class _Get_StartedScreenState extends State<Get_StartedScreen> {
                                 type = become_shifter;
                               });
                               set_typeaccount();
-                              nextScreen(
-                                  context,
-                                  type == become_shifter
-                                      ? Register_req()
-                                      : Login());
+                              // nextScreen(
+                              //     context,
+                              //     type == become_shifter
+                              //         ? Register_req()
+                              //         : Login());
+                              nextScreen(context, Login());
                             }),
                       ),
                       SizedBox(

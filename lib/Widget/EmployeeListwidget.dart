@@ -48,6 +48,10 @@ class _EmployeeListwidgetState extends State<EmployeeListwidget> {
     var size = MediaQuery.of(context).size;
 
     return Card(
+      elevation: 1.5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(
@@ -60,7 +64,7 @@ class _EmployeeListwidgetState extends State<EmployeeListwidget> {
                 Textfield().text(
                     widget.title,
                     TextStyles.withColor(
-                        TextStyles.mb16, color.Primary_second_Color)),
+                        TextStyles.mb20, color.Primary_second_Color)),
                 GestureDetector(
                     onTap: () {
                       widget.ontapdelete();
@@ -72,12 +76,12 @@ class _EmployeeListwidgetState extends State<EmployeeListwidget> {
               height: 10,
             ),
             Textfield().text(widget.email,
-                TextStyles.withColor(TextStyles.mn14, color.textgrey_color)),
+                TextStyles.withColor(TextStyles.mn16, color.textgrey_color)),
             SizedBox(
               height: 10,
             ),
             Textfield().text(widget.subtitle,
-                TextStyles.withColor(TextStyles.mn14, color.textgrey_color)),
+                TextStyles.withColor(TextStyles.mn16, color.textgrey_color)),
             SizedBox(
               height: 10,
             ),
@@ -86,11 +90,13 @@ class _EmployeeListwidgetState extends State<EmployeeListwidget> {
               children: [
                 Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Textfield().text(
                           widget.label1,
                           TextStyles.withColor(
                               TextStyles.mb16, color.Primary_second_Color)),
+                      SizedBox(height: 5),
                       Textfield().text(
                           widget.value2,
                           TextStyles.withColor(
@@ -100,11 +106,13 @@ class _EmployeeListwidgetState extends State<EmployeeListwidget> {
                 ),
                 Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Textfield().text(
                           widget.label2,
                           TextStyles.withColor(
                               TextStyles.mb16, color.Primary_second_Color)),
+                      SizedBox(height: 5),
                       Textfield().text(
                           widget.value2,
                           TextStyles.withColor(

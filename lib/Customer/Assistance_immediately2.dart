@@ -155,8 +155,8 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                         },
                         prefixshowicon: false,
                         readtype: true,
-                        iconorimage: true,
-                        imagepath: calender,
+                        // iconorimage: true,
+                        // imagepath: calender,
                       ),
                       SizedBox(
                         height: 20,
@@ -173,6 +173,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                         Textalignment: AlignmentDirectional.centerStart,
                         border_color: color.border_grey4_color,
                         height: 52,
+                        showarrow: false,
                       ),
                       SizedBox(
                         height: 25,
@@ -252,9 +253,9 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                         ),
                       ),
                     ),
-                    // SizedBox(
-                    //   height: 5,
-                    // ),
+                    SizedBox(
+                      width: 20,
+                    ),
                     GestureDetector(
                       onTap: () {
                         // print("hii");

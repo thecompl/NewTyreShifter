@@ -63,8 +63,8 @@ class _ProductListwidgetState extends State<ProductListwidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 250,
-                  height: 160,
+                  width: 180,
+                  height: 180,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                       border: Border.all(color: color.border_grey4_color)),

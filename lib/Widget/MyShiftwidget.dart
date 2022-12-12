@@ -51,6 +51,9 @@ class _MyShiftwidgetState extends State<MyShiftwidget> {
     var size = MediaQuery.of(context).size;
 
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         child: Column(
@@ -86,6 +89,9 @@ class _MyShiftwidgetState extends State<MyShiftwidget> {
                               widget.label1,
                               TextStyles.withColor(TextStyles.mb16,
                                   color.Primary_second_Color, 1.2)),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Textfield().text(
                               widget.value2,
                               TextStyles.withColor(
@@ -111,6 +117,9 @@ class _MyShiftwidgetState extends State<MyShiftwidget> {
                               widget.label2,
                               TextStyles.withColor(TextStyles.mb16,
                                   color.Primary_second_Color, 1.2)),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Textfield().text(
                               widget.value2,
                               TextStyles.withColor(

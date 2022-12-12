@@ -52,27 +52,24 @@ class _Select_EmployeeState extends State<Select_Employee> {
                 readtype: false,
                 showicon: false,
               ),
-              SizedBox(height: 10),
-              Container(
-                height: size.height * .6,
-                child: ListView.builder(
-                  itemCount: 5,
-                  shrinkWrap: true,
-                  itemBuilder: (context, i) {
-                    return select_emp(working, i);
-                  },
-                ),
+              SizedBox(height: 30),
+              ListView.builder(
+                itemCount: 5,
+                shrinkWrap: true,
+                itemBuilder: (context, i) {
+                  return select_emp(working, i);
+                },
               ),
               SizedBox(height: 10),
               ElevatedButtons(
                 name: selecttxt,
                 width: 0.4,
-                height: 55,
+                height: 50,
                 onTap: () {
                   backScreen(context);
                 },
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
             ],
           ),
         ),
@@ -113,6 +110,7 @@ class _Select_EmployeeState extends State<Select_Employee> {
                         }),
                   ),
                 ),
+                SizedBox(width: 5),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -126,6 +124,7 @@ class _Select_EmployeeState extends State<Select_Employee> {
                               TextStyles.mb18, color.text_grey2_color),
                           TextAlign.left),
                     ),
+                    SizedBox(height: 10),
                     Container(
                       // width: size.width * 0.25,
                       // decoration: BoxDecoration(
@@ -161,7 +160,7 @@ class _Select_EmployeeState extends State<Select_Employee> {
                 SizedBox(height: 10),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  height: 40,
+                  height: 27,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: color.green_bg_color,

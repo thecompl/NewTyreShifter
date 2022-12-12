@@ -96,283 +96,291 @@ class _Select_ServicesState extends State<Select_Services> {
                 height: 20,
               ),
               Container(
+                width: size.width,
                 decoration: BoxDecoration(
                   color: color.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // ListView.builder(
-                      //     shrinkWrap: true,
-                      //     itemCount: _texts.length,
-                      //     itemBuilder: (cc, index) {
-                      //       return CheckboxListTile(
-                      //         title: Text(_texts[index]),
-                      //         value: _isChecked[index],
-                      //         onChanged: (val) {
-                      //           setState(
-                      //             () {
-                      //               _isChecked[index] = val!;
-                      //             },
-                      //
-                      //           log(_isChecked.toString());
-                      //         },
-                      //       );
-                      //     }),
-                      SizedBox(height: 10),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          selectservicesupplier,
-                          textAlign: TextAlign.center,
-                          style: TextStyles.mb18,
-                        ),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // ListView.builder(
+                    //     shrinkWrap: true,
+                    //     itemCount: _texts.length,
+                    //     itemBuilder: (cc, index) {
+                    //       return CheckboxListTile(
+                    //         title: Text(_texts[index]),
+                    //         value: _isChecked[index],
+                    //         onChanged: (val) {
+                    //           setState(
+                    //             () {
+                    //               _isChecked[index] = val!;
+                    //             },
+                    //
+                    //           log(_isChecked.toString());
+                    //         },
+                    //       );
+                    //     }),
+                    SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        selectservicesupplier,
+                        textAlign: TextAlign.center,
+                        style: TextStyles.mb18,
                       ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          // print("hii");
-                          // GetStorage().write("type", get_shifter);
-                          setState(() {
-                            servicetype1 = !servicetype1;
-                            // set_typeaccount();
-                          });
-                        },
-                        child: Container(
-                          width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              servicetype1
-                                  ? Image.asset(
-                                      'assets/checkedcircle.png',
-                                      height: 20,
-                                    )
-                                  : Image.asset(
-                                      'assets/unselectcircle.png',
-                                      height: 20,
+                    ),
+                    SizedBox(height: 30),
+
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                // print("hii");
+                                // GetStorage().write("type", get_shifter);
+                                setState(() {
+                                  servicetype1 = !servicetype1;
+                                  // set_typeaccount();
+                                });
+                              },
+                              child: Container(
+                                width: size.width * 0.7,
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(
+                                //         color: color.Primary_second_Color)),
+                                child: Row(
+                                  children: [
+                                    servicetype1
+                                        ? Image.asset(
+                                            'assets/checkedcircle.png',
+                                            height: 20,
+                                          )
+                                        : Image.asset(
+                                            'assets/unselectcircle.png',
+                                            height: 20,
+                                          ),
+                                    SizedBox(
+                                      width: 10,
                                     ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Textfield().text(
-                                tyreReplacement,
-                                TextStyles.withColor(
-                                    TextStyles.mn18, color.textgrey_color, 1.2),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // print("hii");
-                          // GetStorage().write("type", get_shifter);
-                          setState(() {
-                            servicetype2 = !servicetype2;
-                            // set_typeaccount();
-                          });
-                        },
-                        child: Container(
-                          width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              servicetype2
-                                  ? Image.asset(
-                                      'assets/checkedcircle.png',
-                                      height: 20,
-                                    )
-                                  : Image.asset(
-                                      'assets/unselectcircle.png',
-                                      height: 20,
+                                    Textfield().text(
+                                      tyreReplacement,
+                                      TextStyles.withColor(TextStyles.mn18,
+                                          color.textgrey_color, 1.2),
                                     ),
-                              SizedBox(
-                                width: 10,
+                                  ],
+                                ),
                               ),
-                              Textfield().text(
-                                wheelalignment,
-                                TextStyles.withColor(
-                                    TextStyles.mn18, color.textgrey_color, 1.2),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // print("hii");
-                          // GetStorage().write("type", get_shifter);
-                          setState(() {
-                            servicetype3 = !servicetype3;
-                            // set_typeaccount();
-                          });
-                        },
-                        child: Container(
-                          width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              servicetype3
-                                  ? Image.asset(
-                                      'assets/checkedcircle.png',
-                                      height: 20,
-                                    )
-                                  : Image.asset(
-                                      'assets/unselectcircle.png',
-                                      height: 20,
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // print("hii");
+                                // GetStorage().write("type", get_shifter);
+                                setState(() {
+                                  servicetype2 = !servicetype2;
+                                  // set_typeaccount();
+                                });
+                              },
+                              child: Container(
+                                width: size.width * 0.7,
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(
+                                //         color: color.Primary_second_Color)),
+                                child: Row(
+                                  children: [
+                                    servicetype2
+                                        ? Image.asset(
+                                            'assets/checkedcircle.png',
+                                            height: 20,
+                                          )
+                                        : Image.asset(
+                                            'assets/unselectcircle.png',
+                                            height: 20,
+                                          ),
+                                    SizedBox(
+                                      width: 10,
                                     ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Textfield().text(
-                                punctureRepair,
-                                TextStyles.withColor(
-                                    TextStyles.mn18, color.textgrey_color, 1.2),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // GetStorage().write("type", become_shifter);
-                          setState(() {
-                            servicetype4 = !servicetype4;
-                            // set_typeaccount();
-                          });
-                        },
-                        child: Container(
-                          // width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              servicetype4
-                                  ? Image.asset(
-                                      'assets/checkedcircle.png',
-                                      height: 20,
-                                    )
-                                  : Image.asset(
-                                      'assets/unselectcircle.png',
-                                      height: 20,
+                                    Textfield().text(
+                                      wheelalignment,
+                                      TextStyles.withColor(TextStyles.mn18,
+                                          color.textgrey_color, 1.2),
                                     ),
-                              SizedBox(
-                                width: 10,
+                                  ],
+                                ),
                               ),
-                              Textfield().text(
-                                flatbattery,
-                                TextStyles.withColor(
-                                    TextStyles.mn18, color.textgrey_color, 1.2),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // GetStorage().write("type", become_shifter);
-                          setState(() {
-                            servicetype5 = !servicetype5;
-                          });
-                        },
-                        child: Container(
-                          // width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              servicetype5
-                                  ? Image.asset(
-                                      'assets/checkedcircle.png',
-                                      height: 20,
-                                    )
-                                  : Image.asset(
-                                      'assets/unselectcircle.png',
-                                      height: 20,
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // print("hii");
+                                // GetStorage().write("type", get_shifter);
+                                setState(() {
+                                  servicetype3 = !servicetype3;
+                                  // set_typeaccount();
+                                });
+                              },
+                              child: Container(
+                                width: size.width * 0.7,
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(
+                                //         color: color.Primary_second_Color)),
+                                child: Row(
+                                  children: [
+                                    servicetype3
+                                        ? Image.asset(
+                                            'assets/checkedcircle.png',
+                                            height: 20,
+                                          )
+                                        : Image.asset(
+                                            'assets/unselectcircle.png',
+                                            height: 20,
+                                          ),
+                                    SizedBox(
+                                      width: 10,
                                     ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Textfield().text(
-                                batteryreplacement,
-                                TextStyles.withColor(
-                                    TextStyles.mn18, color.textgrey_color, 1.2),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // GetStorage().write("type", become_shifter);
-                          setState(() {
-                            servicetype6 = !servicetype6;
-                          });
-                        },
-                        child: Container(
-                          // width: size.width * 0.7,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //         color: color.Primary_second_Color)),
-                          child: Row(
-                            children: [
-                              servicetype6
-                                  ? Image.asset(
-                                      'assets/checkedcircle.png',
-                                      height: 20,
-                                    )
-                                  : Image.asset(
-                                      'assets/unselectcircle.png',
-                                      height: 20,
+                                    Textfield().text(
+                                      punctureRepair,
+                                      TextStyles.withColor(TextStyles.mn18,
+                                          color.textgrey_color, 1.2),
                                     ),
-                              SizedBox(
-                                width: 10,
+                                  ],
+                                ),
                               ),
-                              Textfield().text(
-                                oilchange,
-                                TextStyles.withColor(
-                                    TextStyles.mn18, color.textgrey_color, 1.2),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // GetStorage().write("type", become_shifter);
+                                setState(() {
+                                  servicetype4 = !servicetype4;
+                                  // set_typeaccount();
+                                });
+                              },
+                              child: Container(
+                                width: size.width * 0.7,
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(
+                                //         color: color.Primary_second_Color)),
+                                child: Row(
+                                  children: [
+                                    servicetype4
+                                        ? Image.asset(
+                                            'assets/checkedcircle.png',
+                                            height: 20,
+                                          )
+                                        : Image.asset(
+                                            'assets/unselectcircle.png',
+                                            height: 20,
+                                          ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Textfield().text(
+                                      flatbattery,
+                                      TextStyles.withColor(TextStyles.mn18,
+                                          color.textgrey_color, 1.2),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // GetStorage().write("type", become_shifter);
+                                setState(() {
+                                  servicetype5 = !servicetype5;
+                                });
+                              },
+                              child: Container(
+                                width: size.width * 0.7,
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(
+                                //         color: color.Primary_second_Color)),
+                                child: Row(
+                                  children: [
+                                    servicetype5
+                                        ? Image.asset(
+                                            'assets/checkedcircle.png',
+                                            height: 20,
+                                          )
+                                        : Image.asset(
+                                            'assets/unselectcircle.png',
+                                            height: 20,
+                                          ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Textfield().text(
+                                      batteryreplacement,
+                                      TextStyles.withColor(TextStyles.mn18,
+                                          color.textgrey_color, 1.2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // GetStorage().write("type", become_shifter);
+                                setState(() {
+                                  servicetype6 = !servicetype6;
+                                });
+                              },
+                              child: Container(
+                                width: size.width * 0.7,
+                                // decoration: BoxDecoration(
+                                //     border: Border.all(
+                                //         color: color.Primary_second_Color)),
+                                child: Row(
+                                  children: [
+                                    servicetype6
+                                        ? Image.asset(
+                                            'assets/checkedcircle.png',
+                                            height: 20,
+                                          )
+                                        : Image.asset(
+                                            'assets/unselectcircle.png',
+                                            height: 20,
+                                          ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Textfield().text(
+                                      oilchange,
+                                      TextStyles.withColor(TextStyles.mn18,
+                                          color.textgrey_color, 1.2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 40),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButtons(

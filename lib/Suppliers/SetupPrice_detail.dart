@@ -65,24 +65,27 @@ class _SetupPrice_detailState extends State<SetupPrice_detail> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 10),
                 ListView.builder(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: widget.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return SetupPriceWidget(
-                        title: widget.data[index]['servicetitle'],
-                        service: widget.data[index]['servicedetail'],
-                        length: widget.data[index]['servicedetail'].length,
-                        price: '£300',
-                        // Oncardtap: () {
-                        //   log("message");
-                        //   // nextScreen(context, page)
-                        // },
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: SetupPriceWidget(
+                          title: widget.data[index]['servicetitle'],
+                          service: widget.data[index]['servicedetail'],
+                          length: widget.data[index]['servicedetail'].length,
+                          price: '£300',
+                          // Oncardtap: () {
+                          //   log("message");
+                          //   // nextScreen(context, page)
+                          // },
+                        ),
                       );
                     }),
-                SizedBox(height: 40),
                 ElevatedButtons(
                   name: done,
                   onTap: () {

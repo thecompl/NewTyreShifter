@@ -27,7 +27,7 @@ class _AddVehicleState extends State<AddVehicle> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: color.skylight,
+      backgroundColor: color.white,
       appBar: PreferredSize(
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
@@ -42,7 +42,9 @@ class _AddVehicleState extends State<AddVehicle> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Card(
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: color.border_grey6_color)),
                   child: Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 10),

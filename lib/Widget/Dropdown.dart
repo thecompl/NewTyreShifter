@@ -25,6 +25,8 @@ class Dropdown extends StatefulWidget {
 
   final double? borderradius;
 
+  final showarrow;
+
   Dropdown(
       {Key? key,
       this.border_color,
@@ -38,7 +40,8 @@ class Dropdown extends StatefulWidget {
       this.dropdowncolor,
       this.Textalignment = AlignmentDirectional.center,
       this.borderradius = 10,
-      this.onchange})
+      this.onchange,
+      this.showarrow = true})
       : super(key: key);
 
   @override
@@ -134,7 +137,7 @@ class _DropdownState extends State<Dropdown> {
                   )
                 : CupertinoButton(
                     padding: EdgeInsets.zero,
-
+                    alignment: Alignment.center,
                     // Display a CupertinoPicker with list of fruits.
                     onPressed: () => showCupertinoModalPopup(
                         context: context,
@@ -157,6 +160,7 @@ class _DropdownState extends State<Dropdown> {
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     CupertinoButton(
+                                      alignment: Alignment.center,
                                       child: Text('Cancel'),
                                       onPressed: () {
                                         backScreen(context);
@@ -199,7 +203,7 @@ class _DropdownState extends State<Dropdown> {
                                   },
                                   children: widget.list.map((value) {
                                     return DropdownMenuItem<String>(
-                                        alignment: widget.Textalignment,
+                                        alignment: Alignment.center,
                                         value: value,
                                         child: Container(
                                           child: Textfield().text(
@@ -230,13 +234,15 @@ class _DropdownState extends State<Dropdown> {
                                   style: widget.style,
                                   textAlign: TextAlign.center,
                                 ),
-                          Container(
-                              padding: EdgeInsets.only(right: 5),
-                              child: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                size: 30,
-                                color: color.black,
-                              )),
+                          widget.showarrow
+                              ? Container(
+                                  padding: EdgeInsets.only(right: 5),
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    size: 30,
+                                    color: color.black,
+                                  ))
+                              : Container(),
                         ],
                       ),
                     ),

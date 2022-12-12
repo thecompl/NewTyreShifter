@@ -36,9 +36,15 @@ class _ProductsState extends State<Products> {
   int index = 0;
   PageController? _pageController;
 
-  List pages = [ProductList(type: 0,), ProductList(), ProductList()];
+  List pages = [
+    ProductList(
+      type: 0,
+    ),
+    ProductList(),
+    ProductList()
+  ];
   void initState() {
-      log(widget.type.toString());
+    log(widget.type.toString());
     _pageController = PageController(initialPage: index);
     super.initState();
   }
@@ -74,7 +80,7 @@ class _ProductsState extends State<Products> {
               ),
               child: Card(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left: 2, right: 2),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

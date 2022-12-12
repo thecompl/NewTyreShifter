@@ -63,47 +63,64 @@ class _CancelOrderState extends State<CancelOrder> {
                   reasonforcancel,
                   TextStyles.withColor(
                       TextStyles.mb16, color.txt_dark_blue_color)),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Row(
                 children: [
-                  Checkbox(
-                      activeColor: color.Primary_second_Color,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      side: MaterialStateBorderSide.resolveWith(
-                        (states) => BorderSide(
-                            width: 1.0, color: color.border_grey3_color),
-                      ),
-                      value: checkedValue,
-                      onChanged: (value) {
-                        setState(() {
-                          value = !value!;
-                          checkedValue = !checkedValue;
-                        });
-                      }),
+                  SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: Transform.scale(
+                      scale: 1.2,
+                      child: Checkbox(
+                          activeColor: color.Primary_second_Color,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          side: MaterialStateBorderSide.resolveWith(
+                            (states) => BorderSide(
+                                width: 1.0, color: color.border_grey3_color),
+                          ),
+                          value: checkedValue,
+                          onChanged: (value) {
+                            setState(() {
+                              value = !value!;
+                              checkedValue = !checkedValue;
+                            });
+                          }),
+                    ),
+                  ),
+                  SizedBox(width: 5),
                   Textfield().text(
                       "Lorem ipsum duumy text just reason",
                       TextStyles.withColor(
                           TextStyles.mn16, color.txt_dark_blue_color, 1.2)),
                 ],
               ),
+              SizedBox(height: 20),
               Row(
                 children: [
-                  Checkbox(
-                      activeColor: color.Primary_second_Color,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      side: MaterialStateBorderSide.resolveWith(
-                        (states) => BorderSide(
-                            width: 1.0, color: color.border_grey3_color),
-                      ),
-                      value: checkedValue,
-                      onChanged: (value) {
-                        setState(() {
-                          value = !value!;
-                          checkedValue = !checkedValue;
-                        });
-                      }),
+                  SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: Transform.scale(
+                      scale: 1.2,
+                      child: Checkbox(
+                          activeColor: color.Primary_second_Color,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          side: MaterialStateBorderSide.resolveWith(
+                            (states) => BorderSide(
+                                width: 1.0, color: color.border_grey3_color),
+                          ),
+                          value: checkedValue,
+                          onChanged: (value) {
+                            setState(() {
+                              value = !value!;
+                              checkedValue = !checkedValue;
+                            });
+                          }),
+                    ),
+                  ),
+                  SizedBox(width: 5),
                   Textfield().text(
                       "Lorem ipsum duumy text just reason",
                       TextStyles.withColor(

@@ -1,7 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tyreshifter/Suppliers/AddVehicle.dart';
 import 'package:tyreshifter/Suppliers/Dailogs/Quantitydailog.dart';
@@ -11,7 +9,6 @@ import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import 'package:tyreshifter/config/TextStyles/Textstyles.dart';
 import 'package:tyreshifter/config/string.dart';
-
 import '../Widget/Textfield.dart';
 
 class AddEmployee extends StatefulWidget {
@@ -27,6 +24,7 @@ class _AddEmployeeState extends State<AddEmployee> {
   @override
   void initState() {
     // TODO: implement initState
+    Future.delayed(Duration.zero, () => show_dialog(context));
 
     super.initState();
   }
@@ -36,7 +34,6 @@ class _AddEmployeeState extends State<AddEmployee> {
         context: context,
         builder: (context) => Quantitydailog(
               iconsvg: info_iconsvg,
-              iconheight: 50.0,
               showicon: true,
               showquantity: false,
               showtitle: false,
@@ -49,12 +46,11 @@ class _AddEmployeeState extends State<AddEmployee> {
             ));
   }
 
-  show_dialog(context) {
+  show_dialog(BuildContext context) {
     showDialog(
         context: context,
         builder: (context) => Quantitydailog(
               iconsvg: info_iconsvg,
-              iconheight: 50.0,
               showicon: true,
               showquantity: false,
               showtitle: false,
@@ -69,11 +65,10 @@ class _AddEmployeeState extends State<AddEmployee> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    Future.delayed(Duration.zero, () => show_dialog(context));
     // show_dialog(context);
 
     return Scaffold(
-      backgroundColor: color.skylight,
+      backgroundColor: color.white,
       appBar: PreferredSize(
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
@@ -88,7 +83,9 @@ class _AddEmployeeState extends State<AddEmployee> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Card(
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: color.border_grey6_color)),
                   child: Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
@@ -165,32 +162,35 @@ class _AddEmployeeState extends State<AddEmployee> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 15,
                         ),
                         Row(
                           children: [
-                            Container(
-                              alignment: Alignment.center,
-                              height: 30,
+                            SizedBox(
+                              height: 20,
                               width: 30,
-                              // decoration:
-                              //     BoxDecoration(border: Border.all(color: color.black)),
-                              child: Checkbox(
-                                  activeColor: color.Primary_second_Color,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5)),
-                                  side: MaterialStateBorderSide.resolveWith(
-                                    (states) => BorderSide(
-                                        width: 1.0,
-                                        color: color.border_grey3_color),
-                                  ),
-                                  value: checkedValue,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      value = !value!;
-                                      checkedValue = !checkedValue;
-                                    });
-                                  }),
+                              child: Transform.scale(
+                                alignment: Alignment.centerRight,
+                                scale: 1.3,
+                                child: Checkbox(
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    activeColor: color.Primary_second_Color,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(5)),
+                                    side: MaterialStateBorderSide.resolveWith(
+                                      (states) => BorderSide(
+                                          width: 1.0,
+                                          color: color.border_grey3_color),
+                                    ),
+                                    value: checkedValue,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        value = !value!;
+                                        checkedValue = !checkedValue;
+                                      });
+                                    }),
+                              ),
                             ),
                             SizedBox(
                               width: 5,
@@ -201,7 +201,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                                   // textAlign: TextAlign.center,
                                   TextSpan(
                                       style: TextStyles.withColor(
-                                          TextStyles.mn14, color.black),
+                                          TextStyles.mn14,
+                                          color.textgrey_color),
                                       text: i_agreetxt2,
                                       children: <InlineSpan>[
                                     TextSpan(
@@ -214,6 +215,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                             ),
                           ],
                         ),
+                      
                       ],
                     ),
                   ),

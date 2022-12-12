@@ -13,14 +13,14 @@ class Togglebtn extends StatefulWidget {
   final bool active;
   final color;
 
-  final double ?width;
+  final double? width;
   Togglebtn(
       {Key? key,
       this.style,
       required this.txt,
       this.color,
       required this.active,
-       this.width})
+      this.width})
       : super(key: key);
 
   @override

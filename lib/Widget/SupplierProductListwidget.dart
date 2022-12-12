@@ -64,8 +64,8 @@ class _SupplierProductListwidgetState extends State<SupplierProductListwidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: size.width*0.43,
-                  height: 160,
+                  width: 180,
+                  height: 180,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                       border: Border.all(color: color.border_grey4_color)),
@@ -76,22 +76,23 @@ class _SupplierProductListwidgetState extends State<SupplierProductListwidget> {
                   width: 10,
                 ),
                 Container(
-                  width: size.width*0.43,
+                  width: size.width * 0.43,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Textfield().text(widget.headtxt, TextStyles.mb14),
+                      Textfield().text(widget.headtxt, TextStyles.mb16),
                       Textfield().text(
                         widget.price,
                         TextStyles.withColor(
-                            TextStyles.mb14, color.Primary_second_Color),
+                            TextStyles.mb16, color.Primary_second_Color),
                       ),
+                      SizedBox(height: 2),
                       Container(
                         // width: size.width * 0.5,
                         child: Textfield().text(
                             widget.adddress,
                             TextStyles.withColor(
-                                TextStyles.mn14, color.txt_dark_color),
+                                TextStyles.mn16, color.txt_dark_color),
                             TextAlign.left,
                             TextOverflow.ellipsis),
                       ),

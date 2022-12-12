@@ -18,7 +18,7 @@ class SetupPriceWidget extends StatefulWidget {
   final price;
 
   final Function? Oncardtap;
-  
+
   final length;
 
   SetupPriceWidget({
@@ -27,7 +27,8 @@ class SetupPriceWidget extends StatefulWidget {
     this.service,
     this.title,
     this.price,
-    this.Oncardtap, this.length,
+    this.Oncardtap,
+    this.length,
   }) : super(key: key);
 
   @override
@@ -39,26 +40,25 @@ class _SetupPriceWidgetState extends State<SetupPriceWidget> {
 
   @override
   Widget build(BuildContext context) {
-   
     return Container(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      SizedBox(
-        height: 10,
-      ),
       Textfield().text(widget.title, TextStyles.mb18),
-      SizedBox(height: 10),
+      SizedBox(height: 30),
       ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemCount: widget.service.length,
           itemBuilder: (BuildContext context, int index) {
-            return SetupPriceCardWidget(
-              service: widget.service[index]['service_name'],
-              price: widget.price,
-              Oncardtap: () {
-                widget.Oncardtap!();
-              },
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: SetupPriceCardWidget(
+                service: widget.service[index]['service_name'],
+                price: widget.price,
+                Oncardtap: () {
+                  widget.Oncardtap!();
+                },
+              ),
             );
           }),
     ]));

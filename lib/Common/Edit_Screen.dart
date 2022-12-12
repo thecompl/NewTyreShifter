@@ -29,10 +29,12 @@ class _Edit_ScreenState extends State<Edit_Screen> {
 
     return Scaffold(
       backgroundColor: color.white,
-      appBar:PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: edit_profile),),
-
+      appBar: PreferredSize(
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(title: edit_profile),
+      ),
 
       // Appbartext().appbar(edit_profile,
       //     TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -74,6 +76,7 @@ class _Edit_ScreenState extends State<Edit_Screen> {
                         },
                       ),
                     ),
+                    SizedBox(width: 5),
                     Container(
                       width: size.width * 0.55,
                       child: Padding(
@@ -145,31 +148,28 @@ class _Edit_ScreenState extends State<Edit_Screen> {
   }
 
   Widget _buildDropdownItem(Country country) => Container(
-    // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-    child: Row(
-      children: [
-        Container(
-            width: 80,
-            child: Row(
-              children: [
-                CountryPickerUtils.getDefaultFlagImage(country),
-                SizedBox(
-                  width: 8.0,
-                ),
-                Container(
-                  width: 40,
-                  child: Text(
-                    "+${country.phoneCode}",
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-
-              ],
-            )),
-        Icon(Icons.keyboard_arrow_down_sharp)
-      ],
-    ),
-  );
-
-
+        // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+        child: Row(
+          children: [
+            Container(
+                width: 80,
+                child: Row(
+                  children: [
+                    CountryPickerUtils.getDefaultFlagImage(country),
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    Container(
+                      width: 40,
+                      child: Text(
+                        "+${country.phoneCode}",
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                )),
+            Icon(Icons.keyboard_arrow_down_sharp)
+          ],
+        ),
+      );
 }

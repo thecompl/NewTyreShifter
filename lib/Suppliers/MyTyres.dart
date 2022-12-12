@@ -1,7 +1,7 @@
 import 'dart:core';
 import 'dart:core';
 import 'dart:io';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -12,7 +12,6 @@ import 'package:tyreshifter/Widget/Assistance_immediately_Card.dart';
 import 'package:tyreshifter/Widget/ProductListwidget.dart';
 import 'package:tyreshifter/Widget/SupplierProductListwidget.dart';
 import 'package:tyreshifter/Widget/Texboxwidget.dart';
-
 import 'package:tyreshifter/Widget/Textfield.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import 'package:tyreshifter/provider/cartypecontroller.dart';
@@ -35,6 +34,11 @@ class MyTyres extends StatefulWidget {
 
 class _MyTyresState extends State<MyTyres> {
   bool btnchange = false;
+  final ScrollController _controller = ScrollController();
+  final controller = CarouselController();
+  final controller1 = CarouselController();
+  final controller2 = CarouselController();
+  final double _height = 100.0;
   @override
   void initState() {
     super.initState();
@@ -64,168 +68,246 @@ class _MyTyresState extends State<MyTyres> {
                 Text(
                   budget,
                   style: TextStyles.withColor(
-                      TextStyles.mb18, color.Primary_second_Color),
+                      TextStyles.mb20, color.Primary_second_Color),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SvgPicture.string(leftarrowsvg),
+                    GestureDetector(
+                        onTap: (() {
+                          controller.previousPage();
+                        }),
+                        child: SvgPicture.string(leftarrowsvg)),
                     SizedBox(
                       width: 10,
                     ),
-                    SvgPicture.string(rightarrowsvg),
+                    GestureDetector(
+                        onTap: () {
+                          controller.nextPage();
+                        },
+                        child: SvgPicture.string(rightarrowsvg)),
                   ],
                 ).paddingOnly(top: 10),
               ],
-            ).paddingSymmetric(horizontal: 15, vertical: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Container(
-                height: 300,
-                // width: size.width,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: 5,
-                    itemBuilder: (BuildContext context, int index) {
-                      return SupplierProductListwidget(
-                        adddress: "Per tyre, fitted.",
-                        price: "£139.23",
-                        headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
-                        Img: tyre_img,
-                        btnname: working,
-                        btncolor: color.btncolor3,
-                        added: btnchange,
-                        Onbtntap: () {
-                          setState(() {
-                            btnchange = !btnchange;
-                          });
-                        },
-                        Ontap: () {
-                          nextScreen(
-                              context,
-                              ProductDetail(type: widget.type
-                                  // dropdown: true,
-                                  // pagetype: booking_details,
-                                  // status: working
-                                  ));
-                        },
-                      );
-                    }),
+            ).paddingSymmetric(horizontal: 20, vertical: 15),
+            Container(
+              height: 320,
+              // width: size.width,
+              child: CarouselSlider.builder(
+                carouselController: controller,
+                itemCount: 15,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) {
+                  return SupplierProductListwidget(
+                    adddress: "Per tyre, fitted.",
+                    price: "£139.23",
+                    headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
+                    Img: tyre_img,
+                    btnname: working,
+                    btncolor: color.btncolor3,
+                    added: btnchange,
+                    Onbtntap: () {
+                      setState(() {
+                        btnchange = !btnchange;
+                      });
+                    },
+                    Ontap: () {
+                      nextScreen(
+                          context,
+                          ProductDetail(type: widget.type
+                              // dropdown: true,
+                              // pagetype: booking_details,
+                              // status: working
+                              ));
+                    },
+                  );
+                },
+                options: CarouselOptions(
+                  height: 400,
+                  aspectRatio: 10 / 3,
+                  viewportFraction: 0.5,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+
+                  padEnds: false,
+                  reverse: false,
+                  autoPlay: false,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  // autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: false,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
+                  enlargeStrategy: CenterPageEnlargeStrategy.height,
+                ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  midrange,
-                  style: TextStyles.withColor(
-                      TextStyles.mb18, color.Primary_second_Color),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.string(leftarrowsvg),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    SvgPicture.string(rightarrowsvg),
-                  ],
-                ).paddingOnly(top: 10),
-              ],
-            ).paddingSymmetric(horizontal: 15, vertical: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Container(
-                height: 300,
-                // width: size.width,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: 5,
-                    itemBuilder: (BuildContext context, int index) {
-                      return SupplierProductListwidget(
-                        adddress: "Per tyre, fitted.",
-                        price: "£139.23",
-                        headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
-                        Img: tyre_img,
-                        btnname: working,
-                        btncolor: color.btncolor3,
-                        added: btnchange,
-                        Onbtntap: () {
-                          setState(() {
-                            btnchange = !btnchange;
-                          });
-                        },
-                        Ontap: () {
-                          nextScreen(
-                              context,
-                              ProductDetail(type: widget.type
-                                  // dropdown: true,
-                                  // pagetype: booking_details,
-                                  // status: working
-                                  ));
-                        },
-                      );
-                    }),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    midrange,
+                    style: TextStyles.withColor(
+                        TextStyles.mb20, color.Primary_second_Color),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            controller2.previousPage();
+                          },
+                          child: SvgPicture.string(leftarrowsvg)),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            controller2.nextPage();
+                          },
+                          child: SvgPicture.string(rightarrowsvg)),
+                    ],
+                  ).paddingOnly(top: 10)
+                ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  premium,
-                  style: TextStyles.withColor(
-                      TextStyles.mb18, color.Primary_second_Color),
+            Container(
+              height: 320,
+              // width: size.width,
+              child: CarouselSlider.builder(
+                carouselController: controller2,
+                itemCount: 15,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) {
+                  return SupplierProductListwidget(
+                    adddress: "Per tyre, fitted.",
+                    price: "£139.23",
+                    headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
+                    Img: tyre_img,
+                    btnname: working,
+                    btncolor: color.btncolor3,
+                    added: btnchange,
+                    Onbtntap: () {
+                      setState(() {
+                        btnchange = !btnchange;
+                      });
+                    },
+                    Ontap: () {
+                      nextScreen(
+                          context,
+                          ProductDetail(type: widget.type
+                              // dropdown: true,
+                              // pagetype: booking_details,
+                              // status: working
+                              ));
+                    },
+                  );
+                },
+                options: CarouselOptions(
+                  height: 400,
+                  aspectRatio: 10 / 3,
+                  viewportFraction: 0.5,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+
+                  padEnds: false,
+                  reverse: false,
+                  autoPlay: false,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  // autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: false,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
+                  enlargeStrategy: CenterPageEnlargeStrategy.height,
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.string(leftarrowsvg),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    SvgPicture.string(rightarrowsvg),
-                  ],
-                ).paddingOnly(top: 10),
-              ],
-            ).paddingSymmetric(horizontal: 15, vertical: 10),
+              ),
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Container(
-                height: 300,
-                // width: size.width,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: 5,
-                    itemBuilder: (BuildContext context, int index) {
-                      return SupplierProductListwidget(
-                        adddress: "Per tyre, fitted.",
-                        price: "£139.23",
-                        headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
-                        Img: tyre_img,
-                        btnname: working,
-                        btncolor: color.btncolor3,
-                        added: btnchange,
-                        Onbtntap: () {
-                          setState(() {
-                            btnchange = !btnchange;
-                          });
-                        },
-                        Ontap: () {
-                          nextScreen(
-                              context,
-                              ProductDetail(type: widget.type
-                                  // dropdown: true,
-                                  // pagetype: booking_details,
-                                  // status: working
-                                  ));
-                        },
-                      );
-                    }),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    premium,
+                    style: TextStyles.withColor(
+                        TextStyles.mb20, color.Primary_second_Color),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            controller1.previousPage();
+                          },
+                          child: SvgPicture.string(leftarrowsvg)),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            controller1.nextPage();
+                          },
+                          child: SvgPicture.string(rightarrowsvg)),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 320,
+              // width: size.width,
+              child: CarouselSlider.builder(
+                carouselController: controller1,
+                itemCount: 15,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) {
+                  return SupplierProductListwidget(
+                    adddress: "Per tyre, fitted.",
+                    price: "£139.23",
+                    headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
+                    Img: tyre_img,
+                    btnname: working,
+                    btncolor: color.btncolor3,
+                    added: btnchange,
+                    Onbtntap: () {
+                      setState(() {
+                        btnchange = !btnchange;
+                      });
+                    },
+                    Ontap: () {
+                      nextScreen(
+                          context,
+                          ProductDetail(type: widget.type
+                              // dropdown: true,
+                              // pagetype: booking_details,
+                              // status: working
+                              ));
+                    },
+                  );
+                },
+                options: CarouselOptions(
+                  height: 400,
+                  aspectRatio: 10 / 3,
+                  viewportFraction: 0.5,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+
+                  padEnds: false,
+                  reverse: false,
+                  autoPlay: false,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  // autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: false,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
+                  enlargeStrategy: CenterPageEnlargeStrategy.height,
+                ),
               ),
             ),
             SizedBox(
@@ -234,5 +316,13 @@ class _MyTyresState extends State<MyTyres> {
           ]),
         ));
     // ),
+  }
+
+  void _animateToIndex(int index) {
+    _controller.animateTo(
+      index * _height,
+      duration: Duration(seconds: 2),
+      curve: Curves.fastOutSlowIn,
+    );
   }
 }

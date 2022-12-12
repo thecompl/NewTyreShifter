@@ -23,6 +23,7 @@ class color {
   static const border_grey3_color = Color(0XFFC4C4C4);
   static const border_grey4_color = Color(0XFFC7C7C7);
   static const border_grey5_color = Color(0XFF666E73);
+  static const border_grey6_color = Color(0XFFC5C5C5);
   static const appbartext_color = Color(0XFF0F172A);
   static const btncolor2 = Color(0XFF52CAC3);
   static const btncolor3 = Color(0XFF185B98);

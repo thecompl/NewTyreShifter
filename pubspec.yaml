@@ -55,7 +55,7 @@ dependencies:
   device_info_plus: ^4.1.2
   flutter_speed_dial: ^1.0.9
   flutter_slidable:
-
+  carousel_slider: ^4.2.0
   # flutter_fetch_data_getx:
 dev_dependencies:
   flutter_test:

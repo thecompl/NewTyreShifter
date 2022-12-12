@@ -18,6 +18,7 @@ import 'package:tyreshifter/provider/cartypecontroller.dart';
 import '../Models/Cartype.dart';
 import '../Widget/Appbartext.dart';
 import '../Widget/Button.dart';
+import '../Widget/Custome_Dialog.dart';
 import '../Widget/Dropdown.dart';
 import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
@@ -54,6 +55,8 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
   final Cartypecontroller getxcartypecontroller = Get.put(Cartypecontroller());
 
   Cartype? cartypemodel;
+
+  var checkedValue = true;
 
   @override
   void initState() {
@@ -132,11 +135,104 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                 ElevatedButtons(
                   name: search,
                   onTap: () {
-                    // widget.servicetype == tyreReplacement
-                    //     ? nextScreen(
-                    //         context, Assistance_immediately2(type: widget.type))
-                    //     : nextScreen(
-                    //         context, Immediately_Provider(type: widget.type));
+                    showDialog(
+                        context: context,
+                        builder: (context) => StatefulBuilder(
+                                builder: (context, StateSetter setState) {
+                              return Custom_dialog(
+                                iconheight: 50.0,
+                                title: edittxt,
+                                showonebtn: true,
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 20),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 30, vertical: 10),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SizedBox(
+                                                height: 20,
+                                                width: 30,
+                                                child: Transform.scale(
+                                                  alignment:
+                                                      Alignment.centerRight,
+                                                  scale: 1.3,
+                                                  child: Checkbox(
+                                                      materialTapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap,
+                                                      activeColor: color
+                                                          .Primary_second_Color,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                      side:
+                                                          MaterialStateBorderSide
+                                                              .resolveWith(
+                                                        (states) => BorderSide(
+                                                            width: 1.0,
+                                                            color: color
+                                                                .border_grey3_color),
+                                                      ),
+                                                      value: checkedValue,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          value = !value!;
+                                                          checkedValue =
+                                                              !checkedValue;
+                                                        });
+                                                      }),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Container(
+                                                child: Textfield().text(
+                                                  "255/35R19-Y-96",
+                                                  TextStyles.withColor(
+                                                      TextStyles.mb16,
+                                                      color.txt_dark_color,
+                                                      1.0),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 30),
+                                          menu("Make", "AUDI"),
+                                          SizedBox(height: 10),
+                                          menu("Model",
+                                              "TT S LINE SP EDITION TFSI"),
+                                          SizedBox(height: 10),
+                                          menu("Engine", "2.0"),
+                                          SizedBox(height: 30),
+                                          menu("Tyre sizes", ": 1"),
+                                          SizedBox(height: 20),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                onbtnname: done,
+                                ontaponebtn: () {
+                                  widget.servicetype == tyreReplacement
+                                      ? nextScreen(
+                                          context,
+                                          Assistance_immediately2(
+                                              type: widget.type))
+                                      : nextScreen(
+                                          context,
+                                          Immediately_Provider(
+                                              type: widget.type));
+                                },
+                              );
+                            }));
                   },
                 ),
                 SizedBox(
@@ -144,7 +240,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                 ),
                 Textfield().image("asset", "assets/or.png"),
                 SizedBox(
-                  height: 25,
+                  height: 30,
                 ),
                 Container(
                   width: size.width * 0.9,
@@ -257,16 +353,126 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                 ElevatedButtons(
                   name: search,
                   onTap: () {
-                    widget.servicetype == tyreReplacement
-                        ? nextScreen(
-                            context, Assistance_immediately2(type: widget.type))
-                        : nextScreen(
-                            context, Immediately_Provider(type: widget.type));
+                    showDialog(
+                        context: context,
+                        builder: (context) => StatefulBuilder(
+                                builder: (context, StateSetter setState) {
+                              return Custom_dialog(
+                                iconheight: 50.0,
+                                title: edittxt,
+                                showonebtn: true,
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 20),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 30, vertical: 10),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SizedBox(
+                                                height: 20,
+                                                width: 30,
+                                                child: Transform.scale(
+                                                  alignment:
+                                                      Alignment.centerRight,
+                                                  scale: 1.3,
+                                                  child: Checkbox(
+                                                      materialTapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap,
+                                                      activeColor: color
+                                                          .Primary_second_Color,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                      side:
+                                                          MaterialStateBorderSide
+                                                              .resolveWith(
+                                                        (states) => BorderSide(
+                                                            width: 1.0,
+                                                            color: color
+                                                                .border_grey3_color),
+                                                      ),
+                                                      value: checkedValue,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          value = !value!;
+                                                          checkedValue =
+                                                              !checkedValue;
+                                                        });
+                                                      }),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Container(
+                                                child: Textfield().text(
+                                                  "255/35R19-Y-96",
+                                                  TextStyles.withColor(
+                                                      TextStyles.mb16,
+                                                      color.txt_dark_color,
+                                                      1.0),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 30),
+                                          menu("Make", "AUDI"),
+                                          SizedBox(height: 10),
+                                          menu("Model",
+                                              "TT S LINE SP EDITION TFSI"),
+                                          SizedBox(height: 10),
+                                          menu("Engine", "2.0"),
+                                          SizedBox(height: 30),
+                                          menu("Tyre sizes", ": 1"),
+                                          SizedBox(height: 20),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                onbtnname: done,
+                                ontaponebtn: () {
+                                  widget.servicetype == tyreReplacement
+                                      ? nextScreen(
+                                          context,
+                                          Assistance_immediately2(
+                                              type: widget.type))
+                                      : nextScreen(
+                                          context,
+                                          Immediately_Provider(
+                                              type: widget.type));
+                                },
+                              );
+                            }));
                   },
                 ),
               ],
             ),
           ),
         ));
+  }
+
+  menu(menuname, menuanswer) {
+    return Row(children: [
+      Container(
+        child: Textfield().text(
+          menuname + ": ",
+          TextStyles.withColor(TextStyles.mb16, color.txt_dark_color, 1.0),
+        ),
+      ),
+      Container(
+        child: Textfield().text(
+          menuanswer,
+          TextStyles.withColor(TextStyles.mn16, color.txt_dark_color, 1.0),
+        ),
+      )
+    ]);
   }
 }

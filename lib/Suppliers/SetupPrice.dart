@@ -129,56 +129,63 @@ class _SetupPriceState extends State<SetupPrice> {
                 Textfield().text(bookedServices, TextStyles.mb18),
                 SizedBox(height: 10),
                 ListView.builder(
+                    padding: EdgeInsets.zero,
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: service.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return SetupPriceCardWidget(
-                        service: service[index]['title'],
-                        showIcon: true,
-                        icon: Icons.arrow_forward_ios,
-                        Oncardtap: () {
-                          nextScreen(
-                              context,
-                              SetupPrice_detail(
-                                title: service[index]['title'],
-                                data: service[index]['service'],
-                              ));
-                        },
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: SetupPriceCardWidget(
+                          service: service[index]['title'],
+                          showIcon: true,
+                          icon: Icons.arrow_forward_ios,
+                          Oncardtap: () {
+                            nextScreen(
+                                context,
+                                SetupPrice_detail(
+                                  title: service[index]['title'],
+                                  data: service[index]['service'],
+                                ));
+                          },
+                        ),
                       );
                     }),
-                SizedBox(height: 15),
-                GestureDetector(
-                  onTap: (() {
-                    nextScreen(
-                        context,
-                        SetupFees_detail(
-                          title: fees,
-                        ));
-                  }),
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Textfield().text(
-                              fees,
-                              TextStyles.withColor(
-                                  TextStyles.mb14, color.txt_dark_color),
-                              TextAlign.center),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: color.black,
-                          )
-                        ],
+                // SizedBox(height: 15),
+                Container(
+                  child: GestureDetector(
+                    onTap: (() {
+                      nextScreen(
+                          context,
+                          SetupFees_detail(
+                            title: fees,
+                          ));
+                    }),
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Textfield().text(
+                                fees,
+                                TextStyles.withColor(
+                                    TextStyles.mb14, color.txt_dark_color),
+                                TextAlign.center),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: color.black,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+
+                SizedBox(height: 30),
                 Textfield().text(Assistance, TextStyles.mb18),
                 SizedBox(height: 15),
                 GestureDetector(

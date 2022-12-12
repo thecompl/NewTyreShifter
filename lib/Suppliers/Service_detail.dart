@@ -220,19 +220,19 @@ class _Service_DetailsState extends State<Service_Details> {
                         Textfield().text("5 KM", TextStyles.mb16)
                       ],
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Textfield().text(
-                            completed_orders,
-                            TextStyles.withColor(
-                                TextStyles.mb16, color.txt_dark_blue_color)),
-                        Textfield().text(
-                            "10",
-                            TextStyles.withColor(
-                                TextStyles.mn14, color.textgrey_color)),
-                      ],
-                    )
+                    // Column(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   children: [
+                    //     Textfield().text(
+                    //         completed_orders,
+                    //         TextStyles.withColor(
+                    //             TextStyles.mb16, color.txt_dark_blue_color)),
+                    //     Textfield().text(
+                    //         "10",
+                    //         TextStyles.withColor(
+                    //             TextStyles.mn14, color.textgrey_color)),
+                    //   ],
+                    // )
                   ])),
               SizedBox(
                 height: 25,
@@ -242,6 +242,7 @@ class _Service_DetailsState extends State<Service_Details> {
                 height: 20,
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15),
@@ -251,28 +252,37 @@ class _Service_DetailsState extends State<Service_Details> {
                     ),
                   ),
                   SizedBox(width: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Textfield().text("Change Tyre", TextStyles.mb18),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Textfield().text("Honda Amaze", TextStyles.mn14),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        width: size.width * 0.5,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Textfield().text("30 April,2022", TextStyles.mb14),
-                            Textfield().text("11:00 AM", TextStyles.mb14),
-                          ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Textfield().text(
+                              "Tyre Replacemnet(New Tyre)",
+                              TextStyles.mb18,
+                              TextAlign.left,
+                              TextOverflow.ellipsis),
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Textfield().text("Honda Amaze", TextStyles.mn14),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: size.width * 0.5,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Textfield()
+                                  .text("30 April,2022", TextStyles.mb14),
+                              Textfield().text("11:00 AM", TextStyles.mb14),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -499,76 +509,76 @@ class _Service_DetailsState extends State<Service_Details> {
                     )
                   : Container(),
               SizedBox(
-                height: 40,
+                height: 90,
               ),
-              widget.status == pending
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ElevatedButtons(
-                          active: true,
-                          colorbtn: color.white,
-                          width: 0.42,
-                          height: 55,
-                          style: TextStyles.withColor(
-                            TextStyles.mb16,
-                            color.Primary_second_Color,
-                          ),
-                          name: reject,
-                          onTap: () {},
-                        ),
-                        ElevatedButtons(
-                          width: 0.42,
-                          height: 55,
-                          style: TextStyles.mb16,
-                          name: accept,
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => ConfirmationDialog(
-                                      destextwidth: 0.8,
-                                      btntxt: view_booking_btn_txt,
-                                      destxt: viewbookingmsg,
-                                      onTap: () {
-                                        nextScreen(
-                                            context,
-                                            MainHomeScreen_Supplier(
-                                                pageIndex: 0));
-                                      },
-                                    ));
-                          },
-                        ),
-                      ],
-                    )
-                  : widget.status == working
-                      ? ElevatedButtons(
-                          // width: 0.42,
-                          height: 55,
-                          style: TextStyles.mb16,
-                          name: startWorking,
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => ConfirmationDialog(
-                                      destextwidth: 0.8,
-                                      btntxt: view_booking_btn_txt,
-                                      destxt: viewbookingmsg,
-                                      onTap: () {
-                                        nextScreen(
-                                            context,
-                                            MainHomeScreen_Supplier(
-                                                pageIndex: 0));
-                                      },
-                                    ));
-                          },
-                        )
-                      : widget.status == complete
-                          ? ElevatedButtons(name: completework)
-                          : Container()
             ],
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: widget.status == pending
+          ? Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButtons(
+                    active: true,
+                    colorbtn: color.white,
+                    width: 0.42,
+                    height: 55,
+                    style: TextStyles.withColor(
+                      TextStyles.mb16,
+                      color.Primary_second_Color,
+                    ),
+                    name: reject,
+                    onTap: () {},
+                  ),
+                  ElevatedButtons(
+                    width: 0.42,
+                    height: 55,
+                    style: TextStyles.mb16,
+                    name: accept,
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => ConfirmationDialog(
+                                destextwidth: 0.8,
+                                btntxt: view_booking_btn_txt,
+                                destxt: viewbookingmsg,
+                                onTap: () {
+                                  nextScreen(context,
+                                      MainHomeScreen_Supplier(pageIndex: 0));
+                                },
+                              ));
+                    },
+                  ),
+                ],
+              ),
+            )
+          : widget.status == working
+              ? ElevatedButtons(
+                  // width: 0.42,
+                  height: 55,
+                  style: TextStyles.mb16,
+                  name: startWorking,
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) => ConfirmationDialog(
+                              destextwidth: 0.8,
+                              btntxt: view_booking_btn_txt,
+                              destxt: viewbookingmsg,
+                              onTap: () {
+                                nextScreen(context,
+                                    MainHomeScreen_Supplier(pageIndex: 0));
+                              },
+                            ));
+                  },
+                )
+              : widget.status == complete
+                  ? ElevatedButtons(name: completework)
+                  : Container(),
     );
   }
 }

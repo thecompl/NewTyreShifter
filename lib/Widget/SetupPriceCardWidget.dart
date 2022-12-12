@@ -41,9 +41,6 @@ class _SetupPriceCardWidgetState extends State<SetupPriceCardWidget> {
   Widget build(BuildContext context) {
     return Container(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      SizedBox(
-        height: 10,
-      ),
       GestureDetector(
         onTap: (() {
           widget.Oncardtap!();

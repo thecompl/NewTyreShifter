@@ -50,7 +50,7 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
           title: type_account == get_shifter ? home : calendertxt,
           show_icon: type_account == get_shifter ? 1 : 0,
           icon: type_account == get_shifter ? Icons.filter_list : null,
-          show_arrow_icon: type_account == get_shifter ? 0 : 1,
+          show_arrow_icon: type_account == get_shifter ? 1 : 0,
           ontap: () {
             showDialog(context: context, builder: (context) => Filter_dialog());
           },

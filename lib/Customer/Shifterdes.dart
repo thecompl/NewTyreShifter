@@ -39,79 +39,80 @@ class _Shifter_DesState extends State<Shifter_Des> {
       // Appbartext().appbar(
       //     home, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 22),
         child: SingleChildScrollView(
           child: Container(
-            height: height,
-            child: Container(
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Center(
-                      child: Image.asset(logo_without_tag,
-                          height: size.height * 0.2)),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Textfield().text(
-                      widget.type == "0" ? reserveline1 : reserve1line1,
-                      TextStyles.withColor(
-                          TextStyles.mn16, color.textgrey_color, 1.3)),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Textfield().text(
-                      widget.type == "0" ? reserveline2 : reserve2line2,
-                      TextStyles.withColor(
-                          TextStyles.mn16, color.textgrey_color, 1.3)),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Textfield().text(
-                      widget.type == "0" ? reserveline3 : reserve3line3,
-                      TextStyles.withColor(
-                          TextStyles.mn16, color.textgrey_color, 1.3)),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Textfield().text(
-                      widget.type == "0" ? reserveline4 : reserve4line4,
-                      TextStyles.withColor(
-                          TextStyles.mn16, color.textgrey_color, 1.3)),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: ElevatedButtons(
-                        name: widget.type == "0" ? reserve : continu,
-                        onTap: () {
-                          // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
-                          nextScreen(
-                              context,
-                              widget.type == "0"
-                                  ? Book_Service(type:widget.type)
-                                  // HomeCalendarPage()
-                                  : Assistanceimmediately(type:widget.type));
-                          // nextScreen(context, Send_Request(type: widget.type));
-                        },
-                      ),
+            height: height * .9,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 40,
                     ),
-                  ),
-                  SizedBox(height: 30)
+                    Center(
+                        child: Image.asset(logo_without_tag,
+                            height: size.height * 0.2)),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Textfield().text(
+                        widget.type == "0" ? reserveline1 : reserve1line1,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.3),
+                        TextAlign.justify),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Textfield().text(
+                        widget.type == "0" ? reserveline2 : reserve2line2,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.3),
+                        TextAlign.justify),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Textfield().text(
+                        widget.type == "0" ? reserveline3 : reserve3line3,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.3),
+                        TextAlign.left),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Textfield().text(
+                        widget.type == "0" ? reserveline4 : reserve4line4,
+                        TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color, 1.3),
+                        TextAlign.left),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                ),
+                ElevatedButtons(
+                  name: widget.type == "0" ? reserve : continu,
+                  onTap: () {
+                    // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
+                    nextScreen(
+                        context,
+                        widget.type == "0"
+                            ? Book_Service(type: widget.type)
+                            // HomeCalendarPage()
+                            : Assistanceimmediately(type: widget.type));
+                    // nextScreen(context, Send_Request(type: widget.type));
+                  },
+                ),
 
-                  // Elevatedbuttons().elevatedbutton(
-                  // Elevatedbuttons().elevatedbutton(
-                  //     widget.type == "0" ? reserve : continu,
-                  //     Send_Request(type: widget.type),
-                  //     context)
-                ],
-              ),
+                // Elevatedbuttons().elevatedbutton(
+                // Elevatedbuttons().elevatedbutton(
+                //     widget.type == "0" ? reserve : continu,
+                //     Send_Request(type: widget.type),
+                //     context)
+              ],
             ),
           ),
         ),

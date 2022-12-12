@@ -42,7 +42,7 @@ class _AddProductsState extends State<AddProducts> {
   var _chosenValue_budget = "Budget";
   final ImagePicker imgpicker = ImagePicker();
   List<XFile>? imagefiles;
-  List categorylist = ["Battery", "Oil", "Tyres"];
+  List categorylist = ["Category", "Oil", "Tyres"];
   List budgetlist = ["Budget", "Mid-Range", "Premium"];
   DataController dcx = Get.put(DataController());
   List vehicle_type = [];
@@ -90,7 +90,7 @@ class _AddProductsState extends State<AddProducts> {
               ? Size.fromHeight(appbarheight_android)
               : Size.fromHeight(appbarheight_ios),
           child: Appbartext(
-            title: addproducts,
+            title: addproduct,
           ),
         ),
         body: Padding(
@@ -108,7 +108,8 @@ class _AddProductsState extends State<AddProducts> {
                   borderradius: 15,
                   width: size.width,
                   hinttxt: category,
-                  style: TextStyles.withColor(TextStyles.mb14, color.black),
+                  style: TextStyles.withColor(
+                      TextStyles.mn14, color.textgrey_color),
                   list: categorylist,
                   current_value: _chosenValue_cat,
                   Textalignment: AlignmentDirectional.centerStart,
@@ -123,7 +124,8 @@ class _AddProductsState extends State<AddProducts> {
                   borderradius: 15,
                   width: size.width,
                   hinttxt: budget,
-                  style: TextStyles.withColor(TextStyles.mb14, color.black),
+                  style: TextStyles.withColor(
+                      TextStyles.mn14, color.textgrey_color),
                   list: budgetlist,
                   current_value: _chosenValue_budget,
                   Textalignment: AlignmentDirectional.centerStart,
@@ -199,7 +201,7 @@ class _AddProductsState extends State<AddProducts> {
                       Expanded(
                         child: TextBoxwidget(
                           keyboradtype: TextInputType.number,
-                          hinttext: tyreprofilelabel,
+                          hinttext: brand_nametxt,
                           hintstyle: TextStyles.withColor(
                               TextStyles.mn14, color.textgrey_color),
                           controller: numbercar,
@@ -328,10 +330,8 @@ class _AddProductsState extends State<AddProducts> {
                     SizedBox(
                       height: 10,
                     ),
-                    Textfield().text(
-                        upload_image,
-                        TextStyles.withColor(
-                            TextStyles.mb16, color.Primary_second_Color)),
+                    Textfield().text(product_image_txt,
+                        TextStyles.withColor(TextStyles.mb16, color.black)),
                     SizedBox(
                       height: 10,
                     ),

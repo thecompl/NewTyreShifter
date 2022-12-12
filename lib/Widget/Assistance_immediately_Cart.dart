@@ -116,14 +116,15 @@ class _Assistance_immediately_CartState
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    SizedBox(height: 10),
                                     Textfield()
-                                        .text(widget.headtxt, TextStyles.mb14),
+                                        .text(widget.headtxt, TextStyles.mb16),
                                     // SizedBox(
                                     //   height: 3,
                                     // ),
                                     Textfield().text(
                                       widget.price,
-                                      TextStyles.withColor(TextStyles.mb14,
+                                      TextStyles.withColor(TextStyles.mb16,
                                           color.Primary_second_Color),
                                     ),
                                     // SizedBox(

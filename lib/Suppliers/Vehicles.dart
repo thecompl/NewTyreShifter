@@ -45,8 +45,11 @@ class _VehiclesState extends State<Vehicles> {
           itemCount: 6,
           itemBuilder: ((context, index) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -78,7 +81,7 @@ class _VehiclesState extends State<Vehicles> {
                                           showchild: true,
                                           child: Column(
                                             children: [
-                                              SizedBox(height: 20),
+                                              SizedBox(height: 35),
                                               SvgPicture.string(
                                                 Editsvg,
                                                 height: 50,
@@ -115,7 +118,7 @@ class _VehiclesState extends State<Vehicles> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                height: 30,
+                                                height: 50,
                                               )
                                             ],
                                           ),
@@ -137,11 +140,36 @@ class _VehiclesState extends State<Vehicles> {
                               onTap: () {
                                 showDialog(
                                     context: context,
-                                    builder: (context) => Delete_dialog(
-                                          iconsvg: deletesvg,
+                                    builder: (context) => Custom_dialog(
                                           iconheight: 50.0,
-                                          title: deletetxt,
-                                          msg: deletepopmsg,
+                                          title: edittxt,
+                                          showchild: true,
+                                          child: Column(
+                                            children: [
+                                              SizedBox(height: 35),
+                                              SvgPicture.string(
+                                                deletesvg,
+                                                height: 50,
+                                              ),
+                                              SizedBox(height: 20),
+                                              Textfield().text(
+                                                  deletetxt,
+                                                  TextStyles.withColor(
+                                                      TextStyles.mb20,
+                                                      color.text_grey2_color)),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Textfield().text(
+                                                  deletepopmsg,
+                                                  TextStyles.withColor(
+                                                      TextStyles.mn18,
+                                                      color.text_grey2_color)),
+                                              SizedBox(
+                                                height: 40,
+                                              )
+                                            ],
+                                          ),
                                           cancellabel: no,
                                           confirmlabel: yes,
                                           Oncanceltap: () {
@@ -151,6 +179,7 @@ class _VehiclesState extends State<Vehicles> {
                                             backScreen(context);
                                           },
                                         ));
+                             
                               },
                               child: SvgPicture.string(deletesvg)),
                         ],
