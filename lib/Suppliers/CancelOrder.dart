@@ -33,6 +33,7 @@ class CancelOrder extends StatefulWidget {
 
 class _CancelOrderState extends State<CancelOrder> {
   var checkedValue = false;
+  var checkedValue1 = false;
   // DataController dcx = Get.put(DataController());
   @override
   void initState() {
@@ -64,68 +65,89 @@ class _CancelOrderState extends State<CancelOrder> {
                   TextStyles.withColor(
                       TextStyles.mb16, color.txt_dark_blue_color)),
               SizedBox(height: 20),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: Transform.scale(
-                      scale: 1.2,
-                      child: Checkbox(
-                          activeColor: color.Primary_second_Color,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          side: MaterialStateBorderSide.resolveWith(
-                            (states) => BorderSide(
-                                width: 1.0, color: color.border_grey3_color),
-                          ),
-                          value: checkedValue,
-                          onChanged: (value) {
-                            setState(() {
-                              value = !value!;
-                              checkedValue = !checkedValue;
-                            });
-                          }),
+              GestureDetector(
+                onTap: (() {
+                  setState(() {
+                    checkedValue = !checkedValue;
+                  });
+                }),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(
+                            activeColor: color.Primary_second_Color,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            side: MaterialStateBorderSide.resolveWith(
+                              (states) => BorderSide(
+                                  width: 1.0, color: color.border_grey3_color),
+                            ),
+                            value: checkedValue,
+                            onChanged: (value) {
+                              setState(() {
+                                value = !value!;
+                                checkedValue = !checkedValue;
+                              });
+                            }),
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 5),
-                  Textfield().text(
-                      "Lorem ipsum duumy text just reason",
-                      TextStyles.withColor(
-                          TextStyles.mn16, color.txt_dark_blue_color, 1.2)),
-                ],
+                    SizedBox(width: 5),
+                    Expanded(
+                      child: Textfield().text(
+                          "Lorem ipsum duumy text just reason",
+                          TextStyles.withColor(
+                              TextStyles.mn16, color.txt_dark_blue_color, 1.2),
+                          TextAlign.left,
+                          TextOverflow.ellipsis),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 20),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: Transform.scale(
-                      scale: 1.2,
-                      child: Checkbox(
-                          activeColor: color.Primary_second_Color,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          side: MaterialStateBorderSide.resolveWith(
-                            (states) => BorderSide(
-                                width: 1.0, color: color.border_grey3_color),
-                          ),
-                          value: checkedValue,
-                          onChanged: (value) {
-                            setState(() {
-                              value = !value!;
-                              checkedValue = !checkedValue;
-                            });
-                          }),
+              GestureDetector(
+                onTap: (() {
+                  setState(() {
+                    checkedValue1 = !checkedValue1;
+                  });
+                }),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(
+                            activeColor: color.Primary_second_Color,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            side: MaterialStateBorderSide.resolveWith(
+                              (states) => BorderSide(
+                                  width: 1.0, color: color.border_grey3_color),
+                            ),
+                            value: checkedValue1,
+                            onChanged: (value) {
+                              setState(() {
+                                checkedValue1 = value!;
+                              });
+                            }),
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 5),
-                  Textfield().text(
-                      "Lorem ipsum duumy text just reason",
-                      TextStyles.withColor(
-                          TextStyles.mn16, color.txt_dark_blue_color, 1.2)),
-                ],
+                    SizedBox(width: 5),
+                    Expanded(
+                      child: Textfield().text(
+                          "Lorem ipsum duumy text just reason",
+                          TextStyles.withColor(
+                              TextStyles.mn16, color.txt_dark_blue_color, 1.2)),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 20),
               Container(

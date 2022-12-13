@@ -134,8 +134,7 @@ class _Assistance_immediately_CartState
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Container(
-                                          width: size.width * 0.5,
+                                        Expanded(
                                           child: Textfield().text(
                                               widget.adddress,
                                               TextStyles.withColor(
