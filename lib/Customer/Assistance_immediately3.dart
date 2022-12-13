@@ -140,6 +140,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                         builder: (context) => StatefulBuilder(
                                 builder: (context, StateSetter setState) {
                               return Custom_dialog(
+                                bgpopupcolor: color.popupbgcolor,
                                 iconheight: 50.0,
                                 title: edittxt,
                                 showonebtn: true,

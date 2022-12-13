@@ -9,6 +9,7 @@ import 'package:tyreshifter/config/Navagate_Next.dart';
 import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import 'Button.dart';
+import 'Statuswidget.dart';
 import 'Textfield.dart';
 
 class Customer_Req_Card extends StatefulWidget {
@@ -29,8 +30,18 @@ class Customer_Req_Card extends StatefulWidget {
 
   final color;
   final bool? showbottom;
-  
+
   final bool? showdate;
+
+  final status;
+
+  final statuschild;
+
+  final status_name;
+
+  final statustxtcolor;
+
+  final statusbgcolor;
 
   Customer_Req_Card({
     Key? key,
@@ -47,8 +58,13 @@ class Customer_Req_Card extends StatefulWidget {
     this.ontapbtn,
     this.color,
     this.ontapmsg,
-    this.showbottom, 
+    this.showbottom,
     this.showdate = true,
+    this.status = false,
+    this.statuschild,
+    this.status_name,
+    this.statustxtcolor,
+    this.statusbgcolor,
   }) : super(key: key);
 
   @override
@@ -158,7 +174,7 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                                 child:
                                                     Image.asset(tryeicon_img)),
                                             Textfield().text(
-                                              "kr840",
+                                              "£840",
                                               TextStyles.withColor(
                                                   TextStyles.mb14,
                                                   color.Primary_second_Color),
@@ -166,11 +182,12 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                                           ],
                                         ),
                                       ),
-                                      if(widget.showdate == true)
-                                      Textfield().text(
-                                          "30 April 2022",
-                                          TextStyles.withColor(TextStyles.mb14,
-                                              color.txt_dark_color)),
+                                      if (widget.showdate == true)
+                                        Textfield().text(
+                                            "30 April 2022",
+                                            TextStyles.withColor(
+                                                TextStyles.mb14,
+                                                color.txt_dark_color)),
                                     ],
                                   ),
                                 ],
@@ -206,44 +223,112 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Row(
-                                children: [
-                                  Image.asset(staricon,
-                                      height: size.height * 0.04),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Textfield().text(
-                                      "4.5",
-                                      TextStyles.withColor(TextStyles.mn16,
-                                          color.textgrey_color))
-                                ],
-                              ),
+                              widget.status && widget.status_name != "pending"
+                                  ? Row(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Image.asset(staricon,
+                                                height: size.height * 0.04),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Textfield().text(
+                                                "4.5",
+                                                TextStyles.withColor(
+                                                    TextStyles.mn16,
+                                                    color.textgrey_color))
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          width: 15,
+                                        ),
+                                        // if (widget.track == true)
+                                        GestureDetector(
+                                          onTap: () => {
+                                            // widget.track == true ?  nextScreen(context,
+                                            //        Assistance_Cart()) : ''
+                                          },
+                                          child: Row(
+                                            children: [
+                                              widget.track == true
+                                                  ? Image.asset(kmicon,
+                                                      height:
+                                                          size.height * 0.04)
+                                                  : SvgPicture.string(
+                                                      locationsvg),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Textfield().text(
+                                                  "5 KM",
+                                                  TextStyles.withColor(
+                                                      TextStyles.mb16,
+                                                      widget.track == true
+                                                          ? color
+                                                              .text_grey2_color
+                                                          : color
+                                                              .border_grey_color))
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : Container(),
                               // if (widget.track == true)
-                              GestureDetector(
-                                onTap: () => {
-                                  // widget.track == true ?  nextScreen(context,
-                                  //        Assistance_Cart()) : ''
-                                },
-                                child: Row(
-                                  children: [
-                                    widget.track == true
-                                        ? Image.asset(kmicon,
-                                            height: size.height * 0.04)
-                                        : SvgPicture.string(locationsvg),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Textfield().text(
-                                        "5 KM",
-                                        TextStyles.withColor(
-                                            TextStyles.mb16,
-                                            widget.track == true
-                                                ? color.text_grey2_color
-                                                : color.border_grey_color))
-                                  ],
+                              !widget.status
+                                  ? Row(
+                                      children: [
+                                        Image.asset(staricon,
+                                            height: size.height * 0.04),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Textfield().text(
+                                            "4.5",
+                                            TextStyles.withColor(
+                                                TextStyles.mn16,
+                                                color.textgrey_color))
+                                      ],
+                                    )
+                                  : Container(),
+                              !widget.status
+                                  ? GestureDetector(
+                                      onTap: () => {
+                                        // widget.track == true ?  nextScreen(context,
+                                        //        Assistance_Cart()) : ''
+                                      },
+                                      child: Row(
+                                        children: [
+                                          widget.track == true
+                                              ? Image.asset(kmicon,
+                                                  height: size.height * 0.04)
+                                              : SvgPicture.string(locationsvg),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Textfield().text(
+                                              "5 KM",
+                                              TextStyles.withColor(
+                                                  TextStyles.mb16,
+                                                  widget.track == true
+                                                      ? color.text_grey2_color
+                                                      : color
+                                                          .border_grey_color))
+                                        ],
+                                      ),
+                                    )
+                                  : Container(),
+
+                              if (widget.status)
+                                Container(
+                                  child: StatusWidget(
+                                    status: widget.status_name,
+                                    statustxtcolor: widget.statustxtcolor,
+                                    bgcolor: widget.statusbgcolor,
+                                  ),
                                 ),
-                              ),
+
                               if (widget.msg == true)
                                 GestureDetector(
                                   onTap: () => {widget.ontapmsg!()},

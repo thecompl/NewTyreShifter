@@ -60,7 +60,13 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: home),
+        child: Appbartext(
+          title: home,
+          show_icon: 1,
+          showtext: false,
+          showsvg: true,
+          svgiocn: location_svg_icon,
+        ),
       ),
       // Appbartext().appbar(
       //     my_req, TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -72,7 +78,7 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
               height: 60,
               child: Card(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left: 2, right: 2),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

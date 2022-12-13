@@ -43,11 +43,11 @@ class _SupplierList_widgetState extends State<SupplierList_widget> {
         widget.Ontap!();
       },
       child: Padding(
-        padding: const EdgeInsets.only(right:5.0),
+        padding: const EdgeInsets.only(right: 5.0),
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(color: color.border_grey4_color),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(10),
             color: color.white,
           ),
           child: Padding(
@@ -73,8 +73,14 @@ class _SupplierList_widgetState extends State<SupplierList_widget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Textfield().text(widget.headtxt, TextStyles.mb16),
-                              Transform.scale(scale: 1.2, child: widget.supplier),
+                              SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: Transform.scale(
+                                    scale: 1.2, child: widget.supplier),
+                              ),
                             ]),
+                        SizedBox(height: 10),
                         Expanded(
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,8 +88,7 @@ class _SupplierList_widgetState extends State<SupplierList_widget> {
                               Container(
                                 height: 30,
                                 // decoration: BoxDecoration(
-                                //     border:
-                                //         Border.all(color: color.black)),
+                                //     border: Border.all(color: color.black)),
                                 child: Icon(
                                   Icons.location_on_outlined,
                                   color: color.Primary_second_Color,
@@ -95,8 +100,8 @@ class _SupplierList_widgetState extends State<SupplierList_widget> {
                                   width: size.width * 0.5,
                                   child: Textfield().text(
                                       widget.adddress,
-                                      TextStyles.withColor(
-                                          TextStyles.mn14, color.textgrey_color),
+                                      TextStyles.withColor(TextStyles.mn16,
+                                          color.textgrey_color),
                                       TextAlign.left,
                                       TextOverflow.ellipsis),
                                 ),

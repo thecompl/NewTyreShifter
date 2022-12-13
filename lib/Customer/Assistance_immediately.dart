@@ -22,6 +22,7 @@ import '../Widget/Appbartext.dart';
 import '../Suppliers/Register_Req.dart';
 import '../Suppliers/Set_Availability.dart';
 import '../Suppliers/Setprice.dart';
+import '../Widget/Custome_Dialog.dart';
 import '../Widget/Textfield.dart';
 
 class Assistanceimmediately extends StatefulWidget {
@@ -77,7 +78,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
               Column(
                 children: [
@@ -93,16 +94,18 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
-                  Text(
-                    pleaseselect,
-                    textAlign: TextAlign.center,
-                    style: TextStyles.mb20,
+                  Container(
+                    width: size.width,
+                    // decoration: BoxDecoration(color: Colors.red),
+                    child: Text(
+                      pleaseselect,
+                      textAlign: TextAlign.center,
+                      style: TextStyles.mb20,
+                    ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+
                   // Container(
                   //   width: size.width * 0.75,
                   //   child: Textfield().text(
@@ -244,17 +247,51 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                         : service == punctureRepair
                             ? showDialog(
                                 context: context,
-                                builder: (context) => Immediately_pun(
+                                builder: (context) => Custom_dialog(
                                       title: punctureRepair,
-                                      desc: punctureRepairmsg,
-                                      btn: proceed,
-                                      Onbtn: () {
+                                      bgpopupcolor: color.popupbgcolor,
+                                      iconheight: 50.0,
+
+                                      // desc: punctureRepairmsg,
+                                      // btn: proceed,
+                                      showonebtn: true,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 20),
+                                            Textfield().text(
+                                                punctureRepair,
+                                                TextStyles.withColor(
+                                                    TextStyles.mb18,
+                                                    color.txt_dark_blue_color)),
+                                            SizedBox(height: 10),
+                                            Textfield().text(
+                                                punctureRepairmsg,
+                                                TextStyles.withColor(
+                                                    TextStyles.mn16,
+                                                    color.textgrey_color),
+                                                TextAlign.center),
+                                            SizedBox(height: 50),
+                                          ],
+                                        ),
+                                      ),
+                                      onbtnname: proceed,
+                                      ontaponebtn: () {
                                         backScreen(context);
                                         nextScreen(
                                             context,
                                             Assistance_immediately2(
                                                 service: service, type: type));
                                       },
+                                      // Onbtn: () {
+                                      //   backScreen(context);
+                                      //   nextScreen(
+                                      //       context,
+                                      //       Assistance_immediately2(
+                                      //           service: service, type: type));
+                                      // },
                                     ))
                             : nextScreen(
                                 context,

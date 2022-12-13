@@ -34,7 +34,10 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: Assistance),
+        child: Appbartext(
+          title: Assistance,
+          elevation: 2.5,
+        ),
       ),
       // Appbartext().appbar(
       //     home, TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -48,6 +51,7 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
                 height: 20,
               ),
               Container(
+                  height: 340,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                       border: Border.all(
@@ -57,7 +61,7 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
                       child: Image.asset(
                     tyre_img,
                     fit: BoxFit.cover,
-                    height: 275,
+                    // height: 280,
                   ))),
               SizedBox(
                 height: 20,
@@ -89,7 +93,7 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
                   Textfield().text(
                       "Per tyre, fitted.",
                       TextStyles.withColor(
-                          TextStyles.mn18, color.txt_dark_color, 1.3)),
+                          TextStyles.mn14, color.txt_dark_color, 1.3)),
                 ],
               ),
               SizedBox(
@@ -237,7 +241,7 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
                           TextStyles.mb14, color.textblackcolor, 1.3)),
                   SizedBox(
                     width: 5,
-                  ),  
+                  ),
                   Container(
                     width: 80,
                     decoration: BoxDecoration(

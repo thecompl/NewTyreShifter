@@ -28,6 +28,8 @@ class Delete_dialog extends StatefulWidget {
 
   final child;
   final showchild;
+
+  final bgpopupcolor;
   Delete_dialog(
       {Key? key,
       this.msg,
@@ -39,7 +41,8 @@ class Delete_dialog extends StatefulWidget {
       this.Oncanceltap,
       this.Onconfirmtap,
       this.child,
-      this.showchild = false})
+      this.showchild = false,
+      this.bgpopupcolor = color.popupbgcolor})
       : super(key: key);
 
   @override
@@ -56,6 +59,7 @@ class _Delete_dialogState extends State<Delete_dialog> {
     return Container(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: Dialog(
+        backgroundColor: widget.bgpopupcolor,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,

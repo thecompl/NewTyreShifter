@@ -131,7 +131,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                   imagepath: location_vector,
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 20,
                 ),
                 if (widget.type == '0')
                   Column(

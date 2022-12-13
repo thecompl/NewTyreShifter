@@ -39,6 +39,7 @@ class _Immediately_ProviderListState extends State<Immediately_ProviderList> {
                 Img: service_img,
                 showbtn: false,
                 btntype: false,
+                showdate: false,
                 msg: false,
                 track: true, //it will true before 1 hours
                 showbottom: true,

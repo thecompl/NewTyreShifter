@@ -26,8 +26,11 @@ class _PaymentState extends State<Payment> {
     return Scaffold(
       backgroundColor: color.white,
       appBar: PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: payment),),
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(title: payment),
+      ),
 
       // Appbartext().appbar(payment,
       //     TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -54,7 +57,7 @@ class _PaymentState extends State<Payment> {
                 txt: 'Credit Card',
                 height: 25.0,
                 ontap: () {
-                  nextScreen(context, Payment_card(type : widget.type));
+                  nextScreen(context, Payment_card(type: widget.type));
                 },
               ),
               SizedBox(
@@ -63,10 +66,10 @@ class _PaymentState extends State<Payment> {
               PaymentcardWidget(
                 bgcolor: color.skylight,
                 imgname: vipps,
-                txt: 'VIPPS',
+                txt: 'Google Pay',
                 height: 25.0,
                 ontap: () {
-                  nextScreen(context, Payment_card(type : widget.type));
+                  nextScreen(context, Payment_card(type: widget.type));
                 },
               ),
               SizedBox(
@@ -78,7 +81,7 @@ class _PaymentState extends State<Payment> {
                 txt: 'Apple Pay',
                 height: 25.0,
                 ontap: () {
-                  nextScreen(context, Payment_card(type : widget.type));
+                  nextScreen(context, Payment_card(type: widget.type));
                 },
               ),
             ],

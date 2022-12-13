@@ -11,7 +11,10 @@ import '../../config/TextStyles/Textstyles.dart';
 class Cancel_req_dialog extends StatefulWidget {
   final msg;
 
-  Cancel_req_dialog({Key? key, this.showdesc, this.msg}) : super(key: key);
+  final bgcolor;
+
+  Cancel_req_dialog({Key? key, this.showdesc, this.msg, this.bgcolor})
+      : super(key: key);
   final showdesc;
   @override
   State<Cancel_req_dialog> createState() => _Cancel_req_dialogState();
@@ -27,6 +30,7 @@ class _Cancel_req_dialogState extends State<Cancel_req_dialog> {
     return Container(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: Dialog(
+        backgroundColor: widget.bgcolor,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,
@@ -45,8 +49,7 @@ class _Cancel_req_dialogState extends State<Cancel_req_dialog> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Container(
                   width: size.width * 0.65,
-                  child: Text(
-                     widget.msg,
+                  child: Text(widget.msg,
                       textAlign: TextAlign.center,
                       style: TextStyles.withColor(
                           TextStyles.mn16, color.textgrey_color)),
@@ -55,35 +58,63 @@ class _Cancel_req_dialogState extends State<Cancel_req_dialog> {
               SizedBox(
                 height: 10,
               ),
-              Image.asset(
-                divider,
+              SizedBox(
+                height: 10,
+                child: Image.asset(
+                  divider,
+                ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        // widget.Oncanceltap!();
+                        backScreen(context);
+                      },
+                      child: Container(
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(color: Colors.red)),
+                        width: size.width * 0.39,
+                        height: 60,
+                        child: Center(
                           child: Text("Cancel",
                               style: TextStyles.withColor(
-                                  TextStyles.mb20, color.Primary_second_Color)),
-                          onTap: () {
-                            backScreen(context);
-                          }),
-                      Image.asset(
-                        vertical,
-                        height: size.height * 0.04,
+                                  TextStyles.mb18, color.Primary_second_Color)),
+                        ),
                       ),
-                      GestureDetector(
-                          child: Text("Send",
+                    ),
+                    SizedBox(
+                      height: 40,
+                      child: VerticalDivider(
+                        width: 1,
+                        thickness: 1,
+                        color: color.border_grey_color,
+                      ),
+                    ),
+                    // Image.asset(
+                    //   vertical,
+                    //   height: size.height * 0.06,
+                    // ),
+                    InkWell(
+                      onTap: () {
+                        // widget.Onconfirmtap!();
+                        backScreen(context);
+                      },
+                      child: Container(
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(color: Colors.red)),
+                        width: size.width * 0.39,
+                        height: 60,
+                        child: Center(
+                          child: Text('send',
                               style: TextStyles.withColor(
-                                  TextStyles.mb20, color.Primary_second_Color)),
-                          onTap: () {
-                            backScreen(context);
-                          })
-                    ]),
-              )
+                                  TextStyles.mb18, color.Primary_second_Color)),
+                        ),
+                      ),
+                    )
+                  ])
             ],
           ),
         ),

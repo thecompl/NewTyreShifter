@@ -14,6 +14,7 @@ import 'package:tyreshifter/config/Color.dart';
 import '../../Widget/Appbartext.dart';
 import '../../Widget/Button.dart';
 import '../../Widget/Customer_Req_Card.dart';
+import '../../Widget/Statuswidget.dart';
 import '../../Widget/Textfield.dart';
 import '../../Widget/Toggle.dart';
 import '../../config/Navagate_Next.dart';
@@ -67,12 +68,41 @@ class _OrdersState extends State<Orders> {
                     msg: false,
                     track: true, //it will true before 1 hours
                     showbottom: true,
+                    status: true,
+                    status_name: index == 0
+                        ? "Pending"
+                        : index == 1
+                            ? "Accepted"
+                            : index == 2
+                                ? completed
+                                : "In-route",
+                    statusbgcolor: index == 0
+                        ? color.pending_status_color
+                        : index == 1
+                            ? color.accepted_status_color
+                            : index == 2
+                                ? color.completed_status_color
+                                : color.in_route_status_color,
+                    statustxtcolor: index == 0
+                        ? color.pending_status_txt_color
+                        : index == 1
+                            ? color.accepted_status_txt_color
+                            : index == 2
+                                ? color.completed_status_txt_color
+                                : color.in_route_status_txt_color,
                     showdate: false,
                     Ontap: () {
                       nextScreen(
                           context,
                           Immediate_service_detail(
-                            orderstatus: completed,
+                            service_immidiate: 1,
+                            orderstatus: index == 0
+                                ? "pending"
+                                : index == 1
+                                    ? "accepted"
+                                    : index == 2
+                                        ? completed
+                                        : "in-route",
                           ));
                     },
                   );

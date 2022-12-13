@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tyreshifter/Widget/Textfield.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
@@ -24,6 +25,10 @@ class Appbartext extends StatefulWidget {
   final appbartxtstyle;
   final appbartxt;
 
+  final showsvg;
+
+  final svgiocn;
+
   Appbartext({
     Key? key,
     required this.title,
@@ -38,6 +43,8 @@ class Appbartext extends StatefulWidget {
     this.showtext = false,
     this.appbartxtstyle,
     this.appbartxt,
+    this.showsvg = false,
+    this.svgiocn,
   }) : super(key: key);
   @override
   State<Appbartext> createState() => _AppbartextState();
@@ -113,10 +120,12 @@ class _AppbartextState extends State<Appbartext> {
                               : Alignment.topCenter,
                           width: widget.showtext! == false ? 40 : 80,
                           child: widget.showtext! == false
-                              ? Icon(
-                                  widget.icon,
-                                  color: color.black,
-                                )
+                              ? widget.showsvg
+                                  ? SvgPicture.string(widget.svgiocn)
+                                  : Icon(
+                                      widget.icon,
+                                      color: color.black,
+                                    )
                               : Padding(
                                   padding: const EdgeInsets.only(bottom: 4),
                                   child: Textfield().text(

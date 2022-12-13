@@ -379,6 +379,7 @@ class _Create_AccountState extends State<Create_Account> {
                         ],
                       )
                     : Container(),
+                SizedBox(height: 10),
                 // SizedBox(
                 //   height: 15,
                 // ),

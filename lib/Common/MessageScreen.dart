@@ -38,7 +38,7 @@ class _MessageScreenState extends State<MessageScreen> {
   ];
 
   String? type_account;
-  bool chatstart = false;
+  bool chatstart = true;
   @override
   void initState() {
     log(chatstart.toString());
@@ -70,10 +70,10 @@ class _MessageScreenState extends State<MessageScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   CircleAvatar(
-                    radius: 50,
+                    radius: 40,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child:
@@ -88,25 +88,31 @@ class _MessageScreenState extends State<MessageScreen> {
                   ),
                   chatstart == false
                       ? Container(
+                          alignment: Alignment.center,
                           height: size.height * 0.5,
                           child: Center(
-                            child: Column(children: [
-                              SizedBox(
-                                height: 10,
-                              ),
-                              SvgPicture.asset(frame_icon),
-                              Textfield().text(
-                                  after24hrs,
-                                  TextStyles.withColor(
-                                      TextStyles.mb16, color.text_grey2_color)),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Textfield().text(
-                                  willavailable,
-                                  TextStyles.withColor(
-                                      TextStyles.mb16, color.text_grey2_color))
-                            ]),
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  SvgPicture.asset(frame_icon),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Textfield().text(
+                                      after24hrs,
+                                      TextStyles.withColor(TextStyles.mb16,
+                                          color.text_grey2_color)),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Textfield().text(
+                                      willavailable,
+                                      TextStyles.withColor(TextStyles.mb16,
+                                          color.text_grey2_color))
+                                ]),
                           ),
                         )
                       : Container(
@@ -161,7 +167,8 @@ class _MessageScreenState extends State<MessageScreen> {
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
-              height: 70,
+              height: 75,
+
               // width: double.infinity,
               color: color.Primary_second_Color,
               child: Row(
@@ -170,7 +177,12 @@ class _MessageScreenState extends State<MessageScreen> {
                     width: 15,
                   ),
                   Container(
-                    width: size.width * 0.8,
+                    margin: Platform.isIOS
+                        ? EdgeInsets.only(
+                            bottom: 10,
+                          )
+                        : EdgeInsets.only(bottom: 0),
+                    width: size.width * 0.82,
                     height: 40,
                     padding: EdgeInsets.only(left: 10),
                     decoration: BoxDecoration(
@@ -189,10 +201,15 @@ class _MessageScreenState extends State<MessageScreen> {
                   ),
                   GestureDetector(
                     onTap: () {},
-                    child: Icon(
-                      Icons.send,
-                      color: Colors.white,
-                      size: 25,
+                    child: Container(
+                      margin: Platform.isIOS
+                          ? EdgeInsets.only(bottom: 10)
+                          : EdgeInsets.only(bottom: 0),
+                      child: Icon(
+                        Icons.send,
+                        color: Colors.white,
+                        size: 25,
+                      ),
                     ),
                   ),
                 ],

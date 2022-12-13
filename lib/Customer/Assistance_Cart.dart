@@ -44,6 +44,8 @@ class _Assistance_CartState extends State<Assistance_Cart> {
 
   final Cartypecontroller getxcartypecontroller = Get.put(Cartypecontroller());
 
+  var quntity = List.generate(3, (index) => 0);
+
   @override
   void initState() {
     log("cart type" + widget.type.toString());
@@ -60,7 +62,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
               ? Size.fromHeight(appbarheight_android)
               : Size.fromHeight(appbarheight_ios),
           child: Appbartext(
-            title: review_popup,
+            title: carttxt,
           ),
         ),
         body: SingleChildScrollView(
@@ -78,24 +80,36 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                 "2972 Westheimer Rd. Santa Ana, Illinois 85486 ",
                 style: TextStyles.withColor(
                     TextStyles.mn18, color.text_grey2_color),
-              ).paddingSymmetric(vertical: 0),
+              ),
               SizedBox(height: 30),
-              Container(
-                // width: size.height,
-                child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 3,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Assistance_immediately_Cart(
+              ListView.builder(
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Assistance_immediately_Cart(
                         adddress: "Per tyre, fitted.",
                         price: "£139.23",
                         headtxt: 'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
                         Img: tyre_img,
                         btnname: working,
                         btncolor: color.btncolor3,
-                        quantity: '1',
+                        quantity: quntity[index].toString(),
                         showqtyrow: true,
+                        height: 150,
+                        ondecrease: () {
+                          setState(() {
+                            quntity[index]--;
+                          });
+                        },
+                        onincrease: () {
+                          setState(() {
+                            quntity[index]++;
+                          });
+                        },
                         Ontap: () {
                           // nextScreen(
                           //     context,
@@ -123,9 +137,9 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                                     },
                                   ));
                         },
-                      );
-                    }),
-              ),
+                      ),
+                    );
+                  }),
               SizedBox(
                 height: 10,
               ),
@@ -279,7 +293,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                               ),
                               Textfield().text(
                                   "TYRE50" + " " + applied,
-                                  TextStyles.withColor(TextStyles.mb14,
+                                  TextStyles.withColor(TextStyles.mn14,
                                       color.textgrey_color, 1.3),
                                   TextAlign.center),
                             ]),
