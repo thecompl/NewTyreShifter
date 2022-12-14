@@ -34,6 +34,7 @@ class CancelOrder extends StatefulWidget {
 class _CancelOrderState extends State<CancelOrder> {
   var checkedValue = false;
   var checkedValue1 = false;
+  var checkedValue2 = false;
   // DataController dcx = Get.put(DataController());
   @override
   void initState() {
@@ -96,7 +97,7 @@ class _CancelOrderState extends State<CancelOrder> {
                             }),
                       ),
                     ),
-                    SizedBox(width: 5),
+                    SizedBox(width: 30),
                     Expanded(
                       child: Textfield().text(
                           "Lorem ipsum duumy text just reason",
@@ -139,7 +140,48 @@ class _CancelOrderState extends State<CancelOrder> {
                             }),
                       ),
                     ),
-                    SizedBox(width: 5),
+                    SizedBox(width: 30),
+                    Expanded(
+                      child: Textfield().text(
+                          "Lorem ipsum duumy text just reason",
+                          TextStyles.withColor(
+                              TextStyles.mn16, color.txt_dark_blue_color, 1.2)),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              GestureDetector(
+                onTap: (() {
+                  setState(() {
+                    checkedValue2 = !checkedValue2;
+                  });
+                }),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(
+                            activeColor: color.Primary_second_Color,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            side: MaterialStateBorderSide.resolveWith(
+                              (states) => BorderSide(
+                                  width: 1.0, color: color.border_grey3_color),
+                            ),
+                            value: checkedValue2,
+                            onChanged: (value) {
+                              setState(() {
+                                checkedValue2 = value!;
+                              });
+                            }),
+                      ),
+                    ),
+                    SizedBox(width: 30),
                     Expanded(
                       child: Textfield().text(
                           "Lorem ipsum duumy text just reason",

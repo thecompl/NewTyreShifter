@@ -8,6 +8,7 @@ import '../Widget/Appbartext.dart';
 import '../Widget/Assistance_immediately_Cart.dart';
 import '../Widget/Button.dart';
 import '../Widget/ConfirmationDialog.dart';
+import '../Widget/Cutome_Radiobtn.dart';
 import '../Widget/Textfield.dart';
 import '../config/Navagate_Next.dart';
 import '../config/TextStyles/Textstyles.dart';
@@ -32,6 +33,14 @@ class Immediate_service_detail extends StatefulWidget {
 
 class _Immediate_service_detailState extends State<Immediate_service_detail> {
   String? suppiername;
+
+  var radiobtn = 0;
+  @override
+  void initState() {
+    print("status" + widget.orderstatus.toString());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -83,16 +92,16 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                                             '752 Longbranch St.Calhoun, GA 30701',
                                         headtxt: 'Summer times',
                                         Img: service_img,
-                                        supplier: Radio(
-                                            value: punctureRepair,
-                                            groupValue: suppiername,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                suppiername = value.toString();
-                                                // print("fe =>" + value.toString());
-                                              });
-                                              // set_typeaccount();
-                                            }),
+                                        supplier: CustomRadio(
+                                          groupValue: index,
+                                          onChanged: (int) {
+                                            print("hiii" + int.toString());
+                                            setState(() {
+                                              index = int;
+                                            });
+                                          },
+                                          value: index,
+                                        ),
                                         Ontap: () {
                                           // nextScreen(
                                           //     context,
@@ -114,7 +123,29 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                   : Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                          Textfield().text("Summer times", TextStyles.mb18),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Textfield().text("Summer times", TextStyles.mb18),
+                              if (widget.service_immidiate == 1)
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: Row(
+                                    children: [
+                                      Image.asset(staricon,
+                                          height: size.height * 0.04),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Textfield().text(
+                                          "4.5",
+                                          TextStyles.withColor(TextStyles.mn16,
+                                              color.textgrey_color))
+                                    ],
+                                  ),
+                                ),
+                            ],
+                          ),
                           SizedBox(
                             height: 10,
                           ),
@@ -156,7 +187,7 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                                         child: Image.asset(tryeicon_img)),
                                     Textfield().text(
                                       "£840",
-                                      TextStyles.withColor(TextStyles.mb14,
+                                      TextStyles.withColor(TextStyles.mb16,
                                           color.Primary_second_Color),
                                     )
                                   ],
@@ -164,12 +195,9 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                               ),
                             ],
                           ),
-                          if (widget.orderstatus == completed)
-                            SizedBox(
-                              height: 10,
-                            ),
-                          widget.orderstatus != completed
-                              ? widget.service_immidiate == 0
+                          SizedBox(height: 10),
+                          widget.service_immidiate == 0
+                              ? widget.orderstatus == completed
                                   ? Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(8),
@@ -206,7 +234,79 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                                               ],
                                             ),
                                           ]))
-                                  : Container(
+                                  : widget.orderstatus != 'pending'
+                                      ? Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            color: color.skylight,
+                                          ),
+                                          padding: EdgeInsets.all(15),
+                                          child: Row(children: [
+                                            Row(
+                                              children: [
+                                                Image.asset(staricon,
+                                                    height: size.height * 0.04),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Textfield().text(
+                                                    "4.5",
+                                                    TextStyles.withColor(
+                                                        TextStyles.mn16,
+                                                        color.textgrey_color))
+                                              ],
+                                            ),
+                                            SizedBox(width: 20),
+                                            Textfield().text(
+                                                "Good Review",
+                                                TextStyles.withColor(
+                                                    TextStyles.mb16,
+                                                    color.txt_dark_blue_color))
+                                          ]))
+                                      : Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            color: color.skylight,
+                                          ),
+                                          padding: EdgeInsets.all(15),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Image.asset(staricon,
+                                                        height:
+                                                            size.height * 0.04),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Textfield().text(
+                                                        "4.5",
+                                                        TextStyles.withColor(
+                                                            TextStyles.mn16,
+                                                            color
+                                                                .textgrey_color))
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Image.asset(kmicon,
+                                                        height:
+                                                            size.height * 0.04),
+                                                    SizedBox(
+                                                      width: 15,
+                                                    ),
+                                                    Textfield().text(
+                                                        "5 KM", TextStyles.mb16)
+                                                  ],
+                                                ),
+                                              ]))
+                              : widget.orderstatus != completed
+                                  ? Container(
                                       alignment: Alignment.center,
                                       width: size.width,
                                       decoration: BoxDecoration(
@@ -240,37 +340,18 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                                                             .in_route_status_txt_color
                                                         : color.skylight,
                                           )))
-                              : Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: color.skylight,
-                                  ),
-                                  padding: EdgeInsets.all(15),
-                                  child: Row(children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(staricon,
-                                            height: size.height * 0.04),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Textfield().text(
-                                            "4.5",
-                                            TextStyles.withColor(
-                                                TextStyles.mn16,
-                                                color.textgrey_color))
-                                      ],
-                                    ),
-                                    SizedBox(width: 20),
-                                    Textfield().text(
-                                        "Good Review",
-                                        TextStyles.withColor(TextStyles.mb16,
-                                            color.txt_dark_blue_color))
-                                  ])),
-                          SizedBox(
-                            height: 25,
-                          ),
+                                  : Container(),
+                          if (widget.service_immidiate != 1 &&
+                              widget.orderstatus != completed)
+                            SizedBox(
+                              height: 25,
+                            ),
                         ]),
+              if (widget.service_immidiate == 1 &&
+                  widget.orderstatus != completed)
+                SizedBox(
+                  height: 15,
+                ),
               Textfield().text(service_detai, TextStyles.mb18),
               SizedBox(
                 height: 20,
@@ -282,7 +363,7 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                     borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
                       service_img,
-                      height: size.height * 0.13,
+                      height: size.height * .12,
                     ),
                   ),
                   SizedBox(width: 16),
@@ -293,9 +374,9 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                         Textfield().text(
                             "Tyre Replacement (New tyre)", TextStyles.mb18),
                         SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
-                        Textfield().text("Honda Amaze", TextStyles.mn16),
+                        Textfield().text("Honda Amaze", TextStyles.mn15),
                         SizedBox(
                           height: 5,
                         ),
@@ -315,15 +396,17 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                   )
                 ],
               ),
+              if (widget.service_immidiate == 0)
+                SizedBox(
+                  height: 20,
+                ),
+              if (widget.service_immidiate == 0)
+                Textfield().text(
+                    midrange,
+                    TextStyles.withColor(
+                        TextStyles.mb21, color.Primary_second_Color)),
               SizedBox(
-                height: 20,
-              ),
-              Textfield().text(
-                  midrange,
-                  TextStyles.withColor(
-                      TextStyles.mb18, color.Primary_second_Color)),
-              SizedBox(
-                height: 20,
+                height: 10,
               ),
               widget.service_immidiate == 1
                   ? Container()
@@ -335,7 +418,8 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                             color: color.border_grey4_color, width: 0.5),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
                         child: Assistance_immediately_Cart(
                           adddress: "Per tyre, fitted.",
                           price: "£139.23",
@@ -401,13 +485,14 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                               Container(
                                 padding: EdgeInsets.only(right: 10),
                                 child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Container(
                                         width: 30,
                                         child: Image.asset(tryeicon_img)),
                                     Textfield().text(
                                       "£840",
-                                      TextStyles.withColor(TextStyles.mb14,
+                                      TextStyles.withColor(TextStyles.mb16,
                                           color.Primary_second_Color),
                                     )
                                   ],
@@ -493,7 +578,7 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                             ],
                           ),
                           SizedBox(
-                            height: 35,
+                            height: widget.service_immidiate == 1 ? 20 : 10,
                           ),
                           if (widget.service_immidiate == 1)
                             Row(
@@ -522,7 +607,7 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
               SizedBox(
                 height: 20,
               ),
-              if (widget.orderstatus != "pending")
+              if (widget.service_immidiate == 0)
                 ElevatedButtons(
                   width: 0.95,
                   name: widget.orderstatus == completed
@@ -532,7 +617,9 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                           : widget.orderstatus == "accepted" ||
                                   widget.orderstatus == "in-route"
                               ? tracktxt
-                              : modifyorder,
+                              : widget.orderstatus == "pending"
+                                  ? modifyorder
+                                  : "null",
                   onTap: () {
                     widget.orderstatus == completed
                         ? showDialog(
@@ -542,7 +629,32 @@ class _Immediate_service_detailState extends State<Immediate_service_detail> {
                             ? ''
                             : '';
                   },
-                ),
+                )
+              else
+                widget.orderstatus == 'pending'
+                    ? ElevatedButtons(
+                        width: 0.95,
+                        name: widget.orderstatus == completed
+                            ? give_review
+                            : widget.orderstatus == canceled
+                                ? bookagain
+                                : widget.orderstatus == "accepted" ||
+                                        widget.orderstatus == "in-route"
+                                    ? tracktxt
+                                    : widget.orderstatus == "pending"
+                                        ? modifyorder
+                                        : "null",
+                        onTap: () {
+                          widget.orderstatus == completed
+                              ? showDialog(
+                                  context: context,
+                                  builder: (context) => ReviewPopUp())
+                              : widget.orderstatus == canceled
+                                  ? ''
+                                  : '';
+                        },
+                      )
+                    : Container()
             ],
           ),
         ),

@@ -14,6 +14,7 @@ final review_popup = "Review";
 final carttxt = "Cart";
 final see_all = "See All";
 final send_req = "Send Request";
+final booktxt = "Book";
 final tyres = "Tyres";
 final tyreshift_immidiate = "Tyreshifter Immediately";
 final done = "Done";
@@ -34,6 +35,7 @@ final confirm = "Confirm";
 final confirmed = "Confirmed";
 final canceled = "Cancelled";
 final booking = "Bookings";
+final cancelBookingtxt = "Cancel Booking";
 final bookingtxt = "Booking";
 final no = "No";
 final yes = "Yes";
@@ -103,6 +105,7 @@ final willavailable = "will Available";
 final premium = "Premium";
 final location = "Location";
 final Assistance = "Assistance immediately";
+final wellDimensionstxt = "Wheel dimensions";
 final book_a_servicetxt = "Book a Service";
 final Card_number = "Card number";
 final Card_holder_name = "Card holder name";
@@ -298,6 +301,7 @@ final cancelmsg2 = "It is possible that you would not be refunded.";
 // final canceled = "Canceled";
 //image------
 final carbon_svg = "assets/carbon_add-filled.svg";
+final mapimage = "assets/map.png";
 final addicon_svg = "assets/addicon.svg";
 final enable_locationimg = "assets/enable_locationimg.png";
 final reserver_shifterimg = "assets/shifter.png";
@@ -351,6 +355,14 @@ final kr_icon =
     '''<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.0560002 0.0315768H2.59411V5.29305H2.68674L7.20716 0.0315768H10.1714L5.39158 5.55242L10.264 13H7.3739L3.79832 7.31242L2.59411 8.64632V13H0.0560002V0.0315768ZM12.2337 3.2181H14.7718V4.77431H14.9015C15.0621 4.34203 15.3585 3.97768 15.7908 3.68126C16.2231 3.37249 16.7788 3.2181 17.4581 3.2181C17.7175 3.2181 17.9398 3.24281 18.1251 3.29221L18.0139 5.64505C17.7052 5.5586 17.3779 5.51537 17.032 5.51537C16.2663 5.51537 15.6981 5.71916 15.3276 6.12674C14.9571 6.52196 14.7718 7.18274 14.7718 8.10905V13H12.2337V3.2181Z" fill="black"/>
 </svg>
+''';
+final filtersvgicon =
+    '''<svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="30.5" cy="30.5" r="30.5" fill="#52A9D8"/>
+<path d="M30 24.3333C36.6274 24.3333 42 23.1394 42 21.6667C42 20.1939 36.6274 19 30 19C23.3726 19 18 20.1939 18 21.6667C18 23.1394 23.3726 24.3333 30 24.3333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 21.6667C18 24.6401 23.1613 30.5654 25.808 33.4067C26.7789 34.4359 27.3239 35.7946 27.3333 37.2094V40.3334C27.3333 41.0407 27.6143 41.7189 28.1144 42.219C28.6145 42.7191 29.2928 43.0001 30 43.0001C30.7072 43.0001 31.3855 42.7191 31.8856 42.219C32.3857 41.7189 32.6667 41.0407 32.6667 40.3334V37.2094C32.6667 35.7947 33.228 34.4427 34.192 33.4067C36.84 30.5654 42 24.6414 42 21.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
 ''';
 final unselected_star_icon =
     '''<svg width="41" height="38" viewBox="0 0 41 38" fill="none" xmlns="http://www.w3.org/2000/svg">

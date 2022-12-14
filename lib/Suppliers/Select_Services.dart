@@ -176,7 +176,7 @@ class _Select_ServicesState extends State<Select_Services> {
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 30,
                             ),
                             GestureDetector(
                               onTap: () {
@@ -216,7 +216,7 @@ class _Select_ServicesState extends State<Select_Services> {
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 30,
                             ),
                             GestureDetector(
                               onTap: () {
@@ -256,7 +256,7 @@ class _Select_ServicesState extends State<Select_Services> {
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 30,
                             ),
                             GestureDetector(
                               onTap: () {
@@ -295,7 +295,7 @@ class _Select_ServicesState extends State<Select_Services> {
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 30,
                             ),
                             GestureDetector(
                               onTap: () {
@@ -333,7 +333,7 @@ class _Select_ServicesState extends State<Select_Services> {
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 30,
                             ),
                             GestureDetector(
                               onTap: () {

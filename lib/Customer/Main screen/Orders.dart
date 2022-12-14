@@ -70,12 +70,12 @@ class _OrdersState extends State<Orders> {
                     showbottom: true,
                     status: true,
                     status_name: index == 0
-                        ? "Pending"
+                        ? "pending"
                         : index == 1
-                            ? "Accepted"
+                            ? "accepted"
                             : index == 2
                                 ? completed
-                                : "In-route",
+                                : "in-route",
                     statusbgcolor: index == 0
                         ? color.pending_status_color
                         : index == 1

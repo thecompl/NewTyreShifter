@@ -26,22 +26,25 @@ class _Latest_reqState extends State<Latest_req> {
           scrollDirection: Axis.vertical,
           itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
-            return Booking_Card(
-              adddress: "752 Longbranch St.Calhoun, GA 30701",
-              headtxt: 'Jaylon Rosser',
-              Img: service_img,
-              showbtn: false,
-              msg: false,
-              btncolor: color.btncolor2,
-              Ontap: () {
-                nextScreen(
-                    context,
-                    Service_Details(
-                        dropdown: false,
-                        employeedropdown: true,
-                        pagetype: detail,
-                        status: pending));
-              },
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Booking_Card(
+                adddress: "752 Longbranch St.Calhoun, GA 30701",
+                headtxt: 'Jaylon Rosser',
+                Img: service_img,
+                showbtn: false,
+                msg: false,
+                btncolor: color.btncolor2,
+                Ontap: () {
+                  nextScreen(
+                      context,
+                      Service_Details(
+                          dropdown: false,
+                          employeedropdown: true,
+                          pagetype: detail,
+                          status: pending));
+                },
+              ),
             );
           }),
     );

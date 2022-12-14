@@ -47,6 +47,7 @@ class _CancelBookingdailogState extends State<CancelBookingdailog> {
     return Container(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: Dialog(
+        backgroundColor: color.popupbgcolor,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,
@@ -56,74 +57,63 @@ class _CancelBookingdailogState extends State<CancelBookingdailog> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: 20),
-              Column(
-                children: [
-                  Textfield().text(
-                      widget.title,
-                      TextStyles.withColor(
-                          TextStyles.mb18, color.text_grey2_color)),
-                  SizedBox(height: 10),
-                ],
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Container(
-                  width: size.width * 0.65,
-                  child: Column(
-                    children: [
-                      Text(widget.msg,
-                          textAlign: TextAlign.center,
-                          style: TextStyles.withColor(
-                              TextStyles.mn14, color.textgrey_color)),
-                      Text(widget.msg1,
-                          textAlign: TextAlign.center,
-                          style: TextStyles.withColor(
-                              TextStyles.mn14, color.textgrey_color)),
-                    ],
-                  ),
+              Textfield().text(
+                  widget.title,
+                  TextStyles.withColor(
+                      TextStyles.mb18, color.text_grey2_color)),
+              Container(
+                width: size.width * 0.65,
+                child: Column(
+                  children: [
+                    Text(widget.msg,
+                        textAlign: TextAlign.center,
+                        style: TextStyles.withColor(
+                            TextStyles.mn18, color.textgrey_color)),
+                    Text(widget.msg1,
+                        textAlign: TextAlign.center,
+                        style: TextStyles.withColor(
+                            TextStyles.mn16, color.textgrey_color)),
+                  ],
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 40,
               ),
               Image.asset(
                 divider,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Expanded(
-                        child: Center(
-                          child: GestureDetector(
-                              child: Text(widget.cancellabel,
-                                  style: TextStyles.withColor(TextStyles.mb20,
-                                      color.Primary_second_Color)),
-                              onTap: () {
-                                widget.Oncanceltap!();
-                                // backScreen(context);
-                              }),
-                        ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 60,
+                        child: GestureDetector(
+                            child: Text(widget.cancellabel,
+                                style: TextStyles.withColor(TextStyles.mb20,
+                                    color.Primary_second_Color)),
+                            onTap: () {
+                              widget.Oncanceltap!();
+                              // backScreen(context);
+                            }),
                       ),
                       Image.asset(
                         vertical,
                         height: size.height * 0.04,
                       ),
-                      Expanded(
-                        child: Center(
-                          child: GestureDetector(
-                              child: Text(widget.confirmlabel,
-                                  style: TextStyles.withColor(TextStyles.mb20,
-                                      color.Primary_second_Color)),
-                              onTap: () {
-                                widget.Onconfirmtap!();
-                                // backScreen(context);
-                              }),
-                        ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 60,
+                        child: GestureDetector(
+                            child: Text(widget.confirmlabel,
+                                style: TextStyles.withColor(TextStyles.mb20,
+                                    color.Primary_second_Color)),
+                            onTap: () {
+                              widget.Onconfirmtap!();
+                              // backScreen(context);
+                            }),
                       )
                     ]),
               )

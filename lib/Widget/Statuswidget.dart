@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:tyreshifter/Widget/Extension.dart';
 
 import '../config/TextStyles/Textstyles.dart';
 import 'Textfield.dart';
@@ -29,7 +30,7 @@ class _StatusWidgetState extends State<StatusWidget> {
           color: widget.bgcolor, borderRadius: BorderRadius.circular(5)),
       width: 80,
       child: Textfield().text(
-          widget.status.toString(),
+          widget.status.toString().capitalize(),
           TextStyles.withColor(TextStyles.mb12, widget.statustxtcolor),
           TextAlign.center),
     );

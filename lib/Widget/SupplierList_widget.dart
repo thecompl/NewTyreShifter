@@ -65,49 +65,50 @@ class _SupplierList_widgetState extends State<SupplierList_widget> {
                 ),
                 Expanded(
                   child: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    child: Stack(
+                      alignment: Alignment.topRight,
                       children: [
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Textfield().text(widget.headtxt, TextStyles.mb16),
-                              SizedBox(
-                                height: 20,
-                                width: 20,
-                                child: Transform.scale(
-                                    scale: 1.2, child: widget.supplier),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Textfield().text(widget.headtxt, TextStyles.mb16),
+                            SizedBox(height: 10),
+                            Expanded(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 30,
+                                    // decoration: BoxDecoration(
+                                    //     border: Border.all(color: color.black)),
+                                    child: Icon(
+                                      Icons.location_on_outlined,
+                                      color: color.Primary_second_Color,
+                                      size: 20,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      width: size.width * 0.5,
+                                      child: Textfield().text(
+                                          widget.adddress,
+                                          TextStyles.withColor(TextStyles.mn16,
+                                              color.textgrey_color),
+                                          TextAlign.left,
+                                          TextOverflow.ellipsis),
+                                    ),
+                                  )
+                                ],
                               ),
-                            ]),
-                        SizedBox(height: 10),
-                        Expanded(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 30,
-                                // decoration: BoxDecoration(
-                                //     border: Border.all(color: color.black)),
-                                child: Icon(
-                                  Icons.location_on_outlined,
-                                  color: color.Primary_second_Color,
-                                  size: 20,
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  width: size.width * 0.5,
-                                  child: Textfield().text(
-                                      widget.adddress,
-                                      TextStyles.withColor(TextStyles.mn16,
-                                          color.textgrey_color),
-                                      TextAlign.left,
-                                      TextOverflow.ellipsis),
-                                ),
-                              )
-                            ],
-                          ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                          width: 20,
+                          child:
+                              Transform.scale(scale: 1, child: widget.supplier),
                         ),
                       ],
                     ),

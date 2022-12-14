@@ -39,7 +39,7 @@ class _Select_EmployeeState extends State<Select_Employee> {
                     TextStyles.mb14, color.text_grey2_color),
                 controller: Serach,
                 border_color: color.Primary_second_Color,
-                style: TextStyles.withColor(TextStyles.mb14, color.black),
+                style: TextStyles.withColor(TextStyles.mb15, color.black),
                 prefixshowicon: false,
                 iconorimage: false,
                 // ontap: () {
@@ -80,6 +80,7 @@ class _Select_EmployeeState extends State<Select_Employee> {
   select_emp(working, index) {
     return Column(
       children: [
+        SizedBox(height: 10),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,27 +141,27 @@ class _Select_EmployeeState extends State<Select_Employee> {
               ],
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset(kmicon, height: 30),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Textfield().text(
-                            "5 KM",
-                            TextStyles.withColor(
-                                TextStyles.mb16, color.Primary_second_Color))
-                      ],
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: Row(
+                    children: [
+                      Image.asset(kmicon, height: 20),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Textfield().text(
+                          "5KM",
+                          TextStyles.withColor(
+                              TextStyles.mb16, color.Primary_second_Color))
+                    ],
+                  ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 14),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  height: 27,
+                  padding: EdgeInsets.symmetric(horizontal: 13),
+                  height: 30,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: color.green_bg_color,
@@ -174,6 +175,7 @@ class _Select_EmployeeState extends State<Select_Employee> {
             ),
           ],
         ),
+        SizedBox(height: 10),
         Divider(
           thickness: 2,
         )

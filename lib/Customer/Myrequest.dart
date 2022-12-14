@@ -118,9 +118,6 @@ class _MyrequestState extends State<Myrequest> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 15,
-            ),
             Expanded(
               child: Container(
                   // height: size.height * 0.9,

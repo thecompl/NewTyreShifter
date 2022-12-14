@@ -372,13 +372,17 @@ class _Book_ServiceState extends State<Book_Service> {
                     nextScreen(
                         context,
                         servicetype == tyreReplacement
-                            ? Assistance_immediately3(servicetype:servicetype,type: widget.type,)
+                            ? Assistance_immediately3(
+                                servicetype: servicetype,
+                                type: widget.type,
+                              )
                             : Assistance_immediately2(type: widget.type));
                     // nextScreen(context, Send_Request(type: widget.type));
                   },
                 ),
               ),
               SizedBox(height: 20)
+
               // ElevatedButtons(
               //     name: get_started,
               //     onTap: () {

@@ -21,6 +21,7 @@ import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import 'Dialogs/Cancel_req_dialog.dart';
 import 'Immediate_service_detail.dart';
+import 'MapScreen.dart';
 
 class Immediately_Provider extends StatefulWidget {
   final type;
@@ -48,7 +49,7 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
   @override
   Widget build(BuildContext context) {
     List pages = [
-      '',
+      MapScreen(),
       Immediately_ProviderList(
         type: widget.type,
       ),
@@ -71,11 +72,13 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
       // Appbartext().appbar(
       //     my_req, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        padding:
+            EdgeInsets.symmetric(horizontal: index == 0 ? 0 : 15, vertical: 15),
         child: Column(
           children: [
             Container(
               height: 60,
+              padding: EdgeInsets.symmetric(horizontal: index == 0 ? 15 : 0),
               child: Card(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 2, right: 2),
@@ -85,10 +88,10 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            // setState(() {
-                            //   index = 0;
-                            //   _pageController!.jumpToPage(0);
-                            // });
+                            setState(() {
+                              index = 0;
+                              _pageController!.jumpToPage(0);
+                            });
                           },
                           child: Togglebtn(
                             txt: map,

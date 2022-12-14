@@ -48,6 +48,7 @@ class _CompletedState extends State<Completed> {
                       context: context,
                       builder: (context) => Cancel_req_dialog(
                             msg: cancel_req_des1,
+                            title: cancelBookingtxt,
                             bgcolor: color.popupbgcolor,
                           ));
                 },

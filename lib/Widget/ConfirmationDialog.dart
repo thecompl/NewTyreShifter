@@ -72,14 +72,14 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                       )
                     : Container(),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Container(
                   width: size.width * widget.destextwidth!,
                   child: Text(widget.destxt,
                       textAlign: TextAlign.center,
                       style: TextStyles.withletterspacing(
-                          TextStyles.mn16, color.textgrey_color, 0.6)),
+                          TextStyles.mn16, color.popup_txt_color, 0.6)),
                 ),
                 SizedBox(
                   height: 20,
@@ -97,7 +97,7 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                       color: color.popupbgcolor,
                     ),
                     alignment: Alignment.center,
-                    height: 60,
+                    height: 80,
                     child: InkWell(
                         child: Text(widget.btntxt,
                             style: TextStyles.withColor(

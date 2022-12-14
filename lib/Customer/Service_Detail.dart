@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:tyreshifter/Customer/Assistance_immediately2.dart';
 import 'package:tyreshifter/Widget/Appbartext.dart';
 import 'package:tyreshifter/Widget/Textfield.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -10,6 +11,7 @@ import 'package:tyreshifter/config/TextStyles/Textstyles.dart';
 import '../Widget/Button.dart';
 import '../Widget/ReviewCardwidget.dart';
 import '../config/string.dart';
+import 'Assistance_immediately3.dart';
 import 'Reviews.dart';
 import 'Send_request.dart';
 
@@ -30,9 +32,15 @@ class _Service_DetailState extends State<Service_Detail> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color.white,
-      appBar:PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: details,elevation: 0.0,),),
+      appBar: PreferredSize(
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(
+          title: details,
+          elevation: 0.0,
+        ),
+      ),
 
       // Appbartext().appbar(
       //     details, TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -197,9 +205,9 @@ class _Service_DetailState extends State<Service_Detail> {
         ),
       )),
       floatingActionButton: ElevatedButtons(
-        name: send_req,
+        name: booktxt,
         onTap: () {
-          nextScreen(context, Send_Request(type: widget.type));
+          nextScreen(context, Assistance_immediately3());
         },
       ),
       // Elevatedbuttons().elevatedbutton(send_req, Send_Request(), context),

@@ -40,8 +40,12 @@ class _ProductsState extends State<Products> {
     ProductList(
       type: 0,
     ),
-    ProductList(),
-    ProductList()
+    ProductList(
+      type: 0,
+    ),
+    ProductList(
+      type: 0,
+    )
   ];
   void initState() {
     log(widget.type.toString());

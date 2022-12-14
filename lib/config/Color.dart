@@ -12,6 +12,7 @@ class color {
   static const white = Colors.white;
   static const btntextcolor = Colors.black;
   static const bottomunselect = Color(0XFFBFE6FC);
+  static const unselected_color = Color(0XFFD9D9D9);
   static const textblackcolor = Colors.black;
   static const textgrey_color = Color(0XFF7B7B7B);
   static const pending_status_color = Color(0XFFFFE7CA);

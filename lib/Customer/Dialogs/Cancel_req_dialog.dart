@@ -13,7 +13,10 @@ class Cancel_req_dialog extends StatefulWidget {
 
   final bgcolor;
 
-  Cancel_req_dialog({Key? key, this.showdesc, this.msg, this.bgcolor})
+  final title;
+
+  Cancel_req_dialog(
+      {Key? key, this.showdesc, this.msg, this.bgcolor, this.title})
       : super(key: key);
   final showdesc;
   @override
@@ -28,20 +31,20 @@ class _Cancel_req_dialogState extends State<Cancel_req_dialog> {
     var size = MediaQuery.of(context).size;
 
     return Container(
-      padding: EdgeInsets.only(left: 30, right: 30),
+      padding: EdgeInsets.only(left: 20, right: 20),
       child: Dialog(
         backgroundColor: widget.bgcolor,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,
         child: SizedBox(
-          width: size.width * 0.8,
+          width: size.width * 0.85,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: 20),
               Textfield().text(
-                  cancel_req,
+                  widget.title,
                   TextStyles.withColor(
                       TextStyles.mb18, color.text_grey2_color)),
               Padding(
@@ -108,7 +111,7 @@ class _Cancel_req_dialogState extends State<Cancel_req_dialog> {
                         width: size.width * 0.39,
                         height: 60,
                         child: Center(
-                          child: Text('send',
+                          child: Text('Send',
                               style: TextStyles.withColor(
                                   TextStyles.mb18, color.Primary_second_Color)),
                         ),

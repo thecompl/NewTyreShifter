@@ -43,13 +43,18 @@ class _InprogressState extends State<Inprogress> {
                 ontapmsg: () => {nextScreen(context, MessageScreen())},
                 showbottom: true,
                 Ontap: () {
-                  nextScreen(context, Immediate_service_detail());
+                  nextScreen(
+                      context,
+                      Immediate_service_detail(
+                        orderstatus: 'pending',
+                      ));
                 },
                 ontapbtn: () {
                   showDialog(
                       context: context,
                       builder: (context) => Cancel_req_dialog(
                             msg: cancel_req_des,
+                            title: cancel_req,
                             bgcolor: color.popupbgcolor,
                           ));
                 },

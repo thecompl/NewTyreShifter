@@ -47,7 +47,7 @@ class _AddVehicleState extends State<AddVehicle> {
                       border: Border.all(color: color.border_grey6_color)),
                   child: Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                     child: Column(
                       children: [
                         Row(

@@ -57,6 +57,7 @@ class _LoginState extends State<Login> {
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
         child: Appbartext(
+          showboxshadow: false,
           title: '',
           elevation: 0.0,
           show_arrow_icon: 1,

@@ -84,6 +84,7 @@ class _Create_AccountState extends State<Create_Account> {
         preferredSize:
             Platform.isAndroid ? Size.fromHeight(40) : Size.fromHeight(40 + 10),
         child: Appbartext(
+          showboxshadow: false,
           title: '',
           elevation: 0.0,
         ),

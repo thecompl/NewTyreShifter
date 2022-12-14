@@ -31,7 +31,7 @@ class _ReviewPopUpState extends State<ReviewPopUp> {
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,
         child: SizedBox(
-          width: size.width * 0.8,
+          width: size.width * 0.85,
           child: Padding(
             padding: const EdgeInsets.only(
               top: 20,
@@ -109,47 +109,55 @@ class _ReviewPopUpState extends State<ReviewPopUp> {
                 SizedBox(height: 10),
                 Container(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: size.width * 0.3,
-                          height: 40,
-                          alignment: Alignment.center,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(color: Colors.red)),
-                          child: GestureDetector(
-                              child: Textfield().text(
-                                  "Cancel",
-                                  TextStyles.withColor(
-                                    TextStyles.mb18,
-                                    color.Primary_second_Color,
-                                  ),
-                                  TextAlign.center),
-                              onTap: () {
-                                backScreen(context);
-                              }),
+                        InkWell(
+                          onTap: () {
+                            backScreen(context);
+                          },
+                          child: Container(
+                            width: size.width * 0.35,
+                            height: 45,
+                            alignment: Alignment.center,
+                            // decoration: BoxDecoration(
+                            //     border: Border.all(color: Colors.red)),
+                            child: GestureDetector(
+                                child: Textfield().text(
+                                    "Cancel",
+                                    TextStyles.withColor(
+                                      TextStyles.mb18,
+                                      color.Primary_second_Color,
+                                    ),
+                                    TextAlign.center),
+                                onTap: () {
+                                  backScreen(context);
+                                }),
+                          ),
                         ),
+                        SizedBox(width: 15),
                         Image.asset(
                           vertical,
                           height: size.height * 0.04,
                         ),
-                        Container(
-                          width: size.width * 0.3,
-                          height: 40,
-                          alignment: Alignment.center,
-                          // decoration: BoxDecoration(
-                          //     border: Border.all(color: Colors.red)),
-                          child: GestureDetector(
-                              child: Textfield().text(
-                                  "Send",
-                                  TextStyles.withColor(
-                                    TextStyles.mb18,
-                                    color.Primary_second_Color,
-                                  ),
-                                  TextAlign.center),
-                              onTap: () {
-                                backScreen(context);
-                              }),
+                        SizedBox(width: 15),
+                        InkWell(
+                          onTap: () {
+                            backScreen(context);
+                          },
+                          child: Container(
+                            width: size.width * 0.35,
+                            height: 45,
+                            alignment: Alignment.center,
+                            // decoration: BoxDecoration(
+                            //     border: Border.all(color: Colors.red)),
+                            child: Textfield().text(
+                                "Send",
+                                TextStyles.withColor(
+                                  TextStyles.mb18,
+                                  color.Primary_second_Color,
+                                ),
+                                TextAlign.center),
+                          ),
                         ),
                       ]),
                 )

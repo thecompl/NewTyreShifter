@@ -101,7 +101,11 @@ class _OtpState extends State<Otp> {
       appBar: PreferredSize(
         preferredSize:
             Platform.isAndroid ? Size.fromHeight(40) : Size.fromHeight(40 + 10),
-        child: Appbartext(title: '', elevation: 0.0),
+        child: Appbartext(
+          title: '',
+          elevation: 0.0,
+          showboxshadow: false,
+        ),
       ),
 
       // Appbartext().appbar(
@@ -239,6 +243,7 @@ class _OtpState extends State<Otp> {
                                 builder: (context) => ConfirmationDialog(
                                       destextwidth: 0.7,
                                       btntxt: done,
+                                      color: color.popupbgcolor,
                                       destxt: verification_msg_txt,
                                       onTap: () {
                                         backScreen(context);

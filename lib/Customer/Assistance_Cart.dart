@@ -44,7 +44,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
 
   final Cartypecontroller getxcartypecontroller = Get.put(Cartypecontroller());
 
-  var quntity = List.generate(3, (index) => 0);
+  var quntity = List.generate(3, (index) => 1);
 
   @override
   void initState() {
@@ -63,6 +63,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
               : Size.fromHeight(appbarheight_ios),
           child: Appbartext(
             title: carttxt,
+            elevation: 0.0,
           ),
         ),
         body: SingleChildScrollView(
@@ -89,7 +90,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                   itemCount: 3,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.only(bottom: 25),
                       child: Assistance_immediately_Cart(
                         adddress: "Per tyre, fitted.",
                         price: "£139.23",
@@ -101,9 +102,11 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                         showqtyrow: true,
                         height: 150,
                         ondecrease: () {
-                          setState(() {
-                            quntity[index]--;
-                          });
+                          if (quntity[index] > 0) {
+                            setState(() {
+                              quntity[index]--;
+                            });
+                          }
                         },
                         onincrease: () {
                           setState(() {
@@ -231,10 +234,9 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                       children: [
                         Expanded(
                           child: SizedBox(
-                            // width: 242.0,
-                            height: 55,
                             child: TextBoxwidget(
                               // width: width*0.4,
+                              height: 60.0,
                               hinttext: "Apply Promo code here",
                               hintstyle: TextStyles.withColor(
                                   TextStyles.mn14, color.textgrey_color),
@@ -243,6 +245,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                               style: TextStyles.withColor(
                                   TextStyles.mb14, color.black),
                               prefixshowicon: false,
+
                               readtype: false,
                               showicon: false,
                             ),
@@ -260,7 +263,7 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                             onTap: () {
                               setState(() {
                                 applypromo = true;
-                                promodata:
+
                                 promo;
                               });
                             },
@@ -274,9 +277,10 @@ class _Assistance_CartState extends State<Assistance_Cart> {
                         Expanded(
                           child: Container(
                             // width: 232.0,
+                            height: 60.0,
                             decoration: BoxDecoration(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
+                                    BorderRadius.all(Radius.circular(15)),
                                 border: Border.all(
                                     color: color.Primary_second_Color,
                                     width: 1)),

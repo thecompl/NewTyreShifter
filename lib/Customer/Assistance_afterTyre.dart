@@ -124,7 +124,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 ),
                                 Textfield().text(
                                   newtyre,
-                                  TextStyles.withColor(TextStyles.mn16,
+                                  TextStyles.withColor(TextStyles.mn18,
                                       color.textgrey_color, 1.2),
                                 ),
                               ],
@@ -155,7 +155,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 ),
                                 Textfield().text(
                                   oldtyre,
-                                  TextStyles.withColor(TextStyles.mn16,
+                                  TextStyles.withColor(TextStyles.mn18,
                                       color.textgrey_color, 1.2),
                                 ),
                               ],
@@ -173,7 +173,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButtons(
-                  name: next,
+                  name: continu,
                   onTap: () {
                     nextScreen(context, Assistance_immediately2());
                   },

@@ -5,7 +5,6 @@ import 'package:tyreshifter/Customer/Dialogs/Cancel_req_dialog.dart';
 import 'package:tyreshifter/Widget/ConfirmationDialog.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
-
 import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import 'Button.dart';
@@ -26,9 +25,7 @@ class Assistance_immediately_Cart extends StatefulWidget {
   final Function? ondecrease;
   final Function? onincrease;
   final btnname;
-
   final btncolor;
-
   final double? height;
 
   Assistance_immediately_Cart({
@@ -61,30 +58,30 @@ class _Assistance_immediately_CartState
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-          color: color.white,
-        ),
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  border: Border.all(
-                    color: color.border_grey4_color,
-                  )),
-              padding: EdgeInsets.symmetric(horizontal: 1, vertical: 5),
-              height: widget.height,
-              child: Image.asset(widget.Img, fit: BoxFit.cover), //Text
-            ),
-            SizedBox(
-              width: 15,
-            ),
-            Expanded(
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+        color: color.white,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                border: Border.all(
+                  color: color.border_grey4_color,
+                )),
+            padding: EdgeInsets.symmetric(horizontal: 1, vertical: 5),
+            height: widget.height,
+            child: Image.asset(widget.Img, fit: BoxFit.cover), //Text
+          ),
+          SizedBox(
+            width: 15,
+          ),
+          Expanded(
+            child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -98,9 +95,6 @@ class _Assistance_immediately_CartState
                     TextStyles.withColor(
                         TextStyles.mb16, color.Primary_second_Color),
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -108,14 +102,14 @@ class _Assistance_immediately_CartState
                         child: Textfield().text(
                             widget.adddress,
                             TextStyles.withColor(
-                                TextStyles.mn16, color.txt_dark_color),
+                                TextStyles.mn13, color.txt_dark_color),
                             TextAlign.left,
                             TextOverflow.ellipsis),
                       )
                     ],
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   if (widget.showqtyrow == true)
                     Row(
@@ -129,44 +123,50 @@ class _Assistance_immediately_CartState
                             width: 10,
                           ),
                           Container(
-                              width: 90,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  border: Border.all(
-                                      color: color.Primary_second_Color,
-                                      width: 1)),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 2),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
+                            width: 90,
+                            padding: EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                border: Border.all(
+                                    color: color.Primary_second_Color,
+                                    width: 1)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
                                     onTap: () {
                                       widget.ondecrease!();
                                     },
                                     child: Icon(
                                       Icons.remove,
                                       color: color.Primary_second_Color,
-                                      size: 20,
-                                    ),
+                                      size: 16,
+                                    )),
+                                Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 3),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 3, vertical: 2),
+                                  child: Text(
+                                    widget.quantity,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                  Textfield()
-                                      .text(widget.quantity, TextStyles.mb18),
-                                  GestureDetector(
+                                ),
+                                InkWell(
                                     onTap: () {
                                       widget.onincrease!();
                                     },
                                     child: Icon(
                                       Icons.add,
                                       color: color.Primary_second_Color,
-                                      size: 20,
-                                    ),
-                                  ),
-                                ],
-                              )),
+                                      size: 16,
+                                    )),
+                              ],
+                            ),
+                          ),
                         ])),
                         Container(
                           child: GestureDetector(
@@ -181,8 +181,8 @@ class _Assistance_immediately_CartState
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

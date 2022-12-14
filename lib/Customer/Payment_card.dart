@@ -77,7 +77,7 @@ class _Payment_cardState extends State<Payment_card> {
                 showicon: false,
               ),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               TextBoxwidget(
                 prefixshowicon: false,
@@ -91,7 +91,7 @@ class _Payment_cardState extends State<Payment_card> {
                 showicon: false,
               ),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

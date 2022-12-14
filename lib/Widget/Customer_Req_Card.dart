@@ -223,58 +223,56 @@ class _Customer_Req_CardState extends State<Customer_Req_Card> {
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              widget.status && widget.status_name != "pending"
-                                  ? Row(
+                              if (widget.status &&
+                                  widget.status_name != "pending")
+                                Row(
+                                  children: [
+                                    Row(
                                       children: [
-                                        Row(
-                                          children: [
-                                            Image.asset(staricon,
-                                                height: size.height * 0.04),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Textfield().text(
-                                                "4.5",
-                                                TextStyles.withColor(
-                                                    TextStyles.mn16,
-                                                    color.textgrey_color))
-                                          ],
-                                        ),
+                                        Image.asset(staricon,
+                                            height: size.height * 0.04),
                                         SizedBox(
-                                          width: 15,
+                                          width: 10,
                                         ),
-                                        // if (widget.track == true)
-                                        GestureDetector(
-                                          onTap: () => {
-                                            // widget.track == true ?  nextScreen(context,
-                                            //        Assistance_Cart()) : ''
-                                          },
-                                          child: Row(
-                                            children: [
-                                              widget.track == true
-                                                  ? Image.asset(kmicon,
-                                                      height:
-                                                          size.height * 0.04)
-                                                  : SvgPicture.string(
-                                                      locationsvg),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Textfield().text(
-                                                  "5 KM",
-                                                  TextStyles.withColor(
-                                                      TextStyles.mb16,
-                                                      widget.track == true
-                                                          ? color
-                                                              .text_grey2_color
-                                                          : color
-                                                              .border_grey_color))
-                                            ],
-                                          ),
-                                        ),
+                                        Textfield().text(
+                                            "4.5",
+                                            TextStyles.withColor(
+                                                TextStyles.mn16,
+                                                color.textgrey_color))
                                       ],
-                                    )
-                                  : Container(),
+                                    ),
+                                    SizedBox(
+                                      width: 15,
+                                    ),
+                                    // if (widget.track == true)
+                                    GestureDetector(
+                                      onTap: () => {
+                                        // widget.track == true ?  nextScreen(context,
+                                        //        Assistance_Cart()) : ''
+                                      },
+                                      child: Row(
+                                        children: [
+                                          widget.track == true
+                                              ? Image.asset(kmicon,
+                                                  height: size.height * 0.04)
+                                              : SvgPicture.string(locationsvg),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Textfield().text(
+                                              "5 KM",
+                                              TextStyles.withColor(
+                                                  TextStyles.mb16,
+                                                  widget.track == true
+                                                      ? color.text_grey2_color
+                                                      : color
+                                                          .border_grey_color))
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
                               // if (widget.track == true)
                               !widget.status
                                   ? Row(

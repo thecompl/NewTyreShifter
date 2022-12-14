@@ -80,9 +80,9 @@ class _Service_DetailsState extends State<Service_Details> {
             : Size.fromHeight(appbarheight_ios),
         child: Appbartext(
           title: widget.pagetype == booking_details && widget.status == working
-              ? booking_details
+              ? details
               : widget.pagetype == booking_details && widget.status == complete
-                  ? complete
+                  ? booking_details
                   : details,
           show_arrow_icon:
               widget.dropdown! == false || widget.pagetype == booking_details
@@ -220,24 +220,29 @@ class _Service_DetailsState extends State<Service_Details> {
                         Textfield().text("5 KM", TextStyles.mb16)
                       ],
                     ),
-                    // Column(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //     Textfield().text(
-                    //         completed_orders,
-                    //         TextStyles.withColor(
-                    //             TextStyles.mb16, color.txt_dark_blue_color)),
-                    //     Textfield().text(
-                    //         "10",
-                    //         TextStyles.withColor(
-                    //             TextStyles.mn14, color.textgrey_color)),
-                    //   ],
-                    // )
+                    if (widget.employeedropdown == true &&
+                        widget.status == pending)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Textfield().text(
+                              completed_orders,
+                              TextStyles.withColor(
+                                  TextStyles.mb16, color.txt_dark_blue_color)),
+                          Textfield().text(
+                              "10",
+                              TextStyles.withColor(
+                                  TextStyles.mn14, color.textgrey_color)),
+                        ],
+                      )
                   ])),
               SizedBox(
                 height: 25,
               ),
-              Textfield().text(service_detai, TextStyles.mb18),
+              Textfield().text(
+                  service_detai,
+                  TextStyles.withColor(
+                      TextStyles.mb18, color.txt_dark_blue_color)),
               SizedBox(
                 height: 20,
               ),
@@ -245,10 +250,10 @@ class _Service_DetailsState extends State<Service_Details> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
                       service_img,
-                      height: size.height * 0.13,
+                      height: size.height * 0.12,
                     ),
                   ),
                   SizedBox(width: 16),
@@ -263,13 +268,25 @@ class _Service_DetailsState extends State<Service_Details> {
                               TextAlign.left,
                               TextOverflow.ellipsis),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Textfield().text("Honda Amaze", TextStyles.mn14),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        if (widget.employeedropdown == true &&
+                            widget.status == pending)
+                          Row(
+                            children: [
+                              Textfield().text(
+                                  "Qty.",
+                                  TextStyles.withColor(TextStyles.mn13,
+                                      color.Primary_second_Color)),
+                              Textfield().text("1", TextStyles.mb18),
+                            ],
+                          )
+                        else
+                          Container(
+                            child: Textfield().text(
+                                "Honda Amaze",
+                                TextStyles.withColor(TextStyles.mn15,
+                                    color.txt_dark_blue_color)),
+                          ),
+                        SizedBox(height: 5),
                         Container(
                           width: size.width * 0.5,
                           child: Row(
@@ -403,8 +420,8 @@ class _Service_DetailsState extends State<Service_Details> {
                                     width: 0.5),
                               ),
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 12),
                                 child: Assistance_immediately_Cart(
                                   adddress: "Per tyre, fitted.",
                                   price: "£139.23",
@@ -453,14 +470,7 @@ class _Service_DetailsState extends State<Service_Details> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 10,
-                        ),
-                        Textfield().text(
-                            upload_image,
-                            TextStyles.withColor(
-                                TextStyles.mb16, color.Primary_second_Color)),
-                        SizedBox(
-                          height: 10,
+                          height: 25,
                         ),
                         Row(
                           children: [
@@ -468,7 +478,16 @@ class _Service_DetailsState extends State<Service_Details> {
                                 onTap: () {
                                   openImages();
                                 },
-                                child: SvgPicture.string(upload_iconsvg)),
+                                child: Row(
+                                  children: [
+                                    SvgPicture.string(upload_iconsvg),
+                                    SizedBox(width: 20),
+                                    Textfield().text(
+                                        upload_image,
+                                        TextStyles.withColor(TextStyles.mb16,
+                                            color.Primary_second_Color)),
+                                  ],
+                                )),
                             imagefiles != null
                                 ? SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
@@ -545,6 +564,7 @@ class _Service_DetailsState extends State<Service_Details> {
                           builder: (context) => ConfirmationDialog(
                                 destextwidth: 0.8,
                                 btntxt: view_booking_btn_txt,
+                                color: color.popupbgcolor,
                                 destxt: viewbookingmsg,
                                 onTap: () {
                                   nextScreen(context,
@@ -566,6 +586,7 @@ class _Service_DetailsState extends State<Service_Details> {
                     showDialog(
                         context: context,
                         builder: (context) => ConfirmationDialog(
+                              color: color.popupbgcolor,
                               destextwidth: 0.8,
                               btntxt: view_booking_btn_txt,
                               destxt: viewbookingmsg,
@@ -577,7 +598,22 @@ class _Service_DetailsState extends State<Service_Details> {
                   },
                 )
               : widget.status == complete
-                  ? ElevatedButtons(name: completework)
+                  ? ElevatedButtons(
+                      name: completework,
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => ConfirmationDialog(
+                                  btntxt: done,
+                                  color: color.popupbgcolor,
+                                  destxt: submit_msg_txt,
+                                  onTap: () {
+                                    nextScreen(
+                                        context, MainHomeScreen_Supplier());
+                                  },
+                                ));
+                      },
+                    )
                   : Container(),
     );
   }

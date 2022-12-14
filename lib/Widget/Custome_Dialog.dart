@@ -72,7 +72,6 @@ class _Custom_dialogState extends State<Custom_dialog> {
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,
         child: SizedBox(
-          width: size.width * 0.9,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -140,7 +139,7 @@ class _Custom_dialogState extends State<Custom_dialog> {
                         // decoration: BoxDecoration(
                         //     border: Border.all(color: Colors.red)),
                         width: size.width,
-                        height: 60,
+                        height: 75,
                         child: Center(
                           child: Text(widget.onbtnname,
                               style: TextStyles.withColor(
