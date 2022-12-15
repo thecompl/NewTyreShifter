@@ -168,7 +168,8 @@ class _Set_AvailabilityState extends State<Set_Availability> {
               //                 scale: 1.5,
               //                 child: Container(
               //
-              //                   child: Radio(
+              //                   child: Radio                         activeColor: color.Primary_second_Color,
+
               //                       value: "Always",
               //                       groupValue: gender,
               //                       onChanged: (value) {
@@ -201,7 +202,8 @@ class _Set_AvailabilityState extends State<Set_Availability> {
               //           children: [
               //             Transform.scale(
               //               scale: 1.5,
-              //               child: Radio(
+              //               child: Radio                         activeColor: color.Primary_second_Color,
+
               //                   value: "set Availabilty",
               //                   groupValue: gender,
               //                   onChanged: (value) {

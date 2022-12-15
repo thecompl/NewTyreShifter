@@ -149,6 +149,8 @@ class _Create_AccountState extends State<Create_Account> {
                                       height: 20,
                                       width: 20,
                                       child: Radio(
+                                          activeColor:
+                                              color.Primary_second_Color,
                                           value: company,
                                           groupValue: account_type,
                                           onChanged: (value) {
@@ -183,6 +185,8 @@ class _Create_AccountState extends State<Create_Account> {
                                       height: 20,
                                       width: 20,
                                       child: Radio(
+                                          activeColor:
+                                              color.Primary_second_Color,
                                           value: individual,
                                           groupValue: account_type,
                                           onChanged: (value) {

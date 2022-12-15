@@ -5,6 +5,7 @@ import 'package:tyreshifter/Widget/ConfirmationDialog.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
+import '../Common/MessageScreen.dart';
 import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import 'Button.dart';
@@ -106,9 +107,15 @@ class _Booking_CardState extends State<Booking_Card> {
                                       Textfield().text(
                                           widget.headtxt, TextStyles.mb16),
                                       widget.msg!
-                                          ? Container(
-                                              height: 30,
-                                              child: Image.asset(msg_icon))
+                                          ? GestureDetector(
+                                              onTap: () {
+                                                nextScreen(
+                                                    context, MessageScreen());
+                                              },
+                                              child: Container(
+                                                  height: 30,
+                                                  child: Image.asset(msg_icon)),
+                                            )
                                           : Container(
                                               height: 30,
                                             )
@@ -264,7 +271,8 @@ class _Booking_CardState extends State<Booking_Card> {
                                               btntxt: done,
                                               destxt: submit_msg_txt,
                                               onTap: () {
-                                                nextScreen(context, MainHomeScreen_Supplier());
+                                                nextScreen(context,
+                                                    MainHomeScreen_Supplier());
                                               },
                                             ));
                                   }),

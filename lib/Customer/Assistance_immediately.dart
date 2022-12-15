@@ -134,6 +134,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: flatbattery,
                                       groupValue: service,
                                       onChanged: (value) {
@@ -171,6 +172,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: tyreReplacement,
                                       groupValue: service,
                                       onChanged: (value) {
@@ -209,6 +211,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: punctureRepair,
                                       groupValue: service,
                                       onChanged: (value) {

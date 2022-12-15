@@ -46,9 +46,9 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: size.height * 0.8,
                 child: Column(
                   children: [
                     SizedBox(
@@ -240,51 +240,59 @@ class _Assistance_tyreListDetailState extends State<Assistance_tyreListDetail> {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Textfield().text(
-                      qty,
-                      TextStyles.withColor(
-                          TextStyles.mb14, color.textblackcolor, 1.3)),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Container(
-                    width: 80,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        border: Border.all(
-                            color: color.border_grey4_color, width: 1)),
-                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-                    child: Textfield().text(
-                        "1",
-                        TextStyles.withColor(
-                          TextStyles.mb20,
-                          color.textblackcolor,
-                          1.3,
-                        ),
-                        TextAlign.center),
-                  ),
-                  SizedBox(
-                    width: 9,
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: ElevatedButtons(
-                      width: 0.59,
-                      height: 65,
-                      name: buynow,
-                      onTap: () {
-                        // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
-                        nextScreen(context, Assistance_Cart());
-                        // nextScreen(context, Send_Request(type: widget.type));
-                      },
-                    ),
-                  ),
-                ],
+              SizedBox(
+                height: 20,
               ),
-              SizedBox(height: 20)
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Textfield().text(
+                          qty,
+                          TextStyles.withColor(
+                              TextStyles.mb14, color.textblackcolor, 1.3)),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        width: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            border: Border.all(
+                                color: color.border_grey4_color, width: 1)),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+                        child: Textfield().text(
+                            "1",
+                            TextStyles.withColor(
+                              TextStyles.mb20,
+                              color.textblackcolor,
+                              1.3,
+                            ),
+                            TextAlign.center),
+                      ),
+                      SizedBox(
+                        width: 9,
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: ElevatedButtons(
+                          width: 0.55,
+                          height: 65,
+                          name: buynow,
+                          onTap: () {
+                            // nextScreen(context, widget.type == "0"? HomeCalendarPage():Send_Request(type: widget.type));
+                            nextScreen(context, Assistance_Cart());
+                            // nextScreen(context, Send_Request(type: widget.type));
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                ],
+              )
             ],
           ),
         ),

@@ -113,6 +113,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 Transform.scale(
                                   scale: 1.2,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: newtyre,
                                       groupValue: subtype,
                                       onChanged: (value) {
@@ -144,6 +145,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 Transform.scale(
                                   scale: 1.2,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: oldtyre,
                                       groupValue: subtype,
                                       onChanged: (value) {
