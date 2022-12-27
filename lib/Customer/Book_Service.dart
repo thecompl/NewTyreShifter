@@ -138,6 +138,7 @@ class _Book_ServiceState extends State<Book_Service> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: tyreReplacement,
                                       groupValue: servicetype,
                                       onChanged: (value) {
@@ -179,6 +180,7 @@ class _Book_ServiceState extends State<Book_Service> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: wheelalignment,
                                       groupValue: servicetype,
                                       onChanged: (value) {
@@ -220,6 +222,7 @@ class _Book_ServiceState extends State<Book_Service> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: punctureRepair,
                                       groupValue: servicetype,
                                       onChanged: (value) {
@@ -260,6 +263,7 @@ class _Book_ServiceState extends State<Book_Service> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: flatbattery,
                                       groupValue: servicetype,
                                       onChanged: (value) {
@@ -299,6 +303,7 @@ class _Book_ServiceState extends State<Book_Service> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: batteryreplacement,
                                       groupValue: servicetype,
                                       onChanged: (value) {
@@ -337,6 +342,7 @@ class _Book_ServiceState extends State<Book_Service> {
                                 Transform.scale(
                                   scale: 1.5,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: oilchange,
                                       groupValue: servicetype,
                                       onChanged: (value) {
@@ -372,13 +378,17 @@ class _Book_ServiceState extends State<Book_Service> {
                     nextScreen(
                         context,
                         servicetype == tyreReplacement
-                            ? Assistance_immediately3(servicetype:servicetype,type: widget.type,)
+                            ? Assistance_immediately3(
+                                servicetype: servicetype,
+                                type: widget.type,
+                              )
                             : Assistance_immediately2(type: widget.type));
                     // nextScreen(context, Send_Request(type: widget.type));
                   },
                 ),
               ),
               SizedBox(height: 20)
+
               // ElevatedButtons(
               //     name: get_started,
               //     onTap: () {

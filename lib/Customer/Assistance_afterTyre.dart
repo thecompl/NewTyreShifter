@@ -113,6 +113,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 Transform.scale(
                                   scale: 1.2,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: newtyre,
                                       groupValue: subtype,
                                       onChanged: (value) {
@@ -124,7 +125,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 ),
                                 Textfield().text(
                                   newtyre,
-                                  TextStyles.withColor(TextStyles.mn16,
+                                  TextStyles.withColor(TextStyles.mn18,
                                       color.textgrey_color, 1.2),
                                 ),
                               ],
@@ -144,6 +145,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 Transform.scale(
                                   scale: 1.2,
                                   child: Radio(
+                                      activeColor: color.Primary_second_Color,
                                       value: oldtyre,
                                       groupValue: subtype,
                                       onChanged: (value) {
@@ -155,7 +157,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                                 ),
                                 Textfield().text(
                                   oldtyre,
-                                  TextStyles.withColor(TextStyles.mn16,
+                                  TextStyles.withColor(TextStyles.mn18,
                                       color.textgrey_color, 1.2),
                                 ),
                               ],
@@ -173,7 +175,7 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButtons(
-                  name: next,
+                  name: continu,
                   onTap: () {
                     nextScreen(context, Assistance_immediately2());
                   },

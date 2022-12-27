@@ -77,7 +77,7 @@ class _Payment_cardState extends State<Payment_card> {
                 showicon: false,
               ),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               TextBoxwidget(
                 prefixshowicon: false,
@@ -91,7 +91,7 @@ class _Payment_cardState extends State<Payment_card> {
                 showicon: false,
               ),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,9 +134,11 @@ class _Payment_cardState extends State<Payment_card> {
                       context: context,
                       builder: (context) => ConfirmationDialog(
                             txt: sent_reuest,
+                            color: color.popupbgcolor,
                             textwidth: 0.6,
                             destxt: req_des,
-                            destextwidth: 0.8,
+                            destextwidth: 0.7,
+                            popup_width: 0.85,
                             head: true,
                             btntxt: view_req,
                             onTap: () {

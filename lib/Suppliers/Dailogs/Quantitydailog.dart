@@ -101,13 +101,13 @@ class _QuantitydailogState extends State<Quantitydailog> {
                                     TextStyles.mb16, color.text_grey2_color)),
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 30,
                           ),
                           Container(
-                              width: 100,
+                              width: 130,
                               decoration: BoxDecoration(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                      BorderRadius.all(Radius.circular(13)),
                                   border: Border.all(
                                       color: color.Primary_second_Color,
                                       width: 2)),
@@ -125,11 +125,11 @@ class _QuantitydailogState extends State<Quantitydailog> {
                                     child: Icon(
                                       Icons.remove,
                                       color: color.Primary_second_Color,
-                                      size: 22,
+                                      size: 30,
                                     ),
                                   ),
                                   Textfield()
-                                      .text(widget.quantity, TextStyles.mb18),
+                                      .text(widget.quantity, TextStyles.mb26),
                                   GestureDetector(
                                     onTap: () {
                                       widget.quantity_increase!();
@@ -137,7 +137,7 @@ class _QuantitydailogState extends State<Quantitydailog> {
                                     child: Icon(
                                       Icons.add,
                                       color: color.Primary_second_Color,
-                                      size: 22,
+                                      size: 30,
                                     ),
                                   ),
                                 ],

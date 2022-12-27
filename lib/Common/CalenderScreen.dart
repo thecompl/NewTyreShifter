@@ -196,26 +196,30 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
                           scrollDirection: Axis.vertical,
                           itemCount: 10,
                           itemBuilder: (BuildContext context, int index) {
-                            return Booking_Card(
-                              adddress: "752 Longbranch St.Calhoun, GA 30701",
-                              headtxt: 'Jaylon Rosser',
-                              Img: service_img,
-                              showbtn: false,
-                              msg: false,
-                              btncolor: color.btncolor2,
-                              Ontap: () {
-                                print("hiii");
-                                // nextScreen(
-                                //     context,
-                                //     Service_Details(
-                                //       dropdown: false,
-                                //       pagetype: booking_details,
-                                //     ));
-                                //
-                                // showDialog(
-                                //     context: context,
-                                //     builder: (context) => Filter_dialog());
-                              },
+                            return Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              child: Booking_Card(
+                                adddress: "752 Longbranch St.Calhoun, GA 30701",
+                                headtxt: 'Jaylon Rosser',
+                                Img: service_img,
+                                showbtn: false,
+                                msg: false,
+                                btncolor: color.btncolor2,
+                                Ontap: () {
+                                  print("hiii");
+                                  // nextScreen(
+                                  //     context,
+                                  //     Service_Details(
+                                  //       dropdown: false,
+                                  //       pagetype: booking_details,
+                                  //     ));
+                                  //
+                                  // showDialog(
+                                  //     context: context,
+                                  //     builder: (context) => Filter_dialog());
+                                },
+                              ),
                             );
                           }),
                     )

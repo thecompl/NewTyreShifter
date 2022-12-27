@@ -84,6 +84,7 @@ class _Create_AccountState extends State<Create_Account> {
         preferredSize:
             Platform.isAndroid ? Size.fromHeight(40) : Size.fromHeight(40 + 10),
         child: Appbartext(
+          showboxshadow: false,
           title: '',
           elevation: 0.0,
         ),
@@ -148,6 +149,8 @@ class _Create_AccountState extends State<Create_Account> {
                                       height: 20,
                                       width: 20,
                                       child: Radio(
+                                          activeColor:
+                                              color.Primary_second_Color,
                                           value: company,
                                           groupValue: account_type,
                                           onChanged: (value) {
@@ -182,6 +185,8 @@ class _Create_AccountState extends State<Create_Account> {
                                       height: 20,
                                       width: 20,
                                       child: Radio(
+                                          activeColor:
+                                              color.Primary_second_Color,
                                           value: individual,
                                           groupValue: account_type,
                                           onChanged: (value) {
@@ -379,6 +384,7 @@ class _Create_AccountState extends State<Create_Account> {
                         ],
                       )
                     : Container(),
+                SizedBox(height: 10),
                 // SizedBox(
                 //   height: 15,
                 // ),

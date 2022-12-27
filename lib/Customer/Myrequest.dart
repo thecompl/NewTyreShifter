@@ -61,7 +61,7 @@ class _MyrequestState extends State<Myrequest> {
               height: 60,
               child: Card(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left: 3, right: 3),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -118,25 +118,21 @@ class _MyrequestState extends State<Myrequest> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 15,
-            ),
             Expanded(
               child: Container(
                   // height: size.height * 0.9,
                   child: PageView.builder(
-                 
-                    onPageChanged: (value) {
-                      setState(() {
-                        index = value;
-                      });
-                    },
-                    controller: _pageController,
-                    itemBuilder: (context, index) {
-                      return pages[index];
-                    },
-                    itemCount: pages.length, // Can be null
-                  )),
+                onPageChanged: (value) {
+                  setState(() {
+                    index = value;
+                  });
+                },
+                controller: _pageController,
+                itemBuilder: (context, index) {
+                  return pages[index];
+                },
+                itemCount: pages.length, // Can be null
+              )),
             ),
           ],
         ),

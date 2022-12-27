@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tyreshifter/Customer/Service_Detail.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
 import '../Common/MessageScreen.dart';
+import '../Widget/Custome_Dialog.dart';
 import '../Widget/Customer_Req_Card.dart';
+import '../Widget/Textfield.dart';
+import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import 'Dialogs/Cancel_req_dialog.dart';
 import 'Immediate_service_detail.dart';
@@ -39,13 +43,19 @@ class _InprogressState extends State<Inprogress> {
                 ontapmsg: () => {nextScreen(context, MessageScreen())},
                 showbottom: true,
                 Ontap: () {
-                  nextScreen(context, Immediate_service_detail());
+                  nextScreen(
+                      context,
+                      Immediate_service_detail(
+                        orderstatus: 'pending',
+                      ));
                 },
                 ontapbtn: () {
                   showDialog(
                       context: context,
                       builder: (context) => Cancel_req_dialog(
                             msg: cancel_req_des,
+                            title: cancel_req,
+                            bgcolor: color.popupbgcolor,
                           ));
                 },
                 color: color.txt_dark_color,

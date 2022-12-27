@@ -101,7 +101,7 @@ class _ProfileState extends State<Profile> {
                         Container(
                           child: Textfield().text(
                               "abc",
-                              TextStyles.withletterspacing(TextStyles.mb16,
+                              TextStyles.withletterspacing(TextStyles.mb20,
                                   color.txt_dark_blue_color, 0.5, 1.2)),
                         ),
                         SizedBox(height: 10),
@@ -109,7 +109,7 @@ class _ProfileState extends State<Profile> {
                           child: Textfield().text(
                               "abd@gmail.com",
                               TextStyles.withletterspacing(TextStyles.mn16,
-                                  color.textgrey_color, 0.5, 1.2)),
+                                  color.textgrey1_color, 0.5, 1.2)),
                         ),
                       ],
                     ),
@@ -331,19 +331,17 @@ class _ProfileState extends State<Profile> {
               Divider(
                 thickness: 1,
               ),
-              type_account == become_shifter
-                  ? Profilemenu(deletepng, deleteaccount, () {
-                      // nextScreen(
-                      //     context,
-                      //     Set_Availability(
-                      //       type: "1",
-                      //     ));
-                    })
-                  : Container(),
-              if (type_account == become_shifter)
-                Divider(
-                  thickness: 1,
-                ),
+              Profilemenu(deletepng, deleteaccount, () {
+                // nextScreen(
+                //     context,
+                //     Set_Availability(
+                //       type: "1",
+                //     ));
+              }),
+
+              Divider(
+                thickness: 1,
+              ),
               type_account == become_shifter
                   ? Profilemenu(profile_logout, endshift, () {
                       // nextScreen(
@@ -353,6 +351,7 @@ class _ProfileState extends State<Profile> {
                       //     ));
                     })
                   : Container(),
+
               if (type_account == become_shifter)
                 Divider(
                   thickness: 1,

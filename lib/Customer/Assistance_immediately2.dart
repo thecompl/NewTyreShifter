@@ -131,7 +131,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                   imagepath: location_vector,
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 20,
                 ),
                 if (widget.type == '0')
                   Column(
@@ -234,6 +234,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                             Transform.scale(
                               scale: 1.2,
                               child: Radio(
+                                  activeColor: color.Primary_second_Color,
                                   value: suv,
                                   groupValue: typecar,
                                   onChanged: (value) {
@@ -275,6 +276,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                             Transform.scale(
                               scale: 1.2,
                               child: Radio(
+                                  activeColor: color.Primary_second_Color,
                                   value: normal,
                                   groupValue: typecar,
                                   onChanged: (value) {

@@ -91,6 +91,7 @@ class _Assistance_tyreListState extends State<Assistance_tyreList> {
                 child: ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
+                    padding: EdgeInsets.zero,
                     itemCount: 1,
                     itemBuilder: (BuildContext context, int index) {
                       return Assistance_immediately_Card(
@@ -123,6 +124,7 @@ class _Assistance_tyreListState extends State<Assistance_tyreList> {
               child: Container(
                 // width: size.height,
                 child: ListView.builder(
+                    padding: EdgeInsets.zero,
                     // scrollDirection: Axis.vertical,
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -158,6 +160,7 @@ class _Assistance_tyreListState extends State<Assistance_tyreList> {
               child: Container(
                 // width: size.height,
                 child: ListView.builder(
+                    padding: EdgeInsets.zero,
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: 1,

@@ -32,28 +32,36 @@ class _Enable_locationState extends State<Enable_location> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    
+
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Platform.isAndroid?  Size.fromHeight(appbarheight_android):Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: '',elevation: 0.0,show_arrow_icon: 1,show_icon: 1,
+        preferredSize: Platform.isAndroid
+            ? Size.fromHeight(appbarheight_android)
+            : Size.fromHeight(appbarheight_ios),
+        child: Appbartext(
+          title: '',
+          elevation: 0.0,
+          show_arrow_icon: 1,
+          show_icon: 1,
+          showboxshadow: false,
           showtext: true,
           appbartxt: skip,
-          appbartxtstyle: TextStyles.withColor(TextStyles.mb18, color.Primary_second_Color),
-          ontap: (){
-          nextScreen(
-              context,
-              type_account == get_shifter
-                  ? MainHomeScreen_Customer()
-                  : MainHomeScreen_Supplier());
-        },),),
-
+          appbartxtstyle:
+              TextStyles.withColor(TextStyles.mb18, color.Primary_second_Color),
+          ontap: () {
+            nextScreen(
+                context,
+                type_account == get_shifter
+                    ? MainHomeScreen_Customer()
+                    : MainHomeScreen_Supplier());
+          },
+        ),
+      ),
       backgroundColor: color.white,
       body: Center(
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center ,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
               location_globe,
@@ -122,7 +130,6 @@ class _Enable_locationState extends State<Enable_location> {
         ),
       ),
     );
- 
   }
 
   get_typeaccount() async {

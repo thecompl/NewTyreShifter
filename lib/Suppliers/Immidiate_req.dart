@@ -34,15 +34,14 @@ class _Immedite_reqState extends State<Immedite_req> {
                 msg: false,
                 immidate: true,
                 btncolor: color.btncolor2,
-                // Ontap: () {
-                //   nextScreen(
-                //       context,
-                //       Service_Details(
-                //         dropdown: true,
-                //         pagetype: booking_details,
-
-                //       ));
-                // },
+                Ontap: () {
+                  nextScreen(
+                      context,
+                      Service_Details(
+                          dropdown: true,
+                          pagetype: booking_details,
+                          status: working));
+                },
               ),
             );
           }),

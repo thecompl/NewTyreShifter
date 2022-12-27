@@ -49,7 +49,11 @@ mixin TextStyles {
     fontFamily: "be-vietnam",
     fontWeight: FontWeight.bold,
   );
-
+  static const TextStyle mb15 = TextStyle(
+    fontSize: 15,
+    fontFamily: "be-vietnam",
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle mb16 = TextStyle(
     fontSize: 16,
     fontFamily: "be-vietnam",
@@ -64,6 +68,11 @@ mixin TextStyles {
 
   static const TextStyle mb20 = TextStyle(
     fontSize: 20,
+    fontFamily: "be-vietnam",
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle mb21 = TextStyle(
+    fontSize: 21,
     fontFamily: "be-vietnam",
     fontWeight: FontWeight.bold,
   );
@@ -92,7 +101,11 @@ mixin TextStyles {
     fontFamily: "be-vietnam",
     fontWeight: FontWeight.normal,
   );
-
+  static const TextStyle mn13 = TextStyle(
+    fontSize: 13,
+    fontFamily: "be-vietnam",
+    fontWeight: FontWeight.normal,
+  );
   static const TextStyle mn14 = TextStyle(
     fontSize: 14,
     fontFamily: "be-vietnam",
@@ -101,6 +114,11 @@ mixin TextStyles {
 
   static const TextStyle mn16 = TextStyle(
     fontSize: 16,
+    fontFamily: "be-vietnam",
+    fontWeight: FontWeight.normal,
+  );
+  static const TextStyle mn15 = TextStyle(
+    fontSize: 15,
     fontFamily: "be-vietnam",
     fontWeight: FontWeight.normal,
   );

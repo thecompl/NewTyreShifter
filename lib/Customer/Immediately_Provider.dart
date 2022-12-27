@@ -21,6 +21,7 @@ import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import 'Dialogs/Cancel_req_dialog.dart';
 import 'Immediate_service_detail.dart';
+import 'MapScreen.dart';
 
 class Immediately_Provider extends StatefulWidget {
   final type;
@@ -48,7 +49,7 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
   @override
   Widget build(BuildContext context) {
     List pages = [
-      '',
+      MapScreen(),
       Immediately_ProviderList(
         type: widget.type,
       ),
@@ -60,29 +61,37 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: home),
+        child: Appbartext(
+          title: home,
+          show_icon: 1,
+          showtext: false,
+          showsvg: true,
+          svgiocn: location_svg_icon,
+        ),
       ),
       // Appbartext().appbar(
       //     my_req, TextStyles.withColor(TextStyles.mb16, color.black), context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        padding:
+            EdgeInsets.symmetric(horizontal: index == 0 ? 0 : 15, vertical: 15),
         child: Column(
           children: [
             Container(
               height: 60,
+              padding: EdgeInsets.symmetric(horizontal: index == 0 ? 15 : 0),
               child: Card(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left: 2, right: 2),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            // setState(() {
-                            //   index = 0;
-                            //   _pageController!.jumpToPage(0);
-                            // });
+                            setState(() {
+                              index = 0;
+                              _pageController!.jumpToPage(0);
+                            });
                           },
                           child: Togglebtn(
                             txt: map,

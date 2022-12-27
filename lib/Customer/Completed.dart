@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tyreshifter/Common/MessageScreen.dart';
+import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 
 import '../Widget/Customer_Req_Card.dart';
@@ -36,15 +37,19 @@ class _CompletedState extends State<Completed> {
                 btnname: cancel_req + "(23:59 hour)",
                 showbottom: true,
                 Ontap: () {
-                   nextScreen(context, Immediate_service_detail(
-                    orderstatus: completed,
-                   ));
+                  nextScreen(
+                      context,
+                      Immediate_service_detail(
+                        orderstatus: completed,
+                      ));
                 },
                 ontapbtn: () {
                   showDialog(
                       context: context,
                       builder: (context) => Cancel_req_dialog(
                             msg: cancel_req_des1,
+                            title: cancelBookingtxt,
+                            bgcolor: color.popupbgcolor,
                           ));
                 },
               );

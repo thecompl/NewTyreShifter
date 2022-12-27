@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tyreshifter/config/Color.dart';
 
 import '../config/TextStyles/Textstyles.dart';
 import 'Textfield.dart';
@@ -14,7 +15,12 @@ class PaymentcardWidget extends StatefulWidget {
 
   final bgcolor;
   PaymentcardWidget(
-      {Key? key, this.ontap, required this.imgname, this.height, this.bgcolor, required this.txt})
+      {Key? key,
+      this.ontap,
+      required this.imgname,
+      this.height,
+      this.bgcolor,
+      required this.txt})
       : super(key: key);
 
   @override
@@ -45,7 +51,11 @@ class _PaymentcardWidgetState extends State<PaymentcardWidget> {
                 Textfield().text(widget.txt, TextStyles.mb14)
               ],
             ),
-            Icon(Icons.arrow_forward_ios_sharp)
+            Icon(
+              Icons.arrow_forward_ios_sharp,
+              size: 20,
+              color: color.arrow_color,
+            )
           ])),
     );
     ;

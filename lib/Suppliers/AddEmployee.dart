@@ -88,7 +88,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                       border: Border.all(color: color.border_grey6_color)),
                   child: Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                     child: Column(
                       children: [
                         Row(
@@ -164,58 +164,66 @@ class _AddEmployeeState extends State<AddEmployee> {
                         SizedBox(
                           height: 15,
                         ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              height: 20,
-                              width: 30,
-                              child: Transform.scale(
-                                alignment: Alignment.centerRight,
-                                scale: 1.3,
-                                child: Checkbox(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    activeColor: color.Primary_second_Color,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5)),
-                                    side: MaterialStateBorderSide.resolveWith(
-                                      (states) => BorderSide(
-                                          width: 1.0,
-                                          color: color.border_grey3_color),
-                                    ),
-                                    value: checkedValue,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        value = !value!;
-                                        checkedValue = !checkedValue;
-                                      });
-                                    }),
+                        GestureDetector(
+                          onTap: (() {
+                            setState(() {
+                              checkedValue = !checkedValue;
+                            });
+                          }),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                                width: 30,
+                                child: Transform.scale(
+                                  alignment: Alignment.centerRight,
+                                  scale: 1.3,
+                                  child: Checkbox(
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      activeColor: color.Primary_second_Color,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      side: MaterialStateBorderSide.resolveWith(
+                                        (states) => BorderSide(
+                                            width: 1.0,
+                                            color: color.border_grey3_color),
+                                      ),
+                                      value: checkedValue,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          value = !value!;
+                                          checkedValue = !checkedValue;
+                                        });
+                                      }),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              width: size.width * 0.7,
-                              child: Text.rich(
-                                  // textAlign: TextAlign.center,
-                                  TextSpan(
-                                      style: TextStyles.withColor(
-                                          TextStyles.mn14,
-                                          color.textgrey_color),
-                                      text: i_agreetxt2,
-                                      children: <InlineSpan>[
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                width: size.width * 0.7,
+                                child: Text.rich(
+                                    // textAlign: TextAlign.center,
                                     TextSpan(
-                                      text: learnmore,
-                                      style: TextStyles.withColor(
-                                          TextStyles.mn14,
-                                          color.Primary_second_Color),
-                                    )
-                                  ])),
-                            ),
-                          ],
+                                        style: TextStyles.withColor(
+                                            TextStyles.mn14,
+                                            color.textgrey_color),
+                                        text: i_agreetxt2,
+                                        children: <InlineSpan>[
+                                      TextSpan(
+                                        text: learnmore,
+                                        style: TextStyles.withColor(
+                                            TextStyles.mn14,
+                                            color.Primary_second_Color),
+                                      )
+                                    ])),
+                              ),
+                            ],
+                          ),
                         ),
-                      
+                        SizedBox(height: 10)
                       ],
                     ),
                   ),

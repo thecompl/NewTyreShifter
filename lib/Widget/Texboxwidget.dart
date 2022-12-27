@@ -71,7 +71,6 @@ class _TextBoxwidgetState extends State<TextBoxwidget> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 2.0),
           child: TextField(
-            // textAlign: Alignment.center,
               keyboardType: widget.keyboradtype,
               onTap: () {
                 widget.ontap!();
@@ -80,9 +79,9 @@ class _TextBoxwidgetState extends State<TextBoxwidget> {
               readOnly: widget.readtype,
               controller: widget.controller,
               decoration: InputDecoration(
-                  contentPadding:
-                      EdgeInsets.only(left: 10, top: 15 // HERE THE IMPORTANT PART
-                          ),
+                  contentPadding: EdgeInsets.only(
+                      left: 10, top: 15 // HERE THE IMPORTANT PART
+                      ),
                   border: InputBorder.none,
                   hintText: widget.hinttext,
                   hintStyle: widget.hintstyle,

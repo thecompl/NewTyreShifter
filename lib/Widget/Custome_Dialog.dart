@@ -33,6 +33,8 @@ class Custom_dialog extends StatefulWidget {
   final showonebtn;
 
   final onbtnname;
+
+  final bgpopupcolor;
   Custom_dialog(
       {Key? key,
       this.msg,
@@ -47,7 +49,8 @@ class Custom_dialog extends StatefulWidget {
       this.showchild = false,
       this.showonebtn = false,
       this.ontaponebtn,
-      this.onbtnname})
+      this.onbtnname,
+      this.bgpopupcolor})
       : super(key: key);
 
   @override
@@ -64,11 +67,11 @@ class _Custom_dialogState extends State<Custom_dialog> {
     return Container(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: Dialog(
+        backgroundColor: widget.bgpopupcolor,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         insetPadding: EdgeInsets.zero,
         child: SizedBox(
-          width: size.width * 0.9,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -136,11 +139,11 @@ class _Custom_dialogState extends State<Custom_dialog> {
                         // decoration: BoxDecoration(
                         //     border: Border.all(color: Colors.red)),
                         width: size.width,
-                        height: 60,
+                        height: 75,
                         child: Center(
                           child: Text(widget.onbtnname,
                               style: TextStyles.withColor(
-                                  TextStyles.mn18, color.Primary_second_Color)),
+                                  TextStyles.mb18, color.Primary_second_Color)),
                         ),
                       ),
                     ),

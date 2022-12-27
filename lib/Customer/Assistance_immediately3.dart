@@ -82,7 +82,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
               ? Size.fromHeight(appbarheight_android)
               : Size.fromHeight(appbarheight_ios),
           child: Appbartext(
-            title: Assistance,
+            title: wellDimensionstxt,
           ),
         ),
 
@@ -140,6 +140,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                         builder: (context) => StatefulBuilder(
                                 builder: (context, StateSetter setState) {
                               return Custom_dialog(
+                                bgpopupcolor: color.popupbgcolor,
                                 iconheight: 50.0,
                                 title: edittxt,
                                 showonebtn: true,
@@ -151,58 +152,65 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                                           horizontal: 30, vertical: 10),
                                       child: Column(
                                         children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                height: 20,
-                                                width: 30,
-                                                child: Transform.scale(
-                                                  alignment:
-                                                      Alignment.centerRight,
-                                                  scale: 1.3,
-                                                  child: Checkbox(
-                                                      materialTapTargetSize:
-                                                          MaterialTapTargetSize
-                                                              .shrinkWrap,
-                                                      activeColor: color
-                                                          .Primary_second_Color,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5)),
-                                                      side:
-                                                          MaterialStateBorderSide
-                                                              .resolveWith(
-                                                        (states) => BorderSide(
-                                                            width: 1.0,
-                                                            color: color
-                                                                .border_grey3_color),
-                                                      ),
-                                                      value: checkedValue,
-                                                      onChanged: (value) {
-                                                        setState(() {
-                                                          value = !value!;
-                                                          checkedValue =
-                                                              !checkedValue;
-                                                        });
-                                                      }),
+                                          GestureDetector(
+                                            onTap: () {
+                                              setState(() {
+                                                checkedValue = !checkedValue;
+                                              });
+                                            },
+                                            child: Row(
+                                              children: [
+                                                SizedBox(
+                                                  height: 20,
+                                                  width: 30,
+                                                  child: Transform.scale(
+                                                    alignment:
+                                                        Alignment.centerRight,
+                                                    scale: 1.3,
+                                                    child: Checkbox(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        activeColor: color
+                                                            .Primary_second_Color,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5)),
+                                                        side:
+                                                            MaterialStateBorderSide
+                                                                .resolveWith(
+                                                          (states) => BorderSide(
+                                                              width: 1.0,
+                                                              color: color
+                                                                  .border_grey3_color),
+                                                        ),
+                                                        value: checkedValue,
+                                                        onChanged: (value) {
+                                                          setState(() {
+                                                            value = !value!;
+                                                            checkedValue =
+                                                                !checkedValue;
+                                                          });
+                                                        }),
+                                                  ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-                                              Container(
-                                                child: Textfield().text(
-                                                  "255/35R19-Y-96",
-                                                  TextStyles.withColor(
-                                                      TextStyles.mb16,
-                                                      color.txt_dark_color,
-                                                      1.0),
+                                                SizedBox(
+                                                  width: 5,
                                                 ),
-                                              ),
-                                            ],
+                                                Container(
+                                                  child: Textfield().text(
+                                                    "255/35R19-Y-96",
+                                                    TextStyles.withColor(
+                                                        TextStyles.mb16,
+                                                        color.txt_dark_color,
+                                                        1.0),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                           SizedBox(height: 30),
                                           menu("Make", "AUDI"),
@@ -212,7 +220,7 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                                           SizedBox(height: 10),
                                           menu("Engine", "2.0"),
                                           SizedBox(height: 30),
-                                          menu("Tyre sizes", ": 1"),
+                                          menu("Tyre sizes ", "1"),
                                           SizedBox(height: 20),
                                         ],
                                       ),

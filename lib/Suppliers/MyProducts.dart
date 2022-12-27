@@ -219,8 +219,8 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                                     ],
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 9.0),
+                                    padding: const EdgeInsets.only(
+                                        left: 20, bottom: 15, top: 15),
                                     child: Assistance_immediately_Cart(
                                       adddress: availableqty + "5",
                                       price: "£139.23",

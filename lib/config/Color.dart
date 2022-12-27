@@ -7,12 +7,24 @@ class color {
   static const Primary_second_Color = Color(0XFF52A9D8);
   static const SecondaryColor = Color(0XFFFFFF);
   static const btnbgcolor = Color(0XFFf066a4);
+  static const popupbgcolor = Color(0XFFF8FAFC);
   static const textcolor = Color(0XFF000);
   static const white = Colors.white;
   static const btntextcolor = Colors.black;
   static const bottomunselect = Color(0XFFBFE6FC);
+  static const unselected_color = Color(0XFFD9D9D9);
   static const textblackcolor = Colors.black;
   static const textgrey_color = Color(0XFF7B7B7B);
+  static const pending_status_color = Color(0XFFFFE7CA);
+  static const pending_status_txt_color = Color(0XFFFF9E28);
+  static const accepted_status_color = Color(0XFFDBFFFF);
+  static const accepted_status_txt_color = Color(0XFF249E9E);
+  static const in_route_status_color = Color(0XFFEEE5FF);
+  static const in_route_status_txt_color = Color(0XFF682DD7);
+  static const completed_status_color = Color(0XFFDDFFE7);
+  static const completed_status_txt_color = Color(0XFF018125);
+
+  static const textgrey1_color = Color(0XFF999BA9);
   static const skylight = Color(0XFFEBF2F5);
   static const skylight1 = Color(0XFFF7F9FB);
   static const black = Colors.black;
@@ -24,6 +36,7 @@ class color {
   static const border_grey4_color = Color(0XFFC7C7C7);
   static const border_grey5_color = Color(0XFF666E73);
   static const border_grey6_color = Color(0XFFC5C5C5);
+  static const arrow_color = Color(0XFFBDBDBD);
   static const appbartext_color = Color(0XFF0F172A);
   static const btncolor2 = Color(0XFF52CAC3);
   static const btncolor3 = Color(0XFF185B98);

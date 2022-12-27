@@ -35,7 +35,7 @@ class _ProductDetailState extends State<ProductDetail> {
         preferredSize: Platform.isAndroid
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
-        child: Appbartext(title: Assistance),
+        child: Appbartext(title: book_a_servicetxt),
       ),
       // Appbartext().appbar(
       //     home, TextStyles.withColor(TextStyles.mb16, color.black), context),
@@ -54,6 +54,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       height: 20,
                     ),
                     Container(
+                        height: 350,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                             border: Border.all(
@@ -64,7 +65,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             child: Image.asset(
                           tyre_img,
                           fit: BoxFit.cover,
-                          height: 280,
+                          height: 310,
                         ))),
                     SizedBox(
                       height: 20,
@@ -96,7 +97,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         Textfield().text(
                             "Per tyre, fitted.",
                             TextStyles.withColor(
-                                TextStyles.mn18, color.txt_dark_color, 1.3)),
+                                TextStyles.mn14, color.txt_dark_color, 1.3)),
                       ],
                     ),
                     SizedBox(

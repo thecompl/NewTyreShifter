@@ -14,8 +14,10 @@ class ConfirmationDialog extends StatefulWidget {
   final bool head;
   final double? textwidth;
   final double? destextwidth;
-
+  final color;
   final destxt;
+
+  final double popup_width;
   ConfirmationDialog(
       {Key? key,
       this.txt,
@@ -24,7 +26,9 @@ class ConfirmationDialog extends StatefulWidget {
       this.head = false,
       this.destxt,
       this.textwidth = 0.5,
-      this.destextwidth = 1})
+      this.destextwidth = 1,
+      this.color,
+      this.popup_width = 0.9})
       : super(key: key);
   @override
   State<ConfirmationDialog> createState() => _ConfirmationDialogState();
@@ -37,11 +41,12 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
 
     return Container(
       child: Dialog(
+          backgroundColor: widget.color,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20))),
           insetPadding: EdgeInsets.zero,
           child: Container(
-            width: size.width * 0.9,
+            width: size.width * widget.popup_width,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -67,14 +72,14 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                       )
                     : Container(),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Container(
                   width: size.width * widget.destextwidth!,
                   child: Text(widget.destxt,
                       textAlign: TextAlign.center,
                       style: TextStyles.withletterspacing(
-                          TextStyles.mn16, color.textgrey_color, 0.6)),
+                          TextStyles.mn16, color.popup_txt_color, 0.6)),
                 ),
                 SizedBox(
                   height: 20,
@@ -89,10 +94,10 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: color.white,
+                      color: color.popupbgcolor,
                     ),
                     alignment: Alignment.center,
-                    height: 60,
+                    height: 80,
                     child: InkWell(
                         child: Text(widget.btntxt,
                             style: TextStyles.withColor(

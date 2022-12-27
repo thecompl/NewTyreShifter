@@ -78,41 +78,44 @@ class _ProductListwidgetState extends State<ProductListwidget> {
                   // decoration: BoxDecoration(
                   //     border: Border.all(color: color.black)),
                   // padding: EdgeInsets.only(left: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Textfield().text(widget.headtxt, TextStyles.mb14),
-                      Textfield().text(
-                        widget.price,
-                        TextStyles.withColor(
-                            TextStyles.mb14, color.Primary_second_Color),
-                      ),
-                      Container(
-                        // width: size.width * 0.5,
-                        child: Textfield().text(
-                            widget.adddress,
-                            TextStyles.withColor(
-                                TextStyles.mn14, color.txt_dark_color),
-                            TextAlign.left,
-                            TextOverflow.ellipsis),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      ElevatedButtons(
-                        width: 0.8,
-                        height: 35,
-                        name: widget.added ? added : addtocart,
-                        borderRadius: 10,
-                        colorbtn: widget.added
-                            ? color.txt_dark_color
-                            : color.Primary_second_Color,
-                        onTap: () {
-                          widget.Onbtntap!();
-                          // nextScreen(context, Assistance_tyreListDetail());
-                        },
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 7),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Textfield().text(widget.headtxt, TextStyles.mb15),
+                        Textfield().text(
+                          widget.price,
+                          TextStyles.withColor(
+                              TextStyles.mb16, color.Primary_second_Color),
+                        ),
+                        Container(
+                          // width: size.width * 0.5,
+                          child: Textfield().text(
+                              widget.adddress,
+                              TextStyles.withColor(
+                                  TextStyles.mn13, color.txt_dark_color),
+                              TextAlign.left,
+                              TextOverflow.ellipsis),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        ElevatedButtons(
+                          width: 0.8,
+                          height: 35,
+                          name: widget.added ? added : addtocart,
+                          borderRadius: 10,
+                          colorbtn: widget.added
+                              ? color.txt_dark_color
+                              : color.Primary_second_Color,
+                          onTap: () {
+                            widget.Onbtntap!();
+                            // nextScreen(context, Assistance_tyreListDetail());
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
