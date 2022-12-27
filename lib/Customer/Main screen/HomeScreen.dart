@@ -189,17 +189,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       TextStyles.withletterspacing(
                           TextStyles.mb18, color.text_grey2_color, 0.3))),
               SizedBox(height: 20),
-              SingleChildScrollView(
-                child: Container(
-                  // decoration: BoxDecoration(border: Border.all(color: color.black)),
-                  height: 190,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 5,
-                      itemBuilder: (BuildContext context, int index) {
-                        return servicecard("Summer tires");
-                      }),
-                ),
+              Container(
+                // decoration: BoxDecoration(border: Border.all(color: color.black)),
+                height: 190,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5,
+                    itemBuilder: (BuildContext context, int index) {
+                      return servicecard("Summer tires");
+                    }),
               ),
             ],
           ),

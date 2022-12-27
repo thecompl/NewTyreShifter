@@ -12,6 +12,7 @@ import '../Widget/Button.dart';
 import '../Widget/ReviewCardwidget.dart';
 import '../config/string.dart';
 import 'Assistance_immediately3.dart';
+import 'Book_Service.dart';
 import 'Reviews.dart';
 import 'Send_request.dart';
 
@@ -180,6 +181,7 @@ class _Service_DetailState extends State<Service_Detail> {
             ),
             Container(
               child: ListView.builder(
+                  padding: EdgeInsets.zero,
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
@@ -201,13 +203,14 @@ class _Service_DetailState extends State<Service_Detail> {
                     );
                   }),
             ),
+            SizedBox(height: 40)
           ],
         ),
       )),
       floatingActionButton: ElevatedButtons(
         name: booktxt,
         onTap: () {
-          nextScreen(context, Assistance_immediately3());
+          nextScreen(context, Book_Service());
         },
       ),
       // Elevatedbuttons().elevatedbutton(send_req, Send_Request(), context),

@@ -71,7 +71,7 @@ class _AddVehicleState extends State<AddVehicle> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: TextField(
-                              keyboardType: TextInputType.number,
+                              keyboardType: TextInputType.text,
                               // controller: getxlogincontroller.username,
                               decoration: InputDecoration(
                                   prefixIcon: Padding(

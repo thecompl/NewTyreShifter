@@ -252,6 +252,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                         ShowVehicalDialog(context);
                       },
                     ),
+                    SizedBox(height: 20),
                   ],
                 )
               ],
