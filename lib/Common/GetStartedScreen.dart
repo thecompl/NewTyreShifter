@@ -1,21 +1,17 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyreshifter/Common/CalenderScreen.dart';
 import 'package:tyreshifter/Suppliers/Complete_Order.dart';
-
 import 'package:tyreshifter/Widget/Button.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import 'package:tyreshifter/config/TextStyles/Textstyles.dart';
 import 'package:tyreshifter/config/string.dart';
-
 import '../Widget/Appbartext.dart';
 import 'Login.dart';
-
 import '../Suppliers/Register_Req.dart';
 import '../Suppliers/Set_Availability.dart';
 import '../Suppliers/Setprice.dart';
@@ -155,7 +151,7 @@ class _Get_StartedScreenState extends State<Get_StartedScreen> {
                       TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 80),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,

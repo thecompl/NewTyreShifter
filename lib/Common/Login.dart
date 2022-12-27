@@ -91,7 +91,7 @@ class _LoginState extends State<Login> {
                       TextStyles.withColor(
                           TextStyles.mn14, color.textgrey_color)),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
 
                   Container(
