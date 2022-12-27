@@ -91,7 +91,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                   height: 40,
                 ),
                 TextBoxwidget(
-                  keyboradtype: TextInputType.number,
+                  keyboradtype: TextInputType.text,
                   hinttext: "Registration number",
                   hintstyle: TextStyles.withColor(
                       TextStyles.mn14, color.textgrey_color),
@@ -181,7 +181,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                     ],
                   ),
                 TextBoxwidget(
-                  keyboradtype: TextInputType.number,
+                  keyboradtype: TextInputType.text,
                   hinttext: "How many tyres need repair?",
                   hintstyle: TextStyles.withColor(
                       TextStyles.mn14, color.textgrey_color),

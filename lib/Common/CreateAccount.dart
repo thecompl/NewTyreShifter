@@ -333,12 +333,12 @@ class _Create_AccountState extends State<Create_Account> {
                 SizedBox(
                   height: 15,
                 ),
-                Textfieldwithicon(dcx.birthday, TextInputType.phone,
-                    enter_birthday_txt, birthdayimg, false, 3),
+                // Textfieldwithicon(dcx.birthday, TextInputType.phone,
+                //     enter_birthday_txt, birthdayimg, false, 3),
 
-                SizedBox(
-                  height: 15,
-                ),
+                // SizedBox(
+                //   height: 15,
+                // ),
                 // Textfield().textbox('Password', Icons.lock, true),
                 Textfieldwithicon(dcx.password, TextInputType.text,
                     password_txt, lock_icon, true, 4),
