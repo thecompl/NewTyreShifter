@@ -285,6 +285,8 @@ final Register_as = "Register As";
 final welcome_txt = "The preferred equipments";
 final welcome_1 = "Car jack";
 final welcome_2 = "Wheel cross";
+final EmpName = "Employee Name";
+
 final welcome_3 = "Nutrunner";
 final welcome_4 =
     "Make sure the bolts are on place by using a wheel cross to check before the tyreshift is completed. ";

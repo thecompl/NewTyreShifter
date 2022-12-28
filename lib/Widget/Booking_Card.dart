@@ -153,6 +153,12 @@ class _Booking_CardState extends State<Booking_Card> {
                                   ),
                                   Container(
                                     child: Textfield().text(
+                                        EmpName + " : " + "Abhi Roy",
+                                        TextStyles.withColor(TextStyles.mb14,
+                                            color.text_grey2_color)),
+                                  ),
+                                  Container(
+                                    child: Textfield().text(
                                         change_tyre,
                                         TextStyles.withColor(TextStyles.mb14,
                                             color.Primary_second_Color)),
