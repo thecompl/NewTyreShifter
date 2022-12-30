@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -187,14 +186,7 @@ class _LoginState extends State<Login> {
                       onTap: () {
                         if (getxlogincontroller.username.text.isNotEmpty &&
                             getxlogincontroller.password.text.isNotEmpty) {
-                          setState(() {
-                            getxlogincontroller.showloading = true;
-                          });
-
                           getxlogincontroller.login_user(context);
-                          setState(() {
-                            getxlogincontroller.showloading = false;
-                          });
                         } else {
                           Get.snackbar("Username OR email is Required", "");
                         }
