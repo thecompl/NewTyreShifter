@@ -5,6 +5,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tyreshifter/Getstorage/getstorage.dart';
 import 'package:tyreshifter/getx/provider.dart';
 
 import '../Api/Api.dart';
@@ -19,19 +20,14 @@ class DataController extends GetxController {
   TextEditingController password = TextEditingController();
   TextEditingController confirm_password = TextEditingController();
   TextEditingController aboutUs = TextEditingController();
+  TextEditingController firstname = TextEditingController();
+  TextEditingController lastname = TextEditingController();
   DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
   String countrycode = "+91";
   int accounttype = 1;
-  int roleid = 3;
-  List Hmscard_img = [];
+  int roleid = 1;
   String? errormsg;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  // var formData = FormData.fromMap({});
   registe_user(context) async {
     var local_formdata = {
       "deviceToken": Platform.isIOS
@@ -41,19 +37,19 @@ class DataController extends GetxController {
       "deviceName": Platform.isIOS
           ? (await _deviceInfo.iosInfo).name ?? ""
           : (await _deviceInfo.androidInfo).host ?? "",
-      "deviceVersion": Platform.isIOS
-          ? (await _deviceInfo.iosInfo).systemVersion ?? ""
-          : (await _deviceInfo.androidInfo).version.baseOS,
+      "deviceVersion": "1.0",
+      "AppVersion": "1.0.0",
       "companyName": Company_name.text,
+      "firstName": "shinu",
+      "lastName": "shinu",
       "companyNumber": company_number.text,
       "email": email.text,
       "countryCode": countrycode,
       "mobileNumber": phone_no.text,
-      "birthdate": birthday.text,
+      "birthdate": 24,
       "password": password.text,
       "confirmPassword": confirm_password.text,
       "aboutUs": aboutUs.text,
-      "file1": Hmscard_img,
       "accountType": accounttype,
       "roleId": roleid
     };
@@ -61,8 +57,11 @@ class DataController extends GetxController {
     dio.FormData formData = dio.FormData.fromMap(local_formdata);
 
     Api().apicall_post(Urls().userregister, formData, context).then((value) {
-      print(value);
-      errormsg = value["message"];
+      if (value.statusCode == 200) {
+        box.write("accesstoken", value.data['accessToken']);
+      } else {
+        Get.snackbar(value.data['message'], "");
+      }
     });
   }
 }

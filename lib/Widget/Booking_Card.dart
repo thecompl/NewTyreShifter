@@ -22,6 +22,7 @@ class Booking_Card extends StatefulWidget {
   final btnname;
   final bool immidate;
   final btncolor;
+  final Function? ontapimmidatecancle;
 
   Booking_Card(
       {Key? key,
@@ -34,7 +35,8 @@ class Booking_Card extends StatefulWidget {
       this.Ontap,
       this.btnname,
       this.btncolor,
-      this.immidate = false})
+      this.immidate = false,
+      this.ontapimmidatecancle})
       : super(key: key);
 
   @override
@@ -247,6 +249,7 @@ class _Booking_CardState extends State<Booking_Card> {
                                       ),
                                       TextAlign.center),
                                   onTap: () {
+                                    widget.ontapimmidatecancle!();
                                     // backScreen(context);
                                   }),
                             ),

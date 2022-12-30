@@ -60,7 +60,7 @@ class _Service_DetailsState extends State<Service_Details> {
       //you can use ImageCourse.camera for Camera capture
       if (pickedfiles != null) {
         imagefiles = pickedfiles;
-        dcx.Hmscard_img = imagefiles!;
+        // dcx.Hmscard_img = imagefiles!;
       } else {
         print("No image is selected.");
       }

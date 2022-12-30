@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:country_pickers/country_picker_dialog.dart';
 import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_picker_dropdown.dart';
 import 'package:country_pickers/utils/utils.dart';
@@ -46,6 +46,9 @@ class _Create_AccountState extends State<Create_Account> {
   String? type;
   final key = GlobalKey();
   DataController dcx = Get.put(DataController());
+  Country _selectedDialogCountry =
+      CountryPickerUtils.getCountryByPhoneCode('44');
+  String country_Code = "44";
 
   openImages() async {
     try {
@@ -53,7 +56,7 @@ class _Create_AccountState extends State<Create_Account> {
       //you can use ImageCourse.camera for Camera capture
       if (pickedfiles != null) {
         imagefiles = pickedfiles;
-        dcx.Hmscard_img = imagefiles!;
+        // dcx.Hmscard_img = imagefiles!;
       } else {
         print("No image is selected.");
       }
@@ -246,6 +249,7 @@ class _Create_AccountState extends State<Create_Account> {
                 ),
                 Textfieldwithicon(dcx.email, TextInputType.emailAddress,
                     enter_emailtxt, mail_icon, false, 2),
+
                 // GestureDetector(
                 //   onTap: () {},
                 //   child: Padding(
@@ -290,26 +294,25 @@ class _Create_AccountState extends State<Create_Account> {
                       borderRadius: BorderRadius.circular(15)),
                   child: Row(
                     children: [
-                      Container(
-                        child: CountryPickerDropdown(
-                          icon: Image.asset(
-                            vertical,
-                            height: size.height * 0.05,
-                          ),
-                          initialValue: 'in',
-                          itemBuilder: _buildDropdownItem,
-                          onValuePicked: (Country country) {
-                            var code = country.phoneCode;
-                            setState(() {
-                              dcx.countrycode = "+" + code;
-                            });
-
-                            print("${country.phoneCode}");
+                      GestureDetector(
+                          onTap: () {
+                            showdialogCountry_picker();
                           },
-                        ),
-                      ),
+                          child: Row(
+                            children: <Widget>[
+                              CountryPickerUtils.getDefaultFlagImage(
+                                  _selectedDialogCountry),
+                              SizedBox(width: 8.0),
+                              Text("+${country_Code}"),
+                              SizedBox(width: 5),
+                              Image.asset(
+                                vertical,
+                                height: size.height * 0.05,
+                              ),
+                            ],
+                          )),
                       Container(
-                        width: size.width * 0.55,
+                        width: size.width * 0.4,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 5),
                           child: TextField(
@@ -500,12 +503,6 @@ class _Create_AccountState extends State<Create_Account> {
                   name: register,
                   onTap: () {
                     dcx.registe_user(context);
-                    if (dcx.errormsg == null) {
-                      nextScreen(context, Otp());
-                    } else {
-                      Get.snackbar(
-                          dcx.errormsg.toString(), dcx.errormsg.toString());
-                    }
                   },
                 ),
                 SizedBox(height: 20),
@@ -621,30 +618,41 @@ class _Create_AccountState extends State<Create_Account> {
     );
   }
 
-  Widget _buildDropdownItem(Country country) => Container(
-        // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-        child: Row(
-          children: [
-            Container(
-                width: 80,
-                child: Row(
-                  children: [
-                    CountryPickerUtils.getDefaultFlagImage(country),
-                    SizedBox(
-                      width: 8.0,
-                    ),
-                    Container(
-                      width: 40,
-                      child: Text(
-                        "+${country.phoneCode}",
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                )),
-            Icon(Icons.keyboard_arrow_down_sharp)
-          ],
-        ),
+  showdialogCountry_picker() {
+    return showDialog(
+      context: context,
+      builder: (context) => Theme(
+          data: Theme.of(context).copyWith(primaryColor: Colors.pink),
+          child: CountryPickerDialog(
+              titlePadding: EdgeInsets.all(8.0),
+              searchCursorColor: Colors.pinkAccent,
+              searchInputDecoration: InputDecoration(hintText: 'Search'.tr),
+              isSearchable: true,
+              title: Text('Selectyourphonecode'.tr),
+              onValuePicked: (Country country) {
+                // setState(() {
+                country_Code = country.phoneCode;
+                // country_name = country.name;
+                // });
+                // register_ctrl.countrycode.value = country_Code;
+                setState(() => _selectedDialogCountry = country);
+              },
+              priorityList: [
+                CountryPickerUtils.getCountryByIsoCode('TR'),
+                CountryPickerUtils.getCountryByIsoCode('US'),
+              ],
+              itemBuilder: _buildDialogItem)),
+    );
+  }
+
+  Widget _buildDialogItem(Country country) => Row(
+        children: <Widget>[
+          CountryPickerUtils.getDefaultFlagImage(country),
+          SizedBox(width: 8.0),
+          Text("+${country.phoneCode}"),
+          SizedBox(width: 8.0),
+          Flexible(child: Text(country.name))
+        ],
       );
 
   get_typeaccount() async {

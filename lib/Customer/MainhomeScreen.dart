@@ -8,6 +8,7 @@ import '../config/string.dart';
 
 import 'Main screen/HomeScreen.dart';
 import 'Main screen/Orders.dart';
+import 'Myrequest.dart';
 
 class MainHomeScreen_Customer extends StatefulWidget {
   final pageIndex;
@@ -21,7 +22,7 @@ class MainHomeScreen_Customer extends StatefulWidget {
 class _MainHomeScreen_CustomerState extends State<MainHomeScreen_Customer> {
   int pageIndex = 0;
 
-  final pages = [HomeScreen(), Orders(), Chat(), Profile()];
+  final pages = [HomeScreen(), Myrequest(), Chat(), Profile()];
 
   void _onItemTapped(int index) {
     setState(() {

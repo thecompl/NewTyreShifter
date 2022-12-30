@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -52,6 +53,8 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
     AddProducts(),
     // AddVehicle(),
   ];
+
+  bool showblur = false;
   void initState() {
     _controller = new AnimationController(
       vsync: this,
@@ -122,6 +125,9 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                 alignment: FractionalOffset.centerRight,
                 child: GestureDetector(
                   onTap: (() {
+                    setState(() {
+                      showblur = !showblur;
+                    });
                     if (_controller.isDismissed) {
                       _controller.forward();
                     } else {
@@ -158,98 +164,111 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
             ),
         ),
         body: value == true
-            ? SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 15),
-                      child: ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: 7,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 5, vertical: 10),
-                              child: Container(
-                                // elevation: 0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(
-                                      color: color.border_grey4_color,
-                                      width: 0.5),
-                                ),
-                                child: Slidable(
-                                  key: Key('item ${[index]}'),
-                                  endActionPane: ActionPane(
-                                    motion: ScrollMotion(),
-                                    children: [
-                                      SlidableAction(
-                                        // An action can be bigger than the others.
-                                        // flex: 2,
-                                        onPressed: doNothing,
-                                        backgroundColor:
-                                            color.Primary_second_Color,
-                                        foregroundColor: Colors.white,
-                                        icon: edit_icon_svg,
+            ? Stack(
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 15),
+                          child: ListView.builder(
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: 7,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 5, vertical: 10),
+                                  child: Container(
+                                    // elevation: 0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: color.border_grey4_color,
+                                          width: 0.5),
+                                    ),
+                                    child: Slidable(
+                                      key: Key('item ${[index]}'),
+                                      endActionPane: ActionPane(
+                                        motion: ScrollMotion(),
+                                        children: [
+                                          SlidableAction(
+                                            // An action can be bigger than the others.
+                                            // flex: 2,
+                                            onPressed: doNothing,
+                                            backgroundColor:
+                                                color.Primary_second_Color,
+                                            foregroundColor: Colors.white,
+                                            icon: edit_icon_svg,
 
-                                        // label: 'Archive',
+                                            // label: 'Archive',
+                                          ),
+                                          SlidableAction(
+                                            // An action can be bigger than the others.
+                                            // flex: 2,
+                                            onPressed: addquantity,
+                                            backgroundColor:
+                                                color.txt_dark_color,
+                                            foregroundColor: Colors.white,
+                                            icon: edit_quntity_svg,
+                                            // label: 'Archive',
+                                          ),
+                                          SlidableAction(
+                                            onPressed: doNothing,
+                                            backgroundColor: color.red_color,
+                                            foregroundColor: Colors.white,
+                                            icon: deleteproductsvg,
+                                            borderRadius: BorderRadius.only(
+                                              bottomRight: Radius.circular(20),
+                                              topRight: Radius.circular(20),
+                                            ),
+                                            // label: 'Save',
+                                          ),
+                                        ],
                                       ),
-                                      SlidableAction(
-                                        // An action can be bigger than the others.
-                                        // flex: 2,
-                                        onPressed: addquantity,
-                                        backgroundColor: color.txt_dark_color,
-                                        foregroundColor: Colors.white,
-                                        icon: edit_quntity_svg,
-                                        // label: 'Archive',
-                                      ),
-                                      SlidableAction(
-                                        onPressed: doNothing,
-                                        backgroundColor: color.red_color,
-                                        foregroundColor: Colors.white,
-                                        icon: deleteproductsvg,
-                                        borderRadius: BorderRadius.only(
-                                          bottomRight: Radius.circular(20),
-                                          topRight: Radius.circular(20),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 20, bottom: 15, top: 15),
+                                        child: Assistance_immediately_Cart(
+                                          adddress: availableqty + "5",
+                                          price: "£139.23",
+                                          headtxt:
+                                              'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
+                                          Img: tyre_img,
+                                          btnname: working,
+                                          btncolor: color.btncolor3,
+                                          quantity: '1',
+                                          height: 125,
+                                          Ontap: () {
+                                            // nextScreen(
+                                            //     context,
+                                            //     Assistance_tyreListDetail(
+                                            //         // dropdown: true,
+                                            //         // pagetype: booking_details,
+                                            //         // status: working
+                                            //         ));
+                                          },
+                                          Ontapdelete: () {},
                                         ),
-                                        // label: 'Save',
                                       ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, bottom: 15, top: 15),
-                                    child: Assistance_immediately_Cart(
-                                      adddress: availableqty + "5",
-                                      price: "£139.23",
-                                      headtxt:
-                                          'UNIROYAL 255 35 R19 96Y RAINSPORT 5',
-                                      Img: tyre_img,
-                                      btnname: working,
-                                      btncolor: color.btncolor3,
-                                      quantity: '1',
-                                      height: 125,
-                                      Ontap: () {
-                                        // nextScreen(
-                                        //     context,
-                                        //     Assistance_tyreListDetail(
-                                        //         // dropdown: true,
-                                        //         // pagetype: booking_details,
-                                        //         // status: working
-                                        //         ));
-                                      },
-                                      Ontapdelete: () {},
                                     ),
                                   ),
-                                ),
-                              ),
-                            );
-                          }),
+                                );
+                              }),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  if (showblur)
+                    BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                      child: Container(
+                        alignment: Alignment.center,
+                        color: Colors.grey.withOpacity(0.08),
+                      ),
+                    ),
+                ],
               )
             : Center(
                 child: Container(

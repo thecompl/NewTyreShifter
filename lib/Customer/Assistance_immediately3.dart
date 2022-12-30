@@ -1,17 +1,11 @@
 import 'dart:core';
-import 'dart:core';
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-import 'package:tyreshifter/Customer/Assistance_immediately.dart';
-import 'package:tyreshifter/Customer/Assistance_tyreList.dart';
 import 'package:tyreshifter/Customer/Immediately_Provider.dart';
 import 'package:tyreshifter/Widget/Texboxwidget.dart';
-
 import 'package:tyreshifter/Widget/Textfield.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import 'package:tyreshifter/provider/cartypecontroller.dart';
@@ -19,13 +13,10 @@ import '../Models/Cartype.dart';
 import '../Widget/Appbartext.dart';
 import '../Widget/Button.dart';
 import '../Widget/Custome_Dialog.dart';
-import '../Widget/Dropdown.dart';
 import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import '../config/Color.dart';
 import 'Assistance_immediately2.dart';
-import 'Immediate_Request.dart';
-import 'Payement.dart';
 
 class Assistance_immediately3 extends StatefulWidget {
   final type;
@@ -85,7 +76,6 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
             title: wellDimensionstxt,
           ),
         ),
-
         // Appbartext().appbar(
         //     widget.type == "1" ? tyreshift_immidiate : send_req,
         //     TextStyles.withColor(TextStyles.mb16, color.black),

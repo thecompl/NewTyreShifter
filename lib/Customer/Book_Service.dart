@@ -33,7 +33,12 @@ class Book_Service extends StatefulWidget {
 class _Book_ServiceState extends State<Book_Service> {
   String? servicetype = punctureRepair;
   String? subtype = newtyre;
-
+  bool servicetype1 = false;
+  bool servicetype2 = false;
+  bool servicetype3 = false;
+  bool servicetype4 = false;
+  bool servicetype5 = false;
+  bool servicetype6 = false;
   String? type_account;
   @override
   void initState() {
@@ -113,11 +118,10 @@ class _Book_ServiceState extends State<Book_Service> {
                   //   ),
                   // ),
                   SizedBox(height: 30),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+
+                  Container(
+                    padding: EdgeInsets.only(left: 30),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GestureDetector(
                           onTap: () {
@@ -125,29 +129,29 @@ class _Book_ServiceState extends State<Book_Service> {
                             // GetStorage().write("type", get_shifter);
                             setState(() {
                               servicetype = tyreReplacement;
+
+                              servicetype1 = !servicetype1;
                               // set_typeaccount();
                             });
                           },
                           child: Container(
-                            width: size.width * 0.7,
+                            // width: size.width * 0.7,
                             // decoration: BoxDecoration(
                             //     border: Border.all(
                             //         color: color.Primary_second_Color)),
                             child: Row(
                               children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      activeColor: color.Primary_second_Color,
-                                      value: tyreReplacement,
-                                      groupValue: servicetype,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          servicetype = value.toString();
-                                          // print("fe =>" + value.toString());
-                                        });
-                                        // set_typeaccount();
-                                      }),
+                                servicetype1
+                                    ? Image.asset(
+                                        'assets/checkedcircle.png',
+                                        height: 30,
+                                      )
+                                    : Image.asset(
+                                        'assets/unselectcircle.png',
+                                        height: 30,
+                                      ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 Textfield().text(
                                   tyreReplacement,
@@ -159,37 +163,35 @@ class _Book_ServiceState extends State<Book_Service> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: () {
                             // print("hii");
                             // GetStorage().write("type", get_shifter);
                             setState(() {
-                              servicetype = wheelalignment;
+                              servicetype2 = !servicetype2;
                               // set_typeaccount();
                             });
                           },
                           child: Container(
-                            width: size.width * 0.7,
+                            // width: size.width * 0.7,
                             // decoration: BoxDecoration(
                             //     border: Border.all(
                             //         color: color.Primary_second_Color)),
                             child: Row(
                               children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      activeColor: color.Primary_second_Color,
-                                      value: wheelalignment,
-                                      groupValue: servicetype,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          servicetype = value.toString();
-                                          print("fe =>" + value.toString());
-                                        });
-                                        // set_typeaccount();
-                                      }),
+                                servicetype2
+                                    ? Image.asset(
+                                        'assets/checkedcircle.png',
+                                        height: 30,
+                                      )
+                                    : Image.asset(
+                                        'assets/unselectcircle.png',
+                                        height: 30,
+                                      ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 Textfield().text(
                                   wheelalignment,
@@ -201,37 +203,35 @@ class _Book_ServiceState extends State<Book_Service> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: () {
                             // print("hii");
                             // GetStorage().write("type", get_shifter);
                             setState(() {
-                              servicetype = punctureRepair;
+                              servicetype3 = !servicetype3;
                               // set_typeaccount();
                             });
                           },
                           child: Container(
-                            width: size.width * 0.7,
+                            // width: size.width * 0.7,
                             // decoration: BoxDecoration(
                             //     border: Border.all(
                             //         color: color.Primary_second_Color)),
                             child: Row(
                               children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      activeColor: color.Primary_second_Color,
-                                      value: punctureRepair,
-                                      groupValue: servicetype,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          servicetype = value.toString();
-                                          // print("fe =>" + value.toString());
-                                        });
-                                        // set_servicetypeaccount();
-                                      }),
+                                servicetype3
+                                    ? Image.asset(
+                                        'assets/checkedcircle.png',
+                                        height: 30,
+                                      )
+                                    : Image.asset(
+                                        'assets/unselectcircle.png',
+                                        height: 30,
+                                      ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 Textfield().text(
                                   punctureRepair,
@@ -243,13 +243,13 @@ class _Book_ServiceState extends State<Book_Service> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: () {
                             // GetStorage().write("type", become_shifter);
                             setState(() {
-                              servicetype = flatbattery;
+                              servicetype4 = !servicetype4;
                               // set_typeaccount();
                             });
                           },
@@ -260,19 +260,17 @@ class _Book_ServiceState extends State<Book_Service> {
                             //         color: color.Primary_second_Color)),
                             child: Row(
                               children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      activeColor: color.Primary_second_Color,
-                                      value: flatbattery,
-                                      groupValue: servicetype,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          servicetype = value.toString();
-                                          print("value" + value.toString());
-                                        });
-                                        // set_typeaccount();
-                                      }),
+                                servicetype4
+                                    ? Image.asset(
+                                        'assets/checkedcircle.png',
+                                        height: 30,
+                                      )
+                                    : Image.asset(
+                                        'assets/unselectcircle.png',
+                                        height: 30,
+                                      ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 Textfield().text(
                                   flatbattery,
@@ -284,13 +282,13 @@ class _Book_ServiceState extends State<Book_Service> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: () {
                             // GetStorage().write("type", become_shifter);
                             setState(() {
-                              servicetype = batteryreplacement;
+                              servicetype5 = !servicetype5;
                             });
                           },
                           child: Container(
@@ -300,18 +298,17 @@ class _Book_ServiceState extends State<Book_Service> {
                             //         color: color.Primary_second_Color)),
                             child: Row(
                               children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      activeColor: color.Primary_second_Color,
-                                      value: batteryreplacement,
-                                      groupValue: servicetype,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          servicetype = value.toString();
-                                          print("value" + value.toString());
-                                        });
-                                      }),
+                                servicetype5
+                                    ? Image.asset(
+                                        'assets/checkedcircle.png',
+                                        height: 30,
+                                      )
+                                    : Image.asset(
+                                        'assets/unselectcircle.png',
+                                        height: 30,
+                                      ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 Textfield().text(
                                   batteryreplacement,
@@ -323,13 +320,13 @@ class _Book_ServiceState extends State<Book_Service> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: () {
                             // GetStorage().write("type", become_shifter);
                             setState(() {
-                              servicetype = oilchange;
+                              servicetype6 = !servicetype6;
                             });
                           },
                           child: Container(
@@ -339,18 +336,17 @@ class _Book_ServiceState extends State<Book_Service> {
                             //         color: color.Primary_second_Color)),
                             child: Row(
                               children: [
-                                Transform.scale(
-                                  scale: 1.5,
-                                  child: Radio(
-                                      activeColor: color.Primary_second_Color,
-                                      value: oilchange,
-                                      groupValue: servicetype,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          servicetype = value.toString();
-                                          print("value" + value.toString());
-                                        });
-                                      }),
+                                servicetype6
+                                    ? Image.asset(
+                                        'assets/checkedcircle.png',
+                                        height: 30,
+                                      )
+                                    : Image.asset(
+                                        'assets/unselectcircle.png',
+                                        height: 30,
+                                      ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 Textfield().text(
                                   oilchange,
@@ -362,11 +358,266 @@ class _Book_ServiceState extends State<Book_Service> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 50,
                         ),
                       ],
                     ),
-                  )
+                  ),
+
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(horizontal: 10),
+                  //   child: Column(
+                  //     mainAxisAlignment: MainAxisAlignment.start,
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       GestureDetector(
+                  //         onTap: () {
+                  //           // print("hii");
+                  //           // GetStorage().write("type", get_shifter);
+                  //           setState(() {
+                  //             servicetype = tyreReplacement;
+                  //             // set_typeaccount();
+                  //           });
+                  //         },
+                  //         child: Container(
+                  //           width: size.width * 0.7,
+                  //           // decoration: BoxDecoration(
+                  //           //     border: Border.all(
+                  //           //         color: color.Primary_second_Color)),
+                  //           child: Row(
+                  //             children: [
+                  //               Transform.scale(
+                  //                 scale: 1.5,
+                  //                 child: Radio(
+                  //                     activeColor: color.Primary_second_Color,
+                  //                     value: tyreReplacement,
+                  //                     groupValue: servicetype,
+                  //                     onChanged: (value) {
+                  //                       setState(() {
+                  //                         servicetype = value.toString();
+                  //                         // print("fe =>" + value.toString());
+                  //                       });
+                  //                       // set_typeaccount();
+                  //                     }),
+                  //               ),
+                  //               Textfield().text(
+                  //                 tyreReplacement,
+                  //                 TextStyles.withColor(TextStyles.mn18,
+                  //                     color.textgrey_color, 1.2),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       GestureDetector(
+                  //         onTap: () {
+                  //           // print("hii");
+                  //           // GetStorage().write("type", get_shifter);
+                  //           setState(() {
+                  //             servicetype = wheelalignment;
+                  //             // set_typeaccount();
+                  //           });
+                  //         },
+                  //         child: Container(
+                  //           width: size.width * 0.7,
+                  //           // decoration: BoxDecoration(
+                  //           //     border: Border.all(
+                  //           //         color: color.Primary_second_Color)),
+                  //           child: Row(
+                  //             children: [
+                  //               Transform.scale(
+                  //                 scale: 1.5,
+                  //                 child: Radio(
+                  //                     activeColor: color.Primary_second_Color,
+                  //                     value: wheelalignment,
+                  //                     groupValue: servicetype,
+                  //                     onChanged: (value) {
+                  //                       setState(() {
+                  //                         servicetype = value.toString();
+                  //                         print("fe =>" + value.toString());
+                  //                       });
+                  //                       // set_typeaccount();
+                  //                     }),
+                  //               ),
+                  //               Textfield().text(
+                  //                 wheelalignment,
+                  //                 TextStyles.withColor(TextStyles.mn18,
+                  //                     color.textgrey_color, 1.2),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       GestureDetector(
+                  //         onTap: () {
+                  //           // print("hii");
+                  //           // GetStorage().write("type", get_shifter);
+                  //           setState(() {
+                  //             servicetype = punctureRepair;
+                  //             // set_typeaccount();
+                  //           });
+                  //         },
+                  //         child: Container(
+                  //           width: size.width * 0.7,
+                  //           // decoration: BoxDecoration(
+                  //           //     border: Border.all(
+                  //           //         color: color.Primary_second_Color)),
+                  //           child: Row(
+                  //             children: [
+                  //               Transform.scale(
+                  //                 scale: 1.5,
+                  //                 child: Radio(
+                  //                     activeColor: color.Primary_second_Color,
+                  //                     value: punctureRepair,
+                  //                     groupValue: servicetype,
+                  //                     onChanged: (value) {
+                  //                       setState(() {
+                  //                         servicetype = value.toString();
+                  //                         // print("fe =>" + value.toString());
+                  //                       });
+                  //                       // set_servicetypeaccount();
+                  //                     }),
+                  //               ),
+                  //               Textfield().text(
+                  //                 punctureRepair,
+                  //                 TextStyles.withColor(TextStyles.mn18,
+                  //                     color.textgrey_color, 1.2),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       GestureDetector(
+                  //         onTap: () {
+                  //           // GetStorage().write("type", become_shifter);
+                  //           setState(() {
+                  //             servicetype = flatbattery;
+                  //             // set_typeaccount();
+                  //           });
+                  //         },
+                  //         child: Container(
+                  //           // width: size.width * 0.7,
+                  //           // decoration: BoxDecoration(
+                  //           //     border: Border.all(
+                  //           //         color: color.Primary_second_Color)),
+                  //           child: Row(
+                  //             children: [
+                  //               Transform.scale(
+                  //                 scale: 1.5,
+                  //                 child: Radio(
+                  //                     activeColor: color.Primary_second_Color,
+                  //                     value: flatbattery,
+                  //                     groupValue: servicetype,
+                  //                     onChanged: (value) {
+                  //                       setState(() {
+                  //                         servicetype = value.toString();
+                  //                         print("value" + value.toString());
+                  //                       });
+                  //                       // set_typeaccount();
+                  //                     }),
+                  //               ),
+                  //               Textfield().text(
+                  //                 flatbattery,
+                  //                 TextStyles.withColor(TextStyles.mn18,
+                  //                     color.textgrey_color, 1.2),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       GestureDetector(
+                  //         onTap: () {
+                  //           // GetStorage().write("type", become_shifter);
+                  //           setState(() {
+                  //             servicetype = batteryreplacement;
+                  //           });
+                  //         },
+                  //         child: Container(
+                  //           // width: size.width * 0.7,
+                  //           // decoration: BoxDecoration(
+                  //           //     border: Border.all(
+                  //           //         color: color.Primary_second_Color)),
+                  //           child: Row(
+                  //             children: [
+                  //               Transform.scale(
+                  //                 scale: 1.5,
+                  //                 child: Radio(
+                  //                     activeColor: color.Primary_second_Color,
+                  //                     value: batteryreplacement,
+                  //                     groupValue: servicetype,
+                  //                     onChanged: (value) {
+                  //                       setState(() {
+                  //                         servicetype = value.toString();
+                  //                         print("value" + value.toString());
+                  //                       });
+                  //                     }),
+                  //               ),
+                  //               Textfield().text(
+                  //                 batteryreplacement,
+                  //                 TextStyles.withColor(TextStyles.mn18,
+                  //                     color.textgrey_color, 1.2),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       GestureDetector(
+                  //         onTap: () {
+                  //           // GetStorage().write("type", become_shifter);
+                  //           setState(() {
+                  //             servicetype = oilchange;
+                  //           });
+                  //         },
+                  //         child: Container(
+                  //           // width: size.width * 0.7,
+                  //           // decoration: BoxDecoration(
+                  //           //     border: Border.all(
+                  //           //         color: color.Primary_second_Color)),
+                  //           child: Row(
+                  //             children: [
+                  //               Transform.scale(
+                  //                 scale: 1.5,
+                  //                 child: Radio(
+                  //                     activeColor: color.Primary_second_Color,
+                  //                     value: oilchange,
+                  //                     groupValue: servicetype,
+                  //                     onChanged: (value) {
+                  //                       setState(() {
+                  //                         servicetype = value.toString();
+                  //                         print("value" + value.toString());
+                  //                       });
+                  //                     }),
+                  //               ),
+                  //               Textfield().text(
+                  //                 oilchange,
+                  //                 TextStyles.withColor(TextStyles.mn18,
+                  //                     color.textgrey_color, 1.2),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 20,
+                  //       ),
+                  //     ],
+                  //   ),
+                  // )
                 ],
               ),
               Align(

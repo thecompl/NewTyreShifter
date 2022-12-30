@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tyreshifter/Suppliers/CancelOrder.dart';
 import 'package:tyreshifter/config/Color.dart';
 
 import '../Widget/Booking_Card.dart';
@@ -34,6 +35,13 @@ class _Immedite_reqState extends State<Immedite_req> {
                 msg: false,
                 immidate: true,
                 btncolor: color.btncolor2,
+                ontapimmidatecancle: () {
+                  nextScreen(
+                      context,
+                      CancelOrder(
+                        ordernumber: "#1211212",
+                      ));
+                },
                 Ontap: () {
                   nextScreen(
                       context,

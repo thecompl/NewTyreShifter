@@ -36,7 +36,7 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
     '',
     completed,
   ];
-  int index = 1;
+  int index = 0;
   PageController? _pageController;
 
   void initState() {
@@ -62,11 +62,11 @@ class _Immediately_ProviderState extends State<Immediately_Provider> {
             ? Size.fromHeight(appbarheight_android)
             : Size.fromHeight(appbarheight_ios),
         child: Appbartext(
-          title: home,
+          title: widget.type != "0" ? home : SuppliersNearyou,
           show_icon: 1,
           showtext: false,
           showsvg: true,
-          svgiocn: location_svg_icon,
+          svgiocn: widget.type != "0" ? location_svg_icon : MenuIconSvg,
         ),
       ),
       // Appbartext().appbar(

@@ -71,7 +71,7 @@ class _AddProductsState extends State<AddProducts> {
       //you can use ImageCourse.camera for Camera capture
       if (pickedfiles != null) {
         imagefiles = pickedfiles;
-        dcx.Hmscard_img = imagefiles!;
+        // dcx.Hmscard_img = imagefiles!;
       } else {
         print("No image is selected.");
       }

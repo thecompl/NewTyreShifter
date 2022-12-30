@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tyreshifter/Customer/Dialogs/Sent_request.dart';
 import 'package:tyreshifter/Suppliers/Dailogs/CancelBookingdailog.dart';
+import 'package:tyreshifter/Suppliers/MainhomeScreen.dart';
 
 import 'package:tyreshifter/Widget/ConfirmationDialog.dart';
 import 'package:tyreshifter/config/Color.dart';
@@ -231,7 +232,7 @@ class _CancelOrderState extends State<CancelOrder> {
                               backScreen(context);
                             },
                             Onconfirmtap: () {
-                              backScreen(context);
+                              nextScreen(context, MainHomeScreen_Supplier());
                             },
                           ));
                 },

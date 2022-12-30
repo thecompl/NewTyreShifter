@@ -22,6 +22,7 @@ import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import '../config/Color.dart';
 import 'Immediate_Request.dart';
+import 'Immediately_Provider.dart';
 import 'Payement.dart';
 
 class Assistance_immediately2 extends StatefulWidget {
@@ -310,8 +311,17 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                     nextScreen(
                         context,
                         widget.type == '0'
-                            ? Products(type: widget.type)
+                            ? Immediately_Provider(
+                                type: widget.type,
+                              )
                             : Assistance_immediately3(type: widget.type));
+                    //previous
+
+                    // nextScreen(
+                    //     context,
+                    //     widget.type == '0'
+                    //         ? Products(type: widget.type)
+                    //         : Assistance_immediately3(type: widget.type));
                   },
                 )
               ],
