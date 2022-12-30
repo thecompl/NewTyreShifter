@@ -9,6 +9,8 @@ import 'package:tyreshifter/Getstorage/getstorage.dart';
 import 'package:tyreshifter/getx/provider.dart';
 
 import '../Api/Api.dart';
+import '../Common/Otp.dart';
+import '../config/Navagate_Next.dart';
 import '../config/Urls/Urls.dart';
 
 class DataController extends GetxController {
@@ -59,6 +61,7 @@ class DataController extends GetxController {
     Api().apicall_post(Urls().userregister, formData, context).then((value) {
       if (value.statusCode == 200) {
         box.write("accesstoken", value.data['accessToken']);
+        nextScreen(context, Otp());
       } else {
         Get.snackbar(value.data['message'], "");
       }

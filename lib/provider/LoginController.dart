@@ -14,16 +14,12 @@ class LoginController extends GetxController {
   TextEditingController password = TextEditingController();
   int roleid = 0;
   DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
-  bool showloading = false;
+  var showloading = false.obs;
   String? accesstoken;
   final box = GetStorage();
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   login_user(context) async {
-    showloading == true;
+    showloading.value == true;
     Api()
         .apicall_post(
             Urls().userlogin,
@@ -45,25 +41,15 @@ class LoginController extends GetxController {
             },
             context)
         .then((value) {
-      if (value.isNotEmpty) {
-        print("messge" + value['message'].toString());
+      if (value.statusCode == 200) {
+        print("messge" + value.data.toString());
 
-        if (value['message'] == null) {
-          accesstoken = value['accessToken'];
-
-          box.write("accesstoken", accesstoken);
-
-          nextScreen(context, Enable_location());
-
-          showloading = false;
-        } else {
-          Get.snackbar(value['message'].toString(), "");
-        }
-
-        print("data of login =>" + value.toString());
+        box.write("accesstoken", value.data['accessToken']);
+        nextScreen(context, Enable_location());
       } else {
-        print("login failed");
+        Get.snackbar(value.data['message'], "");
       }
     });
+    showloading.value = false;
   }
 }

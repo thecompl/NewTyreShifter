@@ -27,6 +27,9 @@ class Api {
             options: Options(
               headers: {
                 "Accept-Language": "en-US",
+                "Authorization": box.read("accesstoken") == null
+                    ? ""
+                    : "Bearer" + box.read("accesstoken"),
               },
               validateStatus: (status) {
                 return status! < 500;
@@ -35,7 +38,7 @@ class Api {
           );
           return response;
         } catch (e) {
-          Get.snackbar(Somethingwentwrong, "");
+          Get.snackbar(CheckInternet, "");
         }
       }
     } on SocketException catch (_) {
