@@ -17,6 +17,7 @@ import '../config/TextStyles/Textstyles.dart';
 import '../config/string.dart';
 import '../config/Color.dart';
 import 'Assistance_immediately2.dart';
+import 'Assistance_tyreList.dart';
 
 class Assistance_immediately3 extends StatefulWidget {
   final type;
@@ -219,15 +220,23 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                                 ),
                                 onbtnname: done,
                                 ontaponebtn: () {
-                                  widget.servicetype == tyreReplacement
-                                      ? nextScreen(
-                                          context,
-                                          Assistance_immediately2(
-                                              type: widget.type))
-                                      : nextScreen(
-                                          context,
-                                          Immediately_Provider(
-                                              type: widget.type));
+                                  if (widget.type == "1") {
+                                    nextScreen(
+                                        context,
+                                        Assistance_tyreList(
+                                          type: widget.type,
+                                        ));
+                                  } else {
+                                    widget.servicetype == tyreReplacement
+                                        ? nextScreen(
+                                            context,
+                                            Assistance_immediately2(
+                                                type: widget.type))
+                                        : nextScreen(
+                                            context,
+                                            Immediately_Provider(
+                                                type: widget.type));
+                                  }
                                 },
                               );
                             }));
@@ -437,15 +446,25 @@ class _Assistance_immediately3State extends State<Assistance_immediately3> {
                                 ),
                                 onbtnname: done,
                                 ontaponebtn: () {
-                                  widget.servicetype == tyreReplacement
-                                      ? nextScreen(
-                                          context,
-                                          Assistance_immediately2(
-                                              type: widget.type))
-                                      : nextScreen(
-                                          context,
-                                          Immediately_Provider(
-                                              type: widget.type));
+                                  print("type" + widget.type.toString());
+
+                                  if (widget.type == "1") {
+                                    nextScreen(
+                                        context,
+                                        Assistance_tyreList(
+                                          type: widget.type,
+                                        ));
+                                  } else {
+                                    widget.servicetype == tyreReplacement
+                                        ? nextScreen(
+                                            context,
+                                            Assistance_immediately2(
+                                                type: widget.type))
+                                        : nextScreen(
+                                            context,
+                                            Immediately_Provider(
+                                                type: widget.type));
+                                  }
                                 },
                               );
                             }));

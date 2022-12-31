@@ -177,7 +177,11 @@ class _Assistance_afterTyreState extends State<Assistance_afterTyre> {
                 child: ElevatedButtons(
                   name: continu,
                   onTap: () {
-                    nextScreen(context, Assistance_immediately2());
+                    nextScreen(
+                        context,
+                        Assistance_immediately2(
+                          type: widget.type,
+                        ));
                   },
                 ),
               ),

@@ -92,11 +92,11 @@ class _MyProductsState extends State<MyProducts> with TickerProviderStateMixin {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      color: color.white,
+                      // color: color.white,
                       child: Textfield().text(
                           text[index].toString(),
                           TextStyles.withColor(
-                              TextStyles.mn16, color.txt_dark_color)),
+                              TextStyles.mb16, color.txt_dark_color)),
                     ),
                     SizedBox(
                       width: 15,

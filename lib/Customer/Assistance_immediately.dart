@@ -34,12 +34,12 @@ class Assistanceimmediately extends StatefulWidget {
 }
 
 class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
-  String? type;
   String? service = punctureRepair;
 
   String? type_account;
   @override
   void initState() {
+    print("type" + widget.type.toString());
     super.initState();
   }
 
@@ -245,8 +245,10 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                   name: next,
                   onTap: () {
                     service == tyreReplacement
-                        ? nextScreen(context,
-                            Assistance_afterTyre(service: service, type: type))
+                        ? nextScreen(
+                            context,
+                            Assistance_afterTyre(
+                                service: service, type: widget.type))
                         : service == punctureRepair
                             ? showDialog(
                                 context: context,
@@ -286,7 +288,8 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                                         nextScreen(
                                             context,
                                             Assistance_immediately2(
-                                                service: service, type: type));
+                                                service: service,
+                                                type: widget.type));
                                       },
                                       // Onbtn: () {
                                       //   backScreen(context);
@@ -299,7 +302,7 @@ class _AssistanceimmediatelyState extends State<Assistanceimmediately> {
                             : nextScreen(
                                 context,
                                 Assistance_immediately2(
-                                    service: service, type: type));
+                                    service: service, type: widget.type));
                   },
                 ),
               ),

@@ -502,7 +502,8 @@ class _Create_AccountState extends State<Create_Account> {
                 ElevatedButtons(
                   name: register,
                   onTap: () {
-                    dcx.registe_user(context);
+                    // dcx.registe_user(context);
+                    nextScreen(context, Otp());
                   },
                 ),
                 SizedBox(height: 20),

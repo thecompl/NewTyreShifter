@@ -15,6 +15,7 @@ import 'package:tyreshifter/Suppliers/Withdraw.dart';
 import 'package:tyreshifter/config/Color.dart';
 import 'package:tyreshifter/config/Navagate_Next.dart';
 import '../Suppliers/EmployeeList.dart';
+import '../Suppliers/MainhomeScreen.dart';
 import '../Suppliers/MyTyres.dart';
 import '../Suppliers/SetupPrice.dart';
 import '../Suppliers/Vehicles.dart';
@@ -248,7 +249,7 @@ class _ProfileState extends State<Profile> {
               type_account == become_shifter
                   // ? Profilemenu(profile_req, my_booking, My_Booking(appbarname:my_booking,showarrow:1))
                   ? Profilemenu(profile_req, completed_bookings, () {
-                      // nextScreen(context, Completed_Order());
+                      nextScreen(context, MainHomeScreen_Supplier());
                     })
                   : Profilemenu(profile_req, completed_bookings, () {
                       nextScreen(context, Completed_Order());

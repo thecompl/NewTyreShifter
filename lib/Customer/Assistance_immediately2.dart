@@ -58,7 +58,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
   @override
   void initState() {
     getxcartypecontroller.getcartype(context);
-    print("hii" + widget.type.toString());
+    print("type" + widget.type.toString());
     for (var i = 0; i < getxcartypecontroller.carlist.length; i++) {
       setState(() {
         vehicle_type.add(getxcartypecontroller.carlist[i]['carType']);
@@ -247,7 +247,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                                   }),
                             ),
                             Textfield().text(
-                              suv,
+                              saloon,
                               TextStyles.withColor(
                                   TextStyles.mn16, color.textgrey_color, 1.2),
                             ),
@@ -289,7 +289,7 @@ class _Assistance_immediately2State extends State<Assistance_immediately2> {
                                   }),
                             ),
                             Textfield().text(
-                              normal,
+                              hatchback,
                               TextStyles.withColor(
                                   TextStyles.mn16, color.textgrey_color, 1.2),
                             ),

@@ -156,6 +156,8 @@ final punctureRepairmsg =
     "In case a puncture repair is not doable we will have to take a tyre with us in case a tyre replacement  is the only solution";
 final suv = "SUV";
 final normal = "Normal";
+final saloon = "Saloon";
+final hatchback = "Hatchback";
 final notstart = "Not Started";
 final pending = "Pending";
 final tyreReplacement = "Tyre Replacement";
